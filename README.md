@@ -8,6 +8,7 @@ This application was generated using JHipster 7.9.4, you can find documentation 
 - Jiayang Tang (jxt271@student.bham.ac.uk)
 - Asia Petrie (axp1142@student.bham.ac.uk)
 - Sofia Scarlett (sxs2041@student.bham.ac.uk)
+- Karishma Shah (kxs312@student.bham.ac.uk)
 
 
 - (insert the list of team mates)
