@@ -12,9 +12,6 @@ This application was generated using JHipster 7.9.4, you can find documentation 
 - Haoyu Zhang (hxz298@student.bham.ac.uk)
 - Teanna Patel (txp219@student.bham.ac.uk)
 
-
-- (insert the list of team mates)
-
 ## changes for Teamproject
 
 Modified by Madasar Shah for Team Project
