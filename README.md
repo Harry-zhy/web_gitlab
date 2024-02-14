@@ -11,7 +11,7 @@ This application was generated using JHipster 7.9.4, you can find documentation 
 - Karishma Shah (kxs312@student.bham.ac.uk)
 - Shaoqing Wang (sxw1095@student.bham.ac.uk)
 - Haoyu Zhang (hxz298@student.bham.ac.uk)
-
+- Teanna Patel (txp219@student.bham.ac.uk)
 
 - (insert the list of team mates)
 
