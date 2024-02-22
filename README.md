@@ -2,9 +2,8 @@
 
 This application was generated using JHipster 7.9.4, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.9.4](https://www.jhipster.tech/documentation-archive/v7.9.4).
 
-## This repository belongs to team x
+## This repository belongs to team 28
 
-- Alice W (alw783@student.bham.ac.uk)
 - Jiayang Tang (jxt271@student.bham.ac.uk)
 - Asia Petrie (axp1142@student.bham.ac.uk)
 - Sofia Scarlett (sxs2041@student.bham.ac.uk)
@@ -13,7 +12,6 @@ This application was generated using JHipster 7.9.4, you can find documentation 
 - Haoyu Zhang (hxz298@student.bham.ac.uk)
 - Teanna Patel (txp219@student.bham.ac.uk)
 
-- (insert the list of team mates)
 
 ## changes for Teamproject
 
