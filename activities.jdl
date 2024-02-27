@@ -1,0 +1,59 @@
+entity Company{
+    name String required,
+    about String,
+    rating Integer
+}
+
+entity BookedActivity{
+    name String required,
+    rating Integer
+}
+
+entity SelfActivity{
+    name String required,
+    rating Integer,
+    description String
+}
+
+entity Idea{
+    description String required,
+    link String
+}
+
+entity SavedActivity{
+    name String,
+    date ZonedDateTime
+}
+
+entity Images{
+    picture ImageBlob
+}
+
+entity ContactDetails{
+    website String,
+    phoneNumber String,
+    twitter String,
+    instagram String,
+    tiktok String,
+    facebook String
+}
+
+entity CompanyProfile{
+    name String
+}
+
+relationship ManyToOne{
+    Images to Company,
+    Company to BookedActivity,
+    Idea to SelfActivity
+}
+
+relationship OneToOne{
+    Company to CompanyProfile,
+    ContactDetails to Company
+}
+
+relationship ManyToMany{
+    BookedActivity to SavedActivity,
+    SelfActivity to SavedActivity,
+}
