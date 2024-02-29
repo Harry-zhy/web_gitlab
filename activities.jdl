@@ -1,4 +1,4 @@
-entity Company{
+entity ActivityCompany{
     name String required,
     about String,
     rating Integer
@@ -15,7 +15,7 @@ entity SelfActivity{
     description String
 }
 
-entity Idea{
+entity ActivityIdea{
     description String required,
     link String
 }
@@ -25,11 +25,11 @@ entity SavedActivity{
     date ZonedDateTime
 }
 
-entity Images{
+entity ActivityImages{
     picture ImageBlob
 }
 
-entity ContactDetails{
+entity ActivityContactDetails{
     website String,
     phoneNumber String,
     twitter String,
@@ -38,19 +38,19 @@ entity ContactDetails{
     facebook String
 }
 
-entity CompanyProfile{
+entity ActivityCompanyProfile{
     name String
 }
 
 relationship ManyToOne{
-    Images to Company,
-    Company to BookedActivity,
-    Idea to SelfActivity
+    ActivityImages to ActivityCompany,
+    ActivityCompany to BookedActivity,
+    ActivityIdea to SelfActivity
 }
 
 relationship OneToOne{
-    Company to CompanyProfile,
-    ContactDetails to Company
+    ActivityCompany to ActivityCompanyProfile,
+    ActivityContactDetails to ActivityCompany
 }
 
 relationship ManyToMany{
