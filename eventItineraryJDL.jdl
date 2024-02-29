@@ -1,0 +1,43 @@
+entity DateTime {
+    date ZonedDateTime
+    startTime ZonedDateTime
+    endTime ZonedDateTime
+}
+entity Guest {
+    name String
+    email String
+    rsvpStatus Boolean
+}
+entity Caterer {
+    catererName String
+    catererCost Float
+    catererHost String
+    catererTime ZonedDateTime
+}
+entity Activity {
+    activityName String
+    activityCost Float
+    activityHost String
+    activityTime ZonedDateTime
+}
+entity Venue {
+    venueName String
+    venueCost Float
+    venueHost String
+    venueAddress String
+}
+entity Event {
+    numberOfGuests Integer
+}
+relationship ManyToOne {
+    Caterer{caterers} to Event
+    Activity{activities} to Event
+    Venue{venue} to Event
+}
+relationship OneToMany {
+    DateTime to Event{eventDate}
+}
+relationship ManyToMany {
+    Guest to Event
+}
+
