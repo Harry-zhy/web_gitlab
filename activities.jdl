@@ -4,12 +4,12 @@ entity ActivityCompany{
     rating Integer
 }
 
-entity ActivityBooked{
+entity BookedActivity{
     name String required,
     rating Integer
 }
 
-entity ActivitySelf{
+entity SelfActivity{
     name String required,
     rating Integer,
     description String
@@ -20,7 +20,7 @@ entity ActivityIdea{
     link String
 }
 
-entity ActivitySaved{
+entity SavedActivity{
     name String,
     date ZonedDateTime
 }
@@ -44,8 +44,8 @@ entity ActivityCompanyProfile{
 
 relationship ManyToOne{
     ActivityImages to ActivityCompany,
-    ActivityCompany to ActivityBooked,
-    ActivityIdea to ActivitySelf
+    ActivityCompany to BookedActivity,
+    ActivityIdea to SelfActivity
 }
 
 relationship OneToOne{
@@ -54,6 +54,6 @@ relationship OneToOne{
 }
 
 relationship ManyToMany{
-    ActivityBooked to ActivitySaved,
-    ActivitySelf to ActivitySaved,
+    BookedActivity to SavedActivity,
+    SelfActivity to SavedActivity,
 }
