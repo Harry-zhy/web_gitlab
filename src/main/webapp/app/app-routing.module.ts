@@ -7,6 +7,14 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/config/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
+import { ActivitiesComponent } from './activities/activities.component';
+import { CaterersComponent } from './caterers/caterers.component';
+import { VenuesComponent } from './venues/venues.component';
+import { ItineraryComponent } from './itinerary/itinerary.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { SupplierProfileComponent } from './supplier-profile/supplier-profile.component';
+import { DecorationsComponent } from './decorations/decorations.component';
 
 @NgModule({
   imports: [
@@ -31,6 +39,38 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access.service'
         {
           path: '',
           loadChildren: () => import(`./entities/entity-routing.module`).then(m => m.EntityRoutingModule),
+        },
+        {
+          path: 'activities',
+          component: ActivitiesComponent,
+        },
+        {
+          path: 'caterers',
+          component: CaterersComponent,
+        },
+        {
+          path: 'venues',
+          component: VenuesComponent,
+        },
+        {
+          path: 'itinerary',
+          component: ItineraryComponent,
+        },
+        {
+          path: 'feedback',
+          component: FeedbackComponent,
+        },
+        {
+          path: 'user-profile',
+          component: UserprofileComponent,
+        },
+        {
+          path: 'supplier-profile',
+          component: SupplierProfileComponent,
+        },
+        {
+          path: 'decorations',
+          component: DecorationsComponent,
         },
         navbarRoute,
         ...errorRoute,
