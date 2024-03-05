@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152417",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary_venue",
+  "fields": [
+    {
+      "fieldName": "venueName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueCost",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "venueHost",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueAddress",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ItineraryVenue",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

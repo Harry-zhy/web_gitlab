@@ -1,0 +1,119 @@
+<div>
+  <h2 id="page-heading" data-cy="ActivityImageHeading">
+    <span>Activity Images</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-activity-image"
+        [routerLink]="['/activity-image/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Activity Image </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="activityImages?.length === 0">
+    <span>No Activity Images found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="activityImages && activityImages.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="picture">
+            <div class="d-flex">
+              <span>Picture</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityCompany.id">
+            <div class="d-flex">
+              <span>Activity Company</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activitySelf.id">
+            <div class="d-flex">
+              <span>Activity Self</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activityImage of activityImages; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/activity-image', activityImage.id, 'view']">{{ activityImage.id }}</a>
+          </td>
+          <td>
+            <a *ngIf="activityImage.picture" (click)="openFile(activityImage.picture, activityImage.pictureContentType)">
+              <img
+                [src]="'data:' + activityImage.pictureContentType + ';base64,' + activityImage.picture"
+                style="max-height: 30px"
+                alt="activityImage image"
+              />
+            </a>
+            <span *ngIf="activityImage.picture">{{ activityImage.pictureContentType }}, {{ byteSize(activityImage.picture) }}</span>
+          </td>
+          <td>
+            <div *ngIf="activityImage.activityCompany">
+              <a [routerLink]="['/activity-company', activityImage.activityCompany.id, 'view']">{{ activityImage.activityCompany.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="activityImage.activitySelf">
+              <a [routerLink]="['/activity-self', activityImage.activitySelf.id, 'view']">{{ activityImage.activitySelf.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/activity-image', activityImage.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/activity-image', activityImage.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(activityImage)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

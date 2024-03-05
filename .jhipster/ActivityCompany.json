@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152424",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_company",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "about",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivityCompany",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "activityCompany",
+      "ownerSide": true,
+      "relationshipName": "supplier",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "bookedActivity",
+      "otherEntityRelationshipName": "activityCompany",
+      "relationshipName": "bookedActivity",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activityContactDetails",
+      "otherEntityRelationshipName": "activityCompany",
+      "ownerSide": false,
+      "relationshipName": "activityContactDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "activityImage",
+      "otherEntityRelationshipName": "activityCompany",
+      "relationshipName": "activityImage",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rating",
+      "otherEntityRelationshipName": "activityCompany",
+      "relationshipName": "rating",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

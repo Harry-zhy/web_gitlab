@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activitySelf">
+      <h2 data-cy="activitySelfDetailsHeading"><span>Activity Self</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ activitySelf.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ activitySelf.name }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ activitySelf.description }}</span>
+        </dd>
+        <dt><span>Activity Saved</span></dt>
+        <dd>
+          <span *ngFor="let activitySaved of activitySelf.activitySaveds; let last = last">
+            <a [routerLink]="['/activity-saved', activitySaved.id, 'view']">{{ activitySaved.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Event</span></dt>
+        <dd>
+          <div *ngIf="activitySelf.event">
+            <a [routerLink]="['/event', activitySelf.event.id, 'view']">{{ activitySelf.event.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activity-self', activitySelf.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

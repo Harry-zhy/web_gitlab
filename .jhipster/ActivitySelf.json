@@ -1,0 +1,57 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152426",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_self",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivitySelf",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "activitySaved",
+      "otherEntityRelationshipName": "activitySelf",
+      "ownerSide": true,
+      "relationshipName": "activitySaved",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "event",
+      "otherEntityRelationshipName": "activities",
+      "relationshipName": "event",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activityIdea",
+      "otherEntityRelationshipName": "activitySelf",
+      "relationshipName": "activityIdea",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activityImage",
+      "otherEntityRelationshipName": "activitySelf",
+      "relationshipName": "activityImage",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rating",
+      "otherEntityRelationshipName": "activitySelf",
+      "relationshipName": "rating",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

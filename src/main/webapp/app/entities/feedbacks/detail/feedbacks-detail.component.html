@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="feedbacks">
+      <h2 data-cy="feedbacksDetailsHeading"><span>Feedbacks</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ feedbacks.id }}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+          <span>{{ feedbacks.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>User Name</span></dt>
+        <dd>
+          <span>{{ feedbacks.userName }}</span>
+        </dd>
+        <dt><span>Rating</span></dt>
+        <dd>
+          <div *ngIf="feedbacks.rating">
+            <a [routerLink]="['/rating', feedbacks.rating.id, 'view']">{{ feedbacks.rating.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="feedbacks.supplier">
+            <a [routerLink]="['/supplier', feedbacks.supplier.id, 'view']">{{ feedbacks.supplier.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/feedbacks', feedbacks.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

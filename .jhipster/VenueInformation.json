@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152448",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "venue_information",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "capacity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "openingTimeFrom",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "openingTimeUntil",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "picture",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "VenueInformation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventItinerary",
+      "otherEntityRelationshipName": "venueInformation",
+      "relationshipName": "eventItinerary",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "venueInformation",
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

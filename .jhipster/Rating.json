@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152439",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "rating",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Rating",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "rating",
+      "relationshipName": "caterers",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activityCompany",
+      "otherEntityRelationshipName": "rating",
+      "relationshipName": "activityCompany",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "bookedActivity",
+      "otherEntityRelationshipName": "rating",
+      "relationshipName": "bookedActivity",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activitySelf",
+      "otherEntityRelationshipName": "rating",
+      "relationshipName": "activitySelf",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

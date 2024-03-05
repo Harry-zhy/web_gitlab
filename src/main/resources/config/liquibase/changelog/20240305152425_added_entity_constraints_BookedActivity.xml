@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity BookedActivity.
+    -->
+    <changeSet id="20240305152425-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="booked_activity_id"
+                                 baseTableName="rel_booked_activity__activity_saved"
+                                 constraintName="fk_rel_booked_activity__activity_saved__booked_activity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="booked_activity"/>
+
+        <addForeignKeyConstraint baseColumnNames="activity_saved_id"
+                                 baseTableName="rel_booked_activity__activity_saved"
+                                 constraintName="fk_rel_booked_activity__activity_saved__activity_saved_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activity_saved"/>
+    </changeSet>
+</databaseChangeLog>

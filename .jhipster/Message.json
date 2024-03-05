@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152445",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "message",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "senderName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "MessageType",
+      "fieldValues": "REPLY,RESERVATION,PRIVATE_MESSAGE"
+    },
+    {
+      "fieldName": "sentDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Message",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "message",
+      "ownerSide": true,
+      "relationshipName": "notification",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

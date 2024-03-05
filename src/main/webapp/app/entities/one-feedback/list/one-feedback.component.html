@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="OneFeedbackHeading">
+    <span>One Feedbacks</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-one-feedback"
+        [routerLink]="['/one-feedback/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new One Feedback </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="oneFeedbacks?.length === 0">
+    <span>No One Feedbacks found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="oneFeedbacks && oneFeedbacks.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="content">
+            <div class="d-flex">
+              <span>Content</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="withMultiMedia">
+            <div class="d-flex">
+              <span>With Multi Media</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="imagePath">
+            <div class="d-flex">
+              <span>Image Path</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="videoPath">
+            <div class="d-flex">
+              <span>Video Path</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="feedbacks.id">
+            <div class="d-flex">
+              <span>Feedbacks</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let oneFeedback of oneFeedbacks; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/one-feedback', oneFeedback.id, 'view']">{{ oneFeedback.id }}</a>
+          </td>
+          <td>{{ oneFeedback.content }}</td>
+          <td>{{ oneFeedback.withMultiMedia }}</td>
+          <td>{{ oneFeedback.imagePath }}</td>
+          <td>{{ oneFeedback.videoPath }}</td>
+          <td>
+            <div *ngIf="oneFeedback.feedbacks">
+              <a [routerLink]="['/feedbacks', oneFeedback.feedbacks.id, 'view']">{{ oneFeedback.feedbacks.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/one-feedback', oneFeedback.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/one-feedback', oneFeedback.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(oneFeedback)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

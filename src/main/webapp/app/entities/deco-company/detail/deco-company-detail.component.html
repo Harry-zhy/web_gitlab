@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="decoCompany">
+      <h2 data-cy="decoCompanyDetailsHeading"><span>Deco Company</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ decoCompany.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ decoCompany.name }}</span>
+        </dd>
+        <dt><span>About</span></dt>
+        <dd>
+          <span>{{ decoCompany.about }}</span>
+        </dd>
+        <dt><span>Rating</span></dt>
+        <dd>
+          <span>{{ decoCompany.rating }}</span>
+        </dd>
+        <dt><span>Deco Contact Details</span></dt>
+        <dd>
+          <div *ngIf="decoCompany.decoContactDetails">
+            <a [routerLink]="['/deco-contact-details', decoCompany.decoContactDetails.id, 'view']">{{
+              decoCompany.decoContactDetails.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="decoCompany.supplier">
+            <a [routerLink]="['/supplier', decoCompany.supplier.id, 'view']">{{ decoCompany.supplier.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Deco Saved Company</span></dt>
+        <dd>
+          <span *ngFor="let decoSavedCompany of decoCompany.decoSavedCompanies; let last = last">
+            <a [routerLink]="['/deco-saved-company', decoSavedCompany.id, 'view']">{{ decoSavedCompany.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/deco-company', decoCompany.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

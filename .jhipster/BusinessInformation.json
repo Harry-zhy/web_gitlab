@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152450",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "business_information",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "information",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "businessHours",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "specialServicesAvailable",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BusinessInformation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "businessInformation",
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

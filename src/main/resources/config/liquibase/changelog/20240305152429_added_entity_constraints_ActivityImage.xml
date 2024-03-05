@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ActivityImage.
+    -->
+    <changeSet id="20240305152429-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="activity_company_id"
+                                 baseTableName="activity_image"
+                                 constraintName="fk_activity_image__activity_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activity_company"/>
+
+        <addForeignKeyConstraint baseColumnNames="activity_self_id"
+                                 baseTableName="activity_image"
+                                 constraintName="fk_activity_image__activity_self_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activity_self"/>
+    </changeSet>
+</databaseChangeLog>

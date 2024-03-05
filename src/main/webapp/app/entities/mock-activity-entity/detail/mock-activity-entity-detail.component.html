@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mockActivityEntity">
+      <h2 data-cy="mockActivityEntityDetailsHeading"><span>Mock Activity Entity</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.name }}</span>
+        </dd>
+        <dt><span>Company Name</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.companyName }}</span>
+        </dd>
+        <dt><span>Rating</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.rating }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.description }}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.quantity }}</span>
+        </dd>
+        <dt><span>Contact</span></dt>
+        <dd>
+          <span>{{ mockActivityEntity.contact }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mock-activity-entity', mockActivityEntity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

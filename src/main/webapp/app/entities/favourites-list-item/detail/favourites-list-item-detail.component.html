@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="favouritesListItem">
+      <h2 data-cy="favouritesListItemDetailsHeading"><span>Favourites List Item</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ favouritesListItem.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ favouritesListItem.name }}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+          <span>{{ favouritesListItem.category }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ favouritesListItem.description }}</span>
+        </dd>
+        <dt><span>Caterer</span></dt>
+        <dd>
+          <div *ngIf="favouritesListItem.caterer">
+            <a [routerLink]="['/caterers', favouritesListItem.caterer.id, 'view']">{{ favouritesListItem.caterer.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Activity</span></dt>
+        <dd>
+          <div *ngIf="favouritesListItem.activity">
+            <a [routerLink]="['/activity-self', favouritesListItem.activity.id, 'view']">{{ favouritesListItem.activity.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Venue</span></dt>
+        <dd>
+          <div *ngIf="favouritesListItem.venue">
+            <a [routerLink]="['/venue-information', favouritesListItem.venue.id, 'view']">{{ favouritesListItem.venue.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Favourites List</span></dt>
+        <dd>
+          <div *ngIf="favouritesListItem.favouritesList">
+            <a [routerLink]="['/favourites-list', favouritesListItem.favouritesList.id, 'view']">{{
+              favouritesListItem.favouritesList.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/favourites-list-item', favouritesListItem.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

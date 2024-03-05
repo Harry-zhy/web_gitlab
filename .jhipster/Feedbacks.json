@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152440",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "feedbacks",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Feedbacks",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rating",
+      "ownerSide": true,
+      "relationshipName": "rating",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "oneFeedback",
+      "otherEntityRelationshipName": "feedbacks",
+      "relationshipName": "oneFeedback",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "feedbacks",
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

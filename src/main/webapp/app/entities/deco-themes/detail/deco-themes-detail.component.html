@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="decoThemes">
+      <h2 data-cy="decoThemesDetailsHeading"><span>Deco Themes</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ decoThemes.id }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ decoThemes.description }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ decoThemes.name }}</span>
+        </dd>
+        <dt><span>Deco Saved Theme</span></dt>
+        <dd>
+          <span *ngFor="let decoSavedTheme of decoThemes.decoSavedThemes; let last = last">
+            <a [routerLink]="['/deco-saved-theme', decoSavedTheme.id, 'view']">{{ decoSavedTheme.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/deco-themes', decoThemes.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

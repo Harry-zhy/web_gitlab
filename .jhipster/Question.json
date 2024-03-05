@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152443",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "question",
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quesType",
+      "fieldType": "QuesType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MULTI_CHOICE,FILL_IN,PARENT_QUESTION"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Question",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "subQues",
+      "relationshipName": "parentQues",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "mCQOption",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "options",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "questionnaire",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "questionnaire",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "parentQues",
+      "relationshipName": "subQues",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

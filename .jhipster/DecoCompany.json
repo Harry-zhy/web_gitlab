@@ -1,0 +1,64 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152431",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_company",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "about",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoCompany",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoContactDetails",
+      "otherEntityRelationshipName": "decoCompany",
+      "ownerSide": true,
+      "relationshipName": "decoContactDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "decoCompany",
+      "ownerSide": true,
+      "relationshipName": "supplier",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "decoSavedCompany",
+      "otherEntityRelationshipName": "decoCompany",
+      "ownerSide": true,
+      "relationshipName": "decoSavedCompany",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "decoImages",
+      "otherEntityRelationshipName": "decoCompany",
+      "relationshipName": "decoImages",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "decoBudget",
+      "otherEntityRelationshipName": "decoCompany",
+      "ownerSide": false,
+      "relationshipName": "decoBudget",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

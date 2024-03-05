@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bookedCaterer">
+      <h2 data-cy="bookedCatererDetailsHeading"><span>Booked Caterer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ bookedCaterer.id }}</span>
+        </dd>
+        <dt><span>Confirmation Status</span></dt>
+        <dd>
+          <span>{{ bookedCaterer.confirmationStatus }}</span>
+        </dd>
+        <dt><span>Itinerary</span></dt>
+        <dd>
+          <div *ngIf="bookedCaterer.itinerary">
+            <a [routerLink]="['/itinerary', bookedCaterer.itinerary.id, 'view']">{{ bookedCaterer.itinerary.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/booked-caterer', bookedCaterer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

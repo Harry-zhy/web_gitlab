@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="eventItinerary">
+      <h2 data-cy="eventItineraryDetailsHeading"><span>Event Itinerary</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ eventItinerary.id }}</span>
+        </dd>
+        <dt><span>Number Of Guests</span></dt>
+        <dd>
+          <span>{{ eventItinerary.numberOfGuests }}</span>
+        </dd>
+        <dt><span>Event Date</span></dt>
+        <dd>
+          <div *ngIf="eventItinerary.eventDate">
+            <a [routerLink]="['/itinerary-date-time', eventItinerary.eventDate.id, 'view']">{{ eventItinerary.eventDate.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/event-itinerary', eventItinerary.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

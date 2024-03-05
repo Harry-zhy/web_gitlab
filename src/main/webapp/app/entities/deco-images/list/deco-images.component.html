@@ -1,0 +1,119 @@
+<div>
+  <h2 id="page-heading" data-cy="DecoImagesHeading">
+    <span>Deco Images</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-deco-images"
+        [routerLink]="['/deco-images/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Deco Images </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="decoImages?.length === 0">
+    <span>No Deco Images found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="decoImages && decoImages.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="picture">
+            <div class="d-flex">
+              <span>Picture</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="decoThemes.id">
+            <div class="d-flex">
+              <span>Deco Themes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="decoCompany.id">
+            <div class="d-flex">
+              <span>Deco Company</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let decoImages of decoImages; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/deco-images', decoImages.id, 'view']">{{ decoImages.id }}</a>
+          </td>
+          <td>
+            <a *ngIf="decoImages.picture" (click)="openFile(decoImages.picture, decoImages.pictureContentType)">
+              <img
+                [src]="'data:' + decoImages.pictureContentType + ';base64,' + decoImages.picture"
+                style="max-height: 30px"
+                alt="decoImages image"
+              />
+            </a>
+            <span *ngIf="decoImages.picture">{{ decoImages.pictureContentType }}, {{ byteSize(decoImages.picture) }}</span>
+          </td>
+          <td>
+            <div *ngIf="decoImages.decoThemes">
+              <a [routerLink]="['/deco-themes', decoImages.decoThemes.id, 'view']">{{ decoImages.decoThemes.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="decoImages.decoCompany">
+              <a [routerLink]="['/deco-company', decoImages.decoCompany.id, 'view']">{{ decoImages.decoCompany.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/deco-images', decoImages.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/deco-images', decoImages.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(decoImages)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

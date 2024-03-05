@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152433",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_saved_company",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoSavedCompany",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoCompany",
+      "otherEntityRelationshipName": "decoSavedCompany",
+      "ownerSide": false,
+      "relationshipName": "decoCompany",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152434",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_budget",
+  "fields": [
+    {
+      "fieldName": "money",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoBudget",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoCompany",
+      "otherEntityRelationshipName": "decoBudget",
+      "ownerSide": true,
+      "relationshipName": "decoCompany",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

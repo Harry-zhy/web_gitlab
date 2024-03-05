@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rating">
+      <h2 data-cy="ratingDetailsHeading"><span>Rating</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ rating.id }}</span>
+        </dd>
+        <dt><span>Value</span></dt>
+        <dd>
+          <span>{{ rating.value }}</span>
+        </dd>
+        <dt><span>Caterers</span></dt>
+        <dd>
+          <div *ngIf="rating.caterers">
+            <a [routerLink]="['/caterers', rating.caterers.id, 'view']">{{ rating.caterers.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Activity Company</span></dt>
+        <dd>
+          <div *ngIf="rating.activityCompany">
+            <a [routerLink]="['/activity-company', rating.activityCompany.id, 'view']">{{ rating.activityCompany.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Booked Activity</span></dt>
+        <dd>
+          <div *ngIf="rating.bookedActivity">
+            <a [routerLink]="['/booked-activity', rating.bookedActivity.id, 'view']">{{ rating.bookedActivity.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Activity Self</span></dt>
+        <dd>
+          <div *ngIf="rating.activitySelf">
+            <a [routerLink]="['/activity-self', rating.activitySelf.id, 'view']">{{ rating.activitySelf.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rating', rating.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

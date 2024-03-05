@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-activity-contact-details-heading" data-cy="ActivityContactDetailsCreateUpdateHeading">
+        Create or edit a Activity Contact Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_website">Website</label>
+          <input type="text" class="form-control" name="website" id="field_website" data-cy="website" formControlName="website" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_twitter">Twitter</label>
+          <input type="text" class="form-control" name="twitter" id="field_twitter" data-cy="twitter" formControlName="twitter" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_instagram">Instagram</label>
+          <input type="text" class="form-control" name="instagram" id="field_instagram" data-cy="instagram" formControlName="instagram" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_facebook">Facebook</label>
+          <input type="text" class="form-control" name="facebook" id="field_facebook" data-cy="facebook" formControlName="facebook" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tiktok">Tiktok</label>
+          <input type="text" class="form-control" name="tiktok" id="field_tiktok" data-cy="tiktok" formControlName="tiktok" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_activityCompany">Activity Company</label>
+          <select
+            class="form-control"
+            id="field_activityCompany"
+            data-cy="activityCompany"
+            name="activityCompany"
+            formControlName="activityCompany"
+            [compareWith]="compareActivityCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="activityCompanyOption" *ngFor="let activityCompanyOption of activityCompaniesCollection">
+              {{ activityCompanyOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

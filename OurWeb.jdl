@@ -1,0 +1,451 @@
+//Event Itinerary
+entity ItineraryDateTime {
+    date ZonedDateTime
+    startTime ZonedDateTime
+    endTime ZonedDateTime
+}
+
+entity ItineraryGuest {
+    name String
+    email String
+    rsvpStatus Boolean
+}
+
+entity ItineraryCaterer {
+    catererName String
+    catererCost Float
+    catererHost String
+    catererTime ZonedDateTime
+}
+
+entity ItineraryActivity {
+    activityName String
+    activityCost Float
+    activityHost String
+    activityTime ZonedDateTime
+}
+
+entity ItineraryVenue {
+    venueName String
+    venueCost Float
+    venueHost String
+    venueAddress String
+}
+
+entity EventItinerary {
+    numberOfGuests Integer
+}
+
+relationship ManyToOne {
+    //  ItineraryCaterer{caterers} to EventItinerary
+    //  ItineraryActivity{activities} to EventItinerary
+    //  ItineraryVenue{venue} to EventItinerary
+    //which one is better
+    ActivitySaved to EventItinerary
+    Caterers to EventItinerary
+    VenueInformation to EventItinerary
+}
+
+relationship OneToMany {
+    ItineraryDateTime to EventItinerary{eventDate}
+}
+
+relationship ManyToMany {
+    ItineraryGuest to EventItinerary
+}
+
+
+
+
+
+//Caterers
+entity Caterers{
+    name String,
+    picture ImageBlob,
+    pricePerPerson Double,
+    guestLimit Integer,
+    //  starRating Double
+}
+
+entity DietaryRequirements {
+    option String
+}
+
+entity Cuisine{
+    region String
+}
+
+entity Itinerary{
+    startTime ZonedDateTime,
+    endTime ZonedDateTime,
+    location String
+}
+
+//entity Suppliers{
+//  name String,
+//  address String,
+//  content String,
+//  startingHours ZonedDateTime,
+//  endingHours ZonedDateTime,
+//  website String,
+//  number String
+//}
+
+entity BookedCaterer{
+    confirmationStatus Boolean
+}
+
+relationship ManyToMany{
+    Caterers to DietaryRequirements,
+    Caterers to Cuisine
+}
+
+relationship ManyToOne{
+    BookedCaterer to Itinerary,
+    Caterers to Supplier
+    Rating to Caterers
+}
+
+relationship OneToOne {
+    Caterers to BookedCaterer
+}
+
+
+
+//Activity
+entity ActivityCompany{
+    name String required,
+    about String,
+    //  rating Integer
+}
+
+entity BookedActivity{
+    name String required,
+    //  rating Integer
+}
+
+entity ActivitySelf{
+    name String required,
+    //  rating Integer,
+    description String
+}
+
+entity ActivityIdea{
+    description String required,
+    link String
+}
+
+entity ActivitySaved{
+    name String required,
+    date ZonedDateTime required,
+    company String
+}
+
+entity ActivityImage{
+    picture ImageBlob
+}
+
+entity ActivityContactDetails{
+    website String,
+    twitter String,
+    instagram String,
+    facebook String,
+    tiktok String,
+    phoneNumber String
+}
+
+//entity ActivityCompanyProfile{
+//  name String required
+//  //this is supposed to be the actual company profile entity but just made a mock one for this
+//}
+
+relationship ManyToOne{
+    ActivityImage to ActivityCompany
+    ActivityCompany to BookedActivity
+    ActivityIdea to ActivitySelf
+    ActivityImage to ActivitySelf
+    Rating to ActivityCompany
+    Rating to BookedActivity
+    Rating to ActivitySelf
+}
+
+relationship OneToOne{
+    ActivityCompany to Supplier
+    ActivityContactDetails to ActivityCompany
+}
+
+relationship ManyToMany{
+    BookedActivity to ActivitySaved
+    ActivitySelf to ActivitySaved
+}
+
+
+
+
+
+
+//Decoration
+entity DecoCompany{
+    name String required,
+    about String,
+    rating Integer
+}
+entity DecoImages{
+    picture ImageBlob required
+}
+entity DecoSavedCompany{
+    name String
+}
+entity DecoBudget{
+    money Integer
+}
+//entity DecorationCompanyProfile{
+//  name String required
+//}
+entity DecoThemes{
+    description String,
+    name String
+}
+entity DecoSavedTheme{
+    name String
+}
+entity DecoContactDetails{
+    website String,
+    phoneNumber String,
+    instagram String,
+    twitter String,
+    facebook String,
+    tiktok String
+}
+
+relationship OneToOne{
+    //  DecorationCompany to DecorationCompanyProfile
+    DecoCompany to DecoContactDetails
+    DecoCompany to Supplier
+}
+
+relationship ManyToMany{
+    DecoBudget to DecoCompany
+    DecoThemes to DecoSavedTheme
+    DecoCompany to DecoSavedCompany
+}
+
+relationship ManyToOne{
+    DecoImages to DecoThemes
+    DecoImages to DecoCompany
+}
+
+
+
+
+//Feedback
+entity OneFeedback {
+    content String required,
+    withMultiMedia Boolean required,
+    imagePath String,
+    videoPath String,
+}
+
+entity Rating {
+    value Integer required
+}
+
+entity Feedbacks {
+    date ZonedDateTime required,
+    userName String required,
+}
+
+entity Intro {
+    title String required,
+    salutation String required,
+    body String required
+}
+
+entity Questionnaire {
+    date ZonedDateTime required,
+    userName String required
+}
+
+entity Question {
+    question String required,
+    quesType QuesType required,
+}
+
+entity MCQOption {
+    value String required,
+}
+
+enum QuesType {
+    MULTI_CHOICE,
+    FILL_IN,
+    PARENT_QUESTION //or called a description
+}
+
+relationship OneToMany {
+    Questionnaire{questions} to Question,
+    Question{parentQues} to Question{subQues},
+    Question{options} to MCQOption
+    Feedbacks to OneFeedback{feedbacks}
+    Supplier to Feedbacks
+    //    Supplier to User
+}
+
+relationship OneToOne {
+    Questionnaire{questionnaire} to Intro
+    Feedbacks{rating} to Rating
+}
+
+
+
+
+//Notification
+entity Message {
+    content String,
+    senderName String,
+    type MessageType,
+    sentDate ZonedDateTime
+}
+
+entity Notification {
+    receivedDate ZonedDateTime,
+    status NotificationStatus
+}
+
+enum MessageType {
+    REPLY, RESERVATION, PRIVATE_MESSAGE
+}
+
+enum NotificationStatus {
+    READ, UNREAD
+}
+
+relationship OneToOne {
+    Message to Notification
+    //    Notification to User
+    Notification to Supplier
+}
+
+
+
+//Supplier profile
+entity Supplier { //extends User
+    isSupplier Boolean
+}
+
+entity VenueInformation {
+    name String
+    price Float
+    capacity Integer
+    location String
+    openingTimeFrom ZonedDateTime
+    openingTimeUntil ZonedDateTime
+    picture ImageBlob
+}
+
+entity AdsManagement {
+    id Long
+    age Integer
+    gender String
+    preference String
+    location String
+}
+
+entity BusinessInformation {
+    id Long
+    information String
+    businessHours String
+    specialServicesAvailable String
+}
+
+relationship OneToMany {
+    Supplier to VenueInformation
+    Supplier to AdsManagement
+    Supplier to BusinessInformation
+}
+
+
+
+
+
+
+//Home page
+//entity Profile{
+//    name String,
+//    email String,
+//    phoneNumber String,
+//}
+entity MockCatererEntity{
+    name String,
+    cuisine String,
+    rating Integer required min(0) max(5),
+    description String,
+    quantity Integer,
+    contact String
+}
+
+entity MockVenueEntity{
+    name String,
+    companyName String,
+    location String,
+    rating Integer required min(0) max(5),
+    description String,
+    contact String
+}
+
+entity MockActivityEntity{
+    name String,
+    companyName String,
+    rating Integer required min(0) max(5),
+    description String,
+    quantity Integer
+    contact String
+}
+
+enum Category{
+    CATERER,
+    VENUE,
+    ACTIVITY,
+    OTHER
+}
+
+entity FavouritesListItem{
+    name String,
+    category Category,
+    description String
+}
+
+entity FavouritesList{
+
+}
+
+entity Event {
+    date ZonedDateTime,
+    spaces Integer,
+    title String
+}
+
+relationship OneToMany{
+    FavouritesList{favourites} to FavouritesListItem,
+    //  Event{caterers} to MockCatererEntity,
+    Event{caterers} to Caterers,
+    Event{activities} to ActivitySelf,
+    //  Event{activities} to MockActivityEntity,
+}
+
+//relationship ManyToOne{
+//    Event{user} to User
+//}
+
+relationship OneToOne{
+    Event{venue} to MockVenueEntity,
+    //    FavouritesList{favourites} to User,
+    //  FavouritesListItem{caterer} to MockCatererEntity,
+    FavouritesListItem{caterer} to Caterers
+    //  FavouritesListItem{activity} to MockActivityEntity,
+
+    //ActivitySaved or Self?
+    FavouritesListItem{activity} to ActivitySelf,
+    //  FavouritesListItem{venue} to MockVenueEntity,
+    FavouritesListItem{venue} to VenueInformation,
+    //  Profile{user} to User
+}
