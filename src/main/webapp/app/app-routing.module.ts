@@ -68,10 +68,7 @@ import { DecorationsComponent } from './decorations/decorations.component';
           path: 'supplier-profile',
           component: SupplierProfileComponent,
         },
-        {
-          path: 'bookedactivitypage',
-          component: BookedactivitypageComponent,
-        },
+
         {
           path: 'decorations',
           component: DecorationsComponent,
