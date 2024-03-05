@@ -7,6 +7,18 @@
 Bootstrap tweaks
 ===============================================================*/
 
+//colour palette
+$light-pink: #ffdee7;
+$dark-pink: #f9b0c3;
+$myyellow: #ffc212;
+$light-blue: #e0dffd;
+$purple: #7769c6;
+$dark-blue: #172c49;
+
+body {
+  background-color: $dark-blue;
+}
+
 body,
 h1,
 h2,
