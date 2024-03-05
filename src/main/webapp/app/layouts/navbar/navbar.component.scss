@@ -24,17 +24,35 @@ Navbar
   padding: 0.2rem 1rem;
   .dropdown-item.active,
   .dropdown-item.active:focus,
+  .dropdown-item {
+    background-color: #172c49;
+  }
   .dropdown-item.active:hover {
-    background-color: $dark;
+    background-color: #7769c6;
+  }
+
+  .container-fluid {
+    background-color: #172c49;
+    width: 100%;
+    border-radius: 8px;
   }
 
   a.nav-link {
     font-weight: 400;
   }
 
+  a.nav-link:hover {
+    background-color: #7769c6;
+    border-radius: 8px;
+  }
+
+  span {
+    color: #ffffff;
+  }
+
   .navbar-toggler {
     &:hover {
-      color: $navbar-dark-hover-color;
+      background-color: $navbar-dark-color;
     }
   }
 }
