@@ -1,3 +1,6 @@
+<head>
+  <script src="https://kit.fontawesome.com/3543c81e40.js" crossorigin="anonymous"></script>
+</head>
 <nav data-cy="navbar" class="navbar navbar-light navbar-expand-md bg-light">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
@@ -30,7 +33,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/activities" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-heart"></i>
               <span>Activities</span>
             </span>
           </a>
@@ -38,7 +41,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/caterers" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fas fa-utensils"></i>
               <span>Caterers</span>
             </span>
           </a>
@@ -46,7 +49,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/itinerary" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-rectangle-list"></i>
               <span>Itinerary</span>
             </span>
           </a>
@@ -54,15 +57,16 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/feedback" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <!--<i class="fas fa-coffee"></i>-->
+              <i class="fas fa-comments"></i>
               <span>Feedback</span>
             </span>
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          <a class="nav-link" routerLink="/userprofile" (click)="collapseNavbar()">
+          <a class="nav-link" routerLink="/user-profile" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-user"></i>
               <span>User Profile</span>
             </span>
           </a>
@@ -70,7 +74,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/supplier-profile" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-id-badge"></i>
               <span>Supplier Profile</span>
             </span>
           </a>
@@ -78,7 +82,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/venues" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-building"></i>
               <span>Venues</span>
             </span>
           </a>
@@ -86,7 +90,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/decorations" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <i class="fa-regular fa-sun"></i>
               <span>Decorations</span>
             </span>
           </a>

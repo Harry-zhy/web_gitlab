@@ -55,5 +55,5 @@ relationship OneToOne{
 
 relationship ManyToMany{
     ActivityBooked to ActivitySaved,
-    ActivitySelf to ActivitySaved,
+    ActivitySelf to ActivitySaved
 }
