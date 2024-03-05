@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity FavouritesListItem.
+    -->
+    <changeSet id="20240305152454-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="caterer_id"
+                                 baseTableName="favourites_list_item"
+                                 constraintName="fk_favourites_list_item__caterer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caterers"/>
+
+        <addForeignKeyConstraint baseColumnNames="activity_id"
+                                 baseTableName="favourites_list_item"
+                                 constraintName="fk_favourites_list_item__activity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activity_self"/>
+
+        <addForeignKeyConstraint baseColumnNames="venue_id"
+                                 baseTableName="favourites_list_item"
+                                 constraintName="fk_favourites_list_item__venue_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="venue_information"/>
+
+        <addForeignKeyConstraint baseColumnNames="favourites_list_id"
+                                 baseTableName="favourites_list_item"
+                                 constraintName="fk_favourites_list_item__favourites_list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="favourites_list"/>
+    </changeSet>
+</databaseChangeLog>

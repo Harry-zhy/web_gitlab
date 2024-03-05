@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity DecoImages.
+    -->
+    <changeSet id="20240305152432-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="deco_themes_id"
+                                 baseTableName="deco_images"
+                                 constraintName="fk_deco_images__deco_themes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deco_themes"/>
+
+        <addForeignKeyConstraint baseColumnNames="deco_company_id"
+                                 baseTableName="deco_images"
+                                 constraintName="fk_deco_images__deco_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deco_company"/>
+    </changeSet>
+</databaseChangeLog>

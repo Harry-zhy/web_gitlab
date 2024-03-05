@@ -1,0 +1,22 @@
+<form *ngIf="favouritesListItem" name="deleteForm" (ngSubmit)="confirmDelete(favouritesListItem.id!)">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="favouritesListItemDeleteDialogHeading">Confirm delete operation</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <p id="jhi-delete-favouritesListItem-heading">Are you sure you want to delete Favourites List Item {{ favouritesListItem.id }}?</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+    </button>
+
+    <button id="jhi-confirm-delete-favouritesListItem" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span>Delete</span>
+    </button>
+  </div>
+</form>

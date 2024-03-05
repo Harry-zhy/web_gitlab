@@ -1,0 +1,113 @@
+<div>
+  <h2 id="page-heading" data-cy="ActivitySavedHeading">
+    <span>Activity Saveds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-activity-saved"
+        [routerLink]="['/activity-saved/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Activity Saved </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="activitySaveds?.length === 0">
+    <span>No Activity Saveds found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="activitySaveds && activitySaveds.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span>Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span>Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="company">
+            <div class="d-flex">
+              <span>Company</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventItinerary.id">
+            <div class="d-flex">
+              <span>Event Itinerary</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activitySaved of activitySaveds; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/activity-saved', activitySaved.id, 'view']">{{ activitySaved.id }}</a>
+          </td>
+          <td>{{ activitySaved.name }}</td>
+          <td>{{ activitySaved.date | formatMediumDatetime }}</td>
+          <td>{{ activitySaved.company }}</td>
+          <td>
+            <div *ngIf="activitySaved.eventItinerary">
+              <a [routerLink]="['/event-itinerary', activitySaved.eventItinerary.id, 'view']">{{ activitySaved.eventItinerary.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/activity-saved', activitySaved.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/activity-saved', activitySaved.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(activitySaved)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

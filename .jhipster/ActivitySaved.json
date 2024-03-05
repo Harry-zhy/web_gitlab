@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152428",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_saved",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "company",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivitySaved",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventItinerary",
+      "otherEntityRelationshipName": "activitySaved",
+      "relationshipName": "eventItinerary",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "bookedActivity",
+      "otherEntityRelationshipName": "activitySaved",
+      "ownerSide": false,
+      "relationshipName": "bookedActivity",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "activitySelf",
+      "otherEntityRelationshipName": "activitySaved",
+      "ownerSide": false,
+      "relationshipName": "activitySelf",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

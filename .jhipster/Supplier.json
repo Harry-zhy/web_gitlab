@@ -1,0 +1,72 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152447",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "supplier",
+  "fields": [
+    {
+      "fieldName": "isSupplier",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Supplier",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "feedbacks",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "feedbacks",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "venueInformation",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "venueInformation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "adsManagement",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "adsManagement",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "businessInformation",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "businessInformation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activityCompany",
+      "otherEntityRelationshipName": "supplier",
+      "ownerSide": false,
+      "relationshipName": "activityCompany",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "decoCompany",
+      "otherEntityRelationshipName": "supplier",
+      "ownerSide": false,
+      "relationshipName": "decoCompany",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "supplier",
+      "ownerSide": false,
+      "relationshipName": "notification",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "caterers",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

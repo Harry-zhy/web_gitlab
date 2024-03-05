@@ -1,0 +1,7 @@
+export enum QuesType {
+  MULTI_CHOICE = 'MULTI_CHOICE',
+
+  FILL_IN = 'FILL_IN',
+
+  PARENT_QUESTION = 'PARENT_QUESTION',
+}

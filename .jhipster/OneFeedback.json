@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152438",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "one_feedback",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "withMultiMedia",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "imagePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoPath",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OneFeedback",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "feedbacks",
+      "otherEntityRelationshipName": "oneFeedback",
+      "relationshipName": "feedbacks",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

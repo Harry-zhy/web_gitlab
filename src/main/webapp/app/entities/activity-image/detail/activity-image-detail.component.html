@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activityImage">
+      <h2 data-cy="activityImageDetailsHeading"><span>Activity Image</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ activityImage.id }}</span>
+        </dd>
+        <dt><span>Picture</span></dt>
+        <dd>
+          <div *ngIf="activityImage.picture">
+            <a (click)="openFile(activityImage.picture, activityImage.pictureContentType)">
+              <img
+                [src]="'data:' + activityImage.pictureContentType + ';base64,' + activityImage.picture"
+                style="max-width: 100%"
+                alt="activityImage image"
+              />
+            </a>
+            {{ activityImage.pictureContentType }}, {{ byteSize(activityImage.picture) }}
+          </div>
+        </dd>
+        <dt><span>Activity Company</span></dt>
+        <dd>
+          <div *ngIf="activityImage.activityCompany">
+            <a [routerLink]="['/activity-company', activityImage.activityCompany.id, 'view']">{{ activityImage.activityCompany.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Activity Self</span></dt>
+        <dd>
+          <div *ngIf="activityImage.activitySelf">
+            <a [routerLink]="['/activity-self', activityImage.activitySelf.id, 'view']">{{ activityImage.activitySelf.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activity-image', activityImage.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

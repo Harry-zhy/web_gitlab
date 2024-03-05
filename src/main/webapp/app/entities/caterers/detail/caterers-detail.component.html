@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="caterers">
+      <h2 data-cy="caterersDetailsHeading"><span>Caterers</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ caterers.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ caterers.name }}</span>
+        </dd>
+        <dt><span>Picture</span></dt>
+        <dd>
+          <div *ngIf="caterers.picture">
+            <a (click)="openFile(caterers.picture, caterers.pictureContentType)">
+              <img
+                [src]="'data:' + caterers.pictureContentType + ';base64,' + caterers.picture"
+                style="max-width: 100%"
+                alt="caterers image"
+              />
+            </a>
+            {{ caterers.pictureContentType }}, {{ byteSize(caterers.picture) }}
+          </div>
+        </dd>
+        <dt><span>Price Per Person</span></dt>
+        <dd>
+          <span>{{ caterers.pricePerPerson }}</span>
+        </dd>
+        <dt><span>Guest Limit</span></dt>
+        <dd>
+          <span>{{ caterers.guestLimit }}</span>
+        </dd>
+        <dt><span>Booked Caterer</span></dt>
+        <dd>
+          <div *ngIf="caterers.bookedCaterer">
+            <a [routerLink]="['/booked-caterer', caterers.bookedCaterer.id, 'view']">{{ caterers.bookedCaterer.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Event Itinerary</span></dt>
+        <dd>
+          <div *ngIf="caterers.eventItinerary">
+            <a [routerLink]="['/event-itinerary', caterers.eventItinerary.id, 'view']">{{ caterers.eventItinerary.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="caterers.supplier">
+            <a [routerLink]="['/supplier', caterers.supplier.id, 'view']">{{ caterers.supplier.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Dietary Requirements</span></dt>
+        <dd>
+          <span *ngFor="let dietaryRequirements of caterers.dietaryRequirements; let last = last">
+            <a [routerLink]="['/dietary-requirements', dietaryRequirements.id, 'view']">{{ dietaryRequirements.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Cuisine</span></dt>
+        <dd>
+          <span *ngFor="let cuisine of caterers.cuisines; let last = last">
+            <a [routerLink]="['/cuisine', cuisine.id, 'view']">{{ cuisine.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Event</span></dt>
+        <dd>
+          <div *ngIf="caterers.event">
+            <a [routerLink]="['/event', caterers.event.id, 'view']">{{ caterers.event.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/caterers', caterers.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152429",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_image",
+  "fields": [
+    {
+      "fieldName": "picture",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivityImage",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "activityCompany",
+      "otherEntityRelationshipName": "activityImage",
+      "relationshipName": "activityCompany",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activitySelf",
+      "otherEntityRelationshipName": "activityImage",
+      "relationshipName": "activitySelf",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

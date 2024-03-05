@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="businessInformation">
+      <h2 data-cy="businessInformationDetailsHeading"><span>Business Information</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>Id</span></dt>
+        <dd>
+          <span>{{ businessInformation.id }}</span>
+        </dd>
+        <dt><span>Information</span></dt>
+        <dd>
+          <span>{{ businessInformation.information }}</span>
+        </dd>
+        <dt><span>Business Hours</span></dt>
+        <dd>
+          <span>{{ businessInformation.businessHours }}</span>
+        </dd>
+        <dt><span>Special Services Available</span></dt>
+        <dd>
+          <span>{{ businessInformation.specialServicesAvailable }}</span>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="businessInformation.supplier">
+            <a [routerLink]="['/supplier', businessInformation.supplier.id, 'view']">{{ businessInformation.supplier.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/business-information', businessInformation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

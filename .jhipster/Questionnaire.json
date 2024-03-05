@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152442",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "questionnaire",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Questionnaire",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "intro",
+      "ownerSide": true,
+      "relationshipName": "questionnaire",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "questionnaire",
+      "relationshipName": "questions",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

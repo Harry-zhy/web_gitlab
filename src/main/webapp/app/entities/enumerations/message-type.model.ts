@@ -1,0 +1,7 @@
+export enum MessageType {
+  REPLY = 'REPLY',
+
+  RESERVATION = 'RESERVATION',
+
+  PRIVATE_MESSAGE = 'PRIVATE_MESSAGE',
+}

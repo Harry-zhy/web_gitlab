@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152414",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary_guest",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rsvpStatus",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ItineraryGuest",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventItinerary",
+      "otherEntityRelationshipName": "itineraryGuest",
+      "ownerSide": true,
+      "relationshipName": "eventItinerary",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

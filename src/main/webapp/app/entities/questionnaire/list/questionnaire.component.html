@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="QuestionnaireHeading">
+    <span>Questionnaires</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-questionnaire"
+        [routerLink]="['/questionnaire/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Questionnaire </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="questionnaires?.length === 0">
+    <span>No Questionnaires found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="questionnaires && questionnaires.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span>Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="userName">
+            <div class="d-flex">
+              <span>User Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="questionnaire.id">
+            <div class="d-flex">
+              <span>Questionnaire</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let questionnaire of questionnaires; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/questionnaire', questionnaire.id, 'view']">{{ questionnaire.id }}</a>
+          </td>
+          <td>{{ questionnaire.date | formatMediumDatetime }}</td>
+          <td>{{ questionnaire.userName }}</td>
+          <td>
+            <div *ngIf="questionnaire.questionnaire">
+              <a [routerLink]="['/intro', questionnaire.questionnaire.id, 'view']">{{ questionnaire.questionnaire.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/questionnaire', questionnaire.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/questionnaire', questionnaire.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(questionnaire)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

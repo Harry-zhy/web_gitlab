@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152454",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "favourites_list_item",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "category",
+      "fieldType": "Category",
+      "fieldValues": "CATERER,VENUE,ACTIVITY,OTHER"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FavouritesListItem",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "caterers",
+      "ownerSide": true,
+      "relationshipName": "caterer",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "activitySelf",
+      "ownerSide": true,
+      "relationshipName": "activity",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "venueInformation",
+      "ownerSide": true,
+      "relationshipName": "venue",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "favouritesList",
+      "otherEntityRelationshipName": "favourites",
+      "relationshipName": "favouritesList",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

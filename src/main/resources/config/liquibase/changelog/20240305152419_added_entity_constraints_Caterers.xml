@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Caterers.
+    -->
+    <changeSet id="20240305152419-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="booked_caterer_id"
+                                 baseTableName="caterers"
+                                 constraintName="fk_caterers__booked_caterer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="booked_caterer"/>
+
+        <addForeignKeyConstraint baseColumnNames="event_itinerary_id"
+                                 baseTableName="caterers"
+                                 constraintName="fk_caterers__event_itinerary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="event_itinerary"/>
+
+        <addForeignKeyConstraint baseColumnNames="supplier_id"
+                                 baseTableName="caterers"
+                                 constraintName="fk_caterers__supplier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supplier"/>
+
+        <addForeignKeyConstraint baseColumnNames="caterers_id"
+                                 baseTableName="rel_caterers__dietary_requirements"
+                                 constraintName="fk_rel_caterers__dietary_requirements__caterers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caterers"/>
+
+        <addForeignKeyConstraint baseColumnNames="dietary_requirements_id"
+                                 baseTableName="rel_caterers__dietary_requirements"
+                                 constraintName="fk_rel_caterers__dietary_requirements__dietary_requirements_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dietary_requirements"/>
+
+        <addForeignKeyConstraint baseColumnNames="caterers_id"
+                                 baseTableName="rel_caterers__cuisine"
+                                 constraintName="fk_rel_caterers__cuisine__caterers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caterers"/>
+
+        <addForeignKeyConstraint baseColumnNames="cuisine_id"
+                                 baseTableName="rel_caterers__cuisine"
+                                 constraintName="fk_rel_caterers__cuisine__cuisine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cuisine"/>
+
+        <addForeignKeyConstraint baseColumnNames="event_id"
+                                 baseTableName="caterers"
+                                 constraintName="fk_caterers__event_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="event"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity DecoCompany.
+    -->
+    <changeSet id="20240305152431-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="deco_contact_details_id"
+                                 baseTableName="deco_company"
+                                 constraintName="fk_deco_company__deco_contact_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deco_contact_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="supplier_id"
+                                 baseTableName="deco_company"
+                                 constraintName="fk_deco_company__supplier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supplier"/>
+
+        <addForeignKeyConstraint baseColumnNames="deco_company_id"
+                                 baseTableName="rel_deco_company__deco_saved_company"
+                                 constraintName="fk_rel_deco_company__deco_saved_company__deco_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deco_company"/>
+
+        <addForeignKeyConstraint baseColumnNames="deco_saved_company_id"
+                                 baseTableName="rel_deco_company__deco_saved_company"
+                                 constraintName="fk_rel_deco_company__deco_saved_company__deco_saved_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deco_saved_company"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152422",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary",
+  "fields": [
+    {
+      "fieldName": "startTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Itinerary",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bookedCaterer",
+      "otherEntityRelationshipName": "itinerary",
+      "relationshipName": "bookedCaterer",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

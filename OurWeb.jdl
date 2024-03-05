@@ -119,7 +119,7 @@ entity ActivityCompany{
     //  rating Integer
 }
 
-entity ActivityBooked{
+entity BookedActivity{
     name String required,
     //  rating Integer
 }
@@ -161,11 +161,11 @@ entity ActivityContactDetails{
 
 relationship ManyToOne{
     ActivityImage to ActivityCompany
-    ActivityCompany to ActivityBooked
+    ActivityCompany to BookedActivity
     ActivityIdea to ActivitySelf
     ActivityImage to ActivitySelf
     Rating to ActivityCompany
-    Rating to ActivityBooked
+    Rating to BookedActivity
     Rating to ActivitySelf
 }
 
@@ -175,7 +175,7 @@ relationship OneToOne{
 }
 
 relationship ManyToMany{
-    ActivityBooked to ActivitySaved
+    BookedActivity to ActivitySaved
     ActivitySelf to ActivitySaved
 }
 
@@ -185,31 +185,31 @@ relationship ManyToMany{
 
 
 //Decoration
-entity DecorationCompany{
+entity DecoCompany{
     name String required,
     about String,
     rating Integer
 }
-entity DecorationImages{
+entity DecoImages{
     picture ImageBlob required
 }
-entity DecorationSavedCompany{
+entity DecoSavedCompany{
     name String
 }
-entity DecorationBudget{
+entity DecoBudget{
     money Integer
 }
 //entity DecorationCompanyProfile{
 //  name String required
 //}
-entity DecorationThemes{
+entity DecoThemes{
     description String,
     name String
 }
-entity DecorationSavedTheme{
+entity DecoSavedTheme{
     name String
 }
-entity DecorationContactDetails{
+entity DecoContactDetails{
     website String,
     phoneNumber String,
     instagram String,
@@ -220,19 +220,19 @@ entity DecorationContactDetails{
 
 relationship OneToOne{
     //  DecorationCompany to DecorationCompanyProfile
-    DecorationCompany to DecorationContactDetails
-    DecorationCompany to Supplier
+    DecoCompany to DecoContactDetails
+    DecoCompany to Supplier
 }
 
 relationship ManyToMany{
-    DecorationBudget to DecorationCompany
-    DecorationThemes to DecorationSavedTheme
-    DecorationCompany to DecorationSavedCompany
+    DecoBudget to DecoCompany
+    DecoThemes to DecoSavedTheme
+    DecoCompany to DecoSavedCompany
 }
 
 relationship ManyToOne{
-    DecorationImages to DecorationThemes
-    DecorationImages to DecorationCompany
+    DecoImages to DecoThemes
+    DecoImages to DecoCompany
 }
 
 
@@ -343,7 +343,7 @@ entity VenueInformation {
 }
 
 entity AdsManagement {
-    id Integer
+    id Long
     age Integer
     gender String
     preference String
@@ -351,7 +351,7 @@ entity AdsManagement {
 }
 
 entity BusinessInformation {
-    id Integer
+    id Long
     information String
     businessHours String
     specialServicesAvailable String

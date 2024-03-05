@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="venueInformation">
+      <h2 data-cy="venueInformationDetailsHeading"><span>Venue Information</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ venueInformation.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ venueInformation.name }}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+          <span>{{ venueInformation.price }}</span>
+        </dd>
+        <dt><span>Capacity</span></dt>
+        <dd>
+          <span>{{ venueInformation.capacity }}</span>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+          <span>{{ venueInformation.location }}</span>
+        </dd>
+        <dt><span>Opening Time From</span></dt>
+        <dd>
+          <span>{{ venueInformation.openingTimeFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Opening Time Until</span></dt>
+        <dd>
+          <span>{{ venueInformation.openingTimeUntil | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Picture</span></dt>
+        <dd>
+          <div *ngIf="venueInformation.picture">
+            <a (click)="openFile(venueInformation.picture, venueInformation.pictureContentType)">
+              <img
+                [src]="'data:' + venueInformation.pictureContentType + ';base64,' + venueInformation.picture"
+                style="max-width: 100%"
+                alt="venueInformation image"
+              />
+            </a>
+            {{ venueInformation.pictureContentType }}, {{ byteSize(venueInformation.picture) }}
+          </div>
+        </dd>
+        <dt><span>Event Itinerary</span></dt>
+        <dd>
+          <div *ngIf="venueInformation.eventItinerary">
+            <a [routerLink]="['/event-itinerary', venueInformation.eventItinerary.id, 'view']">{{ venueInformation.eventItinerary.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="venueInformation.supplier">
+            <a [routerLink]="['/supplier', venueInformation.supplier.id, 'view']">{{ venueInformation.supplier.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/venue-information', venueInformation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

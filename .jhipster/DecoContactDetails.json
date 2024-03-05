@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152437",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_contact_details",
+  "fields": [
+    {
+      "fieldName": "website",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instagram",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "twitter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facebook",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tiktok",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoContactDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoCompany",
+      "otherEntityRelationshipName": "decoContactDetails",
+      "ownerSide": false,
+      "relationshipName": "decoCompany",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
