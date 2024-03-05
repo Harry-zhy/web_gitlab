@@ -11,5 +11,7 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  bookpage(): void {}
+  bookpage(): void {
+    this.router.navigate(['/bookactivitypage']);
+  }
 }
