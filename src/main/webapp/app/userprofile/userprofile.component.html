@@ -1,1 +1,91 @@
-<p>userprofile works!</p>
+<head>
+  <meta name="viewport" content="weight=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="userprofile.component.scss" />
+</head>
+
+<body>
+  <p style="color: white; display: inline">_</p>
+  <!-- the gap was just annoying me -->
+  <h4 style="display: inline">YOUR PROGRESS</h4>
+  <p style="color: white; display: inline">__</p>
+  <!-- the gap was just annoying me, but necessary this time -->
+  <p style="display: inline">See the progress of your event!</p>
+
+  <!--My section-->
+  <div class="YourProgress">
+    <div class="checks-container">
+      <!--Checkboxes-->
+      <div class="checkbox-container">
+        <input type="checkbox" id="checkbox1" name="checkbox1" />
+        <label for="checkbox1">Date and Time</label>
+      </div>
+
+      <div class="checkbox-container-purple">
+        <input type="checkbox" id="checkbox2" name="checkbox2" />
+        <label for="checkbox2">Guest List</label>
+      </div>
+
+      <div class="checkbox-container-lilac">
+        <input type="checkbox" id="checkbox3" name="checkbox3" />
+        <label for="checkbox3">Vendors</label>
+      </div>
+
+      <div class="checkbox-container-pink">
+        <input type="checkbox" id="checkbox4" name="checkbox4" />
+        <label for="checkbox4">Venue</label>
+      </div>
+    </div>
+
+    <!--Progress bar-->
+    <div class="svg-container">
+      <svg width="250" height="250" viewBox="0 0 250 250" class="circular-progress" style="--progress: 68">
+        <!-- dynamic progress bar: use type/javascript to edit the --progress value to make it an accurate number-->
+        <circle class="bg"></circle>
+        <text x="60" y="125" fill="white" font-size="20px">Total Progress:</text>
+        <text x="100" y="150" fill="white" font-size="20px">68%</text>
+        <circle class="fg"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <p style="color: white; display: inline">_</p>
+  <!-- the gap was just annoying me -->
+  <h4 style="display: inline">EXPLORE</h4>
+  <p style="color: white; display: inline">__</p>
+  <!-- the gap was just annoying me, but necessary this time -->
+  <p style="display: inline">See what we have to offer!</p>
+
+  <div class="container">
+    <button class="pagebtn" (click)="catererspage()" clickable>CATERERS</button>
+    <button class="pagebtn" (click)="venuespage()" clickable>VENUES</button>
+    <button class="pagebtn" (click)="activitiespage()" clickable>ACTIVITIES</button>
+    <button class="pagebtn" (click)="feedbackpage()" clickable>FEEDBACK</button>
+    <button class="pagebtn" (click)="decorationspage()" clickable>DECORATIONS</button>
+  </div>
+
+  <p style="color: white; display: inline">_</p>
+  <!-- the gap was just annoying me -->
+  <h4 style="display: inline">POPULAR</h4>
+  <p style="color: white; display: inline">__</p>
+  <!-- the gap was just annoying me, but necessary this time -->
+  <p style="display: inline">See what is popular!</p>
+
+  <div class="container">
+    <div class="bottomimages">
+      <img src="src/main/webapp/app/userprofile/images/wine-tasting.png" height="200" width="200" />
+      <p>Discover wine tasting!</p>
+    </div>
+    <div class="bottomimages">
+      <img src="src/main/webapp/app/userprofile/images/decor.png" height="200" width="200" />
+      <p>Find halls near you!</p>
+    </div>
+    <div class="bottomimages">
+      <img src="src/main/webapp/app/userprofile/images/wedding-catering-2.png" height="200" width="200" />
+      <p>5 star catering services!</p>
+    </div>
+    <div class="bottomimages">
+      <img src="src/main/webapp/app/userprofile/images/board-game-night.png" height="200" width="200" />
+      <p>Board game night!</p>
+    </div>
+  </div>
+</body>

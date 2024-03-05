@@ -1,0 +1,290 @@
+.pink-block {
+  width: 100%;
+  height: 225px; /* Ask group height specs */
+  border-radius: 20px;
+  background-color: #f9b0c3; /* Need to find correct pink */
+  display: inline-block; /* Display blocks inline */
+  margin: 10px;
+}
+
+.white-block {
+  width: 100%;
+  height: 150px; /* Ask group height specs */
+  background-color: white; /* Need to find correct pink */
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+.inline {
+  display: inline;
+}
+
+.alert-warning-customised {
+  background-color: #f9b0c3;
+  left: 500px;
+  height: 60px;
+  width: 160px;
+  background-position: center;
+  margin: 30px;
+  border-radius: 20px;
+}
+
+//colour palette
+$light-pink: #ffdee7;
+$dark-pink: #f9b0c3;
+$myyellow: #ffc212;
+$light-blue: #e0dffd;
+$purple: #7769c6;
+$dark-blue: #172c49;
+
+body {
+  border-width: 30px;
+  border-color: $dark-blue;
+  border-style: solid;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.container {
+  height: 300px;
+  width: 95%;
+  background-color: #f9b0c3;
+  border-radius: 16px;
+  position: relative;
+  margin: 1.5em;
+}
+
+.bottomimages {
+  height: 250px;
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  left: 20px;
+  margin: 1.5em;
+  text-align: center;
+}
+
+.pagebtn {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 50px $dark-pink;
+  background-color: $light-pink;
+  position: relative;
+  text-align: center;
+  top: 25px;
+  left: 20px;
+  box-shadow: 20px 20px $myyellow;
+  margin: 1.5em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 15px;
+  color: #fff;
+}
+
+.YourProgress {
+  //to get the progress bar to the right side
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 95%; //makes it fit to screen and adjust with size of screen
+  height: 330px;
+  background-color: #f9b0c3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 1.5em;
+
+  p {
+    font-size: 14px;
+    font: Gill Sans;
+  }
+
+  //checkbox stuff:
+
+  .checks-container {
+    width: 100%;
+  }
+
+  .checkbox-container {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .checkbox-container input[type='checkbox'] {
+    display: none; // Hides the default checkbox
+  }
+
+  .checkbox-container label {
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .checkbox-container input[type='checkbox']:checked + label {
+    background-color: #ffc212; // Background color when checkbox is checked
+    color: #172c49; // Text color when checkbox is checked
+  }
+
+  .checkbox-container-purple {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .checkbox-container-purple input[type='checkbox'] {
+    display: none; // Hides the default checkbox
+  }
+
+  .checkbox-container-purple label {
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .checkbox-container-purple input[type='checkbox']:checked + label {
+    background-color: #7769c6;
+    color: #172c49;
+  }
+
+  .checkbox-container-lilac {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .checkbox-container-lilac input[type='checkbox'] {
+    display: none; // Hides the default checkbox
+  }
+
+  .checkbox-container-lilac label {
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .checkbox-container-lilac input[type='checkbox']:checked + label {
+    background-color: #e0dffd;
+    color: #172c49;
+  }
+
+  .checkbox-container-pink {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .checkbox-container-pink input[type='checkbox'] {
+    display: none; // Hides the default checkbox
+  }
+
+  .checkbox-container-pink label {
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .checkbox-container-pink input[type='checkbox']:checked + label {
+    background-color: #ffdee7;
+    color: #172c49;
+  }
+
+  //checkbox stuff done
+
+  .text {
+    flex: 1;
+  }
+
+  //progress bar stuff starts
+
+  .svg-container {
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .circular-progress {
+    --size: 250px;
+    --half-size: calc(var(--size) / 2);
+    --stroke-width: 20px;
+    --radius: calc((var(--size) - var(--stroke-width)) / 2);
+    --circumference: calc(var(--radius) * pi * 2);
+    --dash: calc((var(--progress) * var(--circumference)) / 100);
+    animation: progress-animation 4s linear 0s 1 forwards;
+  }
+
+  .circular-progress circle {
+    cx: var(--half-size);
+    cy: var(--half-size);
+    r: var(--radius);
+    stroke-width: var(--stroke-width);
+    fill: none;
+    stroke-linecap: round;
+  }
+  .circular-progress circle.bg {
+    stroke: #fff;
+  }
+
+  .circular-progress circle.fg {
+    transform: rotate(-90deg);
+    transform-origin: var(--half-size) var(--half-size);
+    stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+    transition: stroke-dasharray 0.3s linear 0s;
+    stroke: #7769c6;
+  }
+
+  @property --progress {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @keyframes progress-animation {
+    from {
+      --progress: 0;
+    }
+    to {
+      --progress: 68;
+    }
+  }
+}
+
+.myContainer {
+  h4,
+  span {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 5px;
+    margin: 0;
+    color: #fff; //#172C49;
+  }
+
+  h4 {
+    margin-right: 11px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+}

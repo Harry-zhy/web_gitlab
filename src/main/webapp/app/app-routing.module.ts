@@ -61,7 +61,7 @@ import { DecorationsComponent } from './decorations/decorations.component';
           component: FeedbackComponent,
         },
         {
-          path: 'user-profile',
+          path: 'userprofile',
           component: UserprofileComponent,
         },
         {
