@@ -1,0 +1,147 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-venue-information-heading" data-cy="VenueInformationCreateUpdateHeading">Create or edit a Venue Information</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_capacity">Capacity</label>
+          <input type="number" class="form-control" name="capacity" id="field_capacity" data-cy="capacity" formControlName="capacity" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_openingTimeFrom">Opening Time From</label>
+          <div class="d-flex">
+            <input
+              id="field_openingTimeFrom"
+              data-cy="openingTimeFrom"
+              type="datetime-local"
+              class="form-control"
+              name="openingTimeFrom"
+              formControlName="openingTimeFrom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_openingTimeUntil">Opening Time Until</label>
+          <div class="d-flex">
+            <input
+              id="field_openingTimeUntil"
+              data-cy="openingTimeUntil"
+              type="datetime-local"
+              class="form-control"
+              name="openingTimeUntil"
+              formControlName="openingTimeUntil"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_picture">Picture</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('pictureContentType')!.value + ';base64,' + editForm.get('picture')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('picture')!.value"
+              alt="venueInformation image"
+            />
+            <div *ngIf="editForm.get('picture')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('pictureContentType')!.value }}, {{ byteSize(editForm.get('picture')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('picture', 'pictureContentType', 'file_picture')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input type="file" id="file_picture" data-cy="picture" (change)="setFileData($event, 'picture', true)" accept="image/*" />
+          </div>
+          <input type="hidden" class="form-control" name="picture" id="field_picture" data-cy="picture" formControlName="picture" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="pictureContentType"
+            id="field_pictureContentType"
+            formControlName="pictureContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_eventItinerary">Event Itinerary</label>
+          <select
+            class="form-control"
+            id="field_eventItinerary"
+            data-cy="eventItinerary"
+            name="eventItinerary"
+            formControlName="eventItinerary"
+            [compareWith]="compareEventItinerary"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="eventItineraryOption" *ngFor="let eventItineraryOption of eventItinerariesSharedCollection">
+              {{ eventItineraryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_supplier">Supplier</label>
+          <select
+            class="form-control"
+            id="field_supplier"
+            data-cy="supplier"
+            name="supplier"
+            formControlName="supplier"
+            [compareWith]="compareSupplier"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="supplierOption" *ngFor="let supplierOption of suppliersSharedCollection">{{ supplierOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

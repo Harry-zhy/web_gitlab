@@ -1,0 +1,79 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152419",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "caterers",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "picture",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "pricePerPerson",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "guestLimit",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Caterers",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bookedCaterer",
+      "otherEntityRelationshipName": "caterers",
+      "ownerSide": true,
+      "relationshipName": "bookedCaterer",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "eventItinerary",
+      "otherEntityRelationshipName": "caterers",
+      "relationshipName": "eventItinerary",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "caterers",
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "dietaryRequirements",
+      "otherEntityRelationshipName": "caterers",
+      "ownerSide": true,
+      "relationshipName": "dietaryRequirements",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "cuisine",
+      "otherEntityRelationshipName": "caterers",
+      "ownerSide": true,
+      "relationshipName": "cuisine",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "event",
+      "otherEntityRelationshipName": "caterers",
+      "relationshipName": "event",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "rating",
+      "otherEntityRelationshipName": "caterers",
+      "relationshipName": "rating",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

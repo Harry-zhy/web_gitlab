@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152420",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "dietary_requirements",
+  "fields": [
+    {
+      "fieldName": "option",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DietaryRequirements",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "dietaryRequirements",
+      "ownerSide": false,
+      "relationshipName": "caterers",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

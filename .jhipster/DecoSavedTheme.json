@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152436",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_saved_theme",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoSavedTheme",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoThemes",
+      "otherEntityRelationshipName": "decoSavedTheme",
+      "ownerSide": false,
+      "relationshipName": "decoThemes",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

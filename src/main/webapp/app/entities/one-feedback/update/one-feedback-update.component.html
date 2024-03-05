@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-one-feedback-heading" data-cy="OneFeedbackCreateUpdateHeading">Create or edit a One Feedback</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_content">Content</label>
+          <input type="text" class="form-control" name="content" id="field_content" data-cy="content" formControlName="content" />
+          <div *ngIf="editForm.get('content')!.invalid && (editForm.get('content')!.dirty || editForm.get('content')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('content')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_withMultiMedia">With Multi Media</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="withMultiMedia"
+            id="field_withMultiMedia"
+            data-cy="withMultiMedia"
+            formControlName="withMultiMedia"
+          />
+          <div
+            *ngIf="
+              editForm.get('withMultiMedia')!.invalid && (editForm.get('withMultiMedia')!.dirty || editForm.get('withMultiMedia')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('withMultiMedia')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_imagePath">Image Path</label>
+          <input type="text" class="form-control" name="imagePath" id="field_imagePath" data-cy="imagePath" formControlName="imagePath" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_videoPath">Video Path</label>
+          <input type="text" class="form-control" name="videoPath" id="field_videoPath" data-cy="videoPath" formControlName="videoPath" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_feedbacks">Feedbacks</label>
+          <select
+            class="form-control"
+            id="field_feedbacks"
+            data-cy="feedbacks"
+            name="feedbacks"
+            formControlName="feedbacks"
+            [compareWith]="compareFeedbacks"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="feedbacksOption" *ngFor="let feedbacksOption of feedbacksSharedCollection">{{ feedbacksOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

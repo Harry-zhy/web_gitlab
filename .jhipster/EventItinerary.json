@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152418",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "event_itinerary",
+  "fields": [
+    {
+      "fieldName": "numberOfGuests",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EventItinerary",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "itineraryDateTime",
+      "otherEntityRelationshipName": "eventItinerary",
+      "relationshipName": "eventDate",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "activitySaved",
+      "otherEntityRelationshipName": "eventItinerary",
+      "relationshipName": "activitySaved",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "eventItinerary",
+      "relationshipName": "caterers",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "venueInformation",
+      "otherEntityRelationshipName": "eventItinerary",
+      "relationshipName": "venueInformation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "itineraryGuest",
+      "otherEntityRelationshipName": "eventItinerary",
+      "ownerSide": false,
+      "relationshipName": "itineraryGuest",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

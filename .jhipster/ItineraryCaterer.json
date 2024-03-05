@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152415",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary_caterer",
+  "fields": [
+    {
+      "fieldName": "catererName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "catererCost",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "catererHost",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "catererTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ItineraryCaterer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152421",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cuisine",
+  "fields": [
+    {
+      "fieldName": "region",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cuisine",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "cuisine",
+      "ownerSide": false,
+      "relationshipName": "caterers",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

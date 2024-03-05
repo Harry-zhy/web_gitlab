@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152413",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary_date_time",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ItineraryDateTime",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventItinerary",
+      "otherEntityRelationshipName": "eventDate",
+      "relationshipName": "eventItinerary",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

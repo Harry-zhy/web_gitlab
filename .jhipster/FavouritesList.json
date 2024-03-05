@@ -1,0 +1,22 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152455",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "favourites_list",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FavouritesList",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "favouritesListItem",
+      "otherEntityRelationshipName": "favouritesList",
+      "relationshipName": "favourites",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

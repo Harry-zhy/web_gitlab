@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152430",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_contact_details",
+  "fields": [
+    {
+      "fieldName": "website",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "twitter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instagram",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facebook",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tiktok",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivityContactDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "activityCompany",
+      "otherEntityRelationshipName": "activityContactDetails",
+      "ownerSide": true,
+      "relationshipName": "activityCompany",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

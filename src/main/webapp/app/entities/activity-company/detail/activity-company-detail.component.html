@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activityCompany">
+      <h2 data-cy="activityCompanyDetailsHeading"><span>Activity Company</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ activityCompany.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ activityCompany.name }}</span>
+        </dd>
+        <dt><span>About</span></dt>
+        <dd>
+          <span>{{ activityCompany.about }}</span>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+          <div *ngIf="activityCompany.supplier">
+            <a [routerLink]="['/supplier', activityCompany.supplier.id, 'view']">{{ activityCompany.supplier.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Booked Activity</span></dt>
+        <dd>
+          <div *ngIf="activityCompany.bookedActivity">
+            <a [routerLink]="['/booked-activity', activityCompany.bookedActivity.id, 'view']">{{ activityCompany.bookedActivity.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activity-company', activityCompany.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

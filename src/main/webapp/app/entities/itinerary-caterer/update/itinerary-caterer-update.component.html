@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-itinerary-caterer-heading" data-cy="ItineraryCatererCreateUpdateHeading">Create or edit a Itinerary Caterer</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_catererName">Caterer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="catererName"
+            id="field_catererName"
+            data-cy="catererName"
+            formControlName="catererName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_catererCost">Caterer Cost</label>
+          <input
+            type="number"
+            class="form-control"
+            name="catererCost"
+            id="field_catererCost"
+            data-cy="catererCost"
+            formControlName="catererCost"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_catererHost">Caterer Host</label>
+          <input
+            type="text"
+            class="form-control"
+            name="catererHost"
+            id="field_catererHost"
+            data-cy="catererHost"
+            formControlName="catererHost"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_catererTime">Caterer Time</label>
+          <div class="d-flex">
+            <input
+              id="field_catererTime"
+              data-cy="catererTime"
+              type="datetime-local"
+              class="form-control"
+              name="catererTime"
+              formControlName="catererTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

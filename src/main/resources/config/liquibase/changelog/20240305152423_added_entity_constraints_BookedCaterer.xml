@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity BookedCaterer.
+    -->
+    <changeSet id="20240305152423-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="itinerary_id"
+                                 baseTableName="booked_caterer"
+                                 constraintName="fk_booked_caterer__itinerary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="itinerary"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152416",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "itinerary_activity",
+  "fields": [
+    {
+      "fieldName": "activityName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activityCost",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "activityHost",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activityTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ItineraryActivity",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

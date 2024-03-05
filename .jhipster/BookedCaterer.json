@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152423",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "booked_caterer",
+  "fields": [
+    {
+      "fieldName": "confirmationStatus",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BookedCaterer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "itinerary",
+      "otherEntityRelationshipName": "bookedCaterer",
+      "relationshipName": "itinerary",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "bookedCaterer",
+      "ownerSide": false,
+      "relationshipName": "caterers",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

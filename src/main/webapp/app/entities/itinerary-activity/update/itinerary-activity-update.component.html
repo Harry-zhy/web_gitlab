@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-itinerary-activity-heading" data-cy="ItineraryActivityCreateUpdateHeading">Create or edit a Itinerary Activity</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_activityName">Activity Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="activityName"
+            id="field_activityName"
+            data-cy="activityName"
+            formControlName="activityName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_activityCost">Activity Cost</label>
+          <input
+            type="number"
+            class="form-control"
+            name="activityCost"
+            id="field_activityCost"
+            data-cy="activityCost"
+            formControlName="activityCost"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_activityHost">Activity Host</label>
+          <input
+            type="text"
+            class="form-control"
+            name="activityHost"
+            id="field_activityHost"
+            data-cy="activityHost"
+            formControlName="activityHost"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_activityTime">Activity Time</label>
+          <div class="d-flex">
+            <input
+              id="field_activityTime"
+              data-cy="activityTime"
+              type="datetime-local"
+              class="form-control"
+              name="activityTime"
+              formControlName="activityTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

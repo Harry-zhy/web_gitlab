@@ -1,0 +1,109 @@
+<div>
+  <h2 id="page-heading" data-cy="ItineraryActivityHeading">
+    <span>Itinerary Activities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-itinerary-activity"
+        [routerLink]="['/itinerary-activity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Itinerary Activity </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="itineraryActivities?.length === 0">
+    <span>No Itinerary Activities found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="itineraryActivities && itineraryActivities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityName">
+            <div class="d-flex">
+              <span>Activity Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityCost">
+            <div class="d-flex">
+              <span>Activity Cost</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityHost">
+            <div class="d-flex">
+              <span>Activity Host</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activityTime">
+            <div class="d-flex">
+              <span>Activity Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itineraryActivity of itineraryActivities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/itinerary-activity', itineraryActivity.id, 'view']">{{ itineraryActivity.id }}</a>
+          </td>
+          <td>{{ itineraryActivity.activityName }}</td>
+          <td>{{ itineraryActivity.activityCost }}</td>
+          <td>{{ itineraryActivity.activityHost }}</td>
+          <td>{{ itineraryActivity.activityTime | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/itinerary-activity', itineraryActivity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/itinerary-activity', itineraryActivity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(itineraryActivity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

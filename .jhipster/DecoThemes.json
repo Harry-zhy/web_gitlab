@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152435",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "deco_themes",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DecoThemes",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "decoSavedTheme",
+      "otherEntityRelationshipName": "decoThemes",
+      "ownerSide": true,
+      "relationshipName": "decoSavedTheme",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "decoImages",
+      "otherEntityRelationshipName": "decoThemes",
+      "relationshipName": "decoImages",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

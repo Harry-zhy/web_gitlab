@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152427",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity_idea",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "link",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivityIdea",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "activitySelf",
+      "otherEntityRelationshipName": "activityIdea",
+      "relationshipName": "activitySelf",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

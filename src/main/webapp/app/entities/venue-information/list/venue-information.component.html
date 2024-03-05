@@ -1,0 +1,165 @@
+<div>
+  <h2 id="page-heading" data-cy="VenueInformationHeading">
+    <span>Venue Informations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-venue-information"
+        [routerLink]="['/venue-information/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Venue Information </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="venueInformations?.length === 0">
+    <span>No Venue Informations found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="venueInformations && venueInformations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span>Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <div class="d-flex">
+              <span>Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="capacity">
+            <div class="d-flex">
+              <span>Capacity</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="location">
+            <div class="d-flex">
+              <span>Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="openingTimeFrom">
+            <div class="d-flex">
+              <span>Opening Time From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="openingTimeUntil">
+            <div class="d-flex">
+              <span>Opening Time Until</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="picture">
+            <div class="d-flex">
+              <span>Picture</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventItinerary.id">
+            <div class="d-flex">
+              <span>Event Itinerary</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="supplier.id">
+            <div class="d-flex">
+              <span>Supplier</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venueInformation of venueInformations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/venue-information', venueInformation.id, 'view']">{{ venueInformation.id }}</a>
+          </td>
+          <td>{{ venueInformation.name }}</td>
+          <td>{{ venueInformation.price }}</td>
+          <td>{{ venueInformation.capacity }}</td>
+          <td>{{ venueInformation.location }}</td>
+          <td>{{ venueInformation.openingTimeFrom | formatMediumDatetime }}</td>
+          <td>{{ venueInformation.openingTimeUntil | formatMediumDatetime }}</td>
+          <td>
+            <a *ngIf="venueInformation.picture" (click)="openFile(venueInformation.picture, venueInformation.pictureContentType)">
+              <img
+                [src]="'data:' + venueInformation.pictureContentType + ';base64,' + venueInformation.picture"
+                style="max-height: 30px"
+                alt="venueInformation image"
+              />
+            </a>
+            <span *ngIf="venueInformation.picture"
+              >{{ venueInformation.pictureContentType }}, {{ byteSize(venueInformation.picture) }}</span
+            >
+          </td>
+          <td>
+            <div *ngIf="venueInformation.eventItinerary">
+              <a [routerLink]="['/event-itinerary', venueInformation.eventItinerary.id, 'view']">{{
+                venueInformation.eventItinerary.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="venueInformation.supplier">
+              <a [routerLink]="['/supplier', venueInformation.supplier.id, 'view']">{{ venueInformation.supplier.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/venue-information', venueInformation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/venue-information', venueInformation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(venueInformation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

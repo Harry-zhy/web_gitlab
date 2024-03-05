@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152456",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "event",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "spaces",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Event",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "mockVenueEntity",
+      "ownerSide": true,
+      "relationshipName": "venue",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "caterers",
+      "otherEntityRelationshipName": "event",
+      "relationshipName": "caterers",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activitySelf",
+      "otherEntityRelationshipName": "event",
+      "relationshipName": "activities",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

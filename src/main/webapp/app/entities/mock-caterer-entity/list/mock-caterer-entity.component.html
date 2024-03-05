@@ -1,0 +1,123 @@
+<div>
+  <h2 id="page-heading" data-cy="MockCatererEntityHeading">
+    <span>Mock Caterer Entities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mock-caterer-entity"
+        [routerLink]="['/mock-caterer-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Mock Caterer Entity </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="mockCatererEntities?.length === 0">
+    <span>No Mock Caterer Entities found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="mockCatererEntities && mockCatererEntities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span>Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cuisine">
+            <div class="d-flex">
+              <span>Cuisine</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rating">
+            <div class="d-flex">
+              <span>Rating</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span>Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="quantity">
+            <div class="d-flex">
+              <span>Quantity</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contact">
+            <div class="d-flex">
+              <span>Contact</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mockCatererEntity of mockCatererEntities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/mock-caterer-entity', mockCatererEntity.id, 'view']">{{ mockCatererEntity.id }}</a>
+          </td>
+          <td>{{ mockCatererEntity.name }}</td>
+          <td>{{ mockCatererEntity.cuisine }}</td>
+          <td>{{ mockCatererEntity.rating }}</td>
+          <td>{{ mockCatererEntity.description }}</td>
+          <td>{{ mockCatererEntity.quantity }}</td>
+          <td>{{ mockCatererEntity.contact }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/mock-caterer-entity', mockCatererEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/mock-caterer-entity', mockCatererEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mockCatererEntity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

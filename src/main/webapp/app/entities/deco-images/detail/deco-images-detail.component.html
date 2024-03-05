@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="decoImages">
+      <h2 data-cy="decoImagesDetailsHeading"><span>Deco Images</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ decoImages.id }}</span>
+        </dd>
+        <dt><span>Picture</span></dt>
+        <dd>
+          <div *ngIf="decoImages.picture">
+            <a (click)="openFile(decoImages.picture, decoImages.pictureContentType)">
+              <img
+                [src]="'data:' + decoImages.pictureContentType + ';base64,' + decoImages.picture"
+                style="max-width: 100%"
+                alt="decoImages image"
+              />
+            </a>
+            {{ decoImages.pictureContentType }}, {{ byteSize(decoImages.picture) }}
+          </div>
+        </dd>
+        <dt><span>Deco Themes</span></dt>
+        <dd>
+          <div *ngIf="decoImages.decoThemes">
+            <a [routerLink]="['/deco-themes', decoImages.decoThemes.id, 'view']">{{ decoImages.decoThemes.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Deco Company</span></dt>
+        <dd>
+          <div *ngIf="decoImages.decoCompany">
+            <a [routerLink]="['/deco-company', decoImages.decoCompany.id, 'view']">{{ decoImages.decoCompany.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/deco-images', decoImages.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

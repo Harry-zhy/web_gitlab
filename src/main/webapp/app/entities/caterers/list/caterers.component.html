@@ -1,0 +1,188 @@
+<div>
+  <h2 id="page-heading" data-cy="CaterersHeading">
+    <span>Caterers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-caterers"
+        [routerLink]="['/caterers/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Caterers </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="caterers?.length === 0">
+    <span>No Caterers found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="caterers && caterers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span>Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="picture">
+            <div class="d-flex">
+              <span>Picture</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pricePerPerson">
+            <div class="d-flex">
+              <span>Price Per Person</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="guestLimit">
+            <div class="d-flex">
+              <span>Guest Limit</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bookedCaterer.id">
+            <div class="d-flex">
+              <span>Booked Caterer</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventItinerary.id">
+            <div class="d-flex">
+              <span>Event Itinerary</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="supplier.id">
+            <div class="d-flex">
+              <span>Supplier</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dietaryRequirements.id">
+            <div class="d-flex">
+              <span>Dietary Requirements</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cuisine.id">
+            <div class="d-flex">
+              <span>Cuisine</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="event.id">
+            <div class="d-flex">
+              <span>Event</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let caterers of caterers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/caterers', caterers.id, 'view']">{{ caterers.id }}</a>
+          </td>
+          <td>{{ caterers.name }}</td>
+          <td>
+            <a *ngIf="caterers.picture" (click)="openFile(caterers.picture, caterers.pictureContentType)">
+              <img
+                [src]="'data:' + caterers.pictureContentType + ';base64,' + caterers.picture"
+                style="max-height: 30px"
+                alt="caterers image"
+              />
+            </a>
+            <span *ngIf="caterers.picture">{{ caterers.pictureContentType }}, {{ byteSize(caterers.picture) }}</span>
+          </td>
+          <td>{{ caterers.pricePerPerson }}</td>
+          <td>{{ caterers.guestLimit }}</td>
+          <td>
+            <div *ngIf="caterers.bookedCaterer">
+              <a [routerLink]="['/booked-caterer', caterers.bookedCaterer.id, 'view']">{{ caterers.bookedCaterer.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="caterers.eventItinerary">
+              <a [routerLink]="['/event-itinerary', caterers.eventItinerary.id, 'view']">{{ caterers.eventItinerary.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="caterers.supplier">
+              <a [routerLink]="['/supplier', caterers.supplier.id, 'view']">{{ caterers.supplier.id }}</a>
+            </div>
+          </td>
+          <td>
+            <span *ngFor="let dietaryRequirements of caterers.dietaryRequirements; let last = last">
+              <a class="form-control-static" [routerLink]="['/dietary-requirements', dietaryRequirements.id, 'view']">{{
+                dietaryRequirements.id
+              }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let cuisine of caterers.cuisines; let last = last">
+              <a class="form-control-static" [routerLink]="['/cuisine', cuisine.id, 'view']">{{ cuisine.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <div *ngIf="caterers.event">
+              <a [routerLink]="['/event', caterers.event.id, 'view']">{{ caterers.event.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/caterers', caterers.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/caterers', caterers.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(caterers)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

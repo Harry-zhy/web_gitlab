@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20240305152446",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "notification",
+  "fields": [
+    {
+      "fieldName": "receivedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "NotificationStatus",
+      "fieldValues": "READ,UNREAD"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Notification",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "notification",
+      "ownerSide": true,
+      "relationshipName": "supplier",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "message",
+      "otherEntityRelationshipName": "notification",
+      "ownerSide": false,
+      "relationshipName": "message",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
