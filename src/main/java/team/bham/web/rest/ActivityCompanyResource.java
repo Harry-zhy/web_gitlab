@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import team.bham.domain.ActivityCompany;
@@ -175,11 +177,11 @@ public class ActivityCompanyResource {
      * @param activity the activity which filters the returned companies.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of activityCompanies in body.
      */
-    @GetMapping("/activity-companies")
-    public List<ActivityCompany> getAllActivityCompanies(@RequestParam BookedActivity activity) {
-        bookedActivityService.getcompaniesFromBookedActivity(activity);
-        return activityCompanyRepository.findAll();
-    }
+    //    @GetMapping("/activity-companies")
+    //    public List<ActivityCompany> getAllActivityCompanies(@RequestParam BookedActivity activity) {
+    //        bookedActivityService.getcompaniesFromBookedActivity(activity);
+    //        return activityCompanyRepository.findAll();
+    //    }
 
     /**
      * {@code GET  /activity-companies/:id} : get the "id" activityCompany.
