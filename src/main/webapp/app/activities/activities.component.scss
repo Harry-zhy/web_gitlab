@@ -21,11 +21,36 @@
   left: 10px;
 }
 
+.title {
+  background: #ffffff;
+  width: 100%;
+}
+
 .book {
   width: 100%;
   background-color: #ffffff;
+  position: relative;
+  display: inline-flex;
 }
 
 .bookiconssection {
-  width: 100%;
+  width: 250px;
+  background-color: #f9b0c3;
+  border-radius: 8px;
+  text-align: center;
+  margin: 2em;
+}
+.iconimages {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.bookbutton {
+  width: 200px;
+  display: inline;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 10px 10px #ffc212;
+  margin: 1em;
 }

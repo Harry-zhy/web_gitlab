@@ -16,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import team.bham.domain.ActivityCompany;
+import team.bham.domain.BookedActivity;
 import team.bham.repository.ActivityCompanyRepository;
+import team.bham.service.BookedActivityService;
 import team.bham.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -38,8 +40,11 @@ public class ActivityCompanyResource {
 
     private final ActivityCompanyRepository activityCompanyRepository;
 
-    public ActivityCompanyResource(ActivityCompanyRepository activityCompanyRepository) {
+    private final BookedActivityService bookedActivityService;
+
+    public ActivityCompanyResource(ActivityCompanyRepository activityCompanyRepository, BookedActivityService bookedActivityService) {
         this.activityCompanyRepository = activityCompanyRepository;
+        this.bookedActivityService = bookedActivityService;
     }
 
     /**
@@ -161,6 +166,18 @@ public class ActivityCompanyResource {
                 .collect(Collectors.toList());
         }
         log.debug("REST request to get all ActivityCompanies");
+        return activityCompanyRepository.findAll();
+    }
+
+    /**
+     * {@code GET  /activity-companies} : get all the activityCompanies.
+     *
+     * @param activity the activity which filters the returned companies.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of activityCompanies in body.
+     */
+    @GetMapping("/activity-companies")
+    public List<ActivityCompany> getAllActivityCompanies(@RequestParam BookedActivity activity) {
+        bookedActivityService.getcompaniesFromBookedActivity(activity);
         return activityCompanyRepository.findAll();
     }
 

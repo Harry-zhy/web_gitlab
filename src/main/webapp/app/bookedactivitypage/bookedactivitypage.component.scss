@@ -1,0 +1,83 @@
+.heading {
+  position: relative;
+}
+
+.companyName {
+  width: 75%;
+  text-align: center;
+  margin: 1em;
+  display: inline-block;
+}
+
+.companyNameText {
+  font-size: 78px;
+  text-shadow: 4px 4px #ffc212;
+  color: #172c49;
+  font-weight: 800;
+}
+
+.backbutton {
+  height: 100px;
+  width: 10%;
+  background-color: #e0dffd;
+  display: inline-block;
+}
+
+.savebutton {
+  height: 100px;
+  width: 10%;
+  background-color: #e0dffd;
+  display: inline-block;
+}
+
+.aboutSection {
+  height: 400px;
+  width: 47%;
+  background-color: #e0dffd;
+  margin: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.imagesSection {
+  height: 400px;
+  width: 47%;
+  background-color: #e0dffd;
+  margin: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.ratingSection {
+  height: 200px;
+  width: 400px;
+  background-color: #e0dffd;
+  margin: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.profileSection {
+  height: 200px;
+  width: 200px;
+  background-color: #e0dffd;
+  margin: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.contactDetailsSection {
+  height: 200px;
+  width: 490px;
+  background-color: #e0dffd;
+  margin: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.nextCompanyButton {
+  height: 100px;
+  width: 100px;
+  background-color: #e0dffd;
+  float: right;
+}
