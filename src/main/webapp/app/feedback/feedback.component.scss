@@ -23,6 +23,7 @@ body {
 }
 
 .feedbacksContainer {
+  position: relative;
   min-height: 300px;
   max-height: 500px;
   overflow-y: auto;
@@ -39,6 +40,22 @@ body {
   resize: vertical;
   height: 50%;
   margin-top: 30px;
+  position: relative;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #f7afc2;
+  color: white;
+  text-align: center;
+}
+
+.feedbackItem {
+  position: absolute;
+  left: 18%;
+  top: 40%;
 }
 
 .feedbackInput {
@@ -48,6 +65,20 @@ body {
   height: 100%;
   box-sizing: border-box;
   resize: vertical;
+  background-color: #f7afc2;
+  color: white;
+  border-color: transparent;
+}
+
+.feedbackInput::placeholder {
+  color: white;
+  font-style: italic;
+}
+
+.feedbackInput:focus {
+  border-color: #f589a8;
+  border-width: 3px;
+  outline: none;
 }
 
 .addFeedback {
@@ -58,7 +89,7 @@ body {
 
 .addFeedbackButton {
   text-align: center;
-  width: 10%;
+  width: 12%;
   border-radius: 45px;
   margin: auto;
   background-color: #f7afc2;
@@ -72,22 +103,27 @@ body {
   cursor: pointer;
 }
 
+.deleteFeedbackButton {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transform: scaleX(1.3);
+  border-radius: 50px;
+}
+
 .ratingContainer {
-  text-align: center;
   border-radius: 45px;
   background-color: white;
   width: 75%;
   margin: 50px auto auto;
 }
 
-.ratingButton {
-  box-sizing: content-box;
-}
-
 .rating-list li {
-  float: right;
   color: #4b596e;
-  margin: auto 50px auto;
+  margin: 10px 50px auto;
   font-size: 120%;
 }
 
@@ -141,4 +177,9 @@ body {
 
 .iconContainer svg:hover {
   fill: #f589a6;
+  cursor: pointer;
+}
+
+.iconContainer svg:focus {
+  outline: none;
 }

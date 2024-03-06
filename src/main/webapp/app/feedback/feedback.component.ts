@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-feedback',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit() {
     this.selectedValue = 0;
   }
@@ -22,5 +23,20 @@ export class FeedbackComponent implements OnInit {
   countStar(star: number) {
     this.selectedValue = star;
     console.log('Value of star', star);
+  }
+
+  deteleFeedback(feedback: any) {
+    const index = this.feedbacks.indexOf(feedback);
+    if (index !== -1) {
+      this.feedbacks.splice(index, 1);
+    }
+  }
+
+  switchToQuestionnaire() {
+    this.router.navigate(['/feedback/questionnaire']);
+  }
+
+  sendToUs() {
+    this.router.navigate(['/success']);
   }
 }
