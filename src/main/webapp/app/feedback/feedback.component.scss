@@ -1,0 +1,144 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.heading {
+  text-align: center;
+  font-size: 300%;
+  font-weight: bold;
+  color: white;
+  padding: 30px;
+}
+
+body {
+  text-align: center;
+  background-color: #172c49;
+  border-width: 300000px;
+  border-top: 30000px;
+  background-size: 300%;
+  height: 1000px;
+}
+
+.scrollableContainer {
+  max-height: 1000px;
+  overflow-y: auto;
+}
+
+.feedbacksContainer {
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 75%;
+  background-color: white;
+  border-radius: 45px;
+  position: relative;
+  margin: auto;
+}
+
+.textBox {
+  text-align: right;
+  padding: 10px;
+  resize: vertical;
+  height: 50%;
+  margin-top: 30px;
+}
+
+.feedbackInput {
+  padding: 30px;
+  border-radius: 45px;
+  width: 75%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.addFeedback {
+  padding: 100px;
+  text-align: center;
+  margin: auto;
+}
+
+.addFeedbackButton {
+  text-align: center;
+  width: 10%;
+  border-radius: 45px;
+  margin: auto;
+  background-color: #f7afc2;
+  border-color: transparent;
+  color: white;
+  font-weight: bold;
+}
+
+.addFeedbackButton:hover {
+  background-color: #f587a4;
+  cursor: pointer;
+}
+
+.ratingContainer {
+  text-align: center;
+  border-radius: 45px;
+  background-color: white;
+  width: 75%;
+  margin: 50px auto auto;
+}
+
+.ratingButton {
+  box-sizing: content-box;
+}
+
+.rating-list li {
+  float: right;
+  color: #4b596e;
+  margin: auto 50px auto;
+  font-size: 120%;
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li,
+.rating-list li.selected {
+  color: #f7afc2;
+  cursor: pointer;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+  font-size: 300%;
+}
+
+.submitContainer {
+  margin: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.sendToUs {
+  font-size: 25px;
+  width: 20%;
+  background-color: #f7afc2;
+  border-radius: 45px;
+  border-color: transparent;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+}
+
+.sendToUs:hover {
+  background-color: #f587a4;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 30%;
+}
+
+.iconContainer svg {
+  width: 15%;
+  height: 15%;
+  fill: #f7afc2;
+}
+
+.iconContainer svg:hover {
+  fill: #f589a6;
+}

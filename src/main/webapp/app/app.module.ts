@@ -25,12 +25,15 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivitypage.component';
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
+import { FormsModule } from '@angular/forms';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     SharedModule,
     HomeModule,
+    FormsModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,
     // Set this to true to enable service worker (PWA)
@@ -52,8 +55,9 @@ import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.c
     FooterComponent,
     BookedactivitypageComponent,
     SelfactivitypageComponent,
+    FeedbackComponent,
   ],
-  bootstrap: [MainComponent],
+  bootstrap: [MainComponent, FeedbackComponent],
 })
 export class AppModule {
   constructor(applicationConfigService: ApplicationConfigService, iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig) {

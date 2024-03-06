@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
   constructor() {}
+  ngOnInit() {
+    this.selectedValue = 0;
+  }
 
-  ngOnInit(): void {}
+  feedbacks: any[] = [];
+  addFeedback() {
+    this.feedbacks.push({});
+  }
+
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue: number = 0;
+
+  countStar(star: number) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
+  }
 }
