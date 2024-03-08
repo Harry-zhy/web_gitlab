@@ -14,7 +14,7 @@ export class FeedbackComponent implements OnInit {
 
   feedbacks: any[] = [];
   addFeedback() {
-    this.feedbacks.push({});
+    this.feedbacks.push({ text: '' });
   }
 
   stars: number[] = [1, 2, 3, 4, 5];
@@ -33,10 +33,22 @@ export class FeedbackComponent implements OnInit {
   }
 
   switchToQuestionnaire() {
-    this.router.navigate(['/feedback/questionnaire']);
+    this.router.navigate(['/questionnaire']);
   }
 
   sendToUs() {
     this.router.navigate(['/success']);
+  }
+
+  isSendButtonEnabled() {
+    return this.selectedValue > 0;
+  }
+
+  showQuestionnaire: boolean = false;
+  isFeedbackVisible = true;
+  isSvgVisible = true;
+  toggleQuestionnaire() {
+    this.isFeedbackVisible = !this.isFeedbackVisible;
+    this.isSvgVisible = !this.isSvgVisible;
   }
 }

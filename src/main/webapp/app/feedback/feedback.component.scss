@@ -1,11 +1,19 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .heading {
   text-align: center;
   font-size: 300%;
   font-weight: bold;
   color: white;
-  padding: 30px;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -14,7 +22,8 @@ body {
   border-width: 300000px;
   border-top: 30000px;
   background-size: 300%;
-  height: 1000px;
+  min-height: 1000px;
+  max-height: 2000px;
 }
 
 .scrollableContainer {
@@ -22,15 +31,25 @@ body {
   overflow-y: auto;
 }
 
-.feedbacksContainer {
+.questionnaireContainer {
   position: relative;
-  min-height: 300px;
+  min-height: 600px;
   max-height: 500px;
   overflow-y: auto;
   width: 75%;
   background-color: white;
   border-radius: 45px;
+  margin: auto;
+}
+
+.feedbacksContainer {
   position: relative;
+  min-height: 300px;
+  max-height: 550px;
+  overflow-y: auto;
+  width: 75%;
+  background-color: white;
+  border-radius: 45px;
   margin: auto;
 }
 
@@ -39,7 +58,7 @@ body {
   padding: 10px;
   resize: vertical;
   height: 50%;
-  margin-top: 30px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -62,12 +81,14 @@ body {
   padding: 30px;
   border-radius: 45px;
   width: 75%;
-  height: 100%;
+  height: 10em;
+  font-size: 1.2em;
   box-sizing: border-box;
   resize: vertical;
   background-color: #f7afc2;
   color: white;
   border-color: transparent;
+  transition-duration: 0.3s;
 }
 
 .feedbackInput::placeholder {
@@ -75,43 +96,58 @@ body {
   font-style: italic;
 }
 
+.feedbackInput:hover {
+  filter: drop-shadow(0 0 5px rgb(245, 137, 166));
+}
+
 .feedbackInput:focus {
-  border-color: #f589a8;
-  border-width: 3px;
+  border-color: #b78491;
+  border-width: 2px;
   outline: none;
 }
 
 .addFeedback {
-  padding: 100px;
+  padding: 60px;
   text-align: center;
   margin: auto;
+  height: auto;
 }
 
 .addFeedbackButton {
   text-align: center;
-  width: 12%;
+  width: 7em;
   border-radius: 45px;
-  margin: auto;
   background-color: #f7afc2;
   border-color: transparent;
   color: white;
   font-weight: bold;
+  transition-duration: 0.3s;
 }
 
 .addFeedbackButton:hover {
   background-color: #f587a4;
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .deleteFeedbackButton {
+  font-size: 2em;
   position: absolute;
   top: 15%;
   right: 5%;
   cursor: pointer;
   color: white;
   font-weight: bold;
-  transform: scaleX(1.3);
+  rotate: 45deg;
+  //transform: scaleX(1.3);
   border-radius: 50px;
+  transition-duration: 0.2s;
+}
+
+.deleteFeedbackButton:hover {
+  color: #f87a7a;
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 2px #f589a6);
 }
 
 .ratingContainer {
@@ -123,8 +159,9 @@ body {
 
 .rating-list li {
   color: #4b596e;
-  margin: 10px 50px auto;
-  font-size: 120%;
+  margin: 10px 1em auto;
+  font-size: revert;
+  transition-duration: 0.2s;
 }
 
 .rating-list li:hover,
@@ -132,6 +169,7 @@ body {
 .rating-list li.selected {
   color: #f7afc2;
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .rating-list {
@@ -147,37 +185,66 @@ body {
   justify-content: center;
 }
 
-.sendToUs {
-  font-size: 25px;
-  width: 20%;
+.sendToUs,
+.Continue {
+  font-size: 1.5em;
+  width: 10em;
   background-color: #f7afc2;
   border-radius: 45px;
   border-color: transparent;
   color: white;
   font-weight: bold;
   position: absolute;
+  transition-duration: 0.2s;
 }
 
-.sendToUs:hover {
+.sendToUs[disabled] {
+  cursor: not-allowed;
+}
+
+.sendToUs[disabled]::after {
+  content: 'Please rate before sending';
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: none;
+}
+
+.sendToUs[disabled]:hover::after {
+  display: block;
+}
+
+.sendToUs:hover,
+.Continue:hover {
   background-color: #f587a4;
+  transform: scaleX(1.05);
 }
 
 .iconContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 30%;
+  margin-left: 20%;
 }
 
 .iconContainer svg {
-  width: 15%;
-  height: 15%;
+  width: 12%;
+  height: 12%;
   fill: #f7afc2;
+  transition-duration: 0.3s;
 }
 
 .iconContainer svg:hover {
   fill: #f589a6;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .iconContainer svg:focus {
