@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IQuestion } from '../entities/question/question.model';
 import { IMCQOption } from '../entities/mcq-option/mcq-option.model';
@@ -65,7 +65,6 @@ export class FeedbackComponent implements OnInit {
   userSelections: { [key: number]: number } = {};
 
   loadIntro() {
-    // Load intro data from backend or define it here
     this.introData = {
       id: 1,
       title: 'FeedBack Questionnaire',
@@ -75,43 +74,34 @@ export class FeedbackComponent implements OnInit {
   }
 
   loadQuestions() {
-    // Load questions from backend or define them here
     this.questions = [
       { id: 1, question: 'Question 1', quesType: QuesType.MULTI_CHOICE },
       { id: 2, question: 'Question 2', quesType: QuesType.FILL_IN },
       { id: 3, question: 'Question 3', quesType: QuesType.MULTI_CHOICE },
-      // Add more questions here
     ];
   }
 
   loadMCQOptions() {
-    // Load multiple choice options from backend or define them here
     this.mcqOptions = [
       { id: 1, value: 'Option 1', question: this.questions[0] },
       { id: 2, value: 'Option 2', question: this.questions[0] },
       { id: 3, value: 'Option 3', question: this.questions[0] },
-      // Add more options here
     ];
   }
   nextQuestion() {
     if (this.isIntro) {
-      // If currently in the intro section, move to the first question
       this.isIntro = false;
       this.currentQuestion = this.questions[0];
       this.currentQuestionIndex = 0;
     } else {
-      // If not in the intro section, move to the next question
       if (this.currentQuestionIndex < this.questions.length - 1) {
         this.currentQuestionIndex++;
         this.currentQuestion = this.questions[this.currentQuestionIndex];
       } else {
-        // Optionally, handle the end of questions
         console.log('End of questions.');
       }
     }
-    // Update the question number display
     this.updateQuestionNumber();
-    // Optionally, log user selections for debugging
     console.log('User Selections:', this.userSelections);
   }
 
@@ -135,5 +125,14 @@ export class FeedbackComponent implements OnInit {
   }
 
   protected readonly QuesType = QuesType;
-  userFillInAnswer: any;
+
+  @ViewChild('fileInput') fileInput: ElementRef | undefined;
+  triggerFileInputClick() {
+    // @ts-ignore
+    this.fileInput.nativeElement.click();
+  }
+
+  onFileSelected(event: any) {
+    const selectedFile = event.target.files[0];
+  }
 }

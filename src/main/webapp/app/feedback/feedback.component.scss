@@ -85,11 +85,13 @@ body {
   font-style: italic;
 }
 
-.feedbackInput:hover {
+.feedbackInput:hover,
+.fillInInput:hover {
   filter: drop-shadow(0 0 5px rgb(245, 137, 166));
 }
 
-.feedbackInput:focus {
+.feedbackInput:focus,
+.fillInInput:focus {
   border-color: #b78491;
   border-width: 2px;
   outline: none;
@@ -119,6 +121,21 @@ body {
   transform: scale(1.2);
 }
 
+.fileUpload {
+  width: 1.8em;
+  height: 1.8em;
+  cursor: pointer;
+  position: absolute;
+  right: 4.5%;
+  bottom: 20%;
+  fill: white;
+  transition-duration: 0.2s;
+}
+
+.fileUpload:hover {
+  transform: scale(1.2);
+}
+
 .deleteFeedbackButton {
   font-size: 2em;
   position: absolute;
@@ -134,7 +151,7 @@ body {
 }
 
 .deleteFeedbackButton:hover {
-  color: #f87a7a;
+  color: #ff6d6d;
   transform: scale(1.5);
   filter: drop-shadow(0 0 2px #f589a6);
 }
@@ -220,9 +237,19 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 0.8em;
   white-space: nowrap;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.3s;
+}
+
+.sendToUs[disabled]:hover::after,
+.back[disabled]:hover::after,
+.continue[disabled]:hover::after {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
 }
 
 .continue[disabled]::after {
@@ -235,9 +262,11 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 0.8em;
   white-space: nowrap;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.3s;
 }
 
 .back[disabled]::after {
@@ -250,9 +279,11 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 0.8em;
   white-space: nowrap;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.3s;
 }
 
 .sendToUs[disabled]:hover::after,
@@ -279,6 +310,7 @@ body {
   width: 12%;
   height: 12%;
   fill: #f7afc2;
+  position: relative;
   transition-duration: 0.3s;
 }
 
@@ -329,9 +361,56 @@ body {
   font-weight: bold;
 }
 
-.optionButton {
-  position: relative;
-  margin-right: 12px;
+.optionLabel input[type='radio'] {
+  display: none;
+}
+
+.optionLabel {
+  margin-top: 2em;
+}
+
+.optionLabel input[type='radio'] + span {
+  //default status
+  transition-duration: 0.3s;
+  font-size: 1.5em;
+  display: inline-block;
+  background-color: #f1bdc8;
+  border-radius: 45px;
+  width: 8em;
+  color: white;
+}
+
+.optionLabel input[type='radio'] + span:hover {
+  font-size: 2em;
+}
+
+.optionLabel input[type='radio']:checked + span {
+  //after clicked
+  background-color: #f589a6;
+  display: inline-block;
+  border-radius: 45px;
+  font-weight: bold;
+  width: 10em;
+  transform: scaleY(1.1);
+  color: white;
+}
+
+.fillInInput {
+  margin-top: 5em;
+  width: 50%;
+  height: 15em;
+  border-radius: 45px;
+  padding: 2em;
+  overflow-y: scroll;
+  background-color: #f3bec9;
+  transition-duration: 0.3s;
+  border: transparent;
+  color: white;
+}
+
+.fillInInput::placeholder {
+  color: white;
+  font-style: italic;
 }
 
 .questionNumber {
