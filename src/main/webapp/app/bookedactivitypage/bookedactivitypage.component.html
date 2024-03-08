@@ -1,9 +1,13 @@
 <div class="heading">
-  <div class="backbutton"></div>
+  <div class="backbutton">
+    <button class="back" (click)="backactivities()" clickable>back</button>
+  </div>
   <div class="companyName">
     <p class="companyNameText">Company Name</p>
   </div>
-  <div class="savebutton"></div>
+  <div class="savebutton">
+    <button class="save" (click)="saveactivitytoitinerary()" clickable>save</button>
+  </div>
 </div>
 
 <div>
@@ -29,6 +33,6 @@
 
 <div>
   <div class="nextCompanyButton">
-    <p>next company button will be here</p>
+    <button>next company</button>
   </div>
 </div>

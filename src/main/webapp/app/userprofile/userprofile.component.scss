@@ -57,7 +57,8 @@ body {
 
 .container {
   height: 50%;
-  width: 95%;
+  width: 100%;
+  max-width: 95%;
   background-color: #f9b0c3;
   border-radius: 16px;
   position: relative;
@@ -93,6 +94,11 @@ body {
   margin: 1.5em;
   padding: 10px;
   margin-bottom: 3em;
+}
+
+.pagebtn:hover {
+  background: #ffedf2;
+  box-shadow: 12px 12px #fccd3f;
 }
 
 h1 {
@@ -246,7 +252,7 @@ h1 {
     --stroke-width: 20px;
     --radius: calc((var(--size) - var(--stroke-width)) / 2);
     --circumference: calc(var(--radius) * pi * 2);
-    --dash: calc((var(--progress) * var(--circumference)) / 100);
+    --dash: calc((var(--dynamic-progress) * var(--circumference)) / 100);
     animation: progress-animation 4s linear 0s 1 forwards;
   }
 
@@ -281,10 +287,10 @@ h1 {
       --progress: 0;
     }
     to {
-      --progress: 68;
+      --progress: var(--dynamic-progress);
     }
   }
-}
+} //dont touch this xx
 
 .myContainer {
   h4,

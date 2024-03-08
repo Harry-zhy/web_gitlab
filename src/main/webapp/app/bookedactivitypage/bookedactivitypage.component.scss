@@ -37,6 +37,7 @@
   margin: 1em;
   display: inline-block;
   text-align: center;
+  border-radius: 12px;
 }
 
 .imagesSection {
@@ -46,33 +47,37 @@
   margin: 1em;
   display: inline-block;
   text-align: center;
+  border-radius: 12px;
 }
 
 .ratingSection {
   height: 200px;
-  width: 400px;
+  width: 33%;
   background-color: #e0dffd;
   margin: 1em;
   display: inline-block;
   text-align: center;
+  border-radius: 12px;
 }
 
 .profileSection {
   height: 200px;
-  width: 200px;
+  width: 24%;
   background-color: #e0dffd;
   margin: 1em;
   display: inline-block;
   text-align: center;
+  border-radius: 12px;
 }
 
 .contactDetailsSection {
   height: 200px;
-  width: 490px;
+  width: 35%;
   background-color: #e0dffd;
   margin: 1em;
   display: inline-block;
   text-align: center;
+  border-radius: 12px;
 }
 
 .nextCompanyButton {

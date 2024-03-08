@@ -1,6 +1,7 @@
 <head>
   <meta name="viewport" content="weight=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="userprofile.component.scss" />
+  <script src="userprofile.component.ts"></script>
 </head>
 
 <div class="WhiteBackground">
@@ -16,33 +17,34 @@
     <div class="checks-container">
       <!--Checkboxes-->
       <div class="checkbox-container">
-        <input type="checkbox" id="checkbox1" name="checkbox1" />
+        <input type="checkbox" id="checkbox1" name="checkbox1" (change)="isDateTime($event)" />
+
         <label for="checkbox1">Date and Time</label>
       </div>
 
       <div class="checkbox-container-purple">
-        <input type="checkbox" id="checkbox2" name="checkbox2" />
-        <label for="checkbox2">Guest List</label>
+        <input type="checkbox" id="checkbox2" name="checkbox2" (change)="isDecorations($event)" />
+        <label for="checkbox2">Decorations</label>
       </div>
 
       <div class="checkbox-container-lilac">
-        <input type="checkbox" id="checkbox3" name="checkbox3" />
+        <input type="checkbox" id="checkbox3" name="checkbox3" (change)="isVendors($event)" />
         <label for="checkbox3">Vendors</label>
       </div>
 
       <div class="checkbox-container-pink">
-        <input type="checkbox" id="checkbox4" name="checkbox4" />
+        <input type="checkbox" id="checkbox4" name="checkbox4" (change)="isVenue($event)" />
         <label for="checkbox4">Venue</label>
       </div>
     </div>
 
     <!--Progress bar-->
     <div class="svg-container">
-      <svg width="250" height="250" viewBox="0 0 250 250" class="circular-progress" style="--progress: 68">
+      <svg width="250" height="250" viewBox="0 0 250 250" class="circular-progress" style="--dynamic-progress: {{ progress }}">
         <!-- dynamic progress bar: use type/javascript to edit the --progress value to make it an accurate number-->
         <circle class="bg"></circle>
         <text x="60" y="125" fill="white" font-size="20px">Total Progress:</text>
-        <text x="100" y="150" fill="white" font-size="20px">68%</text>
+        <text x="100" y="150" fill="white" font-size="20px">{{ progress }}%</text>
         <circle class="fg"></circle>
       </svg>
     </div>

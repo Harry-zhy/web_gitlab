@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivitiesService } from 'app/activities/activities.service';
+import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
 
 @Component({
   selector: 'jhi-activities',
@@ -12,11 +14,10 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  bookpage(): void {
+  getbookedcompanyNames(): Observable<any> {
     this.router.navigate(['/bookactivitypage']);
+    let flag: boolean = false;
+    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity({ flag });
+    return allCompaniesNames;
   }
-
-  //  getBookedActivityNames(): void{
-  //    flag: boolean = false;
-  //    this.activitiesService.gettingallbookedactivity({flag})}
 }

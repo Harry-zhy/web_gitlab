@@ -2,6 +2,7 @@ package team.bham.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -177,11 +178,15 @@ public class ActivityCompanyResource {
      * @param activity the activity which filters the returned companies.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of activityCompanies in body.
      */
-    //    @GetMapping("/activity-companies")
-    //    public List<ActivityCompany> getAllActivityCompanies(@RequestParam BookedActivity activity) {
-    //        bookedActivityService.getcompaniesFromBookedActivity(activity);
-    //        return activityCompanyRepository.findAll();
-    //    }
+    @GetMapping("/activity-companiesNames")
+    public String[] getAllActivityCompaniesNames(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        String[] names = new String[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            names[i] = companiesEntities.get(i).getName();
+        }
+        return names;
+    }
 
     /**
      * {@code GET  /activity-companies/:id} : get the "id" activityCompany.
