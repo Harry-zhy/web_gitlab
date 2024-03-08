@@ -31,17 +31,6 @@ body {
   overflow-y: auto;
 }
 
-.questionnaireContainer {
-  position: relative;
-  min-height: 600px;
-  max-height: 500px;
-  overflow-y: auto;
-  width: 75%;
-  background-color: white;
-  border-radius: 45px;
-  margin: auto;
-}
-
 .feedbacksContainer {
   position: relative;
   min-height: 300px;
@@ -185,8 +174,21 @@ body {
   justify-content: center;
 }
 
+.back {
+  font-size: 1.5em;
+  width: 8em;
+  background-color: #f7afc2;
+  border-radius: 45px;
+  border-color: transparent;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  left: 35%;
+  transition-duration: 0.2s;
+}
+
 .sendToUs,
-.Continue {
+.continue {
   font-size: 1.5em;
   width: 10em;
   background-color: #f7afc2;
@@ -198,7 +200,13 @@ body {
   transition-duration: 0.2s;
 }
 
-.sendToUs[disabled] {
+.continue {
+  left: 50%;
+}
+
+.sendToUs[disabled],
+.continue[disabled],
+.back[disabled] {
   cursor: not-allowed;
 }
 
@@ -217,12 +225,45 @@ body {
   display: none;
 }
 
-.sendToUs[disabled]:hover::after {
+.continue[disabled]::after {
+  content: 'No more questions';
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: none;
+}
+
+.back[disabled]::after {
+  content: 'No more questions';
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: none;
+}
+
+.sendToUs[disabled]:hover::after,
+.back[disabled]:hover::after,
+.continue[disabled]:hover::after {
   display: block;
 }
 
 .sendToUs:hover,
-.Continue:hover {
+.continue:hover,
+.back:hover {
   background-color: #f587a4;
   transform: scaleX(1.05);
 }
@@ -249,4 +290,54 @@ body {
 
 .iconContainer svg:focus {
   outline: none;
+}
+
+.questionnaireContainer {
+  position: relative;
+  min-height: 600px;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 75%;
+  background-color: white;
+  border-radius: 45px;
+  margin: auto;
+}
+
+.introTitle {
+  font-weight: bold;
+  font-size: 2em;
+  padding: 1em;
+}
+
+.introSalutation {
+  position: absolute;
+  left: 10%;
+  font-weight: bold;
+}
+
+.introBody {
+  width: 80%;
+  text-align: left;
+  position: absolute;
+  left: 10%;
+  top: 25%;
+}
+
+.question {
+  font-size: 2em;
+  margin-top: 3em;
+  font-weight: bold;
+}
+
+.optionButton {
+  position: relative;
+  margin-right: 12px;
+}
+
+.questionNumber {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #f7afc2;
+  position: absolute;
+  left: 25%;
 }

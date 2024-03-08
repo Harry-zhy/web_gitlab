@@ -5,7 +5,33 @@
 
   <div class="scrollableContainer">
     <div class="questionnaireContainer" [ngClass]="{ hidden: isFeedbackVisible }">
-      <div class="question">no questions provided yet</div>
+      <div class="introTitle" *ngIf="isIntro && introData">{{ introData.title }}</div>
+      <div class="introSalutation" *ngIf="isIntro && introData">{{ introData.salutation }}</div>
+      <div class="introBody" *ngIf="isIntro && introData">{{ introData.body }}</div>
+      <div class="question" *ngIf="!isIntro && currentQuestion">{{ currentQuestion.question }}</div>
+      <div class="options" *ngIf="!isIntro && currentQuestion">
+        <ng-container *ngIf="currentQuestion.quesType === QuesType.MULTI_CHOICE">
+          <div class="optionButton" *ngFor="let option of mcqOptions; let i = index">
+            <label>
+              <input
+                class="radio"
+                type="radio"
+                name="mcqOption{{ currentQuestion.id }}"
+                [value]="option.id"
+                [(ngModel)]="userSelections[currentQuestion.id]"
+              />
+              {{ option.value }}
+            </label>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="currentQuestion.quesType === QuesType.FILL_IN">
+          <input class="fillInInput" type="text" placeholder="Type your answer here..." [(ngModel)]="userSelections[currentQuestion.id]" />
+        </ng-container>
+        <ng-container *ngIf="currentQuestion.quesType === QuesType.PARENT_QUESTION">
+          <!-- Display parent question options -->
+          <!-- Add your HTML for parent question options here -->
+        </ng-container>
+      </div>
     </div>
     <div class="feedbacksContainer" [ngClass]="{ hidden: !isFeedbackVisible }">
       <div class="textBox" *ngFor="let feedback of feedbacks; let i = index">
@@ -13,7 +39,7 @@
           <div class="circle">{{ i + 1 }}</div>
         </div>
         <textarea class="feedbackInput" placeholder="Tell us your feedback here..."></textarea>
-        <span class="deleteFeedbackButton" (click)="deteleFeedback(feedback)">+</span>
+        <span class="deleteFeedbackButton" (click)="deleteFeedback(feedback)">+</span>
       </div>
       <div class="addFeedback">
         <button class="addFeedbackButton" (click)="addFeedback()">+add</button>
@@ -28,7 +54,9 @@
     </ul>
   </div>
   <div class="submitContainer">
-    <button class="Continue" *ngIf="!isSvgVisible">Continue</button>
+    <div class="questionNumber" *ngIf="!isSvgVisible">{{ updateQuestionNumber() }}/{{ questions.length }}</div>
+    <button class="back" *ngIf="!isSvgVisible" (click)="previousQuestion()" [disabled]="atFrontOfQuestions()">Back</button>
+    <button class="continue" *ngIf="!isSvgVisible" (click)="nextQuestion()" [disabled]="atEndOfQuestions()">Continue</button>
     <button
       class="sendToUs"
       *ngIf="isSvgVisible"
