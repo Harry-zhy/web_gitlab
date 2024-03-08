@@ -1,0 +1,85 @@
+.filter-menu {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-color: white;
+}
+
+.caterers {
+  background-color: white;
+  width: 70%;
+  float: left;
+}
+
+.menu {
+  column-fill: white;
+  float: left;
+}
+.miniMenu {
+  margin-bottom: 10px;
+  width: 330px;
+  font-size: 15px;
+}
+
+.collapsible {
+  background-color: #e0dffd;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+
+.icon {
+  height: 22px;
+  width: 45px;
+  padding-left: 5px;
+}
+
+.cuisineColumns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftColumnCuisine {
+  width: 45%;
+}
+.rightColumnCuisine {
+  width: 55%;
+}
+.dietaryColumns {
+  display: flex;
+}
+
+.leftColumDietary {
+  width: 32%;
+  margin-right: 42px;
+}
+
+.rightColumDietary {
+  width: 28%;
+}
+.courseColumns {
+  display: flex;
+}
+
+.leftColumnCourse {
+  width: 32%;
+  margin-right: 42px;
+}
+
+.rightColumnCourse {
+  width: 28%;
+}
+
+.catererBox {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  margin-bottom: 70px;
+  margin-right: 70px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
