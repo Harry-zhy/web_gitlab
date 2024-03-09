@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="feedbacksContainer" [ngClass]="{ hidden: !isFeedbackVisible }">
-      <div class="textBox" *ngFor="let feedback of feedbacks; let i = index">
+      <div class="textBox" *ngFor="let feedback of feedbacks; let i = index" [ngClass]="{ show: isFeedbackVisible }">
         <div class="feedbackItem">
           <div class="circle">{{ i + 1 }}</div>
         </div>

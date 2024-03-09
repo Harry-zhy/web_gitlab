@@ -6,7 +6,7 @@
 
 .heading {
   text-align: center;
-  font-size: 300%;
+  font-size: 5vmin;
   font-weight: bold;
   color: white;
   padding: 10px;
@@ -17,17 +17,16 @@
 }
 
 body {
-  text-align: center;
+  //text-align: center;
   background-color: #172c49;
   border-width: 300000px;
   border-top: 30000px;
-  background-size: 300%;
-  min-height: 1000px;
+  min-height: 900px;
   max-height: 2000px;
 }
 
 .scrollableContainer {
-  max-height: 1000px;
+  max-height: 80vh;
   overflow-y: auto;
 }
 
@@ -36,8 +35,8 @@ body {
   min-height: 300px;
   max-height: 550px;
   overflow-y: auto;
-  width: 75%;
   background-color: white;
+  width: 70vw;
   border-radius: 45px;
   margin: auto;
 }
@@ -45,7 +44,6 @@ body {
 .textBox {
   text-align: right;
   padding: 10px;
-  resize: vertical;
   height: 50%;
   margin-top: 10px;
   position: relative;
@@ -68,16 +66,17 @@ body {
 
 .feedbackInput {
   padding: 30px;
-  border-radius: 45px;
-  width: 75%;
-  height: 10em;
-  font-size: 1.2em;
+  border-radius: 5vmin;
+  width: 70%;
+  height: 20vmin;
+  max-height: 30vh;
+  font-size: 1.4vw;
   box-sizing: border-box;
   resize: vertical;
   background-color: #f7afc2;
   color: white;
   border-color: transparent;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
 }
 
 .feedbackInput::placeholder {
@@ -106,7 +105,8 @@ body {
 
 .addFeedbackButton {
   text-align: center;
-  width: 7em;
+  width: 9vw;
+  font-size: 1.5vw;
   border-radius: 45px;
   background-color: #f7afc2;
   border-color: transparent;
@@ -122,12 +122,12 @@ body {
 }
 
 .fileUpload {
-  width: 1.8em;
-  height: 1.8em;
+  width: 1.5vmax;
+  height: 1.5vmax;
   cursor: pointer;
   position: absolute;
-  right: 4.5%;
-  bottom: 20%;
+  right: 5vmin;
+  bottom: 3vmax;
   fill: white;
   transition-duration: 0.2s;
 }
@@ -137,36 +137,35 @@ body {
 }
 
 .deleteFeedbackButton {
-  font-size: 2em;
+  font-size: 2vmax;
   position: absolute;
-  top: 15%;
-  right: 5%;
+  top: 3vmin;
+  right: 5.3vmin;
   cursor: pointer;
   color: white;
   font-weight: bold;
   rotate: 45deg;
-  //transform: scaleX(1.3);
   border-radius: 50px;
   transition-duration: 0.2s;
 }
 
 .deleteFeedbackButton:hover {
   color: #ff6d6d;
-  transform: scale(1.5);
+  transform: scale(1.3);
   filter: drop-shadow(0 0 2px #f589a6);
 }
 
 .ratingContainer {
   border-radius: 45px;
   background-color: white;
-  width: 75%;
-  margin: 50px auto auto;
+  width: 70vw;
+  text-align: center;
+  margin: 50px auto auto auto;
 }
 
 .rating-list li {
   color: #4b596e;
   margin: 10px 1em auto;
-  font-size: revert;
   transition-duration: 0.2s;
 }
 
@@ -179,9 +178,8 @@ body {
 }
 
 .rating-list {
-  display: inline-block;
-  list-style: none;
-  font-size: 300%;
+  display: inline-flex;
+  font-size: 3.6vmin;
 }
 
 .submitContainer {
@@ -192,22 +190,22 @@ body {
 }
 
 .back {
-  font-size: 1.5em;
-  width: 8em;
+  font-size: 2vw;
+  width: 12vw;
   background-color: #f7afc2;
   border-radius: 45px;
   border-color: transparent;
   color: white;
   font-weight: bold;
   position: absolute;
-  left: 35%;
+  left: 30vw;
   transition-duration: 0.2s;
 }
 
 .sendToUs,
 .continue {
-  font-size: 1.5em;
-  width: 10em;
+  font-size: 2vmin;
+  width: 25vmin;
   background-color: #f7afc2;
   border-radius: 45px;
   border-color: transparent;
@@ -218,7 +216,8 @@ body {
 }
 
 .continue {
-  left: 50%;
+  width: 20vw;
+  left: 47vw;
 }
 
 .sendToUs[disabled],
@@ -303,12 +302,12 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 20%;
+  margin-left: 55vw;
 }
 
 .iconContainer svg {
-  width: 12%;
-  height: 12%;
+  width: 5vw;
+  height: 5vw;
   fill: #f7afc2;
   position: relative;
   transition-duration: 0.3s;
@@ -325,11 +324,12 @@ body {
 }
 
 .questionnaireContainer {
+  text-align: center;
   position: relative;
-  min-height: 600px;
-  max-height: 500px;
+  min-height: 50vh;
+  max-height: 80vh;
   overflow-y: auto;
-  width: 75%;
+  width: 70vw;
   background-color: white;
   border-radius: 45px;
   margin: auto;
@@ -337,27 +337,31 @@ body {
 
 .introTitle {
   font-weight: bold;
-  font-size: 2em;
-  padding: 1em;
+  font-size: 2vh;
+  padding: 3vh;
 }
 
 .introSalutation {
   position: absolute;
-  left: 10%;
+  font-size: 1.8vh;
+  left: 3vw;
+  padding: 1vw;
+  top: 15%;
   font-weight: bold;
 }
 
 .introBody {
-  width: 80%;
+  font-size: 1.5vh;
   text-align: left;
   position: absolute;
-  left: 10%;
+  padding: 1vw;
+  left: 3vw;
   top: 25%;
 }
 
 .question {
-  font-size: 2em;
-  margin-top: 3em;
+  font-size: 2vh;
+  margin-top: 5vh;
   font-weight: bold;
 }
 
@@ -366,22 +370,26 @@ body {
 }
 
 .optionLabel {
-  margin-top: 2em;
+  margin-top: 4vh;
 }
 
 .optionLabel input[type='radio'] + span {
-  //default status
+  //default state
   transition-duration: 0.3s;
-  font-size: 1.5em;
+  font-size: 2vh;
   display: inline-block;
   background-color: #f1bdc8;
   border-radius: 45px;
-  width: 8em;
+  width: 15vh;
   color: white;
 }
 
 .optionLabel input[type='radio'] + span:hover {
-  font-size: 2em;
+  //hover state
+  transform: scale(1.2);
+  font-size: 2.3vh;
+  filter: drop-shadow(0 0 10px #f3bec9);
+  width: 18vh;
 }
 
 .optionLabel input[type='radio']:checked + span {
@@ -390,15 +398,15 @@ body {
   display: inline-block;
   border-radius: 45px;
   font-weight: bold;
-  width: 10em;
+  width: 18vh;
   transform: scaleY(1.1);
   color: white;
 }
 
 .fillInInput {
-  margin-top: 5em;
-  width: 50%;
-  height: 15em;
+  margin-top: 5vh;
+  width: 60vmin;
+  height: 15vh;
   border-radius: 45px;
   padding: 2em;
   overflow-y: scroll;
@@ -406,17 +414,19 @@ body {
   transition-duration: 0.3s;
   border: transparent;
   color: white;
+  font-size: 1.5vh;
 }
 
 .fillInInput::placeholder {
   color: white;
+  font-size: 1.5vh;
   font-style: italic;
 }
 
 .questionNumber {
-  font-size: 1.6em;
+  font-size: 2vw;
   font-weight: bold;
   color: #f7afc2;
   position: absolute;
-  left: 25%;
+  left: 20vw;
 }
