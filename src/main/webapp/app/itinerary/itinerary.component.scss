@@ -2,7 +2,7 @@
 $light-pink: #ffdee7;
 $dark-pink: #f9b0c3;
 $myyellow: #ffc212;
-$light-blue: #e0dffd;
+$light-purple: #e0dffd;
 $purple: #7769c6;
 $dark-blue: #172c49;
 
@@ -16,6 +16,7 @@ $dark-blue: #172c49;
 }
 
 .whiteBackground {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
@@ -25,14 +26,18 @@ $dark-blue: #172c49;
 
 .pinkBox {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
+  align-self: center;
+  position: relative;
 
   width: 100%;
   max-width: 95%; //makes it fit to screen and adjust with size of screen
-  height: 250px;
+  height: 330px;
   background-color: #f9b0c3;
   border-radius: 10px;
-  padding: 20px;
+  padding-bottom: 20px;
   margin: 1.5em;
 }
 
@@ -41,4 +46,157 @@ h1 {
   color: #ffffff;
   text-align: center;
   text-shadow: 4px 4px #ffc212;
+}
+
+h4 {
+  font-size: 40px;
+  position: relative;
+  top: 0;
+  margin-left: 25px;
+  color: $dark-blue;
+  margin-bottom: -2px;
+}
+
+.miniHeader {
+  margin-top: 20px;
+}
+
+.custom-icon {
+  color: $light-purple;
+}
+
+span {
+  color: #ffffff;
+  align-items: center;
+}
+
+p {
+  font-size: 15px;
+  color: #172c49;
+  margin-left: 25px;
+  margin-bottom: -20px;
+}
+
+//number of guests styling
+.guestsButton {
+  background-color: $light-purple;
+  color: $dark-blue;
+  border-radius: 10px;
+  border: none;
+  outline: none !important;
+  width: 30%;
+  height: 100%;
+  box-shadow: 10px 10px $myyellow;
+  background-size: cover;
+  display: block;
+  margin-bottom: 20px;
+
+  padding-bottom: 160px;
+  font-size: 25px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+
+  width: 100%;
+  max-width: 95%; //makes it fit to screen and adjust with size of screen
+  height: 250px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 1em;
+  margin-bottom: 20px;
+}
+
+.guestsButton:hover,
+.guestsButton.clicked {
+  background-color: #f3f2ff;
+  box-shadow: 5px 5px $myyellow;
+}
+
+#guestBtn1 {
+  background-image: url('/content/images/itineraryImages/button1.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#guestBtn2 {
+  background-image: url('/content/images/itineraryImages/button2.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#guestBtn3 {
+  background-image: url('/content/images/itineraryImages/button3.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+// secrert hidden search box
+.inputContainer {
+  padding: 20px;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 50%;
+  text-align: center;
+}
+
+.inputContainer input {
+  width: 60%;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+// location search bar styling:
+body {
+  background: #fff;
+  font-family: sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid $myyellow;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: $light-purple;
+}
+
+.searchTerm:focus {
+  color: $dark-blue;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid $myyellow;
+  background: $myyellow;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap {
+  width: 80%;
+  position: absolute;
+  margin-top: -10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

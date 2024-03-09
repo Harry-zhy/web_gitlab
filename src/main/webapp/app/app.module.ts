@@ -1,5 +1,5 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/en';
 import { BrowserModule, Title } from '@angular/platform-browser';
@@ -27,6 +27,7 @@ import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivity
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
 import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { ItineraryComponent } from './itinerary/itinerary.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     SharedModule,
     HomeModule,
     FormsModule,
+    CommonModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,
     // Set this to true to enable service worker (PWA)
@@ -56,6 +58,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     BookedactivitypageComponent,
     SelfactivitypageComponent,
     FeedbackComponent,
+    ItineraryComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })
