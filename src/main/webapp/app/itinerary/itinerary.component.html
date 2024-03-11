@@ -1,9 +1,71 @@
+<head>
+  <script src="https://kit.fontawesome.com/3543c81e40.js" crossorigin="anonymous"></script>
+</head>
+
 <div class="header">
   <h1>Event Itinerary</h1>
+  <span>Begin planning your perfect event here!</span>
 </div>
 
 <div class="WhiteBackground">
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-people-group custom-icon"></i> Number of Guests</h4>
+    <p>Select how many guests you are inviting to this event</p>
+  </div>
   <div class="pinkBox">
-    <p>hey</p>
+    <div class="buttonsContainer">
+      <button id="guestBtn1" (click)="toggleClicked(0); toggleGuestsButton(0)" [class.clicked]="buttonStates[0]" class="guestsButton">
+        2-5
+      </button>
+      <button id="guestBtn2" (click)="toggleClicked(1); toggleGuestsButton(1)" [class.clicked]="buttonStates[1]" class="guestsButton">
+        6-9
+      </button>
+      <button id="guestBtn3" (click)="toggleClicked(2); toggleGuestsButton(2)" [class.clicked]="buttonStates[2]" class="guestsButton">
+        10+
+      </button>
+    </div>
+    <div class="inputContainer" *ngIf="showInputBox">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="How Many Guests?" />
+        <button type="submit" class="searchButton">
+          <i class="fa-solid fa-share fa-rotate-180"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-regular fa-calendar-check custom-icon"></i> Date and Time</h4>
+    <p>Pick a date and a time for your event to start</p>
+  </div>
+  <div class="pinkBox">
+    <p>not decided which one to use yet</p>
+    <input type="datetime-local" id="date" />
+    <input type="date" />
+    <input type="time" />
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-location-dot custom-icon"></i> Location</h4>
+    <p>Find a location or book a venue!</p>
+  </div>
+  <div class="pinkBox">
+    <p>location box</p>
+    <div class="wrap">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="Your Location Here" />
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-user-plus custom-icon"></i> Vendors</h4>
+    <p>get the workers</p>
+  </div>
+  <div class="pinkBox">
+    <p>vendors box</p>
   </div>
 </div>
