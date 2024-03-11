@@ -295,9 +295,6 @@ relationship OneToOne {
     Feedbacks{rating} to Rating
 }
 
-
-
-
 //Notification
 entity Message {
     content String,

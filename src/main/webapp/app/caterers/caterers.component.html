@@ -1,1 +1,174 @@
-<p>caterers works!</p>
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sort By</title>
+  <link rel="stylesheet href=catrerers.component.scss" />
+  <script src="caters.component.ts"></script>
+</head>
+<body>
+  <div class="filter-menu">
+    <div class="menu">
+      <div class="miniMenu">
+        <button class="collapsible">Rating</button>
+        <div class="ratingsOptions">
+          <input type="checkbox" id="fiveStars" name="fiveStars" value="5 stars" />
+          <label class="fiveStarsLabel" for="fiveStars">5 stars ★ ★ ★ ★ ★</label><br />
+          <input type="checkbox" id="fourStars" name="fourStars" value="4 stars" />
+          <label for="fourStars">4 stars ★ ★ ★ ★</label><br />
+          <input type="checkbox" id="threeStars" name="threeStars" value="3 stars" />
+          <label for="threeStars">3 stars ★ ★ ★</label><br />
+          <input type="checkbox" id="twoStars" name="twoStars" value="2 stars" />
+          <label for="twoStars">2 stars ★ ★</label><br />
+        </div>
+      </div>
+      <div class="miniMenu">
+        <button class="collapsible">Cuisine</button>
+        <div class="cuisineOptions">
+          <div class="cuisineColumns">
+            <div class="leftColumnCuisine">
+              <input type="checkbox" id="American" name="American" value="American" />
+              <label for="American">American<img src="content/images/catererImages/American.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="African" name="African" value="African" />
+              <label for="African">African <img src="content/images/catererImages/Africa-outline.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="Asian" name="Asian" value="Asian" />
+              <label for="Asian">Asian <img src="content/images/catererImages/Asia%20outline.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="Brazilian" name="Brazilian" value="Brazilian" />
+              <label for="Brazilian">Brazilian <img src="content/images/catererImages/brazil%20flag.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="British" name="British" value="British" />
+              <label for="British">British <img src="content/images/catererImages/British%20flag.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="Caribbean" name="Caribbean" value="Caribbean" />
+              <label for="Caribbean">Caribbean <img src="content/images/catererImages/caribbean-outline.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="Chinese" name="Chinese" value="Chinese" />
+              <label for="Chinese">Chinese<img src="content/images/catererImages/china%20flag.png" class="icon" /> </label><br />
+
+              <input type="checkbox" id="European" name="European" value="European" />
+              <label for="European">European <img src="content/images/catererImages/europe.png" class="icon" /> </label><br />
+
+              <input type="checkbox" id="Greek" name="Greek" value="Greek" />
+              <label for="Greek" class="cuisineLabel">Greek <img src="content/images/catererImages/greek.png" class="icon" /></label><br />
+
+              <input type="checkbox" id="Indian" name="Indian" value="Indian" />
+              <label for="Indian">Indian <img src="content/images/catererImages/india.png" class="icon" /> </label> <br />
+            </div>
+            <div class="rightColumnCuisine">
+              <input type="checkbox" id="Italian" name="Italian" value="Italian" />
+              <label for="Italian">Italian <img src="content/images/catererImages/Flag_of_Italy.png" class="icon" /></label> <br />
+
+              <input type="checkbox" id="Japanese" name="Japanese" value="Japanese" />
+              <label for="Japanese">Japanese <img src="content/images/catererImages/japan%20flag.png" class="icon" /> </label> <br />
+
+              <input type="checkbox" id="Korean" name="Korean" value="Korean" />
+              <label for="Korean">Korean <img src="content/images/catererImages/korean%20flag.png" class="icon" /></label> <br />
+
+              <input type="checkbox" id="Mediterranean" name="Mediterranean" value="Mediterranean" />
+              <label for="Mediterranean"
+                >Mediterranean <img src="content/images/catererImages/Mediterranean%20outline.png" class="icon" />
+              </label>
+              <br />
+
+              <input type="checkbox" id="Mexican" name="Mexican" value="Mexican" />
+              <label for="Mexican">Mexican <img src="content/images/catererImages/mexican%20flag.png" class="icon" /></label> <br />
+
+              <input type="checkbox" id="Middle Eastern" name="Middle Eastern" value="Middle Eastern" />
+              <label for="Middle Eastern"
+                >Middle Eastern <img src="content/images/catererImages/middle%20east%20outline.png" class="icon"
+              /></label>
+              <br />
+
+              <input type="checkbox" id="South American" name="South American" value="South American" />
+              <label for="South American"
+                >South American <img src="content/images/catererImages/south%20america.png" class="icon" />
+              </label>
+              <br />
+
+              <input type="checkbox" id="Turkish" name="Turkish" value="Turkish" />
+              <label for="Turkish">Turkish <img src="content/images/catererImages/turkey.png" class="icon" /></label> <br />
+
+              <input type="checkbox" id="Thai" name="Thai" value="Thai" />
+              <label for="Thai">Thai <img src="content/images/catererImages/thai.png" class="icon" /></label> <br />
+
+              <input type="checkbox" id="Vietnamese" name="Vietnamese" value="Vietnamese" />
+              <label for="Vietnamese">Vietnamese <img src="content/images/catererImages/vietnam.png" class="icon" /> </label> <br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="miniMenu">
+        <button class="collapsible">Dietary</button>
+        <div class="dietaryOptions">
+          <div class="dietaryColumns">
+            <div class="leftColumDietary">
+              <input type="checkbox" id="Beef Free" name="Beef Free" value="Beef Free" />
+              <label for="Beef Free">Beef Free</label><br />
+              <input type="checkbox" id="Fish Free" name="Fish Free" value="Fish Free" />
+              <label for="Fish Free">Fish Free</label><br />
+              <input type="checkbox" id="Gluten Free" name="Gluten Free" value="Gluten Free" />
+              <label for="Gluten Free">Gluten Free</label><br />
+              <input type="checkbox" id="Halal" name="Halal" value="Halal" />
+              <label for="Halal">Halal</label><br />
+              <input type="checkbox" id="Kosher" name="Kosher" value="Kosher" />
+              <label for="Kosher">Kosher</label><br />
+              <input type="checkbox" id="Lactose Free" name="Lactose Free" value="Lactose Free" />
+              <label for="Lactose Free">Lactose Free</label><br />
+              <input type="checkbox" id="No Alcohol" name="No Alcohol" value="No Alcohol" />
+              <label for="No Alcohol">No Alcohol</label><br />
+            </div>
+            <div class="rightColumDietary">
+              <input type="checkbox" id="Nut Free" name="Nut Free" value="Nut Free" />
+              <label for="Nut Free">Nut Free</label><br />
+              <input type="checkbox" id="Organic" name="Organic" value="Organic" />
+              <label for="Organic">Organic</label><br />
+              <input type="checkbox" id="Pork Free" name="Pork Free" value="Pork Free" />
+              <label for="Pork Free">Pork Free</label><br />
+              <input type="checkbox" id="Sugar Free" name="Sugar Free" value="Sugar Free" />
+              <label for="Sugar Free">Sugar Free</label><br />
+              <input type="checkbox" id="Vegan" name="Vegan" value="Vegan" />
+              <label for="Vegan">Vegan</label><br />
+              <input type="checkbox" id="Vegetarian" name="Vegetarian" value="Vegetarian" />
+              <label for="Vegetarian">Vegetarian</label><br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="miniMenu">
+        <button class="collapsible">Course</button>
+        <div class="courseOptions">
+          <div class="courseColumns">
+            <div class="leftColumnCourse">
+              <input type="checkbox" id="Desserts" name="Desserts" value="Desserts" />
+              <label for="Desserts">Desserts</label><br />
+              <input type="checkbox" id="Drinks" name="Drinks" value="Drinks" />
+              <label for="Drinks">Drinks</label><br />
+            </div>
+            <div class="rightColumnCourse">
+              <input type="checkbox" id="Mains" name="Mains" value="Mains" />
+              <label for="Mains">Mains</label><br />
+              <input type="checkbox" id="Starters" name="Starters" value="Starters" />
+              <label for="Starters">Starters</label><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="caterers">
+    <h2>See All</h2>
+    <div class="container">
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+      <div class="catererBox"></div>
+    </div>
+  </div>
+</body>
