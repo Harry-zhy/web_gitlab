@@ -2,6 +2,7 @@
 $light-pink: #ffdee7;
 $dark-pink: #f9b0c3;
 $myyellow: #ffc212;
+$hover-purple: #f3f2ff;
 $light-purple: #e0dffd;
 $purple: #7769c6;
 $dark-blue: #172c49;
@@ -31,10 +32,11 @@ $dark-blue: #172c49;
   justify-content: space-between;
   align-self: center;
   position: relative;
+  overflow: auto;
 
   width: 100%;
   max-width: 95%; //makes it fit to screen and adjust with size of screen
-  height: 330px;
+  height: auto; //330px;
   background-color: #f9b0c3;
   border-radius: 10px;
   padding-bottom: 20px;
@@ -140,9 +142,10 @@ p {
 .inputContainer {
   padding: 20px;
   margin-top: auto;
-  position: absolute;
+  //position: absolute;
+  align-self: center;
   bottom: 0;
-  left: 30%;
+  //left: 30%;
   width: 50%;
   text-align: center;
 }
@@ -151,6 +154,73 @@ p {
   width: 60%;
   align-content: center;
   box-sizing: border-box;
+}
+
+//date time and clock styling
+
+#clockContainer {
+  position: relative;
+  margin: auto;
+  height: 40vw;
+  /*to make the height and width responsive*/
+  width: 40vw;
+  //background: url(clock.png) no-repeat;
+  /*setting our background image*/
+  background-size: 100%;
+}
+
+//date time calendar styling
+.calendarBox {
+  background: $light-purple;
+  width: 90%;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px $myyellow;
+}
+
+#calendar {
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-row-gap: 5px;
+  padding: 5px;
+
+  .day-wrapper {
+    //padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .day {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: $light-purple;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #172c49;
+
+    &:hover {
+      background-color: $light-pink;
+    }
+
+    &.selected {
+      background-color: $dark-pink;
+      color: white;
+    }
+  }
+  .empty-day {
+    visibility: hidden;
+  }
 }
 
 // location search bar styling:

@@ -39,10 +39,26 @@
     <p>Pick a date and a time for your event to start</p>
   </div>
   <div class="pinkBox">
-    <p>not decided which one to use yet</p>
-    <input type="datetime-local" id="date" />
-    <input type="date" />
-    <input type="time" />
+    <div class="calendarBox">
+      <button (click)="nextMonth()">Next Month</button>
+      <div>{{ currentMonthName }} {{ currentDate.getFullYear() }}</div>
+      <button (click)="prevMonth()">Prev Month</button>
+      <div id="calendar">
+        <div class="day-wrapper" *ngFor="let day of daysInMonth">
+          <div
+            *ngIf="day !== null"
+            class="day"
+            #dayElement
+            (click)="selectDate(day, dayElement)"
+            (mouseenter)="highlightDay(dayElement)"
+            (mouseleave)="removeHighlight(dayElement)"
+          >
+            {{ day }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
   </div>
 
   <div class="miniHeader">
