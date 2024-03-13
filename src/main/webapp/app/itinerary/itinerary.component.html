@@ -63,7 +63,13 @@
         <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
       </div>
       <div class="timeBox">
-        <p>heyyy</p>
+        <select [(ngModel)]="selectedHour">
+          <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+        </select>
+        <span>:</span>
+        <select [(ngModel)]="selectedMinute">
+          <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+        </select>
       </div>
     </div>
   </div>

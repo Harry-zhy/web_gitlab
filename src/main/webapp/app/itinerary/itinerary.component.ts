@@ -7,7 +7,9 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit {
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) {
+    this.initializeTimeOptions();
+  }
 
   buttonStates: boolean[] = [false, false, false];
   showInputBox: boolean = false;
@@ -20,6 +22,11 @@ export class ItineraryComponent implements OnInit {
 
   currentMonth: number = 0;
   currentYear: number = 0;
+
+  hours: number[] = [];
+  minutes: number[] = [];
+  selectedHour: number = 0;
+  selectedMinute: number = 0;
 
   ngOnInit(): void {
     //number of guests
@@ -132,5 +139,14 @@ export class ItineraryComponent implements OnInit {
       'December',
     ];
     return monthNames[monthIndex];
+  }
+
+  initializeTimeOptions() {
+    for (let i = 0; i < 24; i++) {
+      this.hours.push(i);
+    }
+    for (let i = 0; i < 60; i += 5) {
+      this.minutes.push(i);
+    }
   }
 }
