@@ -79,7 +79,8 @@ p {
   margin-bottom: -20px;
 }
 
-//number of guests styling
+//---------------------------NUMBER OF GUESTS------------------------------
+
 .guestsButton {
   background-color: $light-purple;
   color: $dark-blue;
@@ -156,21 +157,18 @@ p {
   box-sizing: border-box;
 }
 
-//date time and clock styling
+//-----------------------------DATE AND TIME------------------------------
 
-#clockContainer {
-  position: relative;
-  margin: auto;
-  height: 40vw;
-  /*to make the height and width responsive*/
-  width: 40vw;
-  //background: url(clock.png) no-repeat;
-  /*setting our background image*/
-  background-size: 100%;
-}
+//clock styling
 
 //date time calendar styling
+.dateTimeWrapper {
+  display: flex;
+  padding: 20px;
+}
+
 .calendarBox {
+  margin-right: 20px;
   background: $light-purple;
   width: 90%;
   margin-top: 10px;
@@ -178,6 +176,51 @@ p {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 10px 10px $myyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendarButtons {
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+.navCalendar {
+  background-color: $light-purple;
+  border-radius: 100%;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.navCalendar:hover {
+  color: white;
+}
+.navCalendar:active {
+  color: white;
+}
+
+.monthTitle {
+  font-size: 20px;
+}
+
+#selectedDate {
+  //padding: 20px;
+  margin-top: auto;
+  //position: absolute;
+  align-self: center;
+  bottom: 0;
+  width: 20%;
+  text-align: center;
 }
 
 #calendar {
@@ -189,7 +232,6 @@ p {
   padding: 5px;
 
   .day-wrapper {
-    //padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,7 +265,20 @@ p {
   }
 }
 
-// location search bar styling:
+.timeBox {
+  background: $light-purple;
+  width: 90%;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px $myyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+//-----------------------------LOCATION------------------------------
 body {
   background: #fff;
   font-family: sans-serif;

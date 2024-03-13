@@ -78,6 +78,9 @@ export class ItineraryComponent implements OnInit {
     console.log(selectedDate.toDateString());
     const dayElements = document.querySelectorAll('.day');
 
+    const formattedDate = selectedDate.toDateString();
+    this.selectedDateInput!.value = formattedDate;
+
     dayElements.forEach(element => {
       this.renderer.removeClass(element, 'selected');
     });

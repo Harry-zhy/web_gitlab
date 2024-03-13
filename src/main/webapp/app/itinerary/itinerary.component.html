@@ -39,26 +39,33 @@
     <p>Pick a date and a time for your event to start</p>
   </div>
   <div class="pinkBox">
-    <div class="calendarBox">
-      <button (click)="nextMonth()">Next Month</button>
-      <div>{{ currentMonthName }} {{ currentDate.getFullYear() }}</div>
-      <button (click)="prevMonth()">Prev Month</button>
-      <div id="calendar">
-        <div class="day-wrapper" *ngFor="let day of daysInMonth">
-          <div
-            *ngIf="day !== null"
-            class="day"
-            #dayElement
-            (click)="selectDate(day, dayElement)"
-            (mouseenter)="highlightDay(dayElement)"
-            (mouseleave)="removeHighlight(dayElement)"
-          >
-            {{ day }}
+    <div class="dateTimeWrapper">
+      <div class="calendarBox">
+        <div class="calendarButtons">
+          <button class="navCalendar" (click)="prevMonth()"><i class="fas fa-chevron-left"></i></button>
+          <div class="monthTitle">{{ currentMonthName }} {{ currentDate.getFullYear() }}</div>
+          <button class="navCalendar" (click)="nextMonth()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div id="calendar">
+          <div class="day-wrapper" *ngFor="let day of daysInMonth">
+            <div
+              *ngIf="day !== null"
+              class="day"
+              #dayElement
+              (click)="selectDate(day, dayElement)"
+              (mouseenter)="highlightDay(dayElement)"
+              (mouseleave)="removeHighlight(dayElement)"
+            >
+              {{ day }}
+            </div>
           </div>
         </div>
+        <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
+      </div>
+      <div class="timeBox">
+        <p>heyyy</p>
       </div>
     </div>
-    <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
   </div>
 
   <div class="miniHeader">
