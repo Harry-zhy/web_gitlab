@@ -8,31 +8,62 @@
       <p class="blockTitle">Book with a company</p>
       <p class="blockExplanation">Here are some different activities and companies that offer these services for your event!</p>
     </div>
+    <div class="positioningSection">
+      <div class="posistioningbuttons">
+        <button class="previous" (click)="previous()" clickable><</button>
+      </div>
+      <div class="positioning">
+        <div class="book">
+          <div class="bookiconssection">
+            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
+            </button>
+            <p class="icontext">Wine Tasting</p>
+          </div>
+          <div class="bookiconssection">
+            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
+            </button>
+            <p class="icontext">Live Music</p>
+          </div>
+          <div class="bookiconssection">
+            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
+            </button>
+            <p class="icontext">Zip line</p>
+          </div>
+        </div>
+      </div>
+      <div class="posistioningbuttons">
+        <button class="previous" (click)="previous()" clickable><</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="title">
+    <div class="title">
+      <p class="blockTitle">Do It Yourself</p>
+      <p class="blockExplanation">Here are some ideas of activities that you can set up yourself for your event!</p>
+    </div>
 
     <div class="book">
       <div class="bookiconssection">
-        <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+        <button class="bookbutton" (click)="selfpage()" clickable>
           <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
         </button>
-        <p class="icontext">Wine Tasting</p>
+        <p class="icontext">Baking</p>
       </div>
       <div class="bookiconssection">
-        <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+        <button class="bookbutton" (click)="selfpage()" clickable>
           <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
         </button>
-        <p class="icontext">Live Music</p>
+        <p class="icontext">Karaoke</p>
       </div>
       <div class="bookiconssection">
-        <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+        <button class="bookbutton" (click)="selfpage()" clickable>
           <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
         </button>
-        <p class="icontext">Zip line</p>
-      </div>
-      <div class="bookiconssection">
-        <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
-          <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
-        </button>
-        <p class="icontext">Abseiling</p>
+        <p class="icontext">Football Match</p>
       </div>
     </div>
   </div>

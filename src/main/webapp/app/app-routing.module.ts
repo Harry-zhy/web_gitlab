@@ -48,6 +48,10 @@ import { NotificationComponent } from './notification/notification.component';
           component: ActivitiesComponent,
         },
         {
+          path: 'selfactivitypage',
+          component: SelfactivitypageComponent,
+        },
+        {
           path: 'caterers',
           component: CaterersComponent,
         },

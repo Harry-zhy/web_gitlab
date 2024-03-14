@@ -24,6 +24,23 @@
 .title {
   background: #ffffff;
   width: 100%;
+  position: relative;
+}
+
+positioningbuttons {
+  width: 10%;
+  height: 100px;
+  display: in-line block;
+}
+
+.positioning {
+  width: 70%;
+  display: in-line block;
+}
+
+.positioningSection {
+  width: 100%;
+  position: relative;
 }
 
 .book {
@@ -39,7 +56,9 @@
   border-radius: 8px;
   text-align: center;
   margin: 2em;
+  display: in-line block;
 }
+
 .iconimages {
   width: 200px;
   height: 200px;
@@ -52,5 +71,16 @@
   height: 200px;
   border-radius: 8px;
   box-shadow: 10px 10px #ffc212;
+  margin: 1em;
+  border: none;
+  outline: none !important;
+}
+
+.selfbutton {
+  width: 200px;
+  display: inline;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 15px 10px #ffc212;
   margin: 1em;
 }
