@@ -39,10 +39,39 @@
     <p>Pick a date and a time for your event to start</p>
   </div>
   <div class="pinkBox">
-    <p>not decided which one to use yet</p>
-    <input type="datetime-local" id="date" />
-    <input type="date" />
-    <input type="time" />
+    <div class="dateTimeWrapper">
+      <div class="calendarBox">
+        <div class="calendarButtons">
+          <button class="navCalendar" (click)="prevMonth()"><i class="fas fa-chevron-left"></i></button>
+          <div class="monthTitle">{{ currentMonthName }} {{ currentDate.getFullYear() }}</div>
+          <button class="navCalendar" (click)="nextMonth()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div id="calendar">
+          <div class="day-wrapper" *ngFor="let day of daysInMonth">
+            <div
+              *ngIf="day !== null"
+              class="day"
+              #dayElement
+              (click)="selectDate(day, dayElement)"
+              (mouseenter)="highlightDay(dayElement)"
+              (mouseleave)="removeHighlight(dayElement)"
+            >
+              {{ day }}
+            </div>
+          </div>
+        </div>
+        <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
+      </div>
+      <div class="timeBox">
+        <select [(ngModel)]="selectedHour">
+          <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+        </select>
+        <span>:</span>
+        <select [(ngModel)]="selectedMinute">
+          <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+        </select>
+      </div>
+    </div>
   </div>
 
   <div class="miniHeader">

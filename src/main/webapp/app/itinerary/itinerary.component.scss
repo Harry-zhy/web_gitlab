@@ -2,6 +2,7 @@
 $light-pink: #ffdee7;
 $dark-pink: #f9b0c3;
 $myyellow: #ffc212;
+$hover-purple: #f3f2ff;
 $light-purple: #e0dffd;
 $purple: #7769c6;
 $dark-blue: #172c49;
@@ -31,10 +32,11 @@ $dark-blue: #172c49;
   justify-content: space-between;
   align-self: center;
   position: relative;
+  overflow: auto;
 
   width: 100%;
   max-width: 95%; //makes it fit to screen and adjust with size of screen
-  height: 330px;
+  height: auto; //330px;
   background-color: #f9b0c3;
   border-radius: 10px;
   padding-bottom: 20px;
@@ -77,7 +79,8 @@ p {
   margin-bottom: -20px;
 }
 
-//number of guests styling
+//---------------------------NUMBER OF GUESTS------------------------------
+
 .guestsButton {
   background-color: $light-purple;
   color: $dark-blue;
@@ -140,9 +143,10 @@ p {
 .inputContainer {
   padding: 20px;
   margin-top: auto;
-  position: absolute;
+  //position: absolute;
+  align-self: center;
   bottom: 0;
-  left: 30%;
+  //left: 30%;
   width: 50%;
   text-align: center;
 }
@@ -153,7 +157,155 @@ p {
   box-sizing: border-box;
 }
 
-// location search bar styling:
+//-----------------------------DATE AND TIME------------------------------
+
+//clock styling
+
+//date time calendar styling
+.dateTimeWrapper {
+  display: flex;
+  padding: 20px;
+}
+
+.calendarBox {
+  margin-right: 20px;
+  background: $light-purple;
+  width: 90%;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px $myyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendarButtons {
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.navCalendar {
+  background-color: white;
+  border-radius: 100%;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.navCalendar:hover {
+  color: $light-purple;
+}
+.navCalendar:active {
+  color: $light-purple;
+}
+
+.monthTitle {
+  font-size: 20px;
+}
+
+#selectedDate {
+  //padding: 20px;
+  margin-top: auto;
+  //position: absolute;
+  align-self: center;
+  bottom: 0;
+  width: 20%;
+  text-align: center;
+}
+
+#calendar {
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-row-gap: 5px;
+  padding: 5px;
+
+  .day-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .day {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: $light-purple;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #172c49;
+
+    &:hover {
+      background-color: $light-pink;
+    }
+
+    &.selected {
+      background-color: $dark-pink;
+      color: white;
+    }
+  }
+  .empty-day {
+    visibility: hidden;
+  }
+}
+
+.timeBox {
+  background: $light-purple;
+  width: 90%;
+  height: 387px;
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px $myyellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeBox select {
+  margin-right: 10px;
+}
+
+.time-picker {
+  display: inline;
+  align-items: center;
+}
+
+.time-picker select,
+.timeBox span {
+  display: inline;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.time-picker select:last-child {
+  margin-right: 0;
+}
+
+//-----------------------------LOCATION------------------------------
 body {
   background: #fff;
   font-family: sans-serif;

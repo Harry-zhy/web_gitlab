@@ -28,6 +28,7 @@ import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.c
 import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   imports: [
@@ -59,6 +60,7 @@ import { ItineraryComponent } from './itinerary/itinerary.component';
     SelfactivitypageComponent,
     FeedbackComponent,
     ItineraryComponent,
+    NotificationComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })

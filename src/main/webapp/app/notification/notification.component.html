@@ -1,0 +1,31 @@
+<head>
+  <title>Responsive Chat</title>
+</head>
+<body>
+  <div class="container">
+    <div class="notificationList">
+      <div class="bar">
+        <div class="goBack">
+          <span> < </span>
+        </div>
+        <div class="title">Notification</div>
+      </div>
+      <div class="list">
+        <div class="notification">Notification 1</div>
+        <div class="notification">Notification 2</div>
+        <div class="notification">Notification 3</div>
+      </div>
+    </div>
+    <div class="chat-area">
+      <div class="chat-messages">
+        <div class="message">Message 1</div>
+        <div class="message">Message 2</div>
+        <div class="message">Message 3</div>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Type a message..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</body>

@@ -17,6 +17,7 @@ import { SupplierProfileComponent } from './supplier-profile/supplier-profile.co
 import { DecorationsComponent } from './decorations/decorations.component';
 import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivitypage.component';
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   imports: [
@@ -65,6 +66,10 @@ import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.c
         {
           path: 'feedback',
           component: FeedbackComponent,
+        },
+        {
+          path: 'notification',
+          component: NotificationComponent,
         },
         {
           path: 'userprofile',

@@ -18,11 +18,13 @@
 
 body {
   //text-align: center;
-  background-color: #172c49;
+  background-color: #172c49 !important;
   border-width: 300000px;
   border-top: 30000px;
   min-height: 900px;
   max-height: 2000px;
+  font-family: BlinkMacSystemFont !important;
+  font-weight: bolder;
 }
 
 .scrollableContainer {
@@ -190,7 +192,7 @@ body {
 }
 
 .back {
-  font-size: 2vw;
+  font-size: 2vmin;
   width: 12vw;
   background-color: #f7afc2;
   border-radius: 45px;
@@ -218,6 +220,7 @@ body {
 .continue {
   width: 20vw;
   left: 47vw;
+  font-size: 2vmin;
 }
 
 .sendToUs[disabled],

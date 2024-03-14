@@ -55,6 +55,13 @@
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/notification" (click)="collapseNavbar()">
+            <span>
+              <span>Notification</span>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/userprofile" (click)="collapseNavbar()">
             <span>
               <span>User Profile</span>
