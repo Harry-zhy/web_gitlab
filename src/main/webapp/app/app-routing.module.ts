@@ -52,7 +52,7 @@ import { NotificationComponent } from './notification/notification.component';
           component: SelfactivitypageComponent,
         },
         {
-          path: 'caterers',
+          path: 'caterersPage',
           component: CaterersComponent,
         },
         {
@@ -60,7 +60,7 @@ import { NotificationComponent } from './notification/notification.component';
           component: VenuesComponent,
         },
         {
-          path: 'itinerary',
+          path: 'itineraryPage',
           component: ItineraryComponent,
         },
         {
