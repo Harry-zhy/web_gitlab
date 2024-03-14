@@ -15,4 +15,12 @@ export class ActivitiesService {
   getcompanynamesfromthebookedactivity(companyModel: companyModel): Observable<any> {
     return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesNames'), companyModel);
   }
+
+  getcompanycontactdetails(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesContactDetails'), companyModel);
+  }
+
+  getcompanyAbout(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesAbout'), companyModel);
+  }
 }

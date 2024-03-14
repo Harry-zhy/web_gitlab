@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import team.bham.domain.ActivityCompany;
+import team.bham.domain.ActivityContactDetails;
+import team.bham.domain.ActivityImage;
 import team.bham.domain.BookedActivity;
 import team.bham.repository.ActivityCompanyRepository;
 import team.bham.service.BookedActivityService;
@@ -186,6 +188,36 @@ public class ActivityCompanyResource {
             names[i] = companiesEntities.get(i).getName();
         }
         return names;
+    }
+
+    @GetMapping("/activity-companiesAbout")
+    public String[] getAllActivityCompanyAbout(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        String[] abouts = new String[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            abouts[i] = companiesEntities.get(i).getAbout();
+        }
+        return abouts;
+    }
+
+    @GetMapping("/activity-companiesContactDetails")
+    public ActivityContactDetails[] getAllActivityCompanyCD(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        ActivityContactDetails[] CD = new ActivityContactDetails[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            CD[i] = companiesEntities.get(i).getActivityContactDetails();
+        }
+        return CD;
+    }
+
+    @GetMapping("/activity-companiesImages")
+    public ActivityImage[] getAllBookedImages(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        ActivityImage[] Images = new ActivityImage[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            Images[i] = (ActivityImage) companiesEntities.get(i).getActivityImages();
+        }
+        return Images;
     }
 
     /**

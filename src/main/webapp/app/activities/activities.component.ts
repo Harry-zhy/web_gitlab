@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivitiesService } from 'app/activities/activities.service';
@@ -14,10 +15,22 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getbookedcompanyNames(): Observable<any> {
+  allCompaniesNamesArray: any[] = [];
+
+  getbookedcompanyNames(): void {
     this.router.navigate(['/bookactivitypage']);
     let flag: boolean = false;
     let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity({ flag });
-    return allCompaniesNames;
+    allCompaniesNames.subscribe(names => {
+      this.allCompaniesNamesArray = names;
+    });
   }
+
+  selfpage(): void {
+    this.router.navigate(['/selfactivitypage']);
+  }
+
+  next(): void {}
+
+  previous(): void {}
 }

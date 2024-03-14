@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-selfactivitypage',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selfactivitypage.component.scss'],
 })
 export class SelfactivitypageComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  backactivities(): void {
+    this.router.navigate(['/activities']);
+  }
+
+  saveactivitytoitinerary(): void {}
 }

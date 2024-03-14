@@ -47,6 +47,10 @@ import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.c
           component: ActivitiesComponent,
         },
         {
+          path: 'selfactivitypage',
+          component: SelfactivitypageComponent,
+        },
+        {
           path: 'caterers',
           component: CaterersComponent,
         },
