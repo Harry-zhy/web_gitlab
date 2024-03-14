@@ -68,7 +68,7 @@ import { NotificationComponent } from './notification/notification.component';
           component: FeedbackComponent,
         },
         {
-          path: 'notification',
+          path: 'notifications',
           component: NotificationComponent,
         },
         {
