@@ -43,7 +43,7 @@ export class FavouritesListFormService {
   getFavouritesList(form: FavouritesListFormGroup): IFavouritesList | NewFavouritesList {
     if (form.controls.id.disabled) {
       // form.value returns id with null value for FormGroup with only one FormControl
-      return {};
+      return form.getRawValue() as IFavouritesList | NewFavouritesList; //Some errors here, origin one: return {};
     }
     return form.getRawValue() as IFavouritesList | NewFavouritesList;
   }

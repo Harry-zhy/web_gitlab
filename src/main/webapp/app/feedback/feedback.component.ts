@@ -4,6 +4,7 @@ import { IQuestion } from '../entities/question/question.model';
 import { IMCQOption } from '../entities/mcq-option/mcq-option.model';
 import { IIntro } from '../entities/intro/intro.model';
 import { QuesType } from '../entities/enumerations/ques-type.model';
+import { QuestionService } from '../entities/question/service/question.service';
 
 @Component({
   selector: 'jhi-feedback',
@@ -11,7 +12,7 @@ import { QuesType } from '../entities/enumerations/ques-type.model';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, protected questionService: QuestionService) {}
   ngOnInit() {
     this.selectedValue = 0;
     this.loadIntro();
@@ -78,6 +79,13 @@ export class FeedbackComponent implements OnInit {
   }
 
   loadQuestions() {
+    this.questionService.query().subscribe({
+      next: data => {
+        if (data.body !== null) {
+          this.questions = data.body;
+        }
+      },
+    });
     this.questions = [
       { id: 1, question: 'Question 1', quesType: QuesType.MULTI_CHOICE },
       { id: 2, question: 'Question 2', quesType: QuesType.FILL_IN },
