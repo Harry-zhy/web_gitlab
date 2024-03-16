@@ -1,0 +1,48 @@
+.decor-title {
+  color: white;
+  font-size: 80px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  background-color: #172c49;
+  border-radius: 20px;
+}
+.white-background {
+  background-color: white;
+}
+.page-container {
+  background-color: white;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+.search-bar {
+  background: #e0dffd;
+  border-radius: 25px;
+  width: 1900px;
+  align-items: center;
+  display: flex;
+  padding: 5px;
+}
+.search-bar input {
+  border-color: transparent;
+  background-color: transparent;
+  outline: none;
+  padding-left: 15px;
+  width: 100%;
+  max-width: 1900px;
+}
+.search-bar button {
+  background-color: transparent;
+  outline: none;
+  border-color: transparent;
+}
+::placeholder {
+  color: #172c49;
+  font-size: 15px;
+}
+.book-title {
+}
