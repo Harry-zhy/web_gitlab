@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
@@ -13,7 +14,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import team.bham.domain.ActivityIdea;
+import team.bham.domain.ActivityImage;
 import team.bham.domain.ActivitySelf;
+import team.bham.domain.Rating;
 import team.bham.repository.ActivitySelfRepository;
 import team.bham.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
@@ -156,6 +160,35 @@ public class ActivitySelfResource {
         } else {
             return activitySelfRepository.findAll();
         }
+    }
+
+    @GetMapping("/activity-selvesAllNames")
+    public String[] getAllSelfActivityNames(@RequestParam List<ActivitySelf> SelfActivities) {
+        String[] names = new String[SelfActivities.size()];
+        for (int i = 0; i < SelfActivities.size(); i++) {
+            names[i] = SelfActivities.get(i).getName();
+        }
+        return names;
+    }
+
+    @GetMapping("/activity-selvesOneName")
+    public String getOneNameGivenSelf(@RequestParam ActivitySelf selfActivity) {
+        return selfActivity.getName();
+    }
+
+    @GetMapping("activity-selvesImages")
+    public Set<ActivityImage> getImagesGivenSelf(@RequestParam ActivitySelf selfActivity) {
+        return selfActivity.getActivityImages();
+    }
+
+    @GetMapping("activity-selvesRating")
+    public Set<Rating> getRatingGivenSelf(@RequestParam ActivitySelf activitySelf) {
+        return activitySelf.getRatings();
+    }
+
+    @GetMapping("activity-selvesIdeas")
+    public Set<ActivityIdea> getIdeasGivenSelf(@RequestParam ActivitySelf activitySelf) {
+        return activitySelf.getActivityIdeas();
     }
 
     /**

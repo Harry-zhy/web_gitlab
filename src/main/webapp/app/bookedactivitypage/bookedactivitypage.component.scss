@@ -2,11 +2,37 @@
   position: relative;
 }
 
+.icon {
+  color: #f9b0c3;
+  font-size: 70px;
+}
+
+.back {
+  background-color: #ffffff;
+  border: none;
+  outline: none !important;
+}
+
 .companyName {
-  width: 75%;
+  width: 70%;
   text-align: center;
   margin: 1em;
   display: inline-block;
+}
+.saveText {
+  color: #f9b0c3;
+  font-size: 20px;
+}
+
+.save {
+  border: none;
+  background-color: #ffffff;
+  outline: none !important;
+}
+
+.icon2 {
+  color: #f9b0c3;
+  font-size: 50px;
 }
 
 .companyNameText {
@@ -19,15 +45,18 @@
 .backbutton {
   height: 100px;
   width: 10%;
-  background-color: #e0dffd;
   display: inline-block;
+  margin: 1em;
 }
 
 .savebutton {
-  height: 100px;
+  height: 80px;
   width: 10%;
-  background-color: #e0dffd;
+  background-color: #ffffff;
+  border: none;
+  outline: none !important;
   display: inline-block;
+  text-align: center;
 }
 
 .aboutSection {
@@ -60,6 +89,13 @@
   border-radius: 12px;
 }
 
+.boxTitles {
+  font-size: 25px;
+  text-shadow: 1.5px 1.5px #ffc212;
+  color: #172c49;
+  font-weight: 700;
+}
+
 .profileSection {
   height: 200px;
   width: 24%;
@@ -81,8 +117,9 @@
 }
 
 .nextCompanyButton {
-  height: 100px;
-  width: 100px;
-  background-color: #e0dffd;
+  height: 120px;
+  width: 130px;
+  background-color: #ffffff;
   float: right;
+  text-align: center;
 }

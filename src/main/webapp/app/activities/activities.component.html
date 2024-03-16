@@ -3,6 +3,21 @@
 </div>
 
 <body>
+  <div class="formbox">
+    <form id="form" role="search">
+      <input
+        type="search"
+        id="query"
+        name="q"
+        placeholder="Search for an activity for your event..."
+        aria-label="Search through site content"
+      />
+      <button class="searchiconButton">
+        <span class="searchIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
+      </button>
+    </form>
+  </div>
+  <div class="space"></div>
   <div class="title">
     <div class="title">
       <p class="blockTitle">Book with a company</p>
@@ -10,33 +25,37 @@
     </div>
     <div class="positioningSection">
       <div class="posistioning">
-        <button class="previous" (click)="previous()" clickable><</button>
+        <button class="next" (click)="previous()" clickable>
+          <span class="icon"><i class="fa-solid fa-caret-left"></i></span>
+        </button>
       </div>
 
       <div class="positioning">
         <div class="book">
           <div class="bookiconssection">
-            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
+            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
               <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
             </button>
             <p class="icontext">Wine Tasting</p>
           </div>
           <div class="bookiconssection">
-            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
+            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
+              <img class="iconimages" src="/content/images/activitiesImages/activity_1.png" />
             </button>
             <p class="icontext">Live Music</p>
           </div>
           <div class="bookiconssection">
-            <button class="bookbutton" (click)="getbookedcompanyNames()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
+            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
+              <img class="iconimages" src="/content/images/activitiesImages/activity_2.png" />
             </button>
             <p class="icontext">Zip line</p>
           </div>
         </div>
       </div>
       <div class="posistioning">
-        <button class="next" (click)="next()" clickable>></button>
+        <button class="next" (click)="next()" clickable>
+          <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
+        </button>
       </div>
     </div>
   </div>
@@ -48,7 +67,9 @@
     </div>
     <div class="positioningSection">
       <div class="posistioning">
-        <button class="previous" (click)="previous()" clickable><</button>
+        <button class="next" (click)="previous()" clickable>
+          <span class="icon"><i class="fa-solid fa-caret-left"></i></span>
+        </button>
       </div>
 
       <div class="positioning">
@@ -75,7 +96,9 @@
       </div>
 
       <div class="posistioning">
-        <button class="next" (click)="next()" clickable>></button>
+        <button class="next" (click)="next()" clickable>
+          <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
+        </button>
       </div>
     </div>
   </div>
