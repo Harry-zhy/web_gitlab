@@ -2,21 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="decorations.component.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+
   <body class="white-background">
     <div>
       <h1 class="decor-title">DECORATIONS</h1>
     </div>
+
     <div class="page-container">
       <div class="search-container">
         <form class="search-bar" action="/search" method="GET">
           <input type="text" id="search" name="q" placeholder="Search for decorations..." />
-          <button class="search-button" type="submit"><img src="app/decorations/magnifying-glass.svg" alt="magnifying glass" /></button>
+          <button class="search-button" type="submit">
+            <img src="content/images/decorationsimages/magnifyingglass.png" alt="magnifying glass" />
+          </button>
         </form>
       </div>
       <div>
         <h2 class="book-title">Book with a company</h2>
+      </div>
+      <div>
+        <h5 class="book-sub">These companies offer services that you may like for your event!</h5>
+      </div>
+      <div class="companies">
+        <div class="company-slider">
+          <div>
+            <span><img src="content/images/decorationsimages/elite.png" /></span>
+            <span><img src="content/images/decorationsimages/oasis.png" /></span>
+            <span><img src="content/images/decorationsimages/elegant.png" /></span>
+            <span><img src="content/images/decorationsimages/soiree.png" /></span>
+            <span><img src="content/images/decorationsimages/instyle.png" /></span>
+            <span><img src="content/images/decorationsimages/decorde.png" /></span>
+          </div>
+        </div>
       </div>
     </div>
   </body>
