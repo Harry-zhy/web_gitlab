@@ -18,10 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import team.bham.domain.ActivityCompany;
-import team.bham.domain.ActivityContactDetails;
-import team.bham.domain.ActivityImage;
-import team.bham.domain.BookedActivity;
+import team.bham.domain.*;
 import team.bham.repository.ActivityCompanyRepository;
 import team.bham.service.BookedActivityService;
 import team.bham.web.rest.errors.BadRequestAlertException;
@@ -218,6 +215,26 @@ public class ActivityCompanyResource {
             Images[i] = (ActivityImage) companiesEntities.get(i).getActivityImages();
         }
         return Images;
+    }
+
+    @GetMapping("/activity-companiesRatings")
+    public Rating[] getAllRatings(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        Rating[] rating = new Rating[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            rating[i] = (Rating) companiesEntities.get(i).getRatings();
+        }
+        return rating;
+    }
+
+    @GetMapping("/activity-companiesProfile")
+    public Supplier[] getAllSuppliers(@RequestParam BookedActivity activity) {
+        List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
+        Supplier[] suppliers = new Supplier[companiesEntities.size()];
+        for (int i = 0; i < companiesEntities.size(); i++) {
+            suppliers[i] = companiesEntities.get(i).getSupplier();
+        }
+        return suppliers;
     }
 
     /**

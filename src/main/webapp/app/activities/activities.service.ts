@@ -23,4 +23,16 @@ export class ActivitiesService {
   getcompanyAbout(companyModel: companyModel): Observable<any> {
     return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesAbout'), companyModel);
   }
+
+  getcompanyimages(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesImage'), companyModel);
+  }
+
+  getcompanyratings(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesRatings'), companyModel);
+  }
+
+  getcompanyProfiles(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesProfile'), companyModel);
+  }
 }

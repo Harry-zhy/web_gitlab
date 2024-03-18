@@ -7,6 +7,7 @@
   text-align: center;
   margin: 1em;
   display: inline-block;
+  justify-content: center;
 }
 
 .companyNameText {
@@ -23,18 +24,38 @@
   font-weight: 500;
 }
 
+.icon {
+  color: #f9b0c3;
+  font-size: 70px;
+}
+.icon2 {
+  color: #f9b0c3;
+  font-size: 50px;
+}
+
 .back {
-  height: 100px;
-  width: 100px;
-  border-radius: 5000px;
-  border: solid 2px #f9b0c3;
-  border-width: 10px;
+  background-color: #ffffff;
+  border: none;
+  outline: none !important;
+}
+
+.saveText {
+  color: #f9b0c3;
+  font-size: 20px;
+}
+
+.save {
+  border: none;
+  background-color: #ffffff;
+  outline: none !important;
 }
 
 .savebutton {
-  height: 100px;
+  height: 80px;
   width: 10%;
-  background-color: #e0dffd;
+  background-color: #ffffff;
+  border: none;
+  outline: none !important;
   display: inline-block;
   text-align: center;
 }

@@ -1,3 +1,6 @@
+body {
+  background-color: #ffffff;
+}
 .top {
   width: 100%;
   background-color: #172c49;
@@ -12,12 +15,12 @@
 }
 
 .blockTitle {
-  font-size: 32px;
+  font-size: 40px;
   left: 10px;
 }
 
 .blockExplanation {
-  font-size: 12px;
+  font-size: 18px;
   left: 10px;
 }
 
@@ -28,11 +31,13 @@
 }
 
 .positioning {
+  position: relative;
   height: 375px;
   display: inline-block;
 }
 
 .positioningSection {
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -41,9 +46,62 @@
 
 .book {
   width: 100%;
-  background-color: #ffffff;
   position: relative;
   display: inline-flex;
+}
+
+.icon {
+  color: #f9b0c3;
+  font-size: 40px;
+}
+.searchiconButton {
+  border: none;
+  outline: none !important;
+  background-color: #e0dffd;
+}
+.searchIcon {
+  color: #f9b0c3;
+  font-size: 20px;
+}
+
+.next {
+  height: 60px;
+  width: 60px;
+  border-radius: 5000px;
+  border: solid 6px #f9b0c3;
+  background-color: #ffffff;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+form {
+  background-color: #e0dffd;
+  width: 100%;
+  height: 44px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.formbox {
+  position: relative;
+  margin: auto;
+  align-items: center;
+}
+
+.space {
+  height: 50px;
+}
+
+input {
+  all: unset;
+  font: 16px system-ui;
+  color: #ffffff;
+  height: 100%;
+  width: 95%;
+  padding: 6px 10px;
 }
 
 .bookiconssection {
@@ -51,7 +109,7 @@
   background-color: #f9b0c3;
   border-radius: 8px;
   text-align: center;
-  margin: 4em;
+  margin: 3em;
   display: in-line block;
 }
 
@@ -70,6 +128,7 @@
   margin: 1em;
   border: none;
   outline: none !important;
+  align-items: center;
 }
 
 .selfbutton {

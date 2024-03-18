@@ -1,14 +1,19 @@
 <div class="heading">
-  <button class="back" (click)="backactivities()" clickable>
-    <p>X</p>
-  </button>
+  <div class="savebutton">
+    <button class="back" (click)="backactivities()" clickable>
+      <span class="icon"><i class="fa-regular fa-circle-xmark"></i></span>
+    </button>
+  </div>
 
   <div class="companyName">
     <p class="companyNameText">Idea Name</p>
   </div>
+
   <div class="savebutton">
-    <button class="save" (click)="saveactivitytoitinerary()" clickable>add the heart icon</button>
-    <p>add to event</p>
+    <button class="save" (click)="saveactivitytoitinerary()" clickable>
+      <span class="icon2"><i class="fa-solid fa-heart"></i></span>
+    </button>
+    <p class="saveText">add to event</p>
   </div>
 </div>
 
