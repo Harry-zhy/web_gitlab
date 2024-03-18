@@ -87,6 +87,7 @@ public class EventItinerary implements Serializable {
         return this.eventDate;
     }
 
+    ///
     public void setEventDate(ItineraryDateTime itineraryDateTime) {
         this.eventDate = itineraryDateTime;
     }

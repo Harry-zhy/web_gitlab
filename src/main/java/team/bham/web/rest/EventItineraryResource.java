@@ -1,10 +1,14 @@
 package team.bham.web.rest;
 
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import org.hibernate.internal.util.ZonedDateTimeComparator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +16,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import team.bham.domain.EventItinerary;
+import team.bham.domain.ItineraryDateTime;
 import team.bham.repository.EventItineraryRepository;
+import team.bham.service.EventItineraryService;
+//import team.bham.repository.EventItineraryRepository;
 import team.bham.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -34,8 +41,11 @@ public class EventItineraryResource {
 
     private final EventItineraryRepository eventItineraryRepository;
 
-    public EventItineraryResource(EventItineraryRepository eventItineraryRepository) {
+    private final EventItineraryService eventItineraryService;
+
+    public EventItineraryResource(EventItineraryRepository eventItineraryRepository, EventItineraryService eventItineraryService) {
         this.eventItineraryRepository = eventItineraryRepository;
+        this.eventItineraryService = eventItineraryService;
     }
 
     /**
@@ -56,6 +66,26 @@ public class EventItineraryResource {
             .created(new URI("/api/event-itineraries/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
+    }
+
+    //////////////////
+    @GetMapping("/itineraries-setStartTime")
+    public void setStartTime(@RequestParam int[] eventTimings) {
+        //this.eventItineraryRepository.setEventDate();
+        ItineraryDateTime eventItineraryStartTime = new ItineraryDateTime();
+        ZoneId zoneId = ZoneId.of("GMT");
+        ZonedDateTime eventStartTime = ZonedDateTime.of(
+            eventTimings[0],
+            eventTimings[1],
+            eventTimings[2],
+            eventTimings[3],
+            eventTimings[4],
+            eventTimings[5],
+            eventTimings[6],
+            zoneId
+        );
+        eventItineraryStartTime.setDate(eventStartTime);
+        eventItineraryService.eventSetDate(eventItineraryStartTime);
     }
 
     /**
