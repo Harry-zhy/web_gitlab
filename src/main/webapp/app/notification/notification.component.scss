@@ -7,11 +7,9 @@ body {
   height: 100%;
 }
 
-.notificationList {
+.notificationBoard {
   position: relative;
   width: 30%;
-  background-color: #f2f2f2;
-  text-align: center;
 }
 
 .bar {
@@ -22,7 +20,7 @@ body {
   font-size: 3vmax;
   font-weight: bold;
   align-content: center;
-  left: 3vmin;
+  left: 1vmin;
   position: absolute;
   color: white;
   height: 10vh;
@@ -35,12 +33,125 @@ body {
 }
 
 .title {
-  display: inline-block;
+  text-align: center;
   font-size: 2vmax;
   font-weight: bold;
   height: 10vh;
   align-content: center;
   color: white;
+}
+
+svg {
+  height: 4vmin;
+  width: 4vmin;
+  fill: white;
+  transition-duration: 0.3s;
+}
+
+.select {
+  margin-top: 2vmin;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.select .replies:hover svg,
+.select .bookings:hover svg,
+.showPrivateButton:hover svg {
+  cursor: pointer;
+  transform: scale(1.1);
+  fill: #f0afc0; /* SVG 的填充颜色 */
+}
+
+.select .replies:hover .selectText,
+.select .bookings:hover .selectText,
+.showPrivateButton:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: #f0afc0; /* 文字的颜色 */
+}
+
+.selected svg {
+  fill: #f0afc0;
+}
+
+.selected .selectText {
+  color: #f0afc0;
+}
+
+.replies,
+.bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition-duration: 0.3s;
+}
+
+.showPrivateNone {
+  display: none;
+}
+
+.selectText {
+  display: flex;
+  color: white;
+  margin-top: 1vmin;
+  margin-bottom: 3vmin;
+  transition-duration: 0.3s;
+}
+
+.showPrivateButton {
+  color: white;
+}
+
+.notification {
+  margin-top: 3%;
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  align-content: center;
+  background-color: #f589a6;
+  height: 5vmax;
+  border-radius: 20px;
+  margin-bottom: 3vmin;
+  transition-duration: 0.3s;
+}
+
+.list:hover {
+  cursor: pointer;
+  margin-bottom: 5vmin;
+  transform: translateY(1vmin);
+}
+
+.list:hover .senderName {
+  transform: scale(1.05) translateX(1vmin);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1vmin;
+  padding-right: 1vmin;
+  color: #ffffff;
+}
+
+.senderName {
+  font-size: 2vmin;
+  transition-duration: 0.2s;
+}
+
+.receivedDate {
+  text-align: center;
+}
+
+.unread {
+  color: #613964;
+  font-weight: bold;
 }
 
 .chat-area {
@@ -54,6 +165,7 @@ body {
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
+  color: white;
   margin-bottom: 10px;
 }
 

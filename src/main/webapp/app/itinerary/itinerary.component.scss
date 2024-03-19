@@ -217,13 +217,23 @@ p {
 }
 
 #selectedDate {
-  //padding: 20px;
   margin-top: auto;
-  //position: absolute;
   align-self: center;
   bottom: 0;
   width: 20%;
   text-align: center;
+  border: none;
+  border-radius: 15px;
+}
+
+#selectedTime {
+  margin-top: auto;
+  align-self: center;
+  bottom: 0;
+  width: 20%;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
 }
 
 #calendar {
@@ -277,9 +287,10 @@ p {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 10px 10px $myyellow;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .timeBox select {
@@ -303,6 +314,35 @@ p {
 
 .time-picker select:last-child {
   margin-right: 0;
+}
+
+.TimeTitle {
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 7%;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+}
+
+#startTimeSelect {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.submitButton {
+  //width: 90%;
+  padding: 5px;
+  //left: 4px;
+  justify-content: right;
+  align-items: center;
+  display: flex;
 }
 
 //-----------------------------LOCATION------------------------------
@@ -352,3 +392,5 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+//-----------------------------VENDORS------------------------------

@@ -142,7 +142,7 @@ export class ItineraryComponent implements OnInit {
   }
 
   initializeTimeOptions() {
-    for (let i = 0; i < 24; i++) {
+    for (let i = 1; i < 24; i++) {
       this.hours.push(i);
     }
     for (let i = 0; i < 60; i += 5) {

@@ -63,14 +63,31 @@
         <input type="text" id="selectedDate" style="margin-top: 30px; width: 90%" readonly />
       </div>
       <div class="timeBox">
-        <select [(ngModel)]="selectedHour">
-          <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
-        </select>
-        <span>:</span>
-        <select [(ngModel)]="selectedMinute">
-          <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
-        </select>
+        <div class="TimeTitle">Start Time</div>
+        <div id="startTimeSelect">
+          <select [(ngModel)]="selectedHour">
+            <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+          </select>
+          <span>:</span>
+          <select [(ngModel)]="selectedMinute">
+            <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+          </select>
+        </div>
+        <div class="TimeTitle">End Time</div>
+        <div id="startTimeSelect">
+          <select [(ngModel)]="selectedHour">
+            <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+          </select>
+          <span>:</span>
+          <select [(ngModel)]="selectedMinute">
+            <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+          </select>
+        </div>
+        <input type="text" id="selectedTime" style="width: 90%; align-items: center; justify-content: center; display: flex" readonly />
       </div>
+    </div>
+    <div class="submitButton">
+      <button class="submit" onclick="submitDateTime()">submit</button>
     </div>
   </div>
 
@@ -92,9 +109,14 @@
 
   <div class="miniHeader">
     <h4><i class="fa-solid fa-user-plus custom-icon"></i> Vendors</h4>
-    <p>get the workers</p>
+    <p>Hire caterers and deorators and book activities here!</p>
   </div>
   <div class="pinkBox">
     <p>vendors box</p>
+    <div class="vendorsBox">
+      <div class="activitesBox"></div>
+      <div class="caterersBox"></div>
+      <div class="decoratorsBox"></div>
+    </div>
   </div>
 </div>
