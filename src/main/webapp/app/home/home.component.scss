@@ -1,6 +1,53 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
+.row {
+  width: 100%;
+  background-color: #e0dffd;
+  margin: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e0dffd;
+}
+
+.col-md-9 {
+  width: 100%;
+}
+
+.alert.alert-warning {
+  background-color: #f9b0c3;
+}
+.alert.alert-success {
+  background-color: #7769c6;
+}
+
+.display-4 {
+  font-size: 72px;
+  color: #172c49;
+  text-align: center;
+  text-shadow: 4px 4px #ffc212;
+}
+
+.lead {
+  text-align: center;
+  color: #172c49;
+  font-size: 30px;
+}
+
+.logo {
+  height: 200px;
+  width: 200px;
+}
+
+.centering {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
 .hipster {
   display: inline-block;

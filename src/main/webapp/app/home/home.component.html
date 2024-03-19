@@ -1,44 +1,51 @@
-<div class="row">
-  <div class="col-md-9">
-    <h1 class="display-4"><span>Welcome to BizBash!</span></h1>
+<body>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="centering">
+        <img class="logo" src="content/images/logo4.png" />
+      </div>
+      <div class="centering">
+        <h1 class="display-4"><span>Welcome to BizBash!</span></h1>
+      </div>
+      <div>
+        <p class="lead">Build the Bash for your Biz</p>
+      </div>
+      <div [ngSwitch]="account !== null">
+        <div class="alert alert-success" *ngSwitchCase="true">
+          <span id="home-logged-message" *ngIf="account">You are logged in as user "{{ account.login }}".</span>
+        </div>
 
-    <p class="lead">This is your homepage</p>
+        <div class="alert alert-warning" *ngSwitchCase="false">
+          <span>Click here if you want to </span>
+          <a class="alert-link" (click)="login()">sign in</a>
+        </div>
 
-    <div [ngSwitch]="account !== null">
-      <div class="alert alert-success" *ngSwitchCase="true">
-        <span id="home-logged-message" *ngIf="account">You are logged in as user "{{ account.login }}".</span>
+        <div class="alert alert-warning" *ngSwitchCase="false">
+          <span>You don't have an account yet?</span>&nbsp;
+          <a class="alert-link" routerLink="account/register">Register a new account</a>
+        </div>
       </div>
 
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span>Click here if you want to </span>
-        <a class="alert-link" (click)="login()">sign in</a>
-      </div>
+      <p>If you want to see our GDPR and DPIA forms:</p>
 
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span>You don't have an account yet?</span>&nbsp;
-        <a class="alert-link" routerLink="account/register">Register a new account</a>
-      </div>
+      <ul>
+        <li>
+          <a
+            href="https://bham-my.sharepoint.com/personal/axp1142_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EU0xze9COMhPvZCpDEPZ6NcBqhjZqv7o7T95eyRJxyKGWQ&e=ebG2yF"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GDPR</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://bham-my.sharepoint.com/personal/kxs312_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EVc5bYh3ToJAjWm2nOw0hEgBRr5malVGSmfbq7puVeBTEA&e=FIWguK"
+            target="_blank"
+            rel="noopener noreferrer"
+            >DPIA</a
+          >
+        </li>
+      </ul>
     </div>
-
-    <p>If you want to see our GDPR and DPIA forms:</p>
-
-    <ul>
-      <li>
-        <a
-          href="https://bham-my.sharepoint.com/personal/axp1142_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EU0xze9COMhPvZCpDEPZ6NcBqhjZqv7o7T95eyRJxyKGWQ&e=ebG2yF"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GDPR</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://bham-my.sharepoint.com/personal/kxs312_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EVc5bYh3ToJAjWm2nOw0hEgBRr5malVGSmfbq7puVeBTEA&e=FIWguK"
-          target="_blank"
-          rel="noopener noreferrer"
-          >DPIA</a
-        >
-      </li>
-    </ul>
   </div>
-</div>
+</body>

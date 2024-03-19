@@ -12,5 +12,5 @@ import team.bham.domain.ItineraryDateTime;
 @SuppressWarnings("unused")
 @Repository
 public interface EventItineraryRepository extends JpaRepository<EventItinerary, Long> {
-    void rsetEventDate(ItineraryDateTime eventStartTime);
+    void EventDate(ItineraryDateTime eventStartTime);
 }

@@ -20,6 +20,6 @@ public class EventItineraryService {
     }
 
     public void eventSetDate(ItineraryDateTime eventItineraryDateTime) {
-        eventItineraryRepository.rsetEventDate(eventItineraryDateTime);
+        eventItineraryRepository.EventDate(eventItineraryDateTime);
     }
 }
