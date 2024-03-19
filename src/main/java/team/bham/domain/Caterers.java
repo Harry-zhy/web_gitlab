@@ -41,14 +41,14 @@ public class Caterers implements Serializable {
     @Column(name = "guest_limit")
     private Integer guestLimit;
 
-    @JsonIgnoreProperties(value = { "itinerary", "caterers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "itinerary", "src/main/webapp/app/caterers/caterers" }, allowSetters = true)
     @OneToOne
     @JoinColumn(unique = true)
     private BookedCaterer bookedCaterer;
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "eventDate", "activitySaveds", "caterers", "venueInformations", "itineraryGuests" },
+        value = { "eventDate", "activitySaveds", "src/main/webapp/app/caterers/caterers", "venueInformations", "itineraryGuests" },
         allowSetters = true
     )
     private EventItinerary eventItinerary;
@@ -63,7 +63,7 @@ public class Caterers implements Serializable {
             "activityCompany",
             "decoCompany",
             "notification",
-            "caterers",
+            "src/main/webapp/app/caterers/caterers",
         },
         allowSetters = true
     )
@@ -76,7 +76,7 @@ public class Caterers implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "dietary_requirements_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "caterers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "src/main/webapp/app/caterers/caterers" }, allowSetters = true)
     private Set<DietaryRequirements> dietaryRequirements = new HashSet<>();
 
     @ManyToMany
@@ -86,16 +86,19 @@ public class Caterers implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "cuisine_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "caterers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "src/main/webapp/app/caterers/caterers" }, allowSetters = true)
     private Set<Cuisine> cuisines = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "venue", "caterers", "activities" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "venue", "src/main/webapp/app/caterers/caterers", "activities" }, allowSetters = true)
     private Event event;
 
     @OneToMany(mappedBy = "caterers")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "caterers", "activityCompany", "bookedActivity", "activitySelf" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "src/main/webapp/app/caterers/caterers", "activityCompany", "bookedActivity", "activitySelf" },
+        allowSetters = true
+    )
     private Set<Rating> ratings = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

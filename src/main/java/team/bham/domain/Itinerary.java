@@ -37,7 +37,7 @@ public class Itinerary implements Serializable {
 
     @OneToMany(mappedBy = "itinerary")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "itinerary", "caterers" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "itinerary", "src/main/webapp/app/caterers/caterers" }, allowSetters = true)
     private Set<BookedCaterer> bookedCaterers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CaterersService } from './caterers.service';
 
 @Component({
   selector: 'jhi-caterers',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./caterers.component.scss'],
 })
 export class CaterersComponent implements OnInit {
-  constructor() {}
+  caterers: any[] = [];
+  constructor(private caterersService: CaterersService) {}
+
+  isDarkMode: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+  }
 
   ngOnInit(): void {
     const coll: HTMLCollectionOf<Element> = document.getElementsByClassName('collapsible');
-
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener('click', function (this: HTMLElement) {
         this.classList.toggle('active');
@@ -22,5 +29,13 @@ export class CaterersComponent implements OnInit {
         }
       });
     }
+    this.caterersService.DisplayCaterers().subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.error('Error fetching caterer data:', error);
+      }
+    );
   }
 }

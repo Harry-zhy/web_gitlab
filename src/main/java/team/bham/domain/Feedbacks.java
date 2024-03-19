@@ -35,7 +35,10 @@ public class Feedbacks implements Serializable {
     @Column(name = "user_name", nullable = false)
     private String userName;
 
-    @JsonIgnoreProperties(value = { "caterers", "activityCompany", "bookedActivity", "activitySelf" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "src/main/webapp/app/caterers/caterers", "activityCompany", "bookedActivity", "activitySelf" },
+        allowSetters = true
+    )
     @OneToOne
     @JoinColumn(unique = true)
     private Rating rating;
@@ -55,7 +58,7 @@ public class Feedbacks implements Serializable {
             "activityCompany",
             "decoCompany",
             "notification",
-            "caterers",
+            "src/main/webapp/app/caterers/caterers",
         },
         allowSetters = true
     )

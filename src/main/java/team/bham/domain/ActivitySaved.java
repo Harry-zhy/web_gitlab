@@ -40,7 +40,7 @@ public class ActivitySaved implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "eventDate", "activitySaveds", "caterers", "venueInformations", "itineraryGuests" },
+        value = { "eventDate", "activitySaveds", "src/main/webapp/app/caterers/caterers", "venueInformations", "itineraryGuests" },
         allowSetters = true
     )
     private EventItinerary eventItinerary;
