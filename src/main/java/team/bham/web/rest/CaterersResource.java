@@ -27,7 +27,7 @@ public class CaterersResource {
 
     private final Logger log = LoggerFactory.getLogger(CaterersResource.class);
 
-    private static final String ENTITY_NAME = "caterers";
+    private static final String ENTITY_NAME = "src/main/webapp/app/caterers/caterers";
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;

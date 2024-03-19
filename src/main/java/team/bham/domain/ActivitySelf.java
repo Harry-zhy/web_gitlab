@@ -44,7 +44,7 @@ public class ActivitySelf implements Serializable {
     private Set<ActivitySaved> activitySaveds = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "venue", "caterers", "activities" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "venue", "src/main/webapp/app/caterers/caterers", "activities" }, allowSetters = true)
     private Event event;
 
     @OneToMany(mappedBy = "activitySelf")
@@ -59,7 +59,10 @@ public class ActivitySelf implements Serializable {
 
     @OneToMany(mappedBy = "activitySelf")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "caterers", "activityCompany", "bookedActivity", "activitySelf" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "src/main/webapp/app/caterers/caterers", "activityCompany", "bookedActivity", "activitySelf" },
+        allowSetters = true
+    )
     private Set<Rating> ratings = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

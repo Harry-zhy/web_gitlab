@@ -41,7 +41,7 @@ public class Notification implements Serializable {
             "activityCompany",
             "decoCompany",
             "notification",
-            "caterers",
+            "src/main/webapp/app/caterers/caterers",
         },
         allowSetters = true
     )

@@ -1,18 +1,20 @@
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 .filter-menu {
   width: 30%;
   height: 100%;
   float: left;
-  background-color: white;
 }
 
 .caterers {
-  background-color: white;
   width: 70%;
   float: left;
 }
 
 .menu {
-  column-fill: white;
   float: left;
 }
 .miniMenu {
@@ -82,4 +84,31 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.active,
+.collapsible:hover {
+  background-color: purple;
+}
+
+.collapsible:after {
+  content: ' △';
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: '▽';
+}
+
+.purple-box {
+  background-color: purple;
+  color: red;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
 }

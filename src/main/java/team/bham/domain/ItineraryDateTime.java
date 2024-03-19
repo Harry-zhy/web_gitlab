@@ -38,7 +38,7 @@ public class ItineraryDateTime implements Serializable {
     @OneToMany(mappedBy = "eventDate")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "eventDate", "activitySaveds", "caterers", "venueInformations", "itineraryGuests" },
+        value = { "eventDate", "activitySaveds", "src/main/webapp/app/caterers/caterers", "venueInformations", "itineraryGuests" },
         allowSetters = true
     )
     private Set<EventItinerary> eventItineraries = new HashSet<>();
