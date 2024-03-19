@@ -176,6 +176,11 @@ public class ActivitySelfResource {
         return selfActivity.getName();
     }
 
+    @GetMapping("/activity-selvesDescription")
+    public String getDescriptionGivenSelf(@RequestParam ActivitySelf selfActivity) {
+        return selfActivity.getDescription();
+    }
+
     @GetMapping("activity-selvesImages")
     public Set<ActivityImage> getImagesGivenSelf(@RequestParam ActivitySelf selfActivity) {
         return selfActivity.getActivityImages();

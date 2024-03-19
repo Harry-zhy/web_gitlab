@@ -28,7 +28,7 @@ export class FeedbackComponent implements OnInit {
     setTimeout(() => {
       const feedbackItems = document.querySelectorAll('.feedbackItem');
       feedbackItems[feedbackItems.length - 1].classList.add('show');
-    }, 0); // 使用setTimeout确保动画类能够应用在新的反馈项上
+    }, 0);
   }
 
   stars: number[] = [1, 2, 3, 4, 5];

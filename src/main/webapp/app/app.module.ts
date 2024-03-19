@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
 import { NotificationComponent } from './notification/notification.component';
+import { SupplierProfileComponent } from './supplier-profile/supplier-profile.component';
 
 @NgModule({
   imports: [
@@ -61,6 +62,7 @@ import { NotificationComponent } from './notification/notification.component';
     FeedbackComponent,
     ItineraryComponent,
     NotificationComponent,
+    SupplierProfileComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })

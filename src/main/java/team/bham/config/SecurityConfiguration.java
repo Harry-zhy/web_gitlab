@@ -6,6 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWrite
 import org.springframework.web.filter.CorsFilter;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 import team.bham.security.*;
+import team.bham.security.AuthoritiesConstants;
 import team.bham.security.jwt.*;
 import tech.jhipster.config.JHipsterProperties;
 
@@ -91,6 +93,8 @@ public class SecurityConfiguration {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.SUPPLIER)
+                .anyRequest().authenticated()
         .and()
             .httpBasic()
         .and()
@@ -102,4 +106,17 @@ public class SecurityConfiguration {
     private JWTConfigurer securityConfigurerAdapter() {
         return new JWTConfigurer(tokenProvider);
     }
+    // @Override
+    // public void configure(HttpSecurity http) throws Exception {
+    //     // @formatter:off
+    //     http
+    //         .csrf()
+    //         .disable()
+    //         ...
+    //     ...
+    //     .and()
+    //         .authorizeRequests()
+    //         ...
+    //         .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.ROLE_EXAMPLE_AUTHORITY)
+    // }
 }

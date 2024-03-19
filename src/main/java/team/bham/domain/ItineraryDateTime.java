@@ -62,6 +62,7 @@ public class ItineraryDateTime implements Serializable {
         return this.date;
     }
 
+    //ignore
     public ItineraryDateTime date(ZonedDateTime date) {
         this.setDate(date);
         return this;
