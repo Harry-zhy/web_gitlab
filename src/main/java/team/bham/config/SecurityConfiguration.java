@@ -93,7 +93,7 @@ public class SecurityConfiguration {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.SUPPLIER)
+            //.antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.SUPPLIER)
                 .anyRequest().authenticated()
         .and()
             .httpBasic()
@@ -106,17 +106,4 @@ public class SecurityConfiguration {
     private JWTConfigurer securityConfigurerAdapter() {
         return new JWTConfigurer(tokenProvider);
     }
-    // @Override
-    // public void configure(HttpSecurity http) throws Exception {
-    //     // @formatter:off
-    //     http
-    //         .csrf()
-    //         .disable()
-    //         ...
-    //     ...
-    //     .and()
-    //         .authorizeRequests()
-    //         ...
-    //         .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.ROLE_EXAMPLE_AUTHORITY)
-    // }
 }
