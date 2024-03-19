@@ -87,6 +87,22 @@ svg {
   transition-duration: 0.3s;
 }
 
+.select .replies,
+.select .bookings {
+  position: relative;
+  width: 5vmin;
+}
+
+.redDot {
+  background-color: #ff6d6d;
+  border-radius: 100%;
+  width: 1vmin;
+  height: 1vmin;
+  position: absolute;
+  top: -1vmin;
+  right: -1vmin;
+}
+
 .showPrivateNone {
   display: none;
 }
@@ -100,6 +116,7 @@ svg {
 }
 
 .showPrivateButton {
+  position: relative;
   color: white;
 }
 
@@ -147,10 +164,12 @@ svg {
 
 .receivedDate {
   text-align: center;
+  font-size: 1.5vmin;
+  align-self: center;
 }
 
 .unread {
-  color: #613964;
+  color: #cef362;
   font-weight: bold;
 }
 
@@ -167,6 +186,27 @@ svg {
   padding: 10px;
   color: white;
   margin-bottom: 10px;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.content {
+  background-color: #f7afc2;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40vmin;
+}
+
+.received-time {
+  color: #ffffff;
+  font-size: 12px;
 }
 
 .input-box {
