@@ -1,1 +1,281 @@
-<p>supplier-profile works!</p>
+<p class="title">Supplier Profile</p>
+
+<div class="iconMapLocation">
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 100 100" width="150" height="150">
+    <g>
+      <path
+        fill="#ffffff"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M61.233,39.229h9.934
+		v33.333H23.834c-5.523,0-10-3.73-10-8.334c0-4.602,4.477-8.332,10-8.332c3.324-0.001,6.271,1.352,8.088,3.432V34.661
+		c-1.817-2.08-4.764-3.432-8.088-3.432c-5.523,0-10,3.731-10,8.333v24.079"
+      />
+
+      <line
+        fill="#f7afc2"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        x1="32.239"
+        y1="39.229"
+        x2="38.719"
+        y2="39.229"
+      />
+      <path
+        fill="#ffffff"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        d="M65.883,25.38
+		c0,7.148-12.943,28.945-12.943,28.945S39.996,32.528,39.996,25.38s5.795-12.942,12.943-12.942S65.883,18.232,65.883,25.38z"
+      />
+
+      <circle
+        fill="#ffffff"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        cx="52.94"
+        cy="25.38"
+        r="5.527"
+      />
+    </g>
+  </svg>
+  <div class="MapLocation">
+    <div class="venue-info" (click)="showVenue()">
+      Venue Information
+      <!--    <button class="buttonSetting">v</button>-->
+    </div>
+
+    <div class="VenueInformation" *ngIf="showVenueExtraInfo">
+      Name
+      <input type="text" />
+      Price
+      <input type="number" />
+      <br />Capacity<input type="number" /> Location<input type="text" /> <br />Opening Time<input type="number" />to<input type="number" />
+      <br />Upload Picture<input type="image" />
+    </div>
+  </div>
+</div>
+
+<div class="iconCookBook">
+  <svg
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    width="150"
+    height="150"
+    viewBox="0 0 100 100"
+    xml:space="preserve"
+  >
+    <g>
+      <path
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        d="
+		M66.682,11.286H25.218c-4.677,0-6.898,2.57-6.898,6.404c0.001,3.833,2.224,6.403,6.9,6.403h41.462v49.622H25.637
+		c-4.677,0-7.318-2.936-7.318-7.611V17.69"
+      />
+
+      <line
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        x1="24.784"
+        y1="17.681"
+        x2="66.667"
+        y2="17.681"
+      />
+      <path
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        d="
+		M52.248,34.653l-7.355,7.355c-0.992,0.994-0.994,2.619,0,3.612l4.674,4.674c0.992,0.994,2.617,0.993,3.611,0l7.354-7.356"
+      />
+
+      <line
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        x1="50.873"
+        y1="44.248"
+        x2="56.357"
+        y2="38.763"
+      />
+
+      <line
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        x1="32.47"
+        y1="62.65"
+        x2="36.419"
+        y2="58.703"
+      />
+      <line fill="none" stroke="#f7afc2" stroke-width="2.5" stroke-miterlimit="10" x1="32.47" y1="62.65" x2="40.064" y2="55.055" />
+      <g>
+        <path
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          d="
+			M52.48,61.674L28.015,36.368c-1.011-1.007-1.942-2.071-2.46-0.933c0,0-1.372,2.824,0.145,5.379l7.438,9.87"
+        />
+      </g>
+    </g>
+  </svg>
+  <div class="cookbook">
+    <div class="cook-info" (click)="showCook()">Caterers</div>
+
+    <div class="caterers" *ngIf="showCookExtraInfo">
+      Name<input type="text" />Price<input type="number" /><br />Capacity<input type="number" /> Location<input type="text" /><br />Opening
+      Time<input type="number" />to<input type="number" /><br />Upload Picture<input type="image" />
+    </div>
+  </div>
+</div>
+
+<div class="cookbook"></div>
+
+<div class="iconCamp">
+  <svg
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    width="150"
+    height="150"
+    viewBox="0 0 100 100"
+    xml:space="preserve"
+  >
+    <g>
+      <g>
+        <line
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="4.538"
+          y1="62.543"
+          x2="42.501"
+          y2="17.956"
+        />
+
+        <line
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="80.475"
+          y1="62.512"
+          x2="42.5"
+          y2="17.956"
+        />
+      </g>
+      <g>
+        <polyline
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-miterlimit="10"
+          points="67.701,48.121
+			67.701,66.68 42.504,66.68 		"
+        />
+        <polyline
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-miterlimit="10"
+          points="17.299,47.59 17.299,66.68
+			29.873,66.68 		"
+        />
+      </g>
+      <g>
+        <line
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-miterlimit="10"
+          x1="82.43"
+          y1="58.928"
+          x2="78.295"
+          y2="67.045"
+        />
+
+        <line
+          fill="none"
+          stroke="#f7afc2"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-miterlimit="10"
+          x1="2.57"
+          y1="58.928"
+          x2="6.705"
+          y2="67.045"
+        />
+      </g>
+      <path
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        d="
+		M42.512,33.305L29.885,66.664c0,0,1.316-10.41-4.985-14.211L42.512,33.305z"
+      />
+
+      <line
+        fill="none"
+        stroke="#f7afc2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        x1="42.5"
+        y1="33.305"
+        x2="42.5"
+        y2="66.664"
+      />
+    </g>
+  </svg>
+  <div class="camp">
+    <button class="camp-info" (click)="showCamp()">Activity</button>
+
+    <div class="activity" *ngIf="showCampExtraInfo">
+      <textarea class="activityText" placeholder="Please describe your activities."></textarea>
+    </div>
+  </div>
+</div>
