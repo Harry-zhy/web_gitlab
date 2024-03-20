@@ -177,9 +177,9 @@ export class NotificationComponent implements OnInit {
     }
   }
 
-  getSenderName(notification: INotification): string {
+  getSenderName(notification: INotification): string | null | undefined {
     const message = this.messages.find(message => message.id === notification.id);
-    return message ? message.senderName || 'Unknown' : 'Unknown';
+    return message?.senderName;
   }
 
   filterMessagesByType(messages: IMessage[], type: string): number[] {
