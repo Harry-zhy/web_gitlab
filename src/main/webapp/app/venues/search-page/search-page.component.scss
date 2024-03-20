@@ -2,14 +2,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
   margin: 0;
   //background-color: #1a2a33; /* 用你的背景色代替这个颜色 */
 }
 
 .container {
   text-align: center;
-  height: 85vmin;
+  height: 80vmin;
   align-content: center;
 }
 
@@ -130,4 +130,22 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding-left: 2vmin;
+}
+
+.goBack {
+  font-size: 4vmax;
+  font-weight: bold;
+  align-content: center;
+  left: 8vmin;
+  position: absolute;
+  color: white;
+  height: 10vh;
+  transition-duration: 0.3s;
+}
+
+.goBack:hover {
+  transform: scale(1.2);
+  color: palegoldenrod;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }

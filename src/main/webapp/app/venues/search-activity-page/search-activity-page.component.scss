@@ -1,4 +1,9 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
@@ -77,6 +82,79 @@ body {
   border-bottom: 1px solid #f9b0c3;
 }
 
-.inputSitUse {
+.inputVenueUse {
   width: 50%;
+}
+
+.icon-container2 {
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 240px;
+  left: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
+}
+.money,
+.area,
+.venue,
+.time {
+  font-size: 13vmin;
+  color: #f9b0c3;
+}
+
+.icon-container3 {
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 420px;
+  left: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
+}
+
+.icon-container4 {
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 590px;
+  left: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
+}
+
+.icon-container5 {
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 770px;
+  left: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
+}
+
+.goBack {
+  font-size: 4vmax;
+  font-weight: bold;
+  align-content: center;
+  left: 8vmin;
+  position: absolute;
+  color: white;
+  height: 10vh;
+  transition-duration: 0.3s;
+}
+
+.goBack:hover {
+  transform: scale(1.2);
+  color: palegoldenrod;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }

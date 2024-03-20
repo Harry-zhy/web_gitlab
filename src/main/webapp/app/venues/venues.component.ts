@@ -11,6 +11,7 @@ export class VenuesComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  searchForVenue: boolean = false;
   startSearch() {
     this.router.navigate(['/search-page1']);
   }

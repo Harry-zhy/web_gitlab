@@ -17,18 +17,88 @@ body {
   height: 1vmin;
   border-radius: 10vmin;
 }
-.bar3 {
+.bar1 {
   width: 85vmin;
   background-color: #f9b0c3;
-  height: 15vmin;
-  margin: 10vmin 50vmin auto;
+  height: 20vmin;
+  //margin: 10vmin 50vmin auto;
   //align-items: center;
   text-align: left;
   border-radius: 2vmin;
+  padding: 8px;
+  margin-bottom: 2vmin;
+  transform: translate(10cm, 1cm);
 }
 
-.boxText3 {
-  align-content: center;
-  font-size: 3vmin;
+.bar2 {
+  width: 85vmin;
+  background-color: #f9b0c3;
+  height: 20vmin;
+  //margin: 10vmin 50vmin auto;
   //align-items: center;
+  text-align: left;
+  border-radius: 2vmin;
+  padding: 8px;
+  margin-bottom: 2vmin;
+  transform: translate(10cm, 1.5cm);
+}
+
+.bar3 {
+  width: 85vmin;
+  background-color: #f9b0c3;
+  height: 20vmin;
+  //margin: 10vmin 50vmin auto;
+  //align-items: center;
+  text-align: left;
+  border-radius: 2vmin;
+  padding: 8px;
+  margin-bottom: 2vmin;
+  transform: translate(10cm, 2cm);
+}
+
+.boxText1 {
+  align-content: center;
+  font-size: 2vmin;
+  position: absolute;
+  color: black;
+  margin: auto;
+  right: 0;
+  top: 20%;
+  left: 3%;
+}
+
+.goBack {
+  font-size: 4vmax;
+  font-weight: bold;
+  align-content: center;
+  left: 8vmin;
+  position: absolute;
+  color: white;
+  height: 10vh;
+  transition-duration: 0.3s;
+}
+
+.goBack:hover {
+  transform: scale(1.2);
+  color: palegoldenrod;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.hotel1 {
+  width: 20%; /* 设置图片宽度为其原始尺寸的一半 */
+  height: auto; /* 保持图片的纵横比 */
+  transform: translate(-5cm, -0.5cm);
+}
+
+.hotel2 {
+  width: 25%; /* 设置图片宽度为其原始尺寸的一半 */
+  height: auto; /* 保持图片的纵横比 */
+  transform: translate(-6cm, 0cm);
+}
+
+.hotel3 {
+  width: 25%; /* 设置图片宽度为其原始尺寸的一半 */
+  height: auto; /* 保持图片的纵横比 */
+  transform: translate(-6cm, -0cm);
 }

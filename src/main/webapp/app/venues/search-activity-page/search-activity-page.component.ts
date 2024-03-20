@@ -12,5 +12,9 @@ export class SearchActivityPageComponent implements OnInit {
   searchResult() {
     this.router.navigate(['/Result-page']);
   }
+
+  goBack() {
+    this.router.navigate(['/venues']);
+  }
   ngOnInit(): void {}
 }
