@@ -165,6 +165,8 @@ p {
 .dateTimeWrapper {
   display: flex;
   padding: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .calendarBox {
@@ -291,6 +293,7 @@ p {
   align-items: center;
   justify-content: center;
   position: relative;
+  min-width: 0;
 }
 
 .timeBox select {
@@ -322,7 +325,7 @@ p {
   border: none;
   padding: 7%;
   text-align: center;
-  width: 250px;
+  width: 100%;
   height: 30px;
   justify-content: center;
   align-items: center;
@@ -345,6 +348,17 @@ p {
   display: flex;
 }
 
+button.submit {
+  background: none;
+  border: none;
+  padding: 5px;
+
+  i {
+    font-size: 40px;
+    color: $purple;
+  }
+}
+
 //-----------------------------LOCATION------------------------------
 body {
   background: #fff;
@@ -352,9 +366,10 @@ body {
 }
 
 .search {
-  width: 100%;
-  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .searchTerm {
@@ -384,13 +399,39 @@ body {
   font-size: 20px;
 }
 
-.wrap {
-  width: 80%;
-  position: absolute;
-  margin-top: -10px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.pickVenue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  background-color: $light-purple;
+  color: $dark-blue;
+  border-radius: 10px;
+  border: none;
+  outline: none !important;
+  width: 90%;
+  box-shadow: 10px 10px $myyellow;
+  margin-left: 35px;
+  margin-top: 10px;
+}
+//-----------------------------VENDORS------------------------------
+
+.vendorsBox {
+  padding: 20px;
+  align-items: start;
+  display: inline-block;
+  justify-content: space-between;
 }
 
-//-----------------------------VENDORS------------------------------
+.optionBox {
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.add {
+  background: none;
+  font-size: 50px;
+  color: $light-pink;
+  border: none;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-itinerary',
@@ -7,8 +8,8 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit {
-  constructor(private renderer: Renderer2) {
-    this.initializeTimeOptions();
+  constructor(private renderer: Renderer2, private router: Router) {
+    //this.initializeTimeOptions();
   }
 
   buttonStates: boolean[] = [false, false, false];
@@ -25,8 +26,21 @@ export class ItineraryComponent implements OnInit {
 
   hours: number[] = [];
   minutes: number[] = [];
-  selectedHour: number = 0;
-  selectedMinute: number = 0;
+
+  /*
+  startselectedHour: number = 0;
+  endselectedHour: number = 0;
+  startselectedMinute: number = 0;
+  endselectedMinute: number = 0; 
+  */
+
+  startselectedHour: string = '00';
+  endselectedHour: string = '00';
+  startselectedMinute: string = '00';
+  endselectedMinute: string = '00';
+
+  hourOptions: string[] = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'));
+  minuteOptions: string[] = Array.from({ length: 12 }, (_, i) => (i * 5).toString().padStart(2, '0'));
 
   ngOnInit(): void {
     //number of guests
@@ -39,6 +53,22 @@ export class ItineraryComponent implements OnInit {
     this.selectedDateInput = document.getElementById('selectedDate') as HTMLInputElement;
     this.updateCalendar();
     this.createCalendar(this.currentDate.getFullYear(), this.currentDate.getMonth());
+  }
+
+  toDecorators(): void {
+    this.router.navigate(['/decorations']);
+  }
+
+  toCaterers(): void {
+    this.router.navigate(['/caterers']);
+  }
+
+  toVenues(): void {
+    this.router.navigate(['/venues']);
+  }
+
+  toActivities(): void {
+    this.router.navigate(['/activities']);
   }
 
   toggleClicked(index: number) {
@@ -141,6 +171,7 @@ export class ItineraryComponent implements OnInit {
     return monthNames[monthIndex];
   }
 
+  /*
   initializeTimeOptions() {
     for (let i = 1; i < 24; i++) {
       this.hours.push(i);
@@ -148,5 +179,11 @@ export class ItineraryComponent implements OnInit {
     for (let i = 0; i < 60; i += 5) {
       this.minutes.push(i);
     }
+  }
+  */
+
+  submitDateTime(): void {
+    const eventTimings: number[] = [];
+    eventTimings.push();
   }
 }
