@@ -18,6 +18,9 @@ import { DecorationsComponent } from './decorations/decorations.component';
 import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivitypage.component';
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
 import { NotificationComponent } from './notification/notification.component';
+import { SearchPageComponent } from './venues/search-page/search-page.component';
+import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
+import { ResultPageComponent } from './venues/result-page/result-page.component';
 
 @NgModule({
   imports: [
@@ -88,6 +91,20 @@ import { NotificationComponent } from './notification/notification.component';
           path: 'decorations',
           component: DecorationsComponent,
         },
+
+        {
+          path: 'search-page1',
+          component: SearchPageComponent,
+        },
+        {
+          path: 'search-page2',
+          component: SearchActivityPageComponent,
+        },
+        {
+          path: 'Result-page',
+          component: ResultPageComponent,
+        },
+
         navbarRoute,
         ...errorRoute,
       ],

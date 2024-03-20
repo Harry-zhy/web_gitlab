@@ -1,0 +1,48 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+body {
+}
+
+.container {
+  text-align: center;
+  height: 85vmin;
+}
+
+.title {
+  color: white;
+  font-size: 6vmin;
+  //text-align: center;
+}
+
+.decoBar {
+  background-color: #f9b0c3;
+  height: 1vmin;
+  border-radius: 10vmin;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.box {
+  width: 60vmin;
+  background-color: #f9b0c3;
+  margin: 15vmin auto;
+  border-radius: 10vmin;
+}
+
+.boxText {
+  font-size: 4vmin;
+}
+
+.box:hover {
+  background-color: palegoldenrod;
+  transform: scale(1.05);
+  transition: background-color 0.5s, transform 0.5s;
+}
+
+.box:active {
+  background-color: yellowgreen;
+  transform: scale(0.95);
+  transition: background-color 0.5s, transform 0.5s;
+}

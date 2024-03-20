@@ -29,7 +29,9 @@ import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
 import { NotificationComponent } from './notification/notification.component';
-import { SupplierProfileComponent } from './supplier-profile/supplier-profile.component';
+import { SearchPageComponent } from './venues/search-page/search-page.component';
+import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
+import { ResultPageComponent } from './venues/result-page/result-page.component';
 
 @NgModule({
   imports: [
@@ -62,7 +64,9 @@ import { SupplierProfileComponent } from './supplier-profile/supplier-profile.co
     FeedbackComponent,
     ItineraryComponent,
     NotificationComponent,
-    SupplierProfileComponent,
+    SearchPageComponent,
+    SearchActivityPageComponent,
+    ResultPageComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })

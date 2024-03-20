@@ -1,0 +1,133 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  //background-color: #1a2a33; /* 用你的背景色代替这个颜色 */
+}
+
+.container {
+  text-align: center;
+  height: 85vmin;
+  align-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 6vmin;
+}
+
+.decoBar {
+  background-color: #f9b0c3;
+  height: 1vmin;
+  border-radius: 10vmin;
+}
+.bar {
+  width: 80vmin;
+  background-color: #f9b0c3;
+  height: 13vmin;
+  margin: 10vmin 50vmin auto;
+  align-items: center;
+  border-radius: 10vmin;
+  // align-content: center;
+}
+
+.boxText {
+  align-content: center;
+  font-size: 4vmin;
+
+  //align-items: center;
+}
+
+.searchButton {
+  background-color: grey;
+  border-radius: 100%;
+  width: 20vmin;
+  height: 20vmin;
+  margin: -10vmin 0 0 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.searchButton:hover {
+  transform: scale(1.05);
+  background-color: palegoldenrod;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.searchButton:active {
+  transform: scale(0.95);
+  background-color: yellowgreen;
+  transition: all 0.5s ease;
+}
+
+.inputStyle2 {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: white;
+  text-align: center;
+  font-size: 4vmin;
+  margin: 0 2vmin;
+  width: 10%;
+}
+
+.inputStyle2:focus {
+  outline: none;
+  border-bottom: 1px solid #f9b0c3;
+}
+
+.icon-container {
+  height: 13vmin; /* 与.bar相同的高度 */
+  width: 80vmin; /* 与.bar相同的宽度，可根据需求调整 */
+  position: absolute; /* 定位至粉色方块外部 */
+  top: 285px; /* 根据需要调整，以匹配.bar的顶部位置 */
+  left: 420px; /* 根据需要调整 */
+  display: flex; /* 用flex布局使图标垂直居中 */
+  align-items: center; /* 使图标垂直居中 */
+  justify-content: flex-start; /* 使图标水平靠左对齐 */
+  padding-left: 2vmin; /* 添加左边距，根据需求调整 */
+}
+
+.icon {
+  font-size: 13vmin; /* 图标的大小，与.icon-container的高度一致 */
+  color: #f9b0c3; /* 使图标颜色与背景色匹配 */
+}
+
+.icon-container2 {
+  height: 13vmin; /* 与.bar相同的高度 */
+  width: 80vmin; /* 与.bar相同的宽度，可根据需求调整 */
+  position: absolute; /* 定位至粉色方块外部 */
+  top: 510px; /* 根据需要调整，以匹配.bar的顶部位置 */
+  left: 420px; /* 根据需要调整 */
+  display: flex; /* 用flex布局使图标垂直居中 */
+  align-items: center; /* 使图标垂直居中 */
+  justify-content: flex-start; /* 使图标水平靠左对齐 */
+  padding-left: 2vmin; /* 添加左边距，根据需求调整 */
+}
+
+.icon2,
+.time {
+  font-size: 13vmin;
+  color: #f9b0c3;
+}
+
+.icon-container3 {
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 730px;
+  left: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
+}

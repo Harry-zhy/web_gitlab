@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-venues',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./venues.component.scss'],
 })
 export class VenuesComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  startSearch() {
+    this.router.navigate(['/search-page1']);
+  }
+
+  startAnotherSearch() {
+    this.router.navigate(['/search-page2']);
+  }
 }
