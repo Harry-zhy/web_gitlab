@@ -32,6 +32,9 @@
         </button>
       </div>
     </div>
+    <div class="submitButton">
+      <button class="submit" aria-label="Submit" title="Save Changes"><i class="fa-solid fa-circle-check"></i></button>
+    </div>
   </div>
 
   <div class="miniHeader">
@@ -65,29 +68,37 @@
       <div class="timeBox">
         <div class="TimeTitle">Start Time</div>
         <div id="startTimeSelect">
-          <select [(ngModel)]="selectedHour">
-            <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+          <select [(ngModel)]="startselectedHour">
+            <option *ngFor="let hour of hourOptions" [value]="hour">{{ hour }}</option>
           </select>
           <span>:</span>
-          <select [(ngModel)]="selectedMinute">
-            <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+          <select [(ngModel)]="startselectedMinute">
+            <option *ngFor="let minute of minuteOptions" [value]="minute">{{ minute }}</option>
           </select>
         </div>
         <div class="TimeTitle">End Time</div>
         <div id="startTimeSelect">
-          <select [(ngModel)]="selectedHour">
-            <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+          <select [(ngModel)]="endselectedHour">
+            <option *ngFor="let hour of hourOptions" [value]="hour">{{ hour }}</option>
           </select>
           <span>:</span>
-          <select [(ngModel)]="selectedMinute">
-            <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+          <select [(ngModel)]="endselectedMinute">
+            <option *ngFor="let minute of minuteOptions" [value]="minute">{{ minute }}</option>
           </select>
         </div>
-        <input type="text" id="selectedTime" style="width: 90%; align-items: center; justify-content: center; display: flex" readonly />
+        <input
+          type="text"
+          id="selectedTime"
+          style="width: 90%; align-items: center; justify-content: center; display: flex"
+          readonly
+          [value]="startselectedHour + ':' + startselectedMinute + ' - ' + endselectedHour + ':' + endselectedMinute"
+        />
       </div>
     </div>
     <div class="submitButton">
-      <button class="submit" onclick="submitDateTime()">submit</button>
+      <button class="submit" onclick="submitDateTime()" aria-label="Submit" title="Save Changes">
+        <i class="fa-solid fa-circle-check"></i>
+      </button>
     </div>
   </div>
 
@@ -96,27 +107,49 @@
     <p>Find a location or book a venue!</p>
   </div>
   <div class="pinkBox">
-    <p>location box</p>
-    <div class="wrap">
-      <div class="search">
-        <input type="text" class="searchTerm" placeholder="Your Location Here" />
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
+    <div class="search">
+      <input type="text" class="searchTerm" placeholder="Your Location Here" />
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    <p style="text-align: center; padding: 10px; font-size: 24px; color: white">OR</p>
+    <div class="pickVenue">
+      <button class="venueButton" (click)="toVenues()" style="background: white; border: none; border-radius: 15px; padding: 10px">
+        Choose a Venue
+      </button>
     </div>
   </div>
 
   <div class="miniHeader">
     <h4><i class="fa-solid fa-user-plus custom-icon"></i> Vendors</h4>
-    <p>Hire caterers and deorators and book activities here!</p>
+    <p>Hire caterers and decorators, and book activities here!</p>
   </div>
   <div class="pinkBox">
-    <p>vendors box</p>
     <div class="vendorsBox">
-      <div class="activitesBox"></div>
-      <div class="caterersBox"></div>
-      <div class="decoratorsBox"></div>
+      <!-- activities -->
+      <div class="optionBox">
+        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Activities</h5>
+        <div class="addOptionButtons">
+          <button class="add" (click)="toActivities()"><i class="fa-solid fa-square-plus"></i></button>
+        </div>
+      </div>
+
+      <!-- caterers -->
+      <div class="optionBox">
+        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Caterers</h5>
+        <div class="addOptionButtons">
+          <button class="add" (click)="toCaterers()"><i class="fa-solid fa-square-plus"></i></button>
+        </div>
+      </div>
+
+      <!-- decorators -->
+      <div class="optionBox">
+        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Decorators</h5>
+        <div class="addOptionButtons">
+          <button class="add" (click)="toDecorators()"><i class="fa-solid fa-square-plus"></i></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
