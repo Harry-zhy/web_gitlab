@@ -7,15 +7,16 @@
   text-decoration: underline;
 }
 .VenueInformation {
-  //transform: translate(10cm,-4.6cm);
   background-image: linear-gradient(to bottom, #ffbbd0, #b480e9);
   border-radius: 1vmin;
   padding: 9px;
   width: 45vw;
   height: 15vh;
   text-align: left;
+
   flex-basis: auto;
   color: #f3ecf3;
+  border: none;
 }
 
 .venue-info {
@@ -31,8 +32,6 @@
   cursor: pointer;
   transition-duration: 0.3s;
   margin-top: 0.5vh;
-
-  //transform: translate(10cm,-3.6cm);
 }
 .venue-info:hover {
   filter: drop-shadow(0 0 8px rgb(180, 128, 233));
@@ -41,6 +40,8 @@
 .VenueInformation input {
   background: transparent;
   color: #f3ecf3;
+  border: none;
+  font-size: 17px;
 }
 
 .iconMapLocation {
@@ -69,7 +70,6 @@
   margin-top: 0.5vh;
   border-radius: 1vmin;
   width: 45vw;
-
   cursor: pointer;
   transition-duration: 0.3s;
 }
@@ -84,12 +84,14 @@
   width: 45vw;
   height: 15vh;
   text-align: left;
-  font-size: 15px;
+  font-size: 20px;
   flex-basis: auto;
   color: #f3ecf3;
+  border: none;
 }
 
 .caterers input {
+  border: none;
   background: transparent;
   color: #f3ecf3;
 }
