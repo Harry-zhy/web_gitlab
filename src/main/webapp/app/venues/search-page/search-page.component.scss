@@ -86,32 +86,32 @@ body {
 }
 
 .icon-container {
-  height: 13vmin; /* 与.bar相同的高度 */
-  width: 80vmin; /* 与.bar相同的宽度，可根据需求调整 */
-  position: absolute; /* 定位至粉色方块外部 */
-  top: 285px; /* 根据需要调整，以匹配.bar的顶部位置 */
-  left: 420px; /* 根据需要调整 */
-  display: flex; /* 用flex布局使图标垂直居中 */
-  align-items: center; /* 使图标垂直居中 */
-  justify-content: flex-start; /* 使图标水平靠左对齐 */
-  padding-left: 2vmin; /* 添加左边距，根据需求调整 */
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 285px;
+  left: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
 }
 
 .icon {
-  font-size: 13vmin; /* 图标的大小，与.icon-container的高度一致 */
-  color: #f9b0c3; /* 使图标颜色与背景色匹配 */
+  font-size: 13vmin;
+  color: #f9b0c3;
 }
 
 .icon-container2 {
-  height: 13vmin; /* 与.bar相同的高度 */
-  width: 80vmin; /* 与.bar相同的宽度，可根据需求调整 */
-  position: absolute; /* 定位至粉色方块外部 */
-  top: 510px; /* 根据需要调整，以匹配.bar的顶部位置 */
-  left: 420px; /* 根据需要调整 */
-  display: flex; /* 用flex布局使图标垂直居中 */
-  align-items: center; /* 使图标垂直居中 */
-  justify-content: flex-start; /* 使图标水平靠左对齐 */
-  padding-left: 2vmin; /* 添加左边距，根据需求调整 */
+  height: 13vmin;
+  width: 80vmin;
+  position: absolute;
+  top: 510px;
+  left: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2vmin;
 }
 
 .icon2,
