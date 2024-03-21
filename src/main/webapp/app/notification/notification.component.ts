@@ -143,7 +143,7 @@ export class NotificationComponent implements OnInit {
   createNotification(): void {}
 
   showMessage(notification: INotification) {
-    this.selectedMessages = this.messages.filter(message => message.id === notification.id);
+    this.selectedMessages = this.messages.filter(message => message.notification?.id === notification.id);
     if (notification.status?.includes('UN')) {
       this.markNotificationAsRead(notification.id);
     }
@@ -178,7 +178,7 @@ export class NotificationComponent implements OnInit {
   }
 
   getSenderName(notification: INotification): string | null | undefined {
-    const message = this.messages.find(message => message.id === notification.id);
+    const message = this.messages.find(message => message.notification?.id === notification.id);
     return message?.senderName;
   }
 
