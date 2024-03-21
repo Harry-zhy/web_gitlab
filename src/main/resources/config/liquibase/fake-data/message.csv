@@ -1,11 +1,11 @@
-id;content;sender_name;type;sent_date;send_to
-1;Solutions Wooden;Borders violet feed;PRIVATE_MESSAGE;2024-03-04T22:51:28;Franc
-2;SCSI invoice;Fish Computer;REPLY;2024-03-05T01:33:36;bricks-and-clicks
-3;(Malvinas) Station Fantastic;Salad;REPLY;2024-03-04T18:01:35;Brand Creative
-4;indigo Virginia;Avon Regional Nebraska;REPLY;2024-03-05T13:10:30;virtual
-5;Lebanon virtual bypassing;synergistic;REPLY;2024-03-04T21:36:17;Account Fish cross-media
-6;Table;Grocery Rustic;REPLY;2024-03-04T22:52:04;Peso
-7;Generic brand;Intelligent Towels;PRIVATE_MESSAGE;2024-03-04T22:33:13;Investment Concrete
-8;payment Kids;infomediaries;PRIVATE_MESSAGE;2024-03-04T15:53:28;alarm Reduced synergize
-9;transmitter Cheese AGP;Global Cambridgeshire;REPLY;2024-03-04T20:28:32;Pizza Forint concept
-10;Profit-focused Metal Direct;Bedfordshire deposit;REPLY;2024-03-05T06:37:02;Security Interactions
+id;content;sender_name;type;sent_date;send_to;notification_id
+1;Solutions Wooden;Borders violet feed;PRIVATE_MESSAGE;2024-03-04T22:51:28;Franc;1
+2;SCSI invoice;Fish Computer;REPLY;2024-03-05T01:33:36;bricks-and-clicks;2
+3;(Malvinas) Station Fantastic;Salad;REPLY;2024-03-04T18:01:35;Brand Creative;3
+4;indigo Virginia;Avon Regional Nebraska;REPLY;2024-03-05T13:10:30;virtual;4
+5;Lebanon virtual bypassing;synergistic;REPLY;2024-03-04T21:36:17;Account Fish cross-media;5
+6;Table;Grocery Rustic;REPLY;2024-03-04T22:52:04;Peso;6
+7;Generic brand;Intelligent Towels;PRIVATE_MESSAGE;2024-03-04T22:33:13;Investment Concrete;7
+8;payment Kids;infomediaries;PRIVATE_MESSAGE;2024-03-04T15:53:28;alarm Reduced synergize;8
+9;transmitter Cheese AGP;Global Cambridgeshire;REPLY;2024-03-04T20:28:32;Pizza Forint concept;9
+10;Profit-focused Metal Direct;Bedfordshire deposit;REPLY;2024-03-05T06:37:02;Security Interactions;10
