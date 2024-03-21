@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -133,6 +135,9 @@ public class MessageResource {
                 if (message.getSentDate() != null) {
                     existingMessage.setSentDate(message.getSentDate());
                 }
+                if (message.getSendTo() != null) {
+                    existingMessage.setSendTo(message.getSendTo());
+                }
 
                 return existingMessage;
             })
@@ -147,10 +152,18 @@ public class MessageResource {
     /**
      * {@code GET  /messages} : get all the messages.
      *
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of messages in body.
      */
     @GetMapping("/messages")
-    public List<Message> getAllMessages() {
+    public List<Message> getAllMessages(@RequestParam(required = false) String filter) {
+        if ("notification-is-null".equals(filter)) {
+            log.debug("REST request to get all Messages where notification is null");
+            return StreamSupport
+                .stream(messageRepository.findAll().spliterator(), false)
+                .filter(message -> message.getNotification() == null)
+                .collect(Collectors.toList());
+        }
         log.debug("REST request to get all Messages");
         return messageRepository.findAll();
     }

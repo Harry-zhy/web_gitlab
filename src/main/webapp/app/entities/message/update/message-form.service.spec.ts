@@ -24,6 +24,7 @@ describe('Message Form Service', () => {
             senderName: expect.any(Object),
             type: expect.any(Object),
             sentDate: expect.any(Object),
+            sendTo: expect.any(Object),
             notification: expect.any(Object),
           })
         );
@@ -39,6 +40,7 @@ describe('Message Form Service', () => {
             senderName: expect.any(Object),
             type: expect.any(Object),
             sentDate: expect.any(Object),
+            sendTo: expect.any(Object),
             notification: expect.any(Object),
           })
         );

@@ -47,6 +47,9 @@ class MessageResourceIT {
     private static final ZonedDateTime DEFAULT_SENT_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_SENT_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final String DEFAULT_SEND_TO = "AAAAAAAAAA";
+    private static final String UPDATED_SEND_TO = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/messages";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -75,7 +78,8 @@ class MessageResourceIT {
             .content(DEFAULT_CONTENT)
             .senderName(DEFAULT_SENDER_NAME)
             .type(DEFAULT_TYPE)
-            .sentDate(DEFAULT_SENT_DATE);
+            .sentDate(DEFAULT_SENT_DATE)
+            .sendTo(DEFAULT_SEND_TO);
         return message;
     }
 
@@ -90,7 +94,8 @@ class MessageResourceIT {
             .content(UPDATED_CONTENT)
             .senderName(UPDATED_SENDER_NAME)
             .type(UPDATED_TYPE)
-            .sentDate(UPDATED_SENT_DATE);
+            .sentDate(UPDATED_SENT_DATE)
+            .sendTo(UPDATED_SEND_TO);
         return message;
     }
 
@@ -116,6 +121,7 @@ class MessageResourceIT {
         assertThat(testMessage.getSenderName()).isEqualTo(DEFAULT_SENDER_NAME);
         assertThat(testMessage.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testMessage.getSentDate()).isEqualTo(DEFAULT_SENT_DATE);
+        assertThat(testMessage.getSendTo()).isEqualTo(DEFAULT_SEND_TO);
     }
 
     @Test
@@ -151,7 +157,8 @@ class MessageResourceIT {
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
             .andExpect(jsonPath("$.[*].senderName").value(hasItem(DEFAULT_SENDER_NAME)))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].sentDate").value(hasItem(sameInstant(DEFAULT_SENT_DATE))));
+            .andExpect(jsonPath("$.[*].sentDate").value(hasItem(sameInstant(DEFAULT_SENT_DATE))))
+            .andExpect(jsonPath("$.[*].sendTo").value(hasItem(DEFAULT_SEND_TO)));
     }
 
     @Test
@@ -169,7 +176,8 @@ class MessageResourceIT {
             .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT))
             .andExpect(jsonPath("$.senderName").value(DEFAULT_SENDER_NAME))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.sentDate").value(sameInstant(DEFAULT_SENT_DATE)));
+            .andExpect(jsonPath("$.sentDate").value(sameInstant(DEFAULT_SENT_DATE)))
+            .andExpect(jsonPath("$.sendTo").value(DEFAULT_SEND_TO));
     }
 
     @Test
@@ -191,7 +199,12 @@ class MessageResourceIT {
         Message updatedMessage = messageRepository.findById(message.getId()).get();
         // Disconnect from session so that the updates on updatedMessage are not directly saved in db
         em.detach(updatedMessage);
-        updatedMessage.content(UPDATED_CONTENT).senderName(UPDATED_SENDER_NAME).type(UPDATED_TYPE).sentDate(UPDATED_SENT_DATE);
+        updatedMessage
+            .content(UPDATED_CONTENT)
+            .senderName(UPDATED_SENDER_NAME)
+            .type(UPDATED_TYPE)
+            .sentDate(UPDATED_SENT_DATE)
+            .sendTo(UPDATED_SEND_TO);
 
         restMessageMockMvc
             .perform(
@@ -209,6 +222,7 @@ class MessageResourceIT {
         assertThat(testMessage.getSenderName()).isEqualTo(UPDATED_SENDER_NAME);
         assertThat(testMessage.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testMessage.getSentDate()).isEqualTo(UPDATED_SENT_DATE);
+        assertThat(testMessage.getSendTo()).isEqualTo(UPDATED_SEND_TO);
     }
 
     @Test
@@ -279,6 +293,8 @@ class MessageResourceIT {
         Message partialUpdatedMessage = new Message();
         partialUpdatedMessage.setId(message.getId());
 
+        partialUpdatedMessage.sendTo(UPDATED_SEND_TO);
+
         restMessageMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedMessage.getId())
@@ -295,6 +311,7 @@ class MessageResourceIT {
         assertThat(testMessage.getSenderName()).isEqualTo(DEFAULT_SENDER_NAME);
         assertThat(testMessage.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testMessage.getSentDate()).isEqualTo(DEFAULT_SENT_DATE);
+        assertThat(testMessage.getSendTo()).isEqualTo(UPDATED_SEND_TO);
     }
 
     @Test
@@ -309,7 +326,12 @@ class MessageResourceIT {
         Message partialUpdatedMessage = new Message();
         partialUpdatedMessage.setId(message.getId());
 
-        partialUpdatedMessage.content(UPDATED_CONTENT).senderName(UPDATED_SENDER_NAME).type(UPDATED_TYPE).sentDate(UPDATED_SENT_DATE);
+        partialUpdatedMessage
+            .content(UPDATED_CONTENT)
+            .senderName(UPDATED_SENDER_NAME)
+            .type(UPDATED_TYPE)
+            .sentDate(UPDATED_SENT_DATE)
+            .sendTo(UPDATED_SEND_TO);
 
         restMessageMockMvc
             .perform(
@@ -327,6 +349,7 @@ class MessageResourceIT {
         assertThat(testMessage.getSenderName()).isEqualTo(UPDATED_SENDER_NAME);
         assertThat(testMessage.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testMessage.getSentDate()).isEqualTo(UPDATED_SENT_DATE);
+        assertThat(testMessage.getSendTo()).isEqualTo(UPDATED_SEND_TO);
     }
 
     @Test

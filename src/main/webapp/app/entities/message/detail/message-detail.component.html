@@ -30,6 +30,10 @@
         <dd>
           <span>{{ message.sentDate | formatMediumDatetime }}</span>
         </dd>
+        <dt><span>Send To</span></dt>
+        <dd>
+          <span>{{ message.sendTo }}</span>
+        </dd>
         <dt><span>Notification</span></dt>
         <dd>
           <div *ngIf="message.notification">

@@ -49,7 +49,8 @@ public class Notification implements Serializable {
     @JoinColumn(unique = true)
     private Supplier supplier;
 
-    @JsonIgnoreProperties(value = { "notification" }, allowSetters = true)
+    @JoinColumn(unique = true)
+    @JsonIgnoreProperties(value = { "notification", "notification" }, allowSetters = true)
     @OneToOne(mappedBy = "notification")
     private Message message;
 

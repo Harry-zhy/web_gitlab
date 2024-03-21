@@ -8,6 +8,7 @@ export interface IMessage {
   senderName?: string | null;
   type?: MessageType | null;
   sentDate?: dayjs.Dayjs | null;
+  sendTo?: string | null;
   notification?: Pick<INotification, 'id'> | null;
 }
 

@@ -21,6 +21,10 @@
     {
       "fieldName": "sentDate",
       "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sendTo",
+      "fieldType": "String"
     }
   ],
   "fluentMethods": true,
@@ -33,6 +37,13 @@
       "otherEntityName": "notification",
       "otherEntityRelationshipName": "message",
       "ownerSide": true,
+      "relationshipName": "notification",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "message",
+      "ownerSide": false,
       "relationshipName": "notification",
       "relationshipType": "one-to-one"
     }

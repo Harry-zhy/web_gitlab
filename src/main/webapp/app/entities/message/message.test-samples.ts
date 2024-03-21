@@ -9,17 +9,19 @@ export const sampleWithRequiredData: IMessage = {
 };
 
 export const sampleWithPartialData: IMessage = {
-  id: 85938,
-  content: 'Metal',
-  type: MessageType['PRIVATE_MESSAGE'],
+  id: 28491,
+  content: 'Oklahoma',
+  type: MessageType['RESERVATION'],
+  sendTo: 'hack Global Louisiana',
 };
 
 export const sampleWithFullData: IMessage = {
-  id: 76000,
-  content: 'invoice',
-  senderName: 'Louisiana Florida B2C',
-  type: MessageType['REPLY'],
-  sentDate: dayjs('2024-03-04T20:02'),
+  id: 57475,
+  content: 'action-items',
+  senderName: 'projection',
+  type: MessageType['PRIVATE_MESSAGE'],
+  sentDate: dayjs('2024-03-04T22:57'),
+  sendTo: 'quantify cyan',
 };
 
 export const sampleWithNewData: NewMessage = {

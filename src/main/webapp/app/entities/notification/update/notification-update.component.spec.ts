@@ -11,6 +11,8 @@ import { NotificationService } from '../service/notification.service';
 import { INotification } from '../notification.model';
 import { ISupplier } from 'app/entities/supplier/supplier.model';
 import { SupplierService } from 'app/entities/supplier/service/supplier.service';
+import { IMessage } from 'app/entities/message/message.model';
+import { MessageService } from 'app/entities/message/service/message.service';
 
 import { NotificationUpdateComponent } from './notification-update.component';
 
@@ -21,6 +23,7 @@ describe('Notification Management Update Component', () => {
   let notificationFormService: NotificationFormService;
   let notificationService: NotificationService;
   let supplierService: SupplierService;
+  let messageService: MessageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -44,6 +47,7 @@ describe('Notification Management Update Component', () => {
     notificationFormService = TestBed.inject(NotificationFormService);
     notificationService = TestBed.inject(NotificationService);
     supplierService = TestBed.inject(SupplierService);
+    messageService = TestBed.inject(MessageService);
 
     comp = fixture.componentInstance;
   });
@@ -67,15 +71,36 @@ describe('Notification Management Update Component', () => {
       expect(comp.suppliersCollection).toEqual(expectedCollection);
     });
 
+    it('Should call message query and add missing value', () => {
+      const notification: INotification = { id: 456 };
+      const message: IMessage = { id: 99747 };
+      notification.message = message;
+
+      const messageCollection: IMessage[] = [{ id: 88749 }];
+      jest.spyOn(messageService, 'query').mockReturnValue(of(new HttpResponse({ body: messageCollection })));
+      const expectedCollection: IMessage[] = [message, ...messageCollection];
+      jest.spyOn(messageService, 'addMessageToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ notification });
+      comp.ngOnInit();
+
+      expect(messageService.query).toHaveBeenCalled();
+      expect(messageService.addMessageToCollectionIfMissing).toHaveBeenCalledWith(messageCollection, message);
+      expect(comp.messagesCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
       const notification: INotification = { id: 456 };
       const supplier: ISupplier = { id: 54748 };
       notification.supplier = supplier;
+      const message: IMessage = { id: 4772 };
+      notification.message = message;
 
       activatedRoute.data = of({ notification });
       comp.ngOnInit();
 
       expect(comp.suppliersCollection).toContain(supplier);
+      expect(comp.messagesCollection).toContain(message);
       expect(comp.notification).toEqual(notification);
     });
   });
@@ -156,6 +181,16 @@ describe('Notification Management Update Component', () => {
         jest.spyOn(supplierService, 'compareSupplier');
         comp.compareSupplier(entity, entity2);
         expect(supplierService.compareSupplier).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareMessage', () => {
+      it('Should forward to messageService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(messageService, 'compareMessage');
+        comp.compareMessage(entity, entity2);
+        expect(messageService.compareMessage).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

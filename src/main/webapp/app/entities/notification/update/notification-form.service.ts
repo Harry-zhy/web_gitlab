@@ -34,6 +34,7 @@ type NotificationFormGroupContent = {
   receivedDate: FormControl<NotificationFormRawValue['receivedDate']>;
   status: FormControl<NotificationFormRawValue['status']>;
   supplier: FormControl<NotificationFormRawValue['supplier']>;
+  message: FormControl<NotificationFormRawValue['message']>;
 };
 
 export type NotificationFormGroup = FormGroup<NotificationFormGroupContent>;
@@ -56,6 +57,7 @@ export class NotificationFormService {
       receivedDate: new FormControl(notificationRawValue.receivedDate),
       status: new FormControl(notificationRawValue.status),
       supplier: new FormControl(notificationRawValue.supplier),
+      message: new FormControl(notificationRawValue.message),
     });
   }
 

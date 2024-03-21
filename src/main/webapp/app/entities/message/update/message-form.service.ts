@@ -35,6 +35,7 @@ type MessageFormGroupContent = {
   senderName: FormControl<MessageFormRawValue['senderName']>;
   type: FormControl<MessageFormRawValue['type']>;
   sentDate: FormControl<MessageFormRawValue['sentDate']>;
+  sendTo: FormControl<MessageFormRawValue['sendTo']>;
   notification: FormControl<MessageFormRawValue['notification']>;
 };
 
@@ -59,6 +60,7 @@ export class MessageFormService {
       senderName: new FormControl(messageRawValue.senderName),
       type: new FormControl(messageRawValue.type),
       sentDate: new FormControl(messageRawValue.sentDate),
+      sendTo: new FormControl(messageRawValue.sendTo),
       notification: new FormControl(messageRawValue.notification),
     });
   }

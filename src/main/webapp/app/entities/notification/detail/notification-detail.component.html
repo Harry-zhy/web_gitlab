@@ -28,6 +28,12 @@
             <a [routerLink]="['/supplier', notification.supplier.id, 'view']">{{ notification.supplier.id }}</a>
           </div>
         </dd>
+        <dt><span>Message</span></dt>
+        <dd>
+          <div *ngIf="notification.message">
+            <a [routerLink]="['/message', notification.message.id, 'view']">{{ notification.message.id }}</a>
+          </div>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

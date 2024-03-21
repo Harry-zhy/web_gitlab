@@ -48,6 +48,21 @@
             <option [ngValue]="supplierOption" *ngFor="let supplierOption of suppliersCollection">{{ supplierOption.id }}</option>
           </select>
         </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_message">Message</label>
+          <select
+            class="form-control"
+            id="field_message"
+            data-cy="message"
+            name="message"
+            formControlName="message"
+            [compareWith]="compareMessage"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="messageOption" *ngFor="let messageOption of messagesCollection">{{ messageOption.id }}</option>
+          </select>
+        </div>
       </div>
 
       <div>

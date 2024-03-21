@@ -26,6 +26,9 @@
             <column name="sent_date" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
+            <column name="send_to" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="notification_id" type="bigint">
                 <constraints nullable="true" unique="true" uniqueConstraintName="ux_message__notification_id" />
             </column>
@@ -55,6 +58,7 @@
             <column name="sender_name" type="string"/>
             <column name="type" type="string"/>
             <column name="sent_date" type="date"/>
+            <column name="send_to" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

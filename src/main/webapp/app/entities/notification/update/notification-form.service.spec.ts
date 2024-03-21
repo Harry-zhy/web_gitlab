@@ -23,6 +23,7 @@ describe('Notification Form Service', () => {
             receivedDate: expect.any(Object),
             status: expect.any(Object),
             supplier: expect.any(Object),
+            message: expect.any(Object),
           })
         );
       });
@@ -36,6 +37,7 @@ describe('Notification Form Service', () => {
             receivedDate: expect.any(Object),
             status: expect.any(Object),
             supplier: expect.any(Object),
+            message: expect.any(Object),
           })
         );
       });

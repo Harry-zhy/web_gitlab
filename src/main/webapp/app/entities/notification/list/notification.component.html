@@ -56,6 +56,12 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="message.id">
+            <div class="d-flex">
+              <span>Message</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -69,6 +75,11 @@
           <td>
             <div *ngIf="notification.supplier">
               <a [routerLink]="['/supplier', notification.supplier.id, 'view']">{{ notification.supplier.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="notification.message">
+              <a [routerLink]="['/message', notification.message.id, 'view']">{{ notification.message.id }}</a>
             </div>
           </td>
           <td class="text-end">

@@ -23,6 +23,9 @@
             <column name="supplier_id" type="bigint">
                 <constraints nullable="true" unique="true" uniqueConstraintName="ux_notification__supplier_id" />
             </column>
+            <column name="message_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_notification__message_id" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="notification" columnName="received_date" columnDataType="${datetimeType}"/>

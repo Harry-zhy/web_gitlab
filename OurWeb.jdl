@@ -301,6 +301,7 @@ entity Message {
     senderName String,
     type MessageType,
     sentDate ZonedDateTime
+    sendTo String
 }
 
 entity Notification {
@@ -320,6 +321,7 @@ relationship OneToOne {
     Message to Notification
     //    Notification to User
     Notification to Supplier
+    Notification to Message
 }
 
 

@@ -38,6 +38,9 @@ public class Message implements Serializable {
     @Column(name = "sent_date")
     private ZonedDateTime sentDate;
 
+    @Column(name = "send_to")
+    private String sendTo;
+
     @JsonIgnoreProperties(value = { "supplier", "message" }, allowSetters = true)
     @OneToOne
     @JoinColumn(unique = true)
@@ -110,6 +113,19 @@ public class Message implements Serializable {
         this.sentDate = sentDate;
     }
 
+    public String getSendTo() {
+        return this.sendTo;
+    }
+
+    public Message sendTo(String sendTo) {
+        this.setSendTo(sendTo);
+        return this;
+    }
+
+    public void setSendTo(String sendTo) {
+        this.sendTo = sendTo;
+    }
+
     public Notification getNotification() {
         return this.notification;
     }
@@ -151,6 +167,7 @@ public class Message implements Serializable {
             ", senderName='" + getSenderName() + "'" +
             ", type='" + getType() + "'" +
             ", sentDate='" + getSentDate() + "'" +
+            ", sendTo='" + getSendTo() + "'" +
             "}";
     }
 }
