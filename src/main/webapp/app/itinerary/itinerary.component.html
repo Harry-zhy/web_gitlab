@@ -129,25 +129,89 @@
     <div class="vendorsBox">
       <!-- activities -->
       <div class="optionBox">
-        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Activities</h5>
+        <div class="add-title">
+          <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">
+            Activities<button class="add" (click)="addActivitiesOption()">
+              <i class="fa-solid fa-circle-xmark fa-rotate-by" style="--fa-rotate-angle: 45deg"></i>
+            </button>
+          </h5>
+        </div>
         <div class="addOptionButtons">
-          <button class="add" (click)="toActivities()"><i class="fa-solid fa-square-plus"></i></button>
+          <!-- add activity option -->
+          <div class="displayAddedOptions">
+            <div *ngFor="let activityOption of activitiesOptions" class="addedOption">
+              <img
+                src="/content/images/itineraryImages/not-selected.jpeg"
+                alt="ActivityImage"
+                style="width: 100%; cursor: pointer"
+                (click)="toActivities()"
+              />
+              <div class="optionInfo">
+                <span class="mySpan">Activity Name</span>
+                <span class="myLittleSpan"><i class="fa-regular fa-clock"> : </i></span>
+                <span class="myLittleSpan"><i class="fa-regular fa-money-bill-1"> : </i></span>
+              </div>
+              <button class="remove" (click)="removeActivitiesOption()"><i class="fa-regular fa-circle-xmark"></i></button>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- caterers -->
       <div class="optionBox">
-        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Caterers</h5>
+        <div class="add-title">
+          <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">
+            Caterers<button class="add" (click)="addCaterersOption()">
+              <i class="fa-solid fa-circle-xmark fa-rotate-by" style="--fa-rotate-angle: 45deg"></i>
+            </button>
+          </h5>
+        </div>
         <div class="addOptionButtons">
-          <button class="add" (click)="toCaterers()"><i class="fa-solid fa-square-plus"></i></button>
+          <!-- add caterer option -->
+          <div class="displayAddedOptions">
+            <div *ngFor="let catererOption of caterersOptions" class="addedOption">
+              <a [routerLink]="'/caterersPage'"
+                ><img src="/content/images/itineraryImages/not-selected.jpeg" alt="CatererImage" style="width: 100%" (click)="toCaterers()"
+              /></a>
+              <div class="optionInfo">
+                <span class="mySpan">Caterer Name</span>
+                <span class="myLittleSpan"><i class="fa-regular fa-clock"> : </i></span>
+                <span class="myLittleSpan"><i class="fa-regular fa-money-bill-1"> : </i></span>
+                <button class="remove" (click)="removeCaterersOption()"><i class="fa-regular fa-circle-xmark"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- decorators -->
       <div class="optionBox">
-        <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">Decorators</h5>
+        <div class="add-title">
+          <h5 style="background-color: #e0dffd; box-shadow: 4px 4px #ffc212; border: none; border-radius: 15px; padding: 10px">
+            Decorators<button class="add" (click)="addDecoratorsOption()">
+              <i class="fa-solid fa-circle-xmark fa-rotate-by" style="--fa-rotate-angle: 45deg"></i>
+            </button>
+          </h5>
+        </div>
         <div class="addOptionButtons">
-          <button class="add" (click)="toDecorators()"><i class="fa-solid fa-square-plus"></i></button>
+          <!-- add decorator option -->
+          <div class="displayAddedOptions">
+            <div *ngFor="let decoratorOption of decoratorsOptions" class="addedOption">
+              <a [routerLink]="'/decorations'"
+                ><img
+                  src="/content/images/itineraryImages/not-selected.jpeg"
+                  alt="DecoratorImage"
+                  style="width: 100%; cursor: pointer"
+                  (click)="toDecorators()"
+              /></a>
+              <div class="optionInfo">
+                <span class="mySpan">Decorator Name</span>
+                <span class="myLittleSpan"><i class="fa-regular fa-clock"> : </i></span>
+                <span class="myLittleSpan"><i class="fa-regular fa-money-bill-1"> : </i></span>
+                <button class="remove" (click)="removeDecoratorsOption()"><i class="fa-regular fa-circle-xmark"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
