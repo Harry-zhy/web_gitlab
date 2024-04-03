@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ActivitiesService } from 'app/activities/activities.service';
 import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
 import { Observable } from 'rxjs';
+import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.model';
 
 @Component({
   selector: 'jhi-bookedactivitypage',
@@ -12,7 +13,9 @@ import { Observable } from 'rxjs';
 export class BookedactivitypageComponent implements OnInit {
   constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllCompanyData();
+  }
 
   backactivities(): void {
     this.router.navigate(['/activities']);
@@ -27,18 +30,16 @@ export class BookedactivitypageComponent implements OnInit {
   allCompanyRatingsArray: any[] = [];
   allCompanyProfilesArray: any[] = [];
 
-  Name: String = '';
-  About: String = '';
-  CD: any[] = [];
-  Images: any[] = [];
-  Ratings: any[] = [];
-  Profile: any[] = [];
+  public Name: String = '';
+  public About: String = '';
+  public CD: any[] = [];
+  public Images: any[] = [];
+  public Ratings: any[] = [];
+  public Profile: any[] = [];
 
   companyCounter: number = 0;
 
   getAllCompanyData(): void {
-    //navigating to the booked activity page
-    this.router.navigate(['/bookactivitypage']);
     let flag: boolean = false;
     this.companyCounter = 0;
 
@@ -88,6 +89,5 @@ export class BookedactivitypageComponent implements OnInit {
   nextCompany(): void {
     this.companyCounter = this.companyCounter + 1;
     this.displayCompanyData();
-    this.router.navigate(['/bookactivitypage']);
   }
 }

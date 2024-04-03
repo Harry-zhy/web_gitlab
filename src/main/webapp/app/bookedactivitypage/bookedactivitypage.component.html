@@ -5,7 +5,7 @@
     </button>
   </div>
   <div class="companyName">
-    <p class="companyNameText">company name</p>
+    <p class="companyNameText">{{ Name }}</p>
   </div>
   <div class="savebutton">
     <button class="save" (click)="saveactivitytoitinerary()" clickable>
@@ -18,9 +18,10 @@
 <div>
   <div class="aboutSection">
     <p class="boxTitles">About</p>
+    <p class="aboutText">{{ About }}</p>
   </div>
   <div class="imagesSection">
-    <p>imAges</p>
+    <p class="camoflauge">images</p>
   </div>
 </div>
 <div>
@@ -33,6 +34,7 @@
   </div>
   <div class="contactDetailsSection">
     <p class="boxTitles">Contact Details</p>
+    <p class="CDtext">{{ CD[0] }}</p>
   </div>
 </div>
 

@@ -15,7 +15,7 @@ export class UserprofileComponent implements OnInit {
   ngOnInit(): void {}
 
   catererspage(): void {
-    this.router.navigate(['/caterers']);
+    this.router.navigate(['/caterersPage']);
   }
   venuespage(): void {
     this.router.navigate(['/venues']);

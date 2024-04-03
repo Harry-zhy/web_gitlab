@@ -32,8 +32,14 @@ body {
 
 .positioning {
   position: relative;
-  height: 375px;
+  height: 725px;
   display: inline-block;
+}
+
+.pictures {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
 }
 
 .positioningSection {
@@ -105,30 +111,34 @@ input {
 }
 
 .bookiconssection {
-  width: 250px;
+  width: 425px;
+  height: 275px;
   background-color: #f9b0c3;
   border-radius: 8px;
   text-align: center;
   margin: 3em;
   display: in-line block;
+  align-items: center;
 }
 
-.iconimages {
-  width: 100%;
-  height: 100%;
-  border: none !important;
-}
-
-.bookbutton {
-  width: 200px;
+.iconTextbutton {
+  width: 375px;
   display: inline;
-  height: 200px;
+  height: 125px;
   border-radius: 8px;
+  background-color: #e0dffd;
   box-shadow: 10px 10px #ffc212;
-  margin: 1em;
+  margin: 0.5em;
   border: none;
   outline: none !important;
   align-items: center;
+}
+
+.texticon {
+  font-size: 50px;
+  font-weight: 700;
+  color: #7769c6;
+  text-shadow: 3px 3px #172c49;
 }
 
 .selfbutton {
@@ -138,4 +148,43 @@ input {
   border-radius: 8px;
   box-shadow: 15px 10px #ffc212;
   margin: 1em;
+}
+
+.images {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  height: 15px;
+}
+
+.image1 {
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  display: in-line block;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.image2 {
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  display: in-line block;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.image3 {
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  display: in-line block;
+  margin: auto;
+  border-radius: 10px;
 }

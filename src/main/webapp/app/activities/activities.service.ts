@@ -12,6 +12,14 @@ export class companyModel {
 export class ActivitiesService {
   constructor(private http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
+  getAllBookedActivitiesNames(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/booked-activity-names'), companyModel);
+  }
+
+  getAllSelfActivitiesNames(companyModel: companyModel): Observable<any> {
+    return this.http.post(this.applicationConfigService.getEndpointFor('api/self-activities-names'), companyModel);
+  }
+
   getcompanynamesfromthebookedactivity(companyModel: companyModel): Observable<any> {
     return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesNames'), companyModel);
   }

@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import team.bham.domain.ActivityIdea;
-import team.bham.domain.ActivityImage;
-import team.bham.domain.ActivitySelf;
-import team.bham.domain.Rating;
+import team.bham.domain.*;
 import team.bham.repository.ActivitySelfRepository;
 import team.bham.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
@@ -162,11 +159,12 @@ public class ActivitySelfResource {
         }
     }
 
-    @GetMapping("/activity-selvesAllNames")
-    public String[] getAllSelfActivityNames(@RequestParam List<ActivitySelf> SelfActivities) {
-        String[] names = new String[SelfActivities.size()];
-        for (int i = 0; i < SelfActivities.size(); i++) {
-            names[i] = SelfActivities.get(i).getName();
+    @GetMapping("/self-activities-names")
+    public String[] getAllBookedActivityNames(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+        List<ActivitySelf> activityEntities = activitySelfRepository.findAll();
+        String[] names = new String[activityEntities.size()];
+        for (int i = 0; i < activityEntities.size(); i++) {
+            names[i] = activityEntities.get(i).getName();
         }
         return names;
     }

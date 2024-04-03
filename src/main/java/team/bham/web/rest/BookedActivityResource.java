@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import team.bham.domain.ActivityCompany;
 import team.bham.domain.BookedActivity;
 import team.bham.repository.BookedActivityRepository;
 import team.bham.web.rest.errors.BadRequestAlertException;
@@ -154,6 +155,16 @@ public class BookedActivityResource {
         } else {
             return bookedActivityRepository.findAll();
         }
+    }
+
+    @GetMapping("/booked-activities-names")
+    public String[] getAllBookedActivityNames(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+        List<BookedActivity> activityEntities = bookedActivityRepository.findAll();
+        String[] names = new String[activityEntities.size()];
+        for (int i = 0; i < activityEntities.size(); i++) {
+            names[i] = activityEntities.get(i).getName();
+        }
+        return names;
     }
 
     /**

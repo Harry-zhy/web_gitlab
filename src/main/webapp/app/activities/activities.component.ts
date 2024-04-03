@@ -13,78 +13,94 @@ import { NewActivityCompany } from 'app/entities/activity-company/activity-compa
 export class ActivitiesComponent implements OnInit {
   constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
-  ngOnInit(): void {}
+  public allBookedActivitiesArray: any[] = [];
+  public allSelfActivitiesArray: any[] = [];
+  public displayBooked1: String = '';
+  public displayBooked2: String = '';
+  public displayBooked3: String = '';
+  public displayBooked4: String = '';
+  public displaySelf1: String = '';
+  public displaySelf2: String = '';
+  public displaySelf3: String = '';
+  public displaySelf4: String = '';
+  public BookednextbuttonCounter: number = 0;
+  public SelfnextbuttonCounter: number = 0;
 
-  allCompaniesNamesArray: any[] = [];
-  allCompanyAboutsArray: any[] = [];
-  allCompanyCDArray: any[] = [];
-  allCompanyImagesArray: any[] = [];
-  allCompanyRatingsArray: any[] = [];
-  allCompanyProfilesArray: any[] = [];
-
-  Name: String = '';
-  About: String = '';
-  CD: any[] = [];
-  Images: any[] = [];
-  Ratings: any[] = [];
-  Profile: any[] = [];
-
-  companyCounter: number = 0;
-
-  getAllCompanyData(): void {
-    //navigating to the booked activity page
-    this.router.navigate(['/bookactivitypage']);
-    let flag: boolean = false;
-    this.companyCounter = 0;
-
-    //getting all the data for every company related to that booked activity
-    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity({ flag });
-    allCompaniesNames.subscribe(names => {
-      this.allCompaniesNamesArray = names;
-    });
-
-    let allCompanyAbouts = this.activitiesService.getcompanyAbout({ flag });
-    allCompanyAbouts.subscribe(abouts => {
-      this.allCompanyAboutsArray = abouts;
-    });
-
-    let allCompaniesCD = this.activitiesService.getcompanycontactdetails({ flag });
-    allCompaniesCD.subscribe(CD => {
-      this.allCompanyCDArray = CD;
-    });
-
-    let allCompaniesImages = this.activitiesService.getcompanyimages({ flag });
-    allCompaniesImages.subscribe(images => {
-      this.allCompanyImagesArray = images;
-    });
-
-    let allCompaniesRatings = this.activitiesService.getcompanyratings({ flag });
-    allCompaniesRatings.subscribe(ratings => {
-      this.allCompanyRatingsArray = ratings;
-    });
-
-    let allCompaniesProfiles = this.activitiesService.getcompanyProfiles({ flag });
-    allCompaniesProfiles.subscribe(profiles => {
-      this.allCompanyProfilesArray = profiles;
-    });
-    //displaying the first companys data
-    this.displayCompanyData();
+  ngOnInit(): void {
+    this.bookedActivityNames();
+    this.selfActivityNames();
+    this.shownewBooked();
+    this.shownewSelf();
   }
 
-  displayCompanyData(): void {
-    this.Name = this.allCompaniesNamesArray[this.companyCounter];
-    this.About = this.allCompanyAboutsArray[this.companyCounter];
-    this.CD[0] = this.allCompanyCDArray[this.companyCounter];
-    this.Images[0] = this.allCompanyImagesArray[this.companyCounter];
-    this.Ratings[0] = this.allCompanyRatingsArray[this.companyCounter];
-    this.Profile[0] = this.allCompanyProfilesArray[this.companyCounter];
+  BookedActivityPage(): void {
+    //navigating to the booked activity page
+    this.router.navigate(['/bookactivitypage']);
+  }
+
+  selfActivityNames(): void {
+    let flag: boolean = false;
+    let allSelfNames = this.activitiesService.getAllSelfActivitiesNames({ flag });
+    allSelfNames.subscribe(names => {
+      this.allSelfActivitiesArray = names;
+    });
   }
 
   selfpage(): void {
     this.router.navigate(['/selfactivitypage']);
   }
 
-  next(): void {}
+  bookedActivityNames(): void {
+    let flag: boolean = false;
+    let allBookedNames = this.activitiesService.getAllBookedActivitiesNames({ flag });
+    allBookedNames.subscribe(names => {
+      this.allBookedActivitiesArray = names;
+    });
+  }
 
-  previous(): void {}
+  nextbooked(): void {
+    if (this.BookednextbuttonCounter * 4 != this.allBookedActivitiesArray.length / 4) {
+      this.BookednextbuttonCounter = this.BookednextbuttonCounter + 1;
+      this.shownewBooked();
+    }
+  }
+
+  previousbooked(): void {
+    if (this.BookednextbuttonCounter != 0) {
+      this.BookednextbuttonCounter = this.BookednextbuttonCounter - 1;
+      this.shownewBooked();
+    }
+  }
+
+  nextself(): void {
+    if (this.SelfnextbuttonCounter * 4 != this.allSelfActivitiesArray.length / 4) {
+      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter + 1;
+      this.shownewSelf();
+    }
+  }
+
+  previousself(): void {
+    if (this.SelfnextbuttonCounter != 0) {
+      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter - 1;
+      this.shownewSelf();
+    }
+  }
+
+  shownewBooked(): void {
+    this.displayBooked1 = this.allBookedActivitiesArray[this.BookednextbuttonCounter];
+    this.displayBooked2 = this.allBookedActivitiesArray[this.BookednextbuttonCounter + 1];
+    this.displayBooked3 = this.allBookedActivitiesArray[this.BookednextbuttonCounter + 2];
+    this.displayBooked4 = this.allBookedActivitiesArray[this.BookednextbuttonCounter + 3];
+  }
+
+  shownewSelf(): void {
+    this.displaySelf1 = this.allSelfActivitiesArray[this.SelfnextbuttonCounter];
+    this.displaySelf2 = this.allSelfActivitiesArray[this.SelfnextbuttonCounter + 1];
+    this.displaySelf3 = this.allSelfActivitiesArray[this.SelfnextbuttonCounter + 2];
+    this.displaySelf4 = this.allSelfActivitiesArray[this.SelfnextbuttonCounter + 3];
+  }
+
+  backUserProfile(): void {
+    this.router.navigate(['/userprofile']);
+  }
 }

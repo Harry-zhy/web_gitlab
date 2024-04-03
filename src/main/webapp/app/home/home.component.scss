@@ -3,14 +3,14 @@ Main page styles
 ========================================================================== */
 .row {
   width: 100%;
-  background-color: #e0dffd;
+  background-color: #ffffff;
   margin: none !important;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #e0dffd;
+  background-color: #ffffff;
 }
 
 .col-md-9 {
@@ -40,6 +40,7 @@ body {
 .logo {
   height: 200px;
   width: 200px;
+  border-radius: 50000px;
 }
 
 .centering {

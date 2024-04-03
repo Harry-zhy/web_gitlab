@@ -21,39 +21,72 @@
   <div class="title">
     <div class="title">
       <p class="blockTitle">Book with a company</p>
-      <p class="blockExplanation">Here are some different activities and companies that offer these services for your event!</p>
+      <p class="blockExplanation">
+        Here are some different activities that you can include in your event! Click on the names to see the companies that offer these
+        services.
+      </p>
     </div>
     <div class="positioningSection">
-      <div class="posistioning">
-        <button class="next" (click)="previous()" clickable>
+      <div>
+        <button class="next" (click)="previousbooked()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-left"></i></span>
         </button>
       </div>
 
       <div class="positioning">
         <div class="book">
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
-            </button>
-            <p class="icontext">this is Wine Tasting</p>
+          <div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="BookedActivityPage()" clickable>
+                <p class="texticon">Wine Tasting {{ displayBooked1 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity1.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity2.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity3.png" /></div>
+              </div>
+            </div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="BookedActivityPage()" clickable>
+                <p class="texticon">Wine Tasting {{ displayBooked2 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity4.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity5.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity6.png" /></div>
+              </div>
+            </div>
           </div>
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/activity_1.png" />
-            </button>
-            <p class="icontext">Live Music</p>
-          </div>
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="getAllCompanyData()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/activity_2.png" />
-            </button>
-            <p class="icontext">Zip line</p>
+          <div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="BookedActivityPage()" clickable>
+                <p class="texticon">Wine Tasting {{ displayBooked3 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity7.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity8.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity9.png" /></div>
+              </div>
+            </div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="BookedActivityPage()" clickable>
+                <p class="texticon">Wine Tasting {{ displayBooked4 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity10.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity11.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity12.png" /></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="posistioning">
-        <button class="next" (click)="next()" clickable>
+      <div>
+        <button class="next" (click)="nextbooked()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
         </button>
       </div>
@@ -63,40 +96,73 @@
   <div class="title">
     <div class="title">
       <p class="blockTitle">Do It Yourself</p>
-      <p class="blockExplanation">Here are some ideas of activities that you can set up yourself for your event!</p>
+      <p class="blockExplanation">
+        Here are some ideas of activities that you can set up yourself for your event! Click on the names to find out more.
+      </p>
     </div>
+
     <div class="positioningSection">
-      <div class="posistioning">
-        <button class="next" (click)="previous()" clickable>
+      <div>
+        <button class="next" (click)="previousself()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-left"></i></span>
         </button>
       </div>
 
       <div class="positioning">
         <div class="book">
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="selfpage()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
-            </button>
-            <p class="icontext">Baking</p>
+          <div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="selfpage()" clickable>
+                <p class="texticon">Wine Tasting {{ displaySelf1 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity13.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity14.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity15.png" /></div>
+              </div>
+            </div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="selfpage()" clickable>
+                <p class="texticon">Wine Tasting {{ displaySelf2 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity16.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity17.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity18.png" /></div>
+              </div>
+            </div>
           </div>
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="selfpage()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
-            </button>
-            <p class="icontext">Karaoke</p>
-          </div>
-          <div class="bookiconssection">
-            <button class="bookbutton" (click)="selfpage()" clickable>
-              <img class="iconimages" src="/content/images/activitiesImages/wine.png" />
-            </button>
-            <p class="icontext">Football Match</p>
+          <div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="selfpage()" clickable>
+                <p class="texticon">Wine Tasting {{ displaySelf3 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity19.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity20.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity21.png" /></div>
+              </div>
+            </div>
+            <div class="bookiconssection">
+              <button class="iconTextbutton" (click)="selfpage()" clickable>
+                <p class="texticon">Wine Tasting {{ displaySelf4 }}</p>
+              </button>
+              <div class="separator"></div>
+              <div class="images">
+                <div class="image1"><img class="pictures" src="content/images/activitiesImages/activity22.png" /></div>
+                <div class="image2"><img class="pictures" src="content/images/activitiesImages/activity23.png" /></div>
+                <div class="image3"><img class="pictures" src="content/images/activitiesImages/activity24.png" /></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="posistioning">
-        <button class="next" (click)="next()" clickable>
+      <div>
+        <button class="next" (click)="nextself()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
         </button>
       </div>
