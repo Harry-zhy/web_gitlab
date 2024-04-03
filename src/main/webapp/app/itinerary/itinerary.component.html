@@ -7,6 +7,7 @@
   <span>Begin planning your perfect event here!</span>
 </div>
 
+<!-------------------------------- GUESTS --------------------------------------->
 <div class="WhiteBackground">
   <div class="miniHeader">
     <h4><i class="fa-solid fa-people-group custom-icon"></i> Number of Guests</h4>
@@ -14,29 +15,46 @@
   </div>
   <div class="pinkBox">
     <div class="buttonsContainer">
-      <button id="guestBtn1" (click)="toggleClicked(0); toggleGuestsButton(0)" [class.clicked]="buttonStates[0]" class="guestsButton">
+      <button
+        id="guestBtn1"
+        (click)="toggleClicked(0); toggleGuestsButton(0); selectNumberOfGuests(0); getSelectedGuestsOptionMessage(0)"
+        [class.clicked]="buttonStates[0]"
+        class="guestsButton"
+      >
         2-5
       </button>
-      <button id="guestBtn2" (click)="toggleClicked(1); toggleGuestsButton(1)" [class.clicked]="buttonStates[1]" class="guestsButton">
+      <button
+        id="guestBtn2"
+        (click)="toggleClicked(1); toggleGuestsButton(1); selectNumberOfGuests(1); getSelectedGuestsOptionMessage(1)"
+        [class.clicked]="buttonStates[1]"
+        class="guestsButton"
+      >
         6-9
       </button>
-      <button id="guestBtn3" (click)="toggleClicked(2); toggleGuestsButton(2)" [class.clicked]="buttonStates[2]" class="guestsButton">
+      <button
+        id="guestBtn3"
+        (click)="toggleClicked(2); toggleGuestsButton(2); selectNumberOfGuests(2); getSelectedGuestsOptionMessage(2)"
+        [class.clicked]="buttonStates[2]"
+        class="guestsButton"
+      >
         10+
       </button>
     </div>
     <div class="inputContainer" *ngIf="showInputBox">
       <div class="search">
         <input type="text" class="searchTerm" placeholder="How Many Guests?" />
-        <button type="submit" class="searchButton">
+        <button type="submit" class="searchButton" (click)="selectNumberOfGuests(2); getSelectedGuestsOptionMessage(2)">
           <i class="fa-solid fa-share fa-rotate-180"></i>
         </button>
       </div>
     </div>
     <div class="submitButton">
+      <div *ngIf="showMessage" class="selectedOption">{{ selectedGuestsOptionMessage }}</div>
       <button class="submit" aria-label="Submit" title="Save Changes"><i class="fa-solid fa-circle-check"></i></button>
     </div>
   </div>
 
+  <!-------------------------------DATE TIME --------------------------------------->
   <div class="miniHeader">
     <h4><i class="fa-regular fa-calendar-check custom-icon"></i> Date and Time</h4>
     <p>Pick a date and a time for your event to start</p>
@@ -102,6 +120,7 @@
     </div>
   </div>
 
+  <!-------------------------------- LOCATION --------------------------------------->
   <div class="miniHeader">
     <h4><i class="fa-solid fa-location-dot custom-icon"></i> Location</h4>
     <p>Find a location or book a venue!</p>
@@ -121,6 +140,7 @@
     </div>
   </div>
 
+  <!-------------------------------- VENDORS --------------------------------------->
   <div class="miniHeader">
     <h4><i class="fa-solid fa-user-plus custom-icon"></i> Vendors</h4>
     <p>Hire caterers and decorators, and book activities here!</p>

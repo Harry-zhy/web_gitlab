@@ -157,6 +157,20 @@ p {
   box-sizing: border-box;
 }
 
+.selectedOption {
+  background-color: white;
+  width: 40%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 15px;
+  top: 50%;
+  left: 30%;
+  //right: 50%;
+}
+
 //-----------------------------DATE AND TIME------------------------------
 
 //clock styling
@@ -347,6 +361,7 @@ p {
   justify-content: right;
   align-items: center;
   display: flex;
+  position: relative;
 }
 
 button.submit {
@@ -415,6 +430,12 @@ body {
   box-shadow: 10px 10px $myyellow;
   margin-left: 35px;
   margin-top: 10px;
+}
+
+.venueButton:hover {
+  outline: none;
+  transform: scale(105%);
+  background-color: $light-pink;
 }
 //-----------------------------VENDORS------------------------------
 

@@ -1,6 +1,9 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ItineraryService } from 'app/entities/itinerary/service/itinerary.service';
+import { EventItineraryService } from 'app/itinerary/itinerary.service'; // my one
 
 @Component({
   selector: 'jhi-itinerary',
@@ -8,9 +11,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit {
-  constructor(private renderer: Renderer2, private router: Router) {
-    //this.initializeTimeOptions();
-  }
+  constructor(
+    private renderer: Renderer2,
+    private router: Router,
+    private http: HttpClient,
+    private eventItineraryService: EventItineraryService
+  ) {}
+
+  //selected stuffs
+  selectedNumberOfGuests: number | null = null;
+  selectedGuestsOptionMessage: string = '';
+  showMessage: boolean = false;
+  ///////
 
   buttonStates: boolean[] = [false, false, false];
   showInputBox: boolean = false;
@@ -26,13 +38,6 @@ export class ItineraryComponent implements OnInit {
 
   hours: number[] = [];
   minutes: number[] = [];
-
-  /*
-  startselectedHour: number = 0;
-  endselectedHour: number = 0;
-  startselectedMinute: number = 0;
-  endselectedMinute: number = 0; 
-  */
 
   startselectedHour: string = '00';
   endselectedHour: string = '00';
@@ -57,6 +62,54 @@ export class ItineraryComponent implements OnInit {
     this.selectedDateInput = document.getElementById('selectedDate') as HTMLInputElement;
     this.updateCalendar();
     this.createCalendar(this.currentDate.getFullYear(), this.currentDate.getMonth());
+  }
+
+  /////////// im tryna save some lemme land lemme land ////////
+  saveNumberOfGuests(numberOfGuests: number): void {
+    //HTTP POST request to API?
+  }
+
+  selectNumberOfGuests(buttonIndex: number) {
+    if (buttonIndex === 2) {
+      const inputElement = document.querySelector('.searchTerm') as HTMLInputElement;
+      const inputValue = inputElement.value;
+      this.selectedNumberOfGuests = inputValue ? parseInt(inputValue, 10) : 0;
+    } else {
+      this.selectedNumberOfGuests = buttonIndex + 1;
+      //console.log(this.selectedNumberOfGuests);
+    }
+    this.getSelectedGuestsOptionMessage(buttonIndex);
+  }
+
+  /*
+this.eventItineraryService.createItineraryGuest(this.selectedNumberOfGuests).subscribe(
+        () => {
+          console.log('Number of Guests Saved');
+        },
+        (error: any) => {
+          console.error('Failed to Save Number of Guests:', error);
+        }
+      ) */
+
+  //for the display
+  getSelectedGuestsOptionMessage(buttonIndex: number): void {
+    let gmessage: string;
+
+    if (buttonIndex === 0) {
+      gmessage = "You're Expecting 2-5 Guests";
+    } else if (buttonIndex === 1) {
+      gmessage = "You're Expecting 6-9 Guests";
+    } else if (buttonIndex === 2) {
+      gmessage = "You're Expecting Over 10 Guests";
+      //const inputElement = document.getElementById('.searchTerm') as HTMLInputElement;
+      //const numberOfGuests = inputElement.value;
+      gmessage = `You're Expecting ${this.selectedNumberOfGuests} Guests`;
+    } else {
+      gmessage = ' ';
+    }
+
+    this.selectedGuestsOptionMessage = gmessage;
+    this.showMessage = true;
   }
 
   toDecorators(): void {
@@ -174,17 +227,6 @@ export class ItineraryComponent implements OnInit {
     ];
     return monthNames[monthIndex];
   }
-
-  /*
-  initializeTimeOptions() {
-    for (let i = 1; i < 24; i++) {
-      this.hours.push(i);
-    }
-    for (let i = 0; i < 60; i += 5) {
-      this.minutes.push(i);
-    }
-  }
-  */
 
   submitDateTime(): void {
     const eventTimings: number[] = [];

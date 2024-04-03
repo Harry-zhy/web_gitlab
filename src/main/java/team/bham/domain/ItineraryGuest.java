@@ -3,6 +3,7 @@ package team.bham.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
@@ -49,6 +50,31 @@ public class ItineraryGuest implements Serializable {
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
+    private String generateRandomString() {
+        int leftLimit = 97;
+        int rightLimit = 122;
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        return buffer.toString();
+    }
+
+    // Method to generate a random boolean value
+    private boolean generateRandomBoolean() {
+        return Math.random() < 0.5;
+    }
+
+    // Method to generate a random integer value between min and max
+    private int generateRandomInteger(int min, int max) {
+        min = 1;
+        max = 9999;
+        return (int) (Math.random() * (max - min + 1)) + min;
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -72,7 +98,7 @@ public class ItineraryGuest implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = generateRandomString();
     }
 
     public String getEmail() {
@@ -85,7 +111,7 @@ public class ItineraryGuest implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = generateRandomString() + "@example.com";
     }
 
     public Boolean getRsvpStatus() {
@@ -98,7 +124,7 @@ public class ItineraryGuest implements Serializable {
     }
 
     public void setRsvpStatus(Boolean rsvpStatus) {
-        this.rsvpStatus = rsvpStatus;
+        this.rsvpStatus = generateRandomBoolean();
     }
 
     public Set<EventItinerary> getEventItineraries() {
