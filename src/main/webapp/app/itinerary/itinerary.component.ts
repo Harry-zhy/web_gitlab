@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ItineraryService } from 'app/entities/itinerary/service/itinerary.service';
-import { EventItineraryService } from 'app/itinerary/itinerary.service'; // my one
+//import { EventItineraryService } from 'app/itinerary/itinerary.service'; // my one
 
 @Component({
   selector: 'jhi-itinerary',
@@ -14,9 +14,9 @@ export class ItineraryComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    private http: HttpClient,
-    private eventItineraryService: EventItineraryService
-  ) {}
+    private http: HttpClient
+  ) //private eventItineraryService: EventItineraryService
+  {}
 
   //selected stuffs
   selectedNumberOfGuests: number | null = null;
