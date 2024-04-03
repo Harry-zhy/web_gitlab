@@ -42,6 +42,10 @@ export class ItineraryComponent implements OnInit {
   hourOptions: string[] = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'));
   minuteOptions: string[] = Array.from({ length: 12 }, (_, i) => (i * 5).toString().padStart(2, '0'));
 
+  activitiesOptions: any[] = [];
+  caterersOptions: any[] = [];
+  decoratorsOptions: any[] = [];
+
   ngOnInit(): void {
     //number of guests
     this.toggleOneAtaTime();
@@ -60,7 +64,7 @@ export class ItineraryComponent implements OnInit {
   }
 
   toCaterers(): void {
-    this.router.navigate(['/caterers']);
+    this.router.navigate(['/caterersPage']);
   }
 
   toVenues(): void {
@@ -185,5 +189,29 @@ export class ItineraryComponent implements OnInit {
   submitDateTime(): void {
     const eventTimings: number[] = [];
     eventTimings.push();
+  }
+
+  addActivitiesOption() {
+    this.activitiesOptions.push({});
+  }
+
+  removeActivitiesOption() {
+    this.activitiesOptions.shift();
+  }
+
+  addCaterersOption() {
+    this.caterersOptions.push({});
+  }
+
+  removeCaterersOption() {
+    this.caterersOptions.shift();
+  }
+
+  addDecoratorsOption() {
+    this.decoratorsOptions.push({});
+  }
+
+  removeDecoratorsOption() {
+    this.decoratorsOptions.shift();
   }
 }
