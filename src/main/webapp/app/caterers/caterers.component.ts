@@ -11,9 +11,13 @@ export class CaterersComponent implements OnInit {
   constructor(private caterersService: CaterersService) {}
 
   isDarkMode: boolean = false;
+  isDarkModeMenu: boolean = false;
+  isDarkModeContainer: boolean = false;
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
+    this.isDarkModeMenu = !this.isDarkModeMenu;
+    this.isDarkModeContainer = !this.isDarkModeContainer;
   }
 
   ngOnInit(): void {
@@ -29,6 +33,7 @@ export class CaterersComponent implements OnInit {
         }
       });
     }
+
     this.caterersService.DisplayCaterers().subscribe(
       data => {
         console.log(data);

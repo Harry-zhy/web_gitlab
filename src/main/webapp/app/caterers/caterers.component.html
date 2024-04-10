@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8" />
-  <title>Sort By</title>
   <link rel="stylesheet href=catrerers.component.scss" />
   <script src="caters.component.ts"></script>
+  <meta charset="utf-8" />
 </head>
+<div class="heading">
+  <p>CATERERS</p>
+</div>
+
 <body>
+  <div *ngFor="let caterer of caterers">
+    <h3>{{ caterers }}</h3>
+  </div>
+
   <div [class.dark-mode]="isDarkMode" class="filter-menu">
     <div [class.dark-mode]="isDarkMode" class="menu">
       <div [class.dark-mode]="isDarkMode" class="miniMenu">
-        <button class="collapsible">Rating</button>
+        <button [class.dark-mode-menu]="isDarkModeMenu" class="collapsible">Rating</button>
         <div [class.dark-mode]="isDarkMode" class="ratingsOptions">
           <input type="checkbox" id="fiveStars" name="fiveStars" value="5 stars" />
           <label class="fiveStarsLabel" for="fiveStars">5 stars ★ ★ ★ ★ ★</label><br />
@@ -22,7 +29,7 @@
         </div>
       </div>
       <div [class.dark-mode]="isDarkMode" class="miniMenu">
-        <button class="collapsible">Cuisine</button>
+        <button [class.dark-mode-menu]="isDarkModeMenu" class="collapsible">Cuisine</button>
         <div [class.dark-mode]="isDarkMode" class="cuisineOptions">
           <div [class.dark-mode]="isDarkMode" class="cuisineColumns">
             <div [class.dark-mode]="isDarkMode" class="leftColumnCuisine">
@@ -30,7 +37,7 @@
               <label for="American">American<img src="content/images/catererImages/American.png" class="icon" /></label><br />
 
               <input type="checkbox" id="African" name="African" value="African" />
-              <label for="African">African <img src="content/images/catererImages/Africa-outline.png" class="icon" /></label><br />
+              <label for="African">African <img src="content/images/catererImages/Africa.png" class="icon" /></label><br />
 
               <input type="checkbox" id="Asian" name="Asian" value="Asian" />
               <label for="Asian">Asian <img src="content/images/catererImages/Asia%20outline.png" class="icon" /></label><br />
@@ -100,44 +107,44 @@
         </div>
       </div>
       <div [class.dark-mode]="isDarkMode" class="miniMenu">
-        <button class="collapsible">Dietary</button>
+        <button [class.dark-mode-menu]="isDarkModeMenu" class="collapsible">Dietary</button>
         <div [class.dark-mode]="isDarkMode" class="dietaryOptions">
           <div [class.dark-mode]="isDarkMode" class="dietaryColumns">
             <div [class.dark-mode]="isDarkMode" class="leftColumDietary">
               <input type="checkbox" id="Beef Free" name="Beef Free" value="Beef Free" />
-              <label for="Beef Free">Beef Free <img src="content/images/catererImages/no_beef.png" class="icon" /></label><br />
+              <label for="Beef Free">Beef Free <img src="content/images/catererImages/no_beef.png" class="icon2" /></label><br />
               <input type="checkbox" id="Fish Free" name="Fish Free" value="Fish Free" />
-              <label for="Fish Free">Fish Free<img src="content/images/catererImages/no_fish.png" class="icon" /></label><br />
+              <label for="Fish Free">Fish Free<img src="content/images/catererImages/fishfree.png" class="icon2" /></label><br />
               <input type="checkbox" id="Gluten Free" name="Gluten Free" value="Gluten Free" />
-              <label for="Gluten Free">Gluten Free<img src="content/images/catererImages/glutenfree.png" class="icon" /></label><br />
+              <label for="Gluten Free">Gluten Free<img src="content/images/catererImages/glutenNO.png" class="icon2" /></label><br />
               <input type="checkbox" id="Halal" name="Halal" value="Halal" />
-              <label for="Halal">Halal<img src="content/images/catererImages/halal.png" class="icon" /></label><br />
+              <label for="Halal">Halal<img src="content/images/catererImages/halal.png" class="icon2" /></label><br />
               <input type="checkbox" id="Kosher" name="Kosher" value="Kosher" />
-              <label for="Kosher">Kosher<img src="content/images/catererImages/kosher.png" class="icon" /></label><br />
+              <label for="Kosher">Kosher<img src="content/images/catererImages/kosher.png" class="icon2" /></label><br />
               <input type="checkbox" id="Lactose Free" name="Lactose Free" value="Lactose Free" />
-              <label for="Lactose Free">Lactose Free<img src="content/images/catererImages/lactosefree.png" class="icon" /></label><br />
+              <label for="Lactose Free">Lactose Free<img src="content/images/catererImages/lactosefree.png" class="icon2" /></label><br />
               <input type="checkbox" id="No Alcohol" name="No Alcohol" value="No Alcohol" />
-              <label for="No Alcohol">No Alcohol<img src="content/images/catererImages/alcoholfree.png" class="icon" /></label><br />
+              <label for="No Alcohol">No Alcohol<img src="content/images/catererImages/alcoholfree.png" class="icon2" /></label><br />
             </div>
             <div class="rightColumDietary">
               <input type="checkbox" id="Nut Free" name="Nut Free" value="Nut Free" />
-              <label for="Nut Free">Nut Free<img src="content/images/catererImages/nutfree.png" class="icon" /></label><br />
+              <label for="Nut Free">Nut Free<img src="content/images/catererImages/nutfree.png" class="icon2" /></label><br />
               <input type="checkbox" id="Organic" name="Organic" value="Organic" />
-              <label for="Organic">Organic<img src="content/images/catererImages/organis.png" class="icon" /></label><br />
+              <label for="Organic">Organic<img src="content/images/catererImages/organis.png" class="icon2" /></label><br />
               <input type="checkbox" id="Pork Free" name="Pork Free" value="Pork Free" />
-              <label for="Pork Free">Pork Free<img src="content/images/catererImages/porkfree.png" class="icon" /></label><br />
+              <label for="Pork Free">Pork Free<img src="content/images/catererImages/porkfree.png" class="icon2" /></label><br />
               <input type="checkbox" id="Sugar Free" name="Sugar Free" value="Sugar Free" />
-              <label for="Sugar Free">Sugar Free<img src="content/images/catererImages/sugarfree.png" class="icon" /></label><br />
+              <label for="Sugar Free">Sugar Free<img src="content/images/catererImages/sugarNO.png" class="icon2" /></label><br />
               <input type="checkbox" id="Vegan" name="Vegan" value="Vegan" />
-              <label for="Vegan">Vegan</label><img src="content/images/catererImages/vegan.png" class="icon" /><br />
+              <label for="Vegan">Vegan</label><img src="content/images/catererImages/vegan.png" class="icon2" /><br />
               <input type="checkbox" id="Vegetarian" name="Vegetarian" value="Vegetarian" />
-              <label for="Vegetarian">Vegetarian<img src="content/images/catererImages/vegetarian.png" class="icon" /></label><br />
+              <label for="Vegetarian">Vegetarian<img src="content/images/catererImages/vegetarian.png" class="icon2" /></label><br />
             </div>
           </div>
         </div>
       </div>
       <div [class.dark-mode]="isDarkMode" class="miniMenu">
-        <button class="collapsible">Course</button>
+        <button [class.dark-mode-menu]="isDarkModeMenu" class="collapsible">Course</button>
         <div [class.dark-mode]="isDarkMode" class="courseOptions">
           <div [class.dark-mode]="isDarkMode" class="courseColumns">
             <div [class.dark-mode]="isDarkMode" class="leftColumnCourse">
@@ -160,21 +167,18 @@
   </div>
   <div [class.dark-mode]="isDarkMode" class="caterers">
     <h2>See All</h2>
-    <button (click)="toggleDarkMode()">Toggle dark mode</button>
+    <button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
 
     <div class="container">
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div *ngFor="let caterer of caterers">
-        <h3>{{ caterers }}</h3>
-      </div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
-      <div class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
+      <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
     </div>
   </div>
 </body>
