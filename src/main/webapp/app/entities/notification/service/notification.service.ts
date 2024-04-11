@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { combineLatest, forkJoin, Observable, switchMap } from 'rxjs';
 import { map } from 'rxjs/operators';
 import dayjs from 'dayjs/esm';
 
@@ -8,6 +8,7 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { INotification, NewNotification } from '../notification.model';
+import { IMessage } from '../../message/message.model';
 
 export type PartialUpdateNotification = Partial<INotification> & Pick<INotification, 'id'>;
 
@@ -122,5 +123,29 @@ export class NotificationService {
     return res.clone({
       body: res.body ? res.body.map(item => this.convertDateFromServer(item)) : null,
     });
+  }
+
+  private apiUrl = '/api/messages/by-email';
+
+  getNotificationsByEmail(email: string): Observable<INotification[]> {
+    const url = `${this.apiUrl}/${email}`;
+    return this.http.get<IMessage[]>(url, { observe: 'response' }).pipe(
+      switchMap(response => {
+        const messages = response.body || [];
+        const notificationIds = messages.map(message => message.notification?.id).filter(id => id !== undefined);
+        const uniqueNotificationIds = [...new Set(notificationIds)];
+        return this.getNotificationsByIds(uniqueNotificationIds);
+      })
+    );
+  }
+
+  getNotificationsByIds(ids: (number | undefined)[]): Observable<INotification[]> {
+    const observables: Observable<INotification>[] = ids.map(id => this.getNotificationById(id));
+    return combineLatest(observables);
+  }
+
+  private getNotificationById(id: number | undefined): Observable<INotification> {
+    const url = `/api/notifications/${id}`;
+    return this.http.get<INotification>(url);
   }
 }

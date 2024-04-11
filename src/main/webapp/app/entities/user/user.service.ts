@@ -42,4 +42,9 @@ export class UserService {
     }
     return userCollection;
   }
+
+  getCurrentUserEmail(): Observable<string> {
+    //@ts-ignore
+    return this.http.get<string>('/api/current-user-email', { responseType: 'text' });
+  }
 }

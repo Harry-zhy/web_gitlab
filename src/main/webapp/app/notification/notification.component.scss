@@ -28,7 +28,16 @@ body {
   align-self: center;
 }
 
-.goBack:hover {
+.closeChat {
+  font-size: 3vmax;
+  font-weight: bold;
+  color: white;
+  transition-duration: 0.3s;
+  align-self: flex-start;
+}
+
+.goBack:hover,
+.closeChat:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
@@ -197,25 +206,51 @@ svg {
   flex-direction: column;
 }
 
+.closeChat {
+}
+
 .message {
   margin-bottom: 10px;
 }
 
 .content {
   background-color: #f7afc2;
-  padding: 10px;
+  padding: 10px 3vmin 10px 1vmin;
   border-radius: 10px;
-  width: 40vmin;
+  display: inline-block;
+  max-width: 80%;
 }
 
 .received-time {
   color: #ffffff;
   font-size: 12px;
+  text-align: center;
 }
 
 .input-box {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+//.sendTo {
+//  width: 20vmin;
+//  margin-top: 3vmin;
+//}
+
+.username-exists {
+  border: 10px solid green;
+  color: green;
+}
+
+.username-not-exists {
+  border-color: red;
+  color: red;
+}
+
+.sendMessage {
+  width: 100%;
+  margin-top: 2vmin;
 }
 
 input[type='text'] {
@@ -233,6 +268,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 2vmin;
 }
 
 button:hover {

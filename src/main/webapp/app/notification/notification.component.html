@@ -55,6 +55,8 @@
     </div>
     <div class="chat-area">
       <div class="chat-messages">
+        <span class="closeChat" *ngIf="showCloseButton" (click)="closeChat()"><</span>
+        <span class="name"></span>
         <div class="messageContent" *ngFor="let message of selectedMessages; let i = index">
           <div class="message">
             <ng-container *ngIf="shouldShowTime(message, i)">
@@ -65,8 +67,11 @@
         </div>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Type a message..." [(ngModel)]="newMessageContent" />
-        <button (click)="sendMessage()">Send</button>
+        <!--        <input type="text" placeholder="Send to..." class="sendTo" *ngIf="!showCloseButton"-->
+        <!--               [(ngModel)]="username" (keyup)="onKeyUp()"-->
+        <!--               [ngClass]="{ 'username-exists': isUserExist, 'username-not-exists': !isUserExist }">>-->
+        <input type="text" placeholder="Type a message..." [(ngModel)]="newMessageContent" class="sendMessage" />
+        <button (click)="sendMessage()" [disabled]="!isUserExist && !showCloseButton">Send</button>
       </div>
     </div>
   </div>

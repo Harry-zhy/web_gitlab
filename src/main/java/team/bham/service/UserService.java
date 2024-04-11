@@ -291,6 +291,11 @@ public class UserService {
         return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
     }
 
+    public String getCurrentUserEmail() {
+        Optional<User> currentUser = getUserWithAuthorities();
+        return currentUser.map(User::getEmail).orElse(null);
+    }
+
     /**
      * Not activated users should be automatically deleted after 3 days.
      * <p>

@@ -196,4 +196,17 @@ public class MessageResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    /**
+     * GET /messages/by-email/{email} : Get messages by email.
+     *
+     * @param email the email of the user to retrieve messages.
+     * @return the ResponseEntity with status 200 (OK) and with body the list of messages, or with status 404 (Not Found).
+     */
+    @GetMapping("/messages/by-email/{email}")
+    public List<Message> getMessagesByEmail(@PathVariable String email) {
+        log.debug("REST request to get Messages by email : {}", email);
+        List<Message> messages = messageRepository.findBySendTo(email);
+        return messages;
+    }
 }
