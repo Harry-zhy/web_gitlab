@@ -12,7 +12,19 @@
     <h4><i class="fa-solid fa-icons custom-icon"></i> Activities</h4>
   </div>
   <div class="pinkBox">
-    <div class="section"></div>
+    <div class="displayAddedOptions">
+      <div class="addedOption">
+        <a [routerLink]="'/decorations'"
+          ><img src="/content/images/itineraryImages/not-selected.jpeg" alt="DecoratorImage" style="width: 100%; cursor: pointer"
+        /></a>
+        <div class="optionInfo">
+          <span class="mySpan">Decorator Name</span>
+          <span class="myLittleSpan"><i class="fa-regular fa-clock"> : </i></span>
+          <span class="myLittleSpan"><i class="fa-regular fa-money-bill-1"> : </i></span>
+          <button class="remove"><i class="fa-regular fa-circle-xmark"></i></button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="miniHeader">
