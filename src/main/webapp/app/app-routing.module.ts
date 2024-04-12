@@ -15,6 +15,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SupplierProfileComponent } from './supplier-profile/supplier-profile.component';
 import { DecorationsComponent } from './decorations/decorations.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivitypage.component';
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -90,6 +91,11 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
         {
           path: 'decorations',
           component: DecorationsComponent,
+        },
+
+        {
+          path: 'favourites',
+          component: FavouritesComponent,
         },
 
         {

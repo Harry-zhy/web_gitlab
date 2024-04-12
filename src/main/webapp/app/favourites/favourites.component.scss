@@ -1,0 +1,80 @@
+//colour palette
+$light-pink: #ffdee7;
+$dark-pink: #f9b0c3;
+$myyellow: #ffc212;
+$hover-purple: #f3f2ff;
+$light-purple: #e0dffd;
+$purple: #7769c6;
+$dark-blue: #172c49;
+
+.header {
+  width: 100%;
+  background-color: #172c49;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 15px;
+}
+
+.whiteBackground {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  border-width: 100%;
+  background-color: #fff;
+}
+
+.pinkBox {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+  overflow: auto;
+
+  width: 100%;
+  max-width: 95%; //makes it fit to screen and adjust with size of screen
+  height: auto; //330px;
+  background-color: #f9b0c3;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin: 1.5em;
+}
+
+h1 {
+  font-size: 72px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 4px 4px #ffc212;
+}
+
+h4 {
+  font-size: 40px;
+  position: relative;
+  top: 0;
+  margin-left: 25px;
+  color: $dark-blue;
+  margin-bottom: -2px;
+}
+
+.miniHeader {
+  margin-top: 20px;
+}
+
+.custom-icon {
+  color: $light-purple;
+}
+
+span {
+  color: #ffffff;
+  align-items: center;
+}
+
+p {
+  font-size: 15px;
+  color: #172c49;
+  margin-left: 25px;
+  margin-bottom: -20px;
+}
