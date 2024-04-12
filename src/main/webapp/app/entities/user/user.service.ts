@@ -47,4 +47,9 @@ export class UserService {
     //@ts-ignore
     return this.http.get<string>('/api/current-user-email', { responseType: 'text' });
   }
+
+  getCurrentUsername(): Observable<string> {
+    //@ts-ignore
+    return this.http.get<string>('/api/current-username', { responseType: 'text' });
+  }
 }

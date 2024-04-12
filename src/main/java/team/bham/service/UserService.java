@@ -296,6 +296,11 @@ public class UserService {
         return currentUser.map(User::getEmail).orElse(null);
     }
 
+    public String getCurrentUserName() {
+        Optional<User> currentUser = getUserWithAuthorities();
+        return currentUser.map(User::getLastName).orElse(null);
+    }
+
     /**
      * Not activated users should be automatically deleted after 3 days.
      * <p>

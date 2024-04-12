@@ -20,7 +20,7 @@ describe('MCQOption Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            value: expect.any(Object),
+            option: expect.any(Object),
             question: expect.any(Object),
           })
         );
@@ -32,7 +32,7 @@ describe('MCQOption Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            value: expect.any(Object),
+            option: expect.any(Object),
             question: expect.any(Object),
           })
         );

@@ -125,8 +125,8 @@ public class MCQOptionResource {
         Optional<MCQOption> result = mCQOptionRepository
             .findById(mCQOption.getId())
             .map(existingMCQOption -> {
-                if (mCQOption.getValue() != null) {
-                    existingMCQOption.setValue(mCQOption.getValue());
+                if (mCQOption.getOption() != null) {
+                    existingMCQOption.setOption(mCQOption.getOption());
                 }
 
                 return existingMCQOption;

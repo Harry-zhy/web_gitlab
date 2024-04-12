@@ -2,21 +2,21 @@ import { IMCQOption, NewMCQOption } from './mcq-option.model';
 
 export const sampleWithRequiredData: IMCQOption = {
   id: 88200,
-  value: 'Rustic',
+  option: 'Rustic',
 };
 
 export const sampleWithPartialData: IMCQOption = {
   id: 73066,
-  value: 'Borders lavender next-generation',
+  option: 'Borders lavender next-generation',
 };
 
 export const sampleWithFullData: IMCQOption = {
   id: 83554,
-  value: 'best-of-breed Corporate',
+  option: 'best-of-breed Corporate',
 };
 
 export const sampleWithNewData: NewMCQOption = {
-  value: 'enable',
+  option: 'enable',
   id: null,
 };
 

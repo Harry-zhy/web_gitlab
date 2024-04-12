@@ -5,6 +5,9 @@ import { IMCQOption } from '../entities/mcq-option/mcq-option.model';
 import { IIntro } from '../entities/intro/intro.model';
 import { QuesType } from '../entities/enumerations/ques-type.model';
 import { QuestionService } from '../entities/question/service/question.service';
+import { IntroService } from '../entities/intro/service/intro.service';
+import { UserService } from '../entities/user/user.service';
+import { MCQOptionService } from '../entities/mcq-option/service/mcq-option.service';
 
 @Component({
   selector: 'jhi-feedback',
@@ -12,14 +15,59 @@ import { QuestionService } from '../entities/question/service/question.service';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent implements OnInit {
-  constructor(private router: Router, protected questionService: QuestionService) {}
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    protected questionService: QuestionService,
+    protected introService: IntroService,
+    protected userService: UserService,
+    protected mcqOptionService: MCQOptionService
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.loadIntro();
+    await this.getUsername();
+    await this.loadQuestions();
+    await this.loadMCQOptions();
     this.selectedValue = 0;
-    this.loadIntro();
-    this.loadQuestions();
-    this.loadMCQOptions();
     this.currentQuestion = this.questions[this.currentQuestionIndex];
     this.currentQuestionIndex = this.isIntro ? -1 : 0;
+  }
+
+  // ngOnInit() {
+  //   this.getUsername2();
+  //   this.loadIntro2();
+  //   this.loadQuestions2();
+  //   this.loadMCQOptions2();
+  //   this.selectedValue = 0;
+  //   this.currentQuestion = this.questions[this.currentQuestionIndex];
+  //   this.currentQuestionIndex = this.isIntro ? -1 : 0;
+  // }
+
+  getUsername2() {
+    this.userService.getCurrentUsername().subscribe(data => {
+      this.currentUserUsername = data;
+    });
+  }
+
+  loadIntro2() {
+    this.introService.query().subscribe(data => {
+      //@ts-ignore
+      this.introData = data.body;
+    });
+  }
+
+  loadQuestions2() {
+    this.questionService.query().subscribe(data => {
+      //@ts-ignore
+      this.questions = data.body;
+    });
+  }
+
+  loadMCQOptions2() {
+    this.mcqOptionService.query().subscribe(data => {
+      //@ts-ignore
+      this.mcqOptions = data.body;
+    });
   }
 
   feedbacks: any[] = [];
@@ -68,38 +116,47 @@ export class FeedbackComponent implements OnInit {
   isIntro: boolean = true;
   mcqOptions: IMCQOption[] = [];
   userSelections: { [key: number]: number } = {};
+  protected currentUserUsername: string = '';
 
-  loadIntro() {
-    this.introData = {
-      id: 1,
-      title: 'FeedBack Questionnaire',
-      salutation: 'Dear User',
-      body: 'Thank you for choosing to participate in our event. We value your feedback to help us improve our service quality and user experience. We would appreciate it if you could take a few minutes to fill out the following questionnaire!',
-    };
+  async loadIntro() {
+    const data = await this.introService.query().toPromise();
+    // @ts-ignore
+    this.introData = data?.body.at(0);
+    console.log('1111\n\n' + this.introData?.body?.toString());
   }
 
-  loadQuestions() {
-    this.questionService.query().subscribe({
-      next: data => {
-        if (data.body !== null) {
-          this.questions = data.body;
-        }
-      },
-    });
-    this.questions = [
-      { id: 1, question: 'Question 1', quesType: QuesType.MULTI_CHOICE },
-      { id: 2, question: 'Question 2', quesType: QuesType.FILL_IN },
-      { id: 3, question: 'Question 3', quesType: QuesType.MULTI_CHOICE },
-    ];
+  async getUsername() {
+    const data = await this.userService.getCurrentUsername().toPromise();
+    //@ts-ignore
+    this.currentUserUsername = data;
   }
 
-  loadMCQOptions() {
-    this.mcqOptions = [
-      { id: 1, value: 'Option 1', question: this.questions[0] },
-      { id: 2, value: 'Option 2', question: this.questions[0] },
-      { id: 3, value: 'Option 3', question: this.questions[0] },
-    ];
+  async loadQuestions() {
+    try {
+      const data = await this.questionService.query().toPromise();
+      // @ts-ignore
+      if (data.body !== null) {
+        // @ts-ignore
+        this.questions = data.body;
+      }
+    } catch (error) {
+      console.error('Error loading questions:', error);
+    }
   }
+
+  async loadMCQOptions() {
+    try {
+      const data = await this.mcqOptionService.query().toPromise();
+      // @ts-ignore
+      if (data.body !== null) {
+        // @ts-ignore
+        this.mcqOptions = data.body;
+      }
+    } catch (error) {
+      console.error('Error loading options:', error);
+    }
+  }
+
   nextQuestion() {
     if (this.isIntro) {
       this.isIntro = false;

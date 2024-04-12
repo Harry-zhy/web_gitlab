@@ -18,7 +18,7 @@ type MCQOptionFormDefaults = Pick<NewMCQOption, 'id'>;
 
 type MCQOptionFormGroupContent = {
   id: FormControl<IMCQOption['id'] | NewMCQOption['id']>;
-  value: FormControl<IMCQOption['value']>;
+  option: FormControl<IMCQOption['option']>;
   question: FormControl<IMCQOption['question']>;
 };
 
@@ -27,22 +27,22 @@ export type MCQOptionFormGroup = FormGroup<MCQOptionFormGroupContent>;
 @Injectable({ providedIn: 'root' })
 export class MCQOptionFormService {
   createMCQOptionFormGroup(mCQOption: MCQOptionFormGroupInput = { id: null }): MCQOptionFormGroup {
-    const mCQOptionRawValue = {
+    const mCQOptionRawOption = {
       ...this.getFormDefaults(),
       ...mCQOption,
     };
     return new FormGroup<MCQOptionFormGroupContent>({
       id: new FormControl(
-        { value: mCQOptionRawValue.id, disabled: true },
+        { value: mCQOptionRawOption.id, disabled: true },
         {
           nonNullable: true,
           validators: [Validators.required],
         }
       ),
-      value: new FormControl(mCQOptionRawValue.value, {
+      option: new FormControl(mCQOptionRawOption.option, {
         validators: [Validators.required],
       }),
-      question: new FormControl(mCQOptionRawValue.question),
+      question: new FormControl(mCQOptionRawOption.question),
     });
   }
 
@@ -55,7 +55,7 @@ export class MCQOptionFormService {
     form.reset(
       {
         ...mCQOptionRawValue,
-        id: { value: mCQOptionRawValue.id, disabled: true },
+        id: { option: mCQOptionRawValue.id, disabled: true },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */
     );
   }

@@ -2,7 +2,7 @@ import { IQuestion } from 'app/entities/question/question.model';
 
 export interface IMCQOption {
   id: number;
-  value?: string | null;
+  option?: string | null;
   question?: Pick<IQuestion, 'id'> | null;
 }
 

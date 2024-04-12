@@ -62,7 +62,7 @@
             <ng-container *ngIf="shouldShowTime(message, i)">
               <div class="received-time">{{ formatTheDate(message.sentDate) }}</div>
             </ng-container>
-            <div class="content">{{ message.content }}</div>
+            <div class="content">{{ getContent(message.content) }}</div>
           </div>
         </div>
       </div>

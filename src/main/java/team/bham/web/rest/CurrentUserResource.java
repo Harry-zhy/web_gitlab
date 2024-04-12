@@ -23,4 +23,10 @@ public class CurrentUserResource {
         String userEmail = userService.getCurrentUserEmail();
         return userEmail;
     }
+
+    @GetMapping("/current-username")
+    public String getCurrentUserName() {
+        String username = userService.getCurrentUserName();
+        return username;
+    }
 }

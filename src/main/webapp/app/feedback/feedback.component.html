@@ -6,7 +6,9 @@
   <div class="scrollableContainer">
     <div class="questionnaireContainer" [ngClass]="{ hidden: isFeedbackVisible }">
       <div class="introTitle" *ngIf="isIntro && introData">{{ introData.title }}</div>
-      <div class="introSalutation" *ngIf="isIntro && introData">{{ introData.salutation }}</div>
+      <div class="introSalutation" *ngIf="isIntro && introData">
+        {{ introData.salutation }} <span class="username">{{ currentUserUsername }}:</span>
+      </div>
       <div class="introBody" *ngIf="isIntro && introData">{{ introData.body }}</div>
       <div class="question" *ngIf="!isIntro && currentQuestion">{{ currentQuestion.question }}</div>
       <div class="options" *ngIf="!isIntro && currentQuestion">
@@ -20,7 +22,7 @@
                 [value]="option.id"
                 [(ngModel)]="userSelections[currentQuestion.id]"
               />
-              <span>{{ option.value }}</span>
+              <span>{{ option.option }}</span>
             </label>
           </div>
         </ng-container>

@@ -1,11 +1,11 @@
 id;content;sender_name;type;sent_date;send_to;notification_id
-1;Solutions Wooden;Borders violet feed;PRIVATE_MESSAGE;2024-03-04T22:51:28;Franc;1
-2;SCSI invoice;Fish Computer;REPLY;2024-03-05T01:33:36;bricks-and-clicks;2
-3;(Malvinas) Station Fantastic;Salad;REPLY;2024-03-04T18:01:35;Brand Creative;3
-4;indigo Virginia;Avon Regional Nebraska;REPLY;2024-03-05T13:10:30;virtual;4
-5;Lebanon virtual bypassing;synergistic;REPLY;2024-03-04T21:36:17;Account Fish cross-media;5
-6;Table;Grocery Rustic;REPLY;2024-03-04T22:52:04;Peso;6
-7;Generic brand;Intelligent Towels;PRIVATE_MESSAGE;2024-03-04T22:33:13;Investment Concrete;7
-8;payment Kids;infomediaries;PRIVATE_MESSAGE;2024-03-04T15:53:28;alarm Reduced synergize;8
-9;transmitter Cheese AGP;Global Cambridgeshire;REPLY;2024-03-04T20:28:32;Pizza Forint concept;9
-10;Profit-focused Metal Direct;Bedfordshire deposit;REPLY;2024-03-05T06:37:02;Security Interactions;10
+1;Max|Welcome to our web, admin;max@123.com;PRIVATE_MESSAGE;2024-03-04T22:51:28;admin@localhost;1
+2;Max|This is a reply;max@123.com;REPLY;2024-03-05T01:33:36;admin@localhost;2
+3;Max|Here you will receive booking infos;max@123.com;RESERVATION;2024-03-04T18:01:35;admin@localhost;3
+4;Administration|Welcome and enjoy this web, dear user;admin@localhost;PRIVATE_MESSAGE;2024-03-05T13:10:30;user@localhost;4
+5;Administration|Here is a reply, you will receive one after send a feedback to us;admin@localhost;REPLY;2024-03-04T21:36:17;user@localhost;5
+6;Administration|You will receive your booking info here;admin@localhost;RESERVATION;2024-03-04T22:52:04;user@localhost;6
+7;Administration|Hello~, Welcome;admin@localhost;PRIVATE_MESSAGE;2024-03-04T22:33:13;user@localhost;7
+8;Administration|payment Kids;infomediaries;PRIVATE_MESSAGE;2024-03-04T15:53:28;user@localhost;8
+9;Administration|transmitter Cheese AGP;Global Cambridgeshire;REPLY;2024-03-04T20:28:32;user@localhost;9
+10;Administration|Profit-focused Metal Direct;Bedfordshire deposit;REPLY;2024-03-05T06:37:02;user@localhost;10

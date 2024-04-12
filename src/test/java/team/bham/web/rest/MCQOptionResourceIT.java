@@ -56,7 +56,7 @@ class MCQOptionResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static MCQOption createEntity(EntityManager em) {
-        MCQOption mCQOption = new MCQOption().value(DEFAULT_VALUE);
+        MCQOption mCQOption = new MCQOption().option(DEFAULT_VALUE);
         return mCQOption;
     }
 
@@ -67,7 +67,7 @@ class MCQOptionResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static MCQOption createUpdatedEntity(EntityManager em) {
-        MCQOption mCQOption = new MCQOption().value(UPDATED_VALUE);
+        MCQOption mCQOption = new MCQOption().option(UPDATED_VALUE);
         return mCQOption;
     }
 
@@ -89,7 +89,7 @@ class MCQOptionResourceIT {
         List<MCQOption> mCQOptionList = mCQOptionRepository.findAll();
         assertThat(mCQOptionList).hasSize(databaseSizeBeforeCreate + 1);
         MCQOption testMCQOption = mCQOptionList.get(mCQOptionList.size() - 1);
-        assertThat(testMCQOption.getValue()).isEqualTo(DEFAULT_VALUE);
+        assertThat(testMCQOption.getOption()).isEqualTo(DEFAULT_VALUE);
     }
 
     @Test
@@ -115,7 +115,7 @@ class MCQOptionResourceIT {
     void checkValueIsRequired() throws Exception {
         int databaseSizeBeforeTest = mCQOptionRepository.findAll().size();
         // set the field null
-        mCQOption.setValue(null);
+        mCQOption.setOption(null);
 
         // Create the MCQOption, which fails.
 
@@ -176,7 +176,7 @@ class MCQOptionResourceIT {
         MCQOption updatedMCQOption = mCQOptionRepository.findById(mCQOption.getId()).get();
         // Disconnect from session so that the updates on updatedMCQOption are not directly saved in db
         em.detach(updatedMCQOption);
-        updatedMCQOption.value(UPDATED_VALUE);
+        updatedMCQOption.option(UPDATED_VALUE);
 
         restMCQOptionMockMvc
             .perform(
@@ -190,7 +190,7 @@ class MCQOptionResourceIT {
         List<MCQOption> mCQOptionList = mCQOptionRepository.findAll();
         assertThat(mCQOptionList).hasSize(databaseSizeBeforeUpdate);
         MCQOption testMCQOption = mCQOptionList.get(mCQOptionList.size() - 1);
-        assertThat(testMCQOption.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testMCQOption.getOption()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test
@@ -261,7 +261,7 @@ class MCQOptionResourceIT {
         MCQOption partialUpdatedMCQOption = new MCQOption();
         partialUpdatedMCQOption.setId(mCQOption.getId());
 
-        partialUpdatedMCQOption.value(UPDATED_VALUE);
+        partialUpdatedMCQOption.option(UPDATED_VALUE);
 
         restMCQOptionMockMvc
             .perform(
@@ -275,7 +275,7 @@ class MCQOptionResourceIT {
         List<MCQOption> mCQOptionList = mCQOptionRepository.findAll();
         assertThat(mCQOptionList).hasSize(databaseSizeBeforeUpdate);
         MCQOption testMCQOption = mCQOptionList.get(mCQOptionList.size() - 1);
-        assertThat(testMCQOption.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testMCQOption.getOption()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test
@@ -290,7 +290,7 @@ class MCQOptionResourceIT {
         MCQOption partialUpdatedMCQOption = new MCQOption();
         partialUpdatedMCQOption.setId(mCQOption.getId());
 
-        partialUpdatedMCQOption.value(UPDATED_VALUE);
+        partialUpdatedMCQOption.option(UPDATED_VALUE);
 
         restMCQOptionMockMvc
             .perform(
@@ -304,7 +304,7 @@ class MCQOptionResourceIT {
         List<MCQOption> mCQOptionList = mCQOptionRepository.findAll();
         assertThat(mCQOptionList).hasSize(databaseSizeBeforeUpdate);
         MCQOption testMCQOption = mCQOptionList.get(mCQOptionList.size() - 1);
-        assertThat(testMCQOption.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testMCQOption.getOption()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test

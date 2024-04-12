@@ -25,8 +25,8 @@ public class MCQOption implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "value", nullable = false)
-    private String value;
+    @Column(name = "option", nullable = false)
+    private String option;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "parentQues", "options", "questionnaire", "subQues" }, allowSetters = true)
@@ -47,17 +47,17 @@ public class MCQOption implements Serializable {
         this.id = id;
     }
 
-    public String getValue() {
-        return this.value;
+    public String getOption() {
+        return this.option;
     }
 
-    public MCQOption value(String value) {
-        this.setValue(value);
+    public MCQOption option(String option) {
+        this.setOption(option);
         return this;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setOption(String option) {
+        this.option = option;
     }
 
     public Question getQuestion() {
@@ -97,7 +97,7 @@ public class MCQOption implements Serializable {
     public String toString() {
         return "MCQOption{" +
             "id=" + getId() +
-            ", value='" + getValue() + "'" +
+            ", option='" + getOption() + "'" +
             "}";
     }
 }

@@ -6,7 +6,7 @@
   "entityTableName": "mcq_option",
   "fields": [
     {
-      "fieldName": "value",
+      "fieldName": "option",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
     }
