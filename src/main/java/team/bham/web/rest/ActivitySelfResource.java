@@ -159,8 +159,13 @@ public class ActivitySelfResource {
         }
     }
 
+    /**
+     * {@code GET  /self-activities-names} : get all the self activity names.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of self activity names in body.
+     */
     @GetMapping("/self-activities-names")
-    public String[] getAllBookedActivityNames(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+    public String[] getAllSelfActivityNames() {
         List<ActivitySelf> activityEntities = activitySelfRepository.findAll();
         String[] names = new String[activityEntities.size()];
         for (int i = 0; i < activityEntities.size(); i++) {

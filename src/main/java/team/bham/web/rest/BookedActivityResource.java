@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import team.bham.domain.ActivityCompany;
+import team.bham.domain.ActivitySelf;
 import team.bham.domain.BookedActivity;
 import team.bham.repository.BookedActivityRepository;
 import team.bham.web.rest.errors.BadRequestAlertException;
@@ -157,8 +158,13 @@ public class BookedActivityResource {
         }
     }
 
+    /**
+     * {@code GET  /booked-activities-names} : get all the booked activity names.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of booked activity names in body.
+     */
     @GetMapping("/booked-activities-names")
-    public String[] getAllBookedActivityNames(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+    public String[] getAllBookedActivityNames() {
         List<BookedActivity> activityEntities = bookedActivityRepository.findAll();
         String[] names = new String[activityEntities.size()];
         for (int i = 0; i < activityEntities.size(); i++) {
