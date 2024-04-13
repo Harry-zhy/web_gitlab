@@ -44,35 +44,35 @@ export class BookedactivitypageComponent implements OnInit {
     this.companyCounter = 0;
 
     //getting all the data for every company related to that booked activity
-    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity({ flag });
+    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity();
     allCompaniesNames.subscribe(names => {
       this.allCompaniesNamesArray = names;
     });
 
-    let allCompanyAbouts = this.activitiesService.getcompanyAbout({ flag });
-    allCompanyAbouts.subscribe(abouts => {
-      this.allCompanyAboutsArray = abouts;
-    });
+    //let allCompanyAbouts = this.activitiesService.getcompanyAbout();
+    //allCompanyAbouts.subscribe(abouts => {
+    //  this.allCompanyAboutsArray = abouts;
+    //});
 
-    let allCompaniesCD = this.activitiesService.getcompanycontactdetails({ flag });
-    allCompaniesCD.subscribe(CD => {
-      this.allCompanyCDArray = CD;
-    });
+    //let allCompaniesCD = this.activitiesService.getcompanycontactdetails();
+    //allCompaniesCD.subscribe(CD => {
+    //  this.allCompanyCDArray = CD;
+    //});
 
-    let allCompaniesImages = this.activitiesService.getcompanyimages({ flag });
-    allCompaniesImages.subscribe(images => {
-      this.allCompanyImagesArray = images;
-    });
+    //let allCompaniesImages = this.activitiesService.getcompanyimages();
+    //allCompaniesImages.subscribe(images => {
+    //  this.allCompanyImagesArray = images;
+    //});
 
-    let allCompaniesRatings = this.activitiesService.getcompanyratings({ flag });
-    allCompaniesRatings.subscribe(ratings => {
-      this.allCompanyRatingsArray = ratings;
-    });
+    //let allCompaniesRatings = this.activitiesService.getcompanyratings();
+    //allCompaniesRatings.subscribe(ratings => {
+    //  this.allCompanyRatingsArray = ratings;
+    //});
 
-    let allCompaniesProfiles = this.activitiesService.getcompanyProfiles({ flag });
-    allCompaniesProfiles.subscribe(profiles => {
-      this.allCompanyProfilesArray = profiles;
-    });
+    //let allCompaniesProfiles = this.activitiesService.getcompanyProfiles();
+    //allCompaniesProfiles.subscribe(profiles => {
+    //  this.allCompanyProfilesArray = profiles;
+    //});
     //displaying the first companys data
     this.displayCompanyData();
   }

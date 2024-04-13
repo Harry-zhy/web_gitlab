@@ -177,7 +177,7 @@ public class ActivityCompanyResource {
      * @param activity the activity which filters the returned companies.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of activityCompanies in body.
      */
-    @GetMapping("/activity-companiesNames")
+    @GetMapping("/activity-companiesNames/{activity}")
     public String[] getAllActivityCompaniesNames(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         String[] names = new String[companiesEntities.size()];
@@ -187,7 +187,7 @@ public class ActivityCompanyResource {
         return names;
     }
 
-    @GetMapping("/activity-companiesAbout")
+    @GetMapping("/activity-companiesAbout/{activity}")
     public String[] getAllActivityCompanyAbout(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         String[] abouts = new String[companiesEntities.size()];
@@ -197,7 +197,7 @@ public class ActivityCompanyResource {
         return abouts;
     }
 
-    @GetMapping("/activity-companiesContactDetails")
+    @GetMapping("/activity-companiesContactDetails/{activity}")
     public ActivityContactDetails[] getAllActivityCompanyCD(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         ActivityContactDetails[] CD = new ActivityContactDetails[companiesEntities.size()];
@@ -207,7 +207,7 @@ public class ActivityCompanyResource {
         return CD;
     }
 
-    @GetMapping("/activity-companiesImages")
+    @GetMapping("/activity-companiesImages/{activity}")
     public ActivityImage[] getAllBookedImages(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         ActivityImage[] Images = new ActivityImage[companiesEntities.size()];
@@ -217,7 +217,7 @@ public class ActivityCompanyResource {
         return Images;
     }
 
-    @GetMapping("/activity-companiesRatings")
+    @GetMapping("/activity-companiesRatings/{activity}")
     public Rating[] getAllRatings(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         Rating[] rating = new Rating[companiesEntities.size()];
@@ -227,7 +227,7 @@ public class ActivityCompanyResource {
         return rating;
     }
 
-    @GetMapping("/activity-companiesProfile")
+    @GetMapping("/activity-companiesProfile/{activity}")
     public Supplier[] getAllSuppliers(@RequestParam BookedActivity activity) {
         List<ActivityCompany> companiesEntities = bookedActivityService.getcompaniesFromBookedActivity(activity);
         Supplier[] suppliers = new Supplier[companiesEntities.size()];

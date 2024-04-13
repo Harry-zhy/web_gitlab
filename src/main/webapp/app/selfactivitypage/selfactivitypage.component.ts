@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelfActivitiesService } from 'app/selfactivitypage/selfactivitypage.service';
+import { ActivitiesService } from 'app/activities/activities.service';
 import { Observable } from 'rxjs';
 import { IActivitySelf } from 'app/entities/activity-self/activity-self.model';
 import { NewActivitySelf } from 'app/entities/activity-self/activity-self.model';
@@ -11,7 +11,7 @@ import { NewActivitySelf } from 'app/entities/activity-self/activity-self.model'
   styleUrls: ['./selfactivitypage.component.scss'],
 })
 export class SelfactivitypageComponent implements OnInit {
-  constructor(private router: Router, private service: SelfActivitiesService) {}
+  constructor(private router: Router, private service: ActivitiesService) {}
 
   //selfA: IActivitySelf;
 
