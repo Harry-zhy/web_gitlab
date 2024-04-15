@@ -22,6 +22,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { SearchPageComponent } from './venues/search-page/search-page.component';
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
+import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
 
 @NgModule({
   imports: [
@@ -94,6 +95,11 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
         },
 
         {
+          path: 'companyinfopage',
+          component: CompanyinfoComponent,
+        },
+
+        {
           path: 'favourites',
           component: FavouritesComponent,
         },
@@ -110,6 +116,7 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
           path: 'Result-page',
           component: ResultPageComponent,
         },
+        { path: 'company-info/:id', component: CompanyinfoComponent },
 
         navbarRoute,
         ...errorRoute,

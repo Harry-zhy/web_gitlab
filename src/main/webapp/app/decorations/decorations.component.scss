@@ -65,13 +65,15 @@
   height: 800px;
   width: 1030px;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: hidden;
   padding-bottom: 50px;
 }
 .company-slider div {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  transition: transform 0.5s ease;
+  grid-auto-flow: column;
   grid-gap: 120px;
   padding-left: 20px;
   padding-right: 120px;

@@ -34,6 +34,8 @@ import { SearchPageComponent } from './venues/search-page/search-page.component'
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { DecorationsComponent } from './decorations/decorations.component';
+import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
 
 @NgModule({
   imports: [
@@ -71,6 +73,8 @@ import { FavouritesComponent } from './favourites/favourites.component';
     SearchActivityPageComponent,
     ResultPageComponent,
     FavouritesComponent,
+    DecorationsComponent,
+    CompanyinfoComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })
