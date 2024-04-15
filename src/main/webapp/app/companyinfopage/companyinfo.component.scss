@@ -3,12 +3,30 @@ body {
   border-radius: 20px;
 }
 .company-cont {
+  display: flex;
+  background: none;
   color: #f9b0c3ff;
   text-shadow: 5px 5px 0 white;
+}
+.back-button {
+  margin-left: 10px;
+  padding: 0;
+  align-self: center;
+  background-color: transparent;
+  height: 68px;
+  border: none;
+  border-radius: 50%;
+  transition: ease-in-out 0.3s;
+}
+.back-button:hover {
+  transform: scale(100.5%);
+  filter: brightness(102%);
+  box-shadow: 0 0 10px #e0dffd;
 }
 .company-cont h1 {
   font-size: 100px;
   text-align: center;
+  flex-grow: 1;
 }
 .layout {
   height: 1000px;

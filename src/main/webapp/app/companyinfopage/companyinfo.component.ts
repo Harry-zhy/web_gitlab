@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-companyinfopage',
@@ -6,5 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./companyinfo.component.scss'],
 })
 export class CompanyinfoComponent implements OnInit {
+  constructor(private router: Router) {}
+
+  toDecor() {
+    this.router.navigate(['/decorations-page']);
+  }
   ngOnInit(): void {}
 }

@@ -116,7 +116,14 @@ import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
           path: 'Result-page',
           component: ResultPageComponent,
         },
-        { path: 'company-info/:id', component: CompanyinfoComponent },
+        {
+          path: 'company-info/:id',
+          component: CompanyinfoComponent,
+        },
+        {
+          path: 'decorations-page',
+          component: DecorationsComponent,
+        },
 
         navbarRoute,
         ...errorRoute,
