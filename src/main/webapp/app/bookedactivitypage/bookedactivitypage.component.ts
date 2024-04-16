@@ -15,6 +15,7 @@ export class BookedactivitypageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCompanyData();
+    this.calculateRatings();
   }
 
   backactivities(): void {
@@ -36,6 +37,7 @@ export class BookedactivitypageComponent implements OnInit {
   public Images: any[] = [];
   public Ratings: any[] = [];
   public Profile: any[] = [];
+  public rating: number = 0;
 
   companyCounter: number = 0;
 
@@ -89,5 +91,15 @@ export class BookedactivitypageComponent implements OnInit {
   nextCompany(): void {
     this.companyCounter = this.companyCounter + 1;
     this.displayCompanyData();
+  }
+
+  calculateRatings(): void {
+    let i: number = 0;
+    let total: number = 0;
+    while (i < this.Ratings[0].length) {
+      total = total + this.Ratings[0][i];
+      i = i + 1;
+    }
+    this.rating = total / this.Ratings[0].length;
   }
 }

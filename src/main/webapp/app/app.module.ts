@@ -36,6 +36,7 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
 import { FavouritesComponent } from './favourites/favourites.component';
 import { DecorationsComponent } from './decorations/decorations.component';
 import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
+import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-success.component';
 
 @NgModule({
   imports: [
@@ -75,6 +76,7 @@ import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
     FavouritesComponent,
     DecorationsComponent,
     CompanyinfoComponent,
+    FeedbackSuccessComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })

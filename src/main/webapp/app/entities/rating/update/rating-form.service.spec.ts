@@ -20,7 +20,7 @@ describe('Rating Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            value: expect.any(Object),
+            point: expect.any(Object),
             caterers: expect.any(Object),
             activityCompany: expect.any(Object),
             bookedActivity: expect.any(Object),
@@ -35,7 +35,7 @@ describe('Rating Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            value: expect.any(Object),
+            point: expect.any(Object),
             caterers: expect.any(Object),
             activityCompany: expect.any(Object),
             bookedActivity: expect.any(Object),

@@ -18,7 +18,7 @@ type RatingFormDefaults = Pick<NewRating, 'id'>;
 
 type RatingFormGroupContent = {
   id: FormControl<IRating['id'] | NewRating['id']>;
-  value: FormControl<IRating['value']>;
+  point: FormControl<IRating['point']>;
   caterers: FormControl<IRating['caterers']>;
   activityCompany: FormControl<IRating['activityCompany']>;
   bookedActivity: FormControl<IRating['bookedActivity']>;
@@ -30,25 +30,25 @@ export type RatingFormGroup = FormGroup<RatingFormGroupContent>;
 @Injectable({ providedIn: 'root' })
 export class RatingFormService {
   createRatingFormGroup(rating: RatingFormGroupInput = { id: null }): RatingFormGroup {
-    const ratingRawValue = {
+    const ratingRawPoint = {
       ...this.getFormDefaults(),
       ...rating,
     };
     return new FormGroup<RatingFormGroupContent>({
       id: new FormControl(
-        { value: ratingRawValue.id, disabled: true },
+        { value: ratingRawPoint.id, disabled: true },
         {
           nonNullable: true,
           validators: [Validators.required],
         }
       ),
-      value: new FormControl(ratingRawValue.value, {
+      point: new FormControl(ratingRawPoint.point, {
         validators: [Validators.required],
       }),
-      caterers: new FormControl(ratingRawValue.caterers),
-      activityCompany: new FormControl(ratingRawValue.activityCompany),
-      bookedActivity: new FormControl(ratingRawValue.bookedActivity),
-      activitySelf: new FormControl(ratingRawValue.activitySelf),
+      caterers: new FormControl(ratingRawPoint.caterers),
+      activityCompany: new FormControl(ratingRawPoint.activityCompany),
+      bookedActivity: new FormControl(ratingRawPoint.bookedActivity),
+      activitySelf: new FormControl(ratingRawPoint.activitySelf),
     });
   }
 
@@ -61,7 +61,7 @@ export class RatingFormService {
     form.reset(
       {
         ...ratingRawValue,
-        id: { value: ratingRawValue.id, disabled: true },
+        id: { point: ratingRawValue.id, disabled: true },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */
     );
   }

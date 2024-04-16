@@ -125,8 +125,8 @@ public class RatingResource {
         Optional<Rating> result = ratingRepository
             .findById(rating.getId())
             .map(existingRating -> {
-                if (rating.getValue() != null) {
-                    existingRating.setValue(rating.getValue());
+                if (rating.getPoint() != null) {
+                    existingRating.setPoint(rating.getPoint());
                 }
 
                 return existingRating;

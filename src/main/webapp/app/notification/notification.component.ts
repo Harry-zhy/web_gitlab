@@ -100,6 +100,12 @@ export class NotificationComponent implements OnInit {
   }
 
   markNotificationAsRead(notificationId: number): void {
+    this.notificationService.updateNotificationStatus(notificationId, 'READ').subscribe(
+      () => {},
+      error => {
+        console.error('Error marking notification as read:', error);
+      }
+    );
     // @ts-ignore
     const notification = this.notifications.find(n => n.id === notificationId);
     // @ts-ignore

@@ -23,6 +23,7 @@ import { SearchPageComponent } from './venues/search-page/search-page.component'
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
 import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
+import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-success.component';
 
 @NgModule({
   imports: [
@@ -123,6 +124,10 @@ import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
         {
           path: 'decorations-page',
           component: DecorationsComponent,
+        },
+        {
+          path: 'feedback-success',
+          component: FeedbackSuccessComponent,
         },
 
         navbarRoute,

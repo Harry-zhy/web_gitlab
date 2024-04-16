@@ -1,10 +1,10 @@
 id;question;ques_type
-1;Brand;PARENT_QUESTION
+1;Brand;MULTI_CHOICE
 2;Vista Markets;FILL_IN
-3;calculate violet RAM;PARENT_QUESTION
-4;Granite Investment;PARENT_QUESTION
-5;Profit-focused;PARENT_QUESTION
-6;input group global;PARENT_QUESTION
+3;calculate violet RAM;MULTI_CHOICE
+4;Granite Investment;MULTI_CHOICE
+5;Profit-focused;MULTI_CHOICE
+6;input group global;MULTI_CHOICE
 7;Fish;MULTI_CHOICE
 8;well-modulated;FILL_IN
 9;Borders cohesive withdrawal;FILL_IN

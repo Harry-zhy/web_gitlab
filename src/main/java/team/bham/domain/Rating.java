@@ -25,8 +25,8 @@ public class Rating implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "value", nullable = false)
-    private Integer value;
+    @Column(name = "point", nullable = false)
+    private Integer point;
 
     @ManyToOne
     @JsonIgnoreProperties(
@@ -65,17 +65,17 @@ public class Rating implements Serializable {
         this.id = id;
     }
 
-    public Integer getValue() {
-        return this.value;
+    public Integer getPoint() {
+        return this.point;
     }
 
-    public Rating value(Integer value) {
-        this.setValue(value);
+    public Rating point(Integer point) {
+        this.setPoint(point);
         return this;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setPoint(Integer point) {
+        this.point = point;
     }
 
     public Caterers getCaterers() {
@@ -154,7 +154,7 @@ public class Rating implements Serializable {
     public String toString() {
         return "Rating{" +
             "id=" + getId() +
-            ", value=" + getValue() +
+            ", point=" + getPoint() +
             "}";
     }
 }

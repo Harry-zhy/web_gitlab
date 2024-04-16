@@ -38,9 +38,9 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="value">
+          <th scope="col" jhiSortBy="point">
             <div class="d-flex">
-              <span>Value</span>
+              <span>point</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
@@ -76,7 +76,7 @@
           <td>
             <a [routerLink]="['/rating', rating.id, 'view']">{{ rating.id }}</a>
           </td>
-          <td>{{ rating.value }}</td>
+          <td>{{ rating.point }}</td>
           <td>
             <div *ngIf="rating.caterers">
               <a [routerLink]="['/caterers', rating.caterers.id, 'view']">{{ rating.caterers.id }}</a>

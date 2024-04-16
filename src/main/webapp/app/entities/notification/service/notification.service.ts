@@ -148,4 +148,10 @@ export class NotificationService {
     const url = `/api/notifications/${id}`;
     return this.http.get<INotification>(url);
   }
+
+  updateNotificationStatus(notificationId: number, newStatus: string): Observable<EntityResponseType> {
+    // @ts-ignore
+    const notification: PartialUpdateNotification = { id: notificationId, status: newStatus };
+    return this.update(notification);
+  }
 }

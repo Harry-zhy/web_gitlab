@@ -174,7 +174,7 @@ public class ActivityCompanyResource {
     /**
      * {@code GET  /activity-companies} : get all the activityCompanies.
      *
-     * @param activity the activity which filters the returned companies.
+     * @param activity the booked activity which filters the returned companies.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of activityCompanies in body.
      */
     @GetMapping("/activity-companiesNames/{activity}")
