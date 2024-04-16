@@ -6,7 +6,6 @@ import { ActivitiesService } from 'app/activities/activities.service';
 import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
 import { companyModel } from 'app/activities/activities.service';
 import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.model';
-import { ActivityCompanyService } from 'app/entities/activity-company/service/activity-company.service';
 
 @Component({
   selector: 'jhi-activities',
@@ -14,7 +13,7 @@ import { ActivityCompanyService } from 'app/entities/activity-company/service/ac
   styleUrls: ['./activities.component.scss'],
 })
 export class ActivitiesComponent implements OnInit {
-  constructor(private router: Router, private activitiesService: ActivitiesService, private companyService: ActivityCompanyService) {}
+  constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
   public allBookedActivitiesArray: String[] = [];
   public allSelfActivitiesArray: String[] = [];
@@ -34,6 +33,11 @@ export class ActivitiesComponent implements OnInit {
     this.bookedActivityNames();
     this.activitiesService.setBookedArray();
     this.activitiesService.setSelfArray();
+    console.log(this.activitiesService.test());
+    let allSelfNames = this.activitiesService.test();
+    allSelfNames.subscribe(names => {
+      console.log(names);
+    });
   }
 
   BookedActivityPage1(): void {
