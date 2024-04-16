@@ -23,7 +23,8 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
             <span>
-              <span>Home</span>
+              <span class="text">Home</span>
+              <span class="icon"><i class="fa-solid fa-house"></i></span>
             </span>
           </a>
         </li>
@@ -58,21 +59,24 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/notifications" (click)="collapseNavbar()">
             <span>
-              <span>Notification</span>
+              <span class="text">Notification</span>
+              <span class="icon"><i class="fa-solid fa-bell"></i></span>
             </span>
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/userprofile" (click)="collapseNavbar()">
             <span>
-              <span>User Profile</span>
+              <span class="text">Event Profile</span>
+              <span class="icon"><i class="fa-solid fa-circle-user"></i></span>
             </span>
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/supplier-profile" (click)="collapseNavbar()">
             <span>
-              <span>Supplier Profile</span>
+              <span class="text">Supplier Profile</span>
+              <span class="icon"><i class="fa-solid fa-user-gear"></i></span>
             </span>
           </a>
         </li>
@@ -94,7 +98,8 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/favourites" (click)="collapseNavbar()">
             <span>
-              <span>Favourites</span>
+              <span class="text">Favourites</span>
+              <span class="icon"><i class="fa-solid fa-heart"></i></span>
             </span>
           </a>
         </li>
@@ -715,8 +720,9 @@
           <!-- in the mock up -->
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             <span *ngIf="!account?.imageUrl">
-              <fa-icon icon="user"></fa-icon>
-              <span>Account</span>
+              <!-- <fa-icon icon="user"></fa-icon> -->
+              <span class="text">Account</span>
+              <span class="icon"><i class="fa-solid fa-user"></i></span>
             </span>
             <span *ngIf="account?.imageUrl">
               <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
