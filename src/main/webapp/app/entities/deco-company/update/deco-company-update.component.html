@@ -30,7 +30,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_decoContactDetails">Deco Contact Details</label>
+          <label class="form-label" for="field_decoContactDetails">Website</label>
           <select
             class="form-control"
             id="field_decoContactDetails"
@@ -57,7 +57,7 @@
             [compareWith]="compareSupplier"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="supplierOption" *ngFor="let supplierOption of suppliersCollection">{{ supplierOption.id }}</option>
+            <option [ngValue]="supplierOption" *ngFor="let supplierOption of suppliersCollection">{{ supplierOption.isSupplier }}</option>
           </select>
         </div>
 
