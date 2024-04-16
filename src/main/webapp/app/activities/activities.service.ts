@@ -21,6 +21,7 @@ export class ActivitiesService {
   public Index: number = 0;
   public BookedArray: Observable<any[]> = EMPTY;
   public SelfArray: Observable<any[]> = EMPTY;
+  public IdeaName: String = '';
 
   getElement(): Observable<any[]> {
     return this.BookedArray.pipe(
@@ -106,5 +107,9 @@ export class ActivitiesService {
 
   getSelfActivityRating(): Observable<any> {
     return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesRating/' + this.getElementSelf()));
+  }
+
+  getSelfActivityDescription(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesDescription/' + this.getElementSelf()));
   }
 }

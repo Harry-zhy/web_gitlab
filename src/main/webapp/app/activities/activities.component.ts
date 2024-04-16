@@ -37,18 +37,23 @@ export class ActivitiesComponent implements OnInit {
 
   BookedActivityPage1(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter;
+    this.activitiesService.IdeaName = displaySelf1;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage2(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 1;
+    this.activitiesService.IdeaName = displaySelf2;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage3(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 2;
+
+    this.activitiesService.IdeaName = displaySelf3;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage4(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 3;
+    this.activitiesService.IdeaName = displaySelf4;
     this.router.navigate(['/bookactivitypage']);
   }
 

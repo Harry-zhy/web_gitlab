@@ -13,15 +13,18 @@ import { NewActivitySelf } from 'app/entities/activity-self/activity-self.model'
 export class SelfactivitypageComponent implements OnInit {
   constructor(private router: Router, private service: ActivitiesService) {}
 
-  public IdeaName: String = '';
+  public ideaName: String = '';
   public ideasArray: any[] = [];
   public imagesArray: any[] = [];
   public ratingsArray: number[] = [];
   public rating: number = 0;
+  public ideaDescription: String = '';
 
   ngOnInit(): void {
+    this.ideaName = this.service.IdeaName;
     this.getIdeaData();
     this.calculateRatings();
+    this.getDescription();
   }
 
   backactivities(): void {
@@ -29,6 +32,17 @@ export class SelfactivitypageComponent implements OnInit {
   }
 
   saveactivitytoitinerary(): void {}
+
+  getDescription(): void {
+    let nameO = this.service.getSelfActivityDescription();
+    nameO.subscribe(names => {
+      this.showDescription(names);
+    });
+  }
+
+  showDescription(names: String): void {
+    this.ideaDescription = names;
+  }
 
   getIdeaData(): void {
     let nameO = this.service.getSelfActivityName();
