@@ -59,7 +59,7 @@
           >
             <option [ngValue]="null"></option>
             <option [ngValue]="decoThemesOption" *ngFor="let decoThemesOption of decoThemesSharedCollection">
-              {{ decoThemesOption.id }}
+              {{ decoThemesOption.name }}
             </option>
           </select>
         </div>
@@ -76,7 +76,7 @@
           >
             <option [ngValue]="null"></option>
             <option [ngValue]="decoCompanyOption" *ngFor="let decoCompanyOption of decoCompaniesSharedCollection">
-              {{ decoCompanyOption.id }}
+              {{ decoCompanyOption.name }}
             </option>
           </select>
         </div>
