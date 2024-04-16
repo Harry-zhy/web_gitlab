@@ -33,6 +33,11 @@ export class ActivitiesComponent implements OnInit {
     this.bookedActivityNames();
     this.activitiesService.setBookedArray();
     this.activitiesService.setSelfArray();
+    console.log(this.activitiesService.test());
+    let allSelfNames = this.activitiesService.test();
+    allSelfNames.subscribe(names => {
+      console.log(names);
+    });
   }
 
   BookedActivityPage1(): void {

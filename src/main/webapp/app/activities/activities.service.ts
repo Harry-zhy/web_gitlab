@@ -34,7 +34,6 @@ export class ActivitiesService {
     this.SelfArray.subscribe(names => {
       let SelfActivitiesArray = names;
       let i: number = this.Index;
-      console.log(SelfActivitiesArray[i]);
       return SelfActivitiesArray[i];
     });
   }
@@ -55,6 +54,10 @@ export class ActivitiesService {
     return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-selves'));
   }
 
+  test(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companies/' + 2));
+  }
+
   getAllBookedActivitiesNames(): Observable<any[]> {
     return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/booked-activities-names'));
   }
@@ -64,8 +67,7 @@ export class ActivitiesService {
   }
 
   getcompanynamesfromthebookedactivity(): Observable<any[]> {
-    let observe: Observable<any> = this.getElement();
-    observe.subscribe((array: any[]) => console.log(array));
+    console.log(this.getElement());
 
     return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-companiesNames/' + this.getElement()));
   }

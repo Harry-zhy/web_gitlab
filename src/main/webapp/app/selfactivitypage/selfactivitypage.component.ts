@@ -13,28 +13,65 @@ import { NewActivitySelf } from 'app/entities/activity-self/activity-self.model'
 export class SelfactivitypageComponent implements OnInit {
   constructor(private router: Router, private service: ActivitiesService) {}
 
-  //selfA: IActivitySelf;
+  public IdeaName: String = '';
+  public ideasArray: any[] = [];
+  public imagesArray: any[] = [];
+  public ratingsArray: number[] = [];
+  public rating: number = 0;
 
-  //name: Observable<any>= new Observable<any>;
-  //description: Observable<any>;
-  //ideas: Observable<any>;
+  ngOnInit(): void {
+    this.getIdeaData();
+    this.calculateRatings();
+  }
 
-  ngOnInit(): void {}
   backactivities(): void {
     this.router.navigate(['/activities']);
   }
 
   saveactivitytoitinerary(): void {}
 
-  getSelfName(): void {
-    //this.name = this.service.getSelfActivityName(this.selfA);
+  getIdeaData(): void {
+    let nameO = this.service.getSelfActivityName();
+    nameO.subscribe(names => {
+      this.showName(names);
+    });
+    let ideasO = this.service.getSelfActivityIdeas();
+    ideasO.subscribe(ideas => {
+      this.showIdeas(ideas);
+    });
+    let imagesArrayO = this.service.getSelfActivityImages();
+    imagesArrayO.subscribe(images => {
+      this.showImages(images);
+    });
+    let ratingsArrayO = this.service.getSelfActivityRating();
+    ratingsArrayO.subscribe(ratings => {
+      this.showRatings(ratings);
+    });
   }
 
-  getIdeas(): void {
-    //this.ideas = this.service.getSelfActivityIdeas(this.selfA);
+  calculateRatings(): void {
+    let i: number = 0;
+    let total: number = 0;
+    while (i < this.ratingsArray.length) {
+      total = total + this.ratingsArray[i];
+      i = i + 1;
+    }
+    this.rating = total / this.ratingsArray.length;
   }
 
-  getImages(): void {}
+  showName(name: String): void {
+    this.IdeaName = name;
+  }
 
-  getRating(): void {}
+  showIdeas(ideas: any[]): void {
+    this.ideasArray = ideas;
+  }
+
+  showImages(images: any[]): void {
+    this.imagesArray = images;
+  }
+
+  showRatings(ratings: any[]): void {
+    this.ratingsArray = ratings;
+  }
 }
