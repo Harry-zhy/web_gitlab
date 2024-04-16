@@ -9,6 +9,27 @@
 /* ==========================================================================
 Navbar
 ========================================================================== */
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  align-items: left; // Center items vertically
+}
+
+.nav-item {
+  margin-right: 15px; // Adjust spacing between navbar items as needed
+}
+
+.nav-link {
+  position: relative;
+  color: #000; // Adjust navbar link color as needed
+  text-decoration: none;
+  display: flex; // Ensure icon and text are displayed in a row
+  align-items: center; // Center items vertically
+}
+
+.nav-link .fa-solid {
+  margin-right: 5px; // Adjust spacing between icons
+}
 
 .navbar-version {
   font-size: 0.65em;
