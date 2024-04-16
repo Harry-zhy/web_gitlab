@@ -54,10 +54,6 @@ export class ActivitiesService {
     return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-selves'));
   }
 
-  test(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companies/' + 2));
-  }
-
   getAllBookedActivitiesNames(): Observable<any[]> {
     return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/booked-activities-names'));
   }
