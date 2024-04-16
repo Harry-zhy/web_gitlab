@@ -41,7 +41,7 @@
           >
             <option [ngValue]="null"></option>
             <option [ngValue]="decoContactDetailsOption" *ngFor="let decoContactDetailsOption of decoContactDetailsCollection">
-              {{ decoContactDetailsOption.id }}
+              {{ decoContactDetailsOption.website }}
             </option>
           </select>
         </div>
@@ -73,7 +73,7 @@
             [compareWith]="compareDecoSavedCompany"
           >
             <option [ngValue]="decoSavedCompanyOption" *ngFor="let decoSavedCompanyOption of decoSavedCompaniesSharedCollection">
-              {{ decoSavedCompanyOption.id }}
+              {{ decoSavedCompanyOption.name }}
             </option>
           </select>
         </div>
