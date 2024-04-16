@@ -56,7 +56,7 @@ class RatingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Rating createEntity(EntityManager em) {
-        Rating rating = new Rating().value(DEFAULT_VALUE);
+        Rating rating = new Rating().point(DEFAULT_VALUE);
         return rating;
     }
 
@@ -67,7 +67,7 @@ class RatingResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Rating createUpdatedEntity(EntityManager em) {
-        Rating rating = new Rating().value(UPDATED_VALUE);
+        Rating rating = new Rating().point(UPDATED_VALUE);
         return rating;
     }
 
@@ -89,7 +89,7 @@ class RatingResourceIT {
         List<Rating> ratingList = ratingRepository.findAll();
         assertThat(ratingList).hasSize(databaseSizeBeforeCreate + 1);
         Rating testRating = ratingList.get(ratingList.size() - 1);
-        assertThat(testRating.getValue()).isEqualTo(DEFAULT_VALUE);
+        assertThat(testRating.getPoint()).isEqualTo(DEFAULT_VALUE);
     }
 
     @Test
@@ -115,7 +115,7 @@ class RatingResourceIT {
     void checkValueIsRequired() throws Exception {
         int databaseSizeBeforeTest = ratingRepository.findAll().size();
         // set the field null
-        rating.setValue(null);
+        rating.setPoint(null);
 
         // Create the Rating, which fails.
 
@@ -176,7 +176,7 @@ class RatingResourceIT {
         Rating updatedRating = ratingRepository.findById(rating.getId()).get();
         // Disconnect from session so that the updates on updatedRating are not directly saved in db
         em.detach(updatedRating);
-        updatedRating.value(UPDATED_VALUE);
+        updatedRating.point(UPDATED_VALUE);
 
         restRatingMockMvc
             .perform(
@@ -190,7 +190,7 @@ class RatingResourceIT {
         List<Rating> ratingList = ratingRepository.findAll();
         assertThat(ratingList).hasSize(databaseSizeBeforeUpdate);
         Rating testRating = ratingList.get(ratingList.size() - 1);
-        assertThat(testRating.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testRating.getPoint()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test
@@ -261,7 +261,7 @@ class RatingResourceIT {
         Rating partialUpdatedRating = new Rating();
         partialUpdatedRating.setId(rating.getId());
 
-        partialUpdatedRating.value(UPDATED_VALUE);
+        partialUpdatedRating.point(UPDATED_VALUE);
 
         restRatingMockMvc
             .perform(
@@ -275,7 +275,7 @@ class RatingResourceIT {
         List<Rating> ratingList = ratingRepository.findAll();
         assertThat(ratingList).hasSize(databaseSizeBeforeUpdate);
         Rating testRating = ratingList.get(ratingList.size() - 1);
-        assertThat(testRating.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testRating.getPoint()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test
@@ -290,7 +290,7 @@ class RatingResourceIT {
         Rating partialUpdatedRating = new Rating();
         partialUpdatedRating.setId(rating.getId());
 
-        partialUpdatedRating.value(UPDATED_VALUE);
+        partialUpdatedRating.point(UPDATED_VALUE);
 
         restRatingMockMvc
             .perform(
@@ -304,7 +304,7 @@ class RatingResourceIT {
         List<Rating> ratingList = ratingRepository.findAll();
         assertThat(ratingList).hasSize(databaseSizeBeforeUpdate);
         Rating testRating = ratingList.get(ratingList.size() - 1);
-        assertThat(testRating.getValue()).isEqualTo(UPDATED_VALUE);
+        assertThat(testRating.getPoint()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test

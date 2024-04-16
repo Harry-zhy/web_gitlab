@@ -5,7 +5,7 @@ import { IActivitySelf } from 'app/entities/activity-self/activity-self.model';
 
 export interface IRating {
   id: number;
-  value?: number | null;
+  point?: number | null;
   caterers?: Pick<ICaterers, 'id'> | null;
   activityCompany?: Pick<IActivityCompany, 'id'> | null;
   bookedActivity?: Pick<IBookedActivity, 'id'> | null;

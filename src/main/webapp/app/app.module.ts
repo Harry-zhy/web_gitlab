@@ -33,6 +33,7 @@ import { SupplierProfileComponent } from './supplier-profile/supplier-profile.co
 import { SearchPageComponent } from './venues/search-page/search-page.component';
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
+import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-success.component';
 
 @NgModule({
   imports: [
@@ -69,6 +70,7 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
     SearchPageComponent,
     SearchActivityPageComponent,
     ResultPageComponent,
+    FeedbackSuccessComponent,
   ],
   bootstrap: [MainComponent, FeedbackComponent],
 })

@@ -21,6 +21,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { SearchPageComponent } from './venues/search-page/search-page.component';
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
+import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-success.component';
 
 @NgModule({
   imports: [
@@ -103,6 +104,10 @@ import { ResultPageComponent } from './venues/result-page/result-page.component'
         {
           path: 'Result-page',
           component: ResultPageComponent,
+        },
+        {
+          path: 'feedback-success',
+          component: FeedbackSuccessComponent,
         },
 
         navbarRoute,

@@ -8,6 +8,7 @@ import { QuestionService } from '../entities/question/service/question.service';
 import { IntroService } from '../entities/intro/service/intro.service';
 import { UserService } from '../entities/user/user.service';
 import { MCQOptionService } from '../entities/mcq-option/service/mcq-option.service';
+import { FeedbackSuccessComponent } from './feedback-success/feedback-success.component';
 
 @Component({
   selector: 'jhi-feedback',
@@ -95,7 +96,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   sendToUs() {
-    this.router.navigate(['/success']);
+    this.router.navigate(['feedback-success']);
   }
 
   isSendButtonEnabled() {
@@ -122,7 +123,6 @@ export class FeedbackComponent implements OnInit {
     const data = await this.introService.query().toPromise();
     // @ts-ignore
     this.introData = data?.body.at(0);
-    console.log('1111\n\n' + this.introData?.body?.toString());
   }
 
   async getUsername() {
