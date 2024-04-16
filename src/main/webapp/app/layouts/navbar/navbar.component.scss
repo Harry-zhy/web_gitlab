@@ -23,7 +23,7 @@ Navbar
 .navbar {
   //position: fixed;
   //bottom: 0;
-  //left: 0;
+  left: 0;
   width: 100%;
   padding: 0.2rem 1rem;
   z-index: 1000;
@@ -47,6 +47,7 @@ Navbar
 
   a.nav-link {
     font-weight: 400;
+    border-radius: 8px;
   }
 
   a.nav-link:hover {
@@ -76,16 +77,22 @@ Navbar
     transform: translate(-50%, -50%);
     width: 20px;
     text-align: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
   }
 
   .nav-link:hover .icon {
-    opacity: 1;
+    opacity: 0;
+  }
+
+  .nav-link .text {
+    opacity: 0;
+    padding: 7px;
   }
 
   .nav-link:hover .text {
-    opacity: 0;
+    opacity: 1;
+    padding: 7px;
   }
 
   .nav-link .icon i {
@@ -94,6 +101,7 @@ Navbar
 
   .nav-link .text {
     transition: opacity 0.3s ease;
+    border-radius: 8px;
   }
 
   .nav-link .icon,
