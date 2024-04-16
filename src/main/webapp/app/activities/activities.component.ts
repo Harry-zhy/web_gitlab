@@ -6,7 +6,6 @@ import { ActivitiesService } from 'app/activities/activities.service';
 import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
 import { companyModel } from 'app/activities/activities.service';
 import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.model';
-import { ActivityCompanyService } from 'app/entities/activity-company/service/activity-company.service';
 
 @Component({
   selector: 'jhi-activities',
@@ -14,7 +13,7 @@ import { ActivityCompanyService } from 'app/entities/activity-company/service/ac
   styleUrls: ['./activities.component.scss'],
 })
 export class ActivitiesComponent implements OnInit {
-  constructor(private router: Router, private activitiesService: ActivitiesService, private companyService: ActivityCompanyService) {}
+  constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
   public allBookedActivitiesArray: String[] = [];
   public allSelfActivitiesArray: String[] = [];
@@ -38,18 +37,23 @@ export class ActivitiesComponent implements OnInit {
 
   BookedActivityPage1(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter;
+    this.activitiesService.IdeaName = displaySelf1;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage2(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 1;
+    this.activitiesService.IdeaName = displaySelf2;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage3(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 2;
+
+    this.activitiesService.IdeaName = displaySelf3;
     this.router.navigate(['/bookactivitypage']);
   }
   BookedActivityPage4(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 3;
+    this.activitiesService.IdeaName = displaySelf4;
     this.router.navigate(['/bookactivitypage']);
   }
 
