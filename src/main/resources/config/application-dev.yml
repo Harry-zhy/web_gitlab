@@ -41,7 +41,7 @@ spring:
   h2:
     console:
       # disable spring boot built-in h2-console since we start it manually with correct configuration
-      enabled: false
+      enabled: true
   jpa:
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
@@ -55,8 +55,6 @@ spring:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
-  profiles:
-    active: dev,local
 
 server:
   port: 8080
