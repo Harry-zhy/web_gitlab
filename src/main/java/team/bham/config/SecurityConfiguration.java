@@ -102,4 +102,16 @@ public class SecurityConfiguration {
     private JWTConfigurer securityConfigurerAdapter() {
         return new JWTConfigurer(tokenProvider);
     }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+            .antMatchers("/h2-console/**")
+            .permitAll() // Allow access to H2 console
+            .anyRequest()
+            .authenticated(); // Secure other endpoints
+        http.csrf().disable();
+        http.headers().frameOptions().disable(); // Enable H2 console in frames
+    }
 }
