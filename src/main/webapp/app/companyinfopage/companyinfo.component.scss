@@ -1,0 +1,79 @@
+body {
+  padding-bottom: 1px;
+  border-radius: 20px;
+}
+.company-cont {
+  display: flex;
+  background: none;
+  color: #f9b0c3ff;
+  text-shadow: 5px 5px 0 white;
+}
+.back-button {
+  margin-left: 10px;
+  padding: 0;
+  align-self: center;
+  background-color: transparent;
+  height: 68px;
+  border: none;
+  border-radius: 50%;
+  transition: ease-in-out 0.3s;
+}
+.back-button:hover {
+  transform: scale(100.5%);
+  filter: brightness(102%);
+  box-shadow: 0 0 10px #e0dffd;
+}
+.company-cont h1 {
+  font-size: 100px;
+  text-align: center;
+  flex-grow: 1;
+}
+.layout {
+  height: 1000px;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(13, 1fr);
+  grid-gap: 30px;
+  border-radius: 20px;
+  padding: 30px;
+}
+.about-cont {
+  background-color: #f9b0c3ff;
+  grid-area: 1 / 1 / 7 / 7;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding-top: 20px;
+}
+.carousel {
+  background-color: #f9b0c3ff;
+  grid-area: 1 / 7 / 6 / 14;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding-top: 20px;
+}
+.profile-cont {
+  background-color: #f9b0c3ff;
+  grid-area: 7 / 5 / 9 / 7;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding-top: 20px;
+}
+.rating {
+  background-color: #f9b0c3ff;
+  grid-area: 7 / 1 / 9 / 5;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding-top: 20px;
+}
+.contact-details {
+  background-color: #f9b0c3ff;
+  grid-area: 6 / 7 / 9 / 14;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding-top: 20px;
+}

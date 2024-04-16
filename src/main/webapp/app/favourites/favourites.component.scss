@@ -1,0 +1,275 @@
+//colour palette
+$light-pink: #ffdee7;
+$dark-pink: #f9b0c3;
+$myyellow: #ffc212;
+$hover-purple: #f3f2ff;
+$light-purple: #e0dffd;
+$purple: #7769c6;
+$dark-blue: #172c49;
+
+.header {
+  width: 100%;
+  background-color: #172c49;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 15px;
+}
+
+.whiteBackground {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  border-width: 100%;
+  background-color: #fff;
+}
+
+.pinkBox {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+  overflow: auto;
+
+  width: 100%;
+  max-width: 95%; //makes it fit to screen and adjust with size of screen
+  height: auto; //330px;
+  background-color: #f9b0c3;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin: 1.5em;
+}
+
+h1 {
+  font-size: 72px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 4px 4px #ffc212;
+}
+
+h4 {
+  font-size: 40px;
+  position: relative;
+  top: 0;
+  margin-left: 25px;
+  color: $dark-blue;
+  margin-bottom: -2px;
+}
+
+.modalh4 {
+  font-size: 40px;
+  position: relative;
+  top: 0;
+  margin-left: 25px;
+  color: $dark-blue;
+  margin-bottom: -2px;
+  color: #ffffff;
+  text-shadow: 2px 2px #ffc212;
+}
+
+.miniHeader {
+  margin-top: 20px;
+}
+
+.custom-icon {
+  color: $light-purple;
+}
+
+span {
+  color: #ffffff;
+  align-items: center;
+}
+
+p {
+  font-size: 15px;
+  color: #172c49;
+  margin-left: 25px;
+  margin-bottom: -20px;
+}
+
+//vendors boxes
+.vendorsBox {
+  padding: 20px;
+  align-items: start;
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.optionBox {
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.expand {
+  padding: 2px;
+  background: none;
+  color: $purple;
+  font-size: 16px;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.expand:hover {
+  outline: none;
+  transform: scale(105%);
+  filter: brightness(110%);
+}
+
+.addOptionButtons {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  padding: 2px;
+}
+
+.add-title {
+  text-align: center;
+}
+
+.add-title h5 {
+  background-color: #e0dffd;
+  box-shadow: 4px 4px #ffc212;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add {
+  background: none;
+  font-size: 1.2em;
+  color: $purple !important;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.add:hover {
+  outline: none;
+  transform: scale(105%);
+  filter: brightness(110%);
+}
+
+.displayAddedOptions {
+  display: inline-flex;
+  gap: 15px;
+  padding: 15px;
+}
+
+.addedOption {
+  width: 200px;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2px;
+  border-radius: 15px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 50%;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+.optionInfo {
+  text-align: left;
+  padding: 10px 20px;
+
+  .mySpan,
+  .myLittleSpan {
+    display: block; /* Set spans to display as block elements */
+    width: 100%;
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+
+    &:not(:first-child) {
+      margin-top: 5px; /* Add some margin between spans */
+    }
+  }
+
+  .myLittleSpan {
+    font-size: 15px;
+  }
+}
+
+// modal shit //////////////////////////////
+.modal {
+  display: none; //make hidden by default when done
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: $light-pink;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: none;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+//close button
+.close {
+  color: $purple;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  filter: brightness(110%);
+}
+
+.vendorInfo {
+  border-radius: 5px;
+  background-color: white;
+  margin: 3%; /* 15% from the top and centered */
+  padding: 10px;
+  border: none;
+  width: 90%; /* Could be more or less, depending on screen size */
+  height: 150px;
+  overflow: auto;
+}
+
+.buttonSection {
+  text-align: center;
+}
+
+.modalButton {
+  display: inline-block;
+  margin: 0 10px;
+
+  background: none;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $purple;
+  box-shadow: 4px 4px $myyellow;
+  border: none;
+  color: white;
+}
+
+.modalButton:hover {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #7769c6ae;
+  box-shadow: 2px 2px $myyellow;
+}

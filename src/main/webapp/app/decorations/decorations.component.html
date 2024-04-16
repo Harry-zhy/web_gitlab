@@ -32,68 +32,70 @@
       </div>
       <!-- book sub end-->
       <div class="companies">
-        <div class="previous-button">
+        <div class="previous-button" (click)="showPrevious()">
           <span><img src="content/images/decorationsimages/previousbutton.png" /></span>
         </div>
         <!--previous button end-->
         <div class="company-slider">
-          <div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/elite.png" alt="elite embellishments" />
-              <p class="comp-name">Elite Embellishments</p>
+          <div *ngFor="let company of companies" (click)="navigateToCompanyInfo(company)">
+            <div class="pink-box" *ngFor="let company of currentItems">
+              <img [src]="company.imageUrl" alt="{{ company.name }}" />
+              <p class="comp-name">{{ company.name }}</p>
             </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/oasis.png" alt="oasis creations" />
-              <p class="comp-name">Oasis Creations</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/elegant.png" alt="elegant arts" />
-              <p class="comp-name">Elegant Arts</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/soiree.png" alt="soiree celebrations" />
-              <p class="comp-name">Soiree Celebrations</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/instyle.png" alt="instyle" />
-              <p class="comp-name">InStyle</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/decorde.png" alt="decordè de mode" />
-              <p class="comp-name">Decordè de Mode</p>
-            </div>
-          </div>
-          <!--div end- makes it look like a grid instead of in line-->
-          <div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/divinedecor.png" alt="divine decor" />
-              <p class="comp-name">Divine Decor</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/fortheoccasion.png" alt="fortheoccasion" />
-              <p class="comp-name">ForTheOccasion</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/Image8.png" alt="aritz" />
-              <p class="comp-name">Aritz</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/celebra.png" alt="celebra" />
-              <p class="comp-name">Celebra</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/carizma.png" alt="carizma" />
-              <p class="comp-name">Carizma</p>
-            </div>
-            <div class="pink-box">
-              <img src="content/images/decorationsimages/enigma.png" alt="enigma" />
-              <p class="comp-name">Enigma</p>
-            </div>
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/elite.png' alt='elite embellishments' />-->
+            <!--              <p class='comp-name'>Elite Embellishments</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/oasis.png' alt='oasis creations' />-->
+            <!--              <p class='comp-name'>Oasis Creations</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/elegant.png' alt='elegant arts' />-->
+            <!--              <p class='comp-name'>Elegant Arts</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/soiree.png' alt='soiree celebrations' />-->
+            <!--              <p class='comp-name'>Soiree Celebrations</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/instyle.png' alt='instyle' />-->
+            <!--              <p class='comp-name'>InStyle</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/decorde.png' alt='decordè de mode' />-->
+            <!--              <p class='comp-name'>Decordè de Mode</p>-->
+            <!--            </div>-->
+            <!--          &lt;!&ndash;div end- makes it look like a grid instead of in line&ndash;&gt;-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/divinedecor.png' alt='divine decor' />-->
+            <!--              <p class='comp-name'>Divine Decor</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/fortheoccasion.png' alt='fortheoccasion' />-->
+            <!--              <p class='comp-name'>ForTheOccasion</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/Image8.png' alt='aritz' />-->
+            <!--              <p class='comp-name'>Aritz</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/celebra.png' alt='celebra' />-->
+            <!--              <p class='comp-name'>Celebra</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/carizma.png' alt='carizma' />-->
+            <!--              <p class='comp-name'>Carizma</p>-->
+            <!--            </div>-->
+            <!--            <div class='pink-box'>-->
+            <!--              <img src='content/images/decorationsimages/enigma.png' alt='enigma' />-->
+            <!--              <p class='comp-name'>Enigma</p>-->
+            <!--            </div>-->
           </div>
           <!--div end- makes it look like a grid instead of in line-->
         </div>
         <!--company slider end-->
-        <div class="next-button">
+        <div class="next-button" (click)="showNext()">
           <span><img src="content/images/decorationsimages/nextbutton.png" /></span>
         </div>
       </div>
@@ -114,11 +116,11 @@
         <!--previous button end-->
         <div class="company-slider">
           <div>
-            <div class="pink-box">
+            <div class="pink-box" #pinkBox>
               <img src="content/images/decorationsimages/birthday2.png" alt="birthday" />
               <p class="comp-name">Birthday</p>
             </div>
-            <div class="pink-box">
+            <div class="pink-box" #pinkBox>
               <img src="content/images/decorationsimages/Slaley-Hall-Wedding-Venue-Decor.png" alt="christmas" />
               <p class="comp-name">Christmas</p>
             </div>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.model';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 
@@ -8,39 +10,103 @@ export class companyModel {
   constructor(public flag: boolean) {}
 }
 
+export class bookedActivityEntityFrontEnd {
+  constructor(public bookedActivity: IBookedActivity) {}
+}
+
 @Injectable({ providedIn: 'root' })
 export class ActivitiesService {
   constructor(private http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
-  getAllBookedActivitiesNames(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/booked-activity-names'), companyModel);
+  public Index: number = 0;
+  public BookedArray: Observable<any[]> = EMPTY;
+  public SelfArray: Observable<any[]> = EMPTY;
+
+  getElement(): Observable<any[]> {
+    return this.BookedArray.pipe(
+      map((array: any[]) => {
+        return array[this.Index];
+      })
+    );
   }
 
-  getAllSelfActivitiesNames(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/self-activities-names'), companyModel);
+  getElementSelf(): any {
+    this.SelfArray.subscribe(names => {
+      let SelfActivitiesArray = names;
+      let i: number = this.Index;
+      console.log(SelfActivitiesArray[i]);
+      return SelfActivitiesArray[i];
+    });
   }
 
-  getcompanynamesfromthebookedactivity(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesNames'), companyModel);
+  setBookedArray(): void {
+    this.BookedArray = this.getAllBookedActivityEntities();
   }
 
-  getcompanycontactdetails(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesContactDetails'), companyModel);
+  setSelfArray(): void {
+    this.SelfArray = this.getAllSelfActivityEntities();
   }
 
-  getcompanyAbout(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesAbout'), companyModel);
+  getAllBookedActivityEntities(): Observable<any[]> {
+    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/booked-activities'));
   }
 
-  getcompanyimages(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesImage'), companyModel);
+  getAllSelfActivityEntities(): Observable<any[]> {
+    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-selves'));
   }
 
-  getcompanyratings(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesRatings'), companyModel);
+  getAllBookedActivitiesNames(): Observable<any[]> {
+    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/booked-activities-names'));
   }
 
-  getcompanyProfiles(companyModel: companyModel): Observable<any> {
-    return this.http.post(this.applicationConfigService.getEndpointFor('api/activity-companiesProfile'), companyModel);
+  getAllSelfActivitiesNames(): Observable<any[]> {
+    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/self-activities-names'));
+  }
+
+  getcompanynamesfromthebookedactivity(): Observable<any[]> {
+    let observe: Observable<any> = this.getElement();
+    observe.subscribe((array: any[]) => console.log(array));
+
+    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-companiesNames/' + this.getElement()));
+  }
+
+  getcompanycontactdetails(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesContactDetails/' + this.getElement()));
+  }
+
+  getcompanyAbout(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesAbout/' + this.getElement()));
+  }
+
+  getcompanyimages(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesImage/' + this.getElement()));
+  }
+
+  getcompanyratings(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesRatings/' + this.getElement()));
+  }
+
+  getcompanyProfiles(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesProfile/' + this.getElement()));
+  }
+
+  getSelfActivityName(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesOneName/' + this.getElementSelf()));
+  }
+
+  getSelfActivityDescription(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesDescription/' + this.getElementSelf()));
+  }
+
+  getSelfActivityIdeas(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesIdeas/' + this.getElementSelf()));
+  }
+
+  getSelfActivityImages(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesImages/' + this.getElementSelf()));
+  }
+
+  getSelfActivityRating(): Observable<any> {
+    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesRating/' + this.getElementSelf()));
   }
 }

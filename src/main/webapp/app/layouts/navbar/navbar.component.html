@@ -17,6 +17,7 @@
     >
       <fa-icon icon="bars"></fa-icon>
     </a>
+    <!-- in the mock up -->
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -40,6 +41,7 @@
             </span>
           </a>
         </li>
+        <!-- in the mock up -->
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/itineraryPage" (click)="collapseNavbar()">
             <span class="text">Itinerary</span>
@@ -85,6 +87,14 @@
           <a class="nav-link" routerLink="/decorations" (click)="collapseNavbar()">
             <span>
               <span>Decorations</span>
+            </span>
+          </a>
+        </li>
+        <!-- in the mock up -->
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/favourites" (click)="collapseNavbar()">
+            <span>
+              <span>Favourites</span>
             </span>
           </a>
         </li>
@@ -702,6 +712,7 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
+          <!-- in the mock up -->
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             <span *ngIf="!account?.imageUrl">
               <fa-icon icon="user"></fa-icon>

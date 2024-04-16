@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivitiesService } from 'app/activities/activities.service';
 import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
+import { companyModel } from 'app/activities/activities.service';
+import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.model';
 
 @Component({
   selector: 'jhi-activities',
@@ -13,8 +15,8 @@ import { NewActivityCompany } from 'app/entities/activity-company/activity-compa
 export class ActivitiesComponent implements OnInit {
   constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
-  public allBookedActivitiesArray: any[] = [];
-  public allSelfActivitiesArray: any[] = [];
+  public allBookedActivitiesArray: String[] = [];
+  public allSelfActivitiesArray: String[] = [];
   public displayBooked1: String = '';
   public displayBooked2: String = '';
   public displayBooked3: String = '';
@@ -27,61 +29,96 @@ export class ActivitiesComponent implements OnInit {
   public SelfnextbuttonCounter: number = 0;
 
   ngOnInit(): void {
-    this.bookedActivityNames();
     this.selfActivityNames();
-    this.shownewBooked();
-    this.shownewSelf();
+    this.bookedActivityNames();
+    this.activitiesService.setBookedArray();
+    this.activitiesService.setSelfArray();
   }
 
-  BookedActivityPage(): void {
-    //navigating to the booked activity page
+  BookedActivityPage1(): void {
+    this.activitiesService.Index = this.BookednextbuttonCounter;
+    this.router.navigate(['/bookactivitypage']);
+  }
+  BookedActivityPage2(): void {
+    this.activitiesService.Index = this.BookednextbuttonCounter + 1;
+    this.router.navigate(['/bookactivitypage']);
+  }
+  BookedActivityPage3(): void {
+    this.activitiesService.Index = this.BookednextbuttonCounter + 2;
+    this.router.navigate(['/bookactivitypage']);
+  }
+  BookedActivityPage4(): void {
+    this.activitiesService.Index = this.BookednextbuttonCounter + 3;
     this.router.navigate(['/bookactivitypage']);
   }
 
   selfActivityNames(): void {
-    let flag: boolean = false;
-    let allSelfNames = this.activitiesService.getAllSelfActivitiesNames({ flag });
+    let allSelfNames = this.activitiesService.getAllSelfActivitiesNames();
     allSelfNames.subscribe(names => {
-      this.allSelfActivitiesArray = names;
+      let SelfActivitiesArray = names;
+      let i: number = 0;
+      while (i < SelfActivitiesArray.length) {
+        this.allSelfActivitiesArray.push(SelfActivitiesArray[i]);
+        i = i + 1;
+      }
+      this.shownewSelf();
     });
   }
 
-  selfpage(): void {
+  selfpage4(): void {
+    this.activitiesService.Index = this.SelfnextbuttonCounter + 3;
+    this.router.navigate(['/selfactivitypage']);
+  }
+  selfpage3(): void {
+    this.activitiesService.Index = this.SelfnextbuttonCounter + 2;
+    this.router.navigate(['/selfactivitypage']);
+  }
+  selfpage2(): void {
+    this.activitiesService.Index = this.SelfnextbuttonCounter + 1;
+    this.router.navigate(['/selfactivitypage']);
+  }
+  selfpage1(): void {
+    this.activitiesService.Index = this.SelfnextbuttonCounter;
     this.router.navigate(['/selfactivitypage']);
   }
 
   bookedActivityNames(): void {
-    let flag: boolean = false;
-    let allBookedNames = this.activitiesService.getAllBookedActivitiesNames({ flag });
+    let allBookedNames = this.activitiesService.getAllBookedActivitiesNames();
     allBookedNames.subscribe(names => {
-      this.allBookedActivitiesArray = names;
+      let BookedActivitiesArray = names;
+      let i: number = 0;
+      while (i < BookedActivitiesArray.length) {
+        this.allBookedActivitiesArray.push(BookedActivitiesArray[i]);
+        i = i + 1;
+      }
+      this.shownewBooked();
     });
   }
 
   nextbooked(): void {
     if (this.BookednextbuttonCounter * 4 != this.allBookedActivitiesArray.length / 4) {
-      this.BookednextbuttonCounter = this.BookednextbuttonCounter + 1;
+      this.BookednextbuttonCounter = this.BookednextbuttonCounter + 4;
       this.shownewBooked();
     }
   }
 
   previousbooked(): void {
     if (this.BookednextbuttonCounter != 0) {
-      this.BookednextbuttonCounter = this.BookednextbuttonCounter - 1;
+      this.BookednextbuttonCounter = this.BookednextbuttonCounter - 4;
       this.shownewBooked();
     }
   }
 
   nextself(): void {
     if (this.SelfnextbuttonCounter * 4 != this.allSelfActivitiesArray.length / 4) {
-      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter + 1;
+      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter + 4;
       this.shownewSelf();
     }
   }
 
   previousself(): void {
     if (this.SelfnextbuttonCounter != 0) {
-      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter - 1;
+      this.SelfnextbuttonCounter = this.SelfnextbuttonCounter - 4;
       this.shownewSelf();
     }
   }

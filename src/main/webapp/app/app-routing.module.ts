@@ -15,12 +15,14 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SupplierProfileComponent } from './supplier-profile/supplier-profile.component';
 import { DecorationsComponent } from './decorations/decorations.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 import { BookedactivitypageComponent } from './bookedactivitypage/bookedactivitypage.component';
 import { SelfactivitypageComponent } from './selfactivitypage/selfactivitypage.component';
 import { NotificationComponent } from './notification/notification.component';
 import { SearchPageComponent } from './venues/search-page/search-page.component';
 import { SearchActivityPageComponent } from './venues/search-activity-page/search-activity-page.component';
 import { ResultPageComponent } from './venues/result-page/result-page.component';
+import { CompanyinfoComponent } from './companyinfopage/companyinfo.component';
 import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-success.component';
 
 @NgModule({
@@ -94,6 +96,16 @@ import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-s
         },
 
         {
+          path: 'companyinfopage',
+          component: CompanyinfoComponent,
+        },
+
+        {
+          path: 'favourites',
+          component: FavouritesComponent,
+        },
+
+        {
           path: 'search-page1',
           component: SearchPageComponent,
         },
@@ -104,6 +116,14 @@ import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-s
         {
           path: 'Result-page',
           component: ResultPageComponent,
+        },
+        {
+          path: 'company-info/:id',
+          component: CompanyinfoComponent,
+        },
+        {
+          path: 'decorations-page',
+          component: DecorationsComponent,
         },
         {
           path: 'feedback-success',

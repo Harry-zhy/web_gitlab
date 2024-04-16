@@ -1,0 +1,74 @@
+<head>
+  <script src="https://kit.fontawesome.com/3543c81e40.js" crossorigin="anonymous"></script>
+</head>
+
+<div class="header">
+  <h1>Favourites</h1>
+  <span>See Your Saved Faves Here!</span>
+</div>
+
+<div class="WhiteBackground">
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-icons custom-icon"></i> Activities</h4>
+  </div>
+  <div class="pinkBox">
+    <div class="displayAddedOptions">
+      <div class="addedOption">
+        <a [routerLink]="'/decorations'"
+          ><img src="/content/images/itineraryImages/not-selected.jpeg" alt="DecoratorImage" style="width: 100%; cursor: pointer"
+        /></a>
+        <div class="optionInfo">
+          <span class="mySpan">Activity Name</span>
+          <span class="myLittleSpan"><i class="fa-regular fa-clock"> : </i></span>
+          <span class="myLittleSpan"><i class="fa-regular fa-money-bill-1"> : </i></span>
+          <button id="expand" class="expand"><i class="fa-solid fa-circle-info"></i></button>
+
+          <!-- modal -->
+          <div id="infoModal" class="modal">
+            <div class="modal-content">
+              <span class="close"><i class="fa-solid fa-circle-xmark"></i></span>
+              <h4 class="modalh4">Activity Name</h4>
+              <div class="vendorInfo">
+                <span class="mySpan">About</span>
+                <p class="myP">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+              <div class="vendorInfo">
+                <span class="mySpan">Pictures Here?</span>
+              </div>
+              <div class="buttonSection">
+                <button class="modalButton">Remove From Favourites</button>
+                <button class="modalButton">Add To Event</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-utensils custom-icon"></i> Caterers</h4>
+  </div>
+  <div class="pinkBox">
+    <div class="section"></div>
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-wand-magic-sparkles custom-icon"></i> Decorators</h4>
+  </div>
+  <div class="pinkBox">
+    <div class="section"></div>
+  </div>
+
+  <div class="miniHeader">
+    <h4><i class="fa-solid fa-map-marker-alt custom-icon"></i> Venues</h4>
+  </div>
+  <div class="pinkBox">
+    <div class="section"></div>
+  </div>
+</div>
