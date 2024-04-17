@@ -108,8 +108,4 @@ export class ActivitiesService {
   getSelfActivityRating(): Observable<any> {
     return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesRating/' + this.getElementSelf()));
   }
-
-  getSelfActivityDescription(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesDescription/' + this.getElementSelf()));
-  }
 }

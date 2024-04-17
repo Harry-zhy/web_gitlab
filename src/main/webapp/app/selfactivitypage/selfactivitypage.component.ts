@@ -74,7 +74,7 @@ export class SelfactivitypageComponent implements OnInit {
   }
 
   showName(name: String): void {
-    this.IdeaName = name;
+    this.ideaName = name;
   }
 
   showIdeas(ideas: any[]): void {
