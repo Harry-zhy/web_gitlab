@@ -323,7 +323,6 @@ public class UserService {
      */
     @Transactional(readOnly = true)
     public List<String> getAuthorities() {
-        System.out.println("\n\n" + authorityRepository.findAll() + "\n\n");
         return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
     }
 
