@@ -83,6 +83,10 @@ import { FeedbackSuccessComponent } from './feedback/feedback-success/feedback-s
         },
         {
           path: 'supplier-profile',
+          data: {
+            authorities: [Authority.SUPPLIER],
+          },
+          canActivate: [UserRouteAccessService],
           component: SupplierProfileComponent,
         },
         {
