@@ -64,48 +64,68 @@ export class ActivitiesService {
   }
 
   getcompanynamesfromthebookedactivity(): Observable<any[]> {
-    console.log(this.getElement());
-
-    return this.http.get<any[]>(this.applicationConfigService.getEndpointFor('api/activity-companiesNames/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesNames');
+    return this.http.get<any[]>(`${api}/${param}`);
   }
 
   getcompanycontactdetails(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesContactDetails/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesContactDetails');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getcompanyAbout(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesAbout/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesAbout');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getcompanyimages(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesImage/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesImage');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getcompanyratings(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesRatings/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesRatings');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getcompanyProfiles(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-companiesProfile/' + this.getElement()));
+    let param = this.getElement();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-companiesProfile');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getSelfActivityName(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesOneName/' + this.getElementSelf()));
+    let param = this.getElementSelf();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-selvesOneName');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getSelfActivityDescription(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesDescription/' + this.getElementSelf()));
+    let param = this.getElementSelf();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-selvesDescription');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getSelfActivityIdeas(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesIdeas/' + this.getElementSelf()));
+    let param = this.getElementSelf();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-selvesIdeas');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getSelfActivityImages(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesImages/' + this.getElementSelf()));
+    let param = this.getElementSelf();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-selvesImages');
+    return this.http.get<any>(`${api}/${param}`);
   }
 
   getSelfActivityRating(): Observable<any> {
-    return this.http.get<any>(this.applicationConfigService.getEndpointFor('api/activity-selvesRating/' + this.getElementSelf()));
+    let param = this.getElementSelf();
+    let api = this.applicationConfigService.getEndpointFor('api/activity-selvesRatings');
+    return this.http.get<any>(`${api}/${param}`);
   }
 }

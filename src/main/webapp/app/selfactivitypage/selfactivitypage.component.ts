@@ -25,6 +25,11 @@ export class SelfactivitypageComponent implements OnInit {
     this.getIdeaData();
     this.calculateRatings();
     this.getDescription();
+    let i: number = 0;
+    while (i < this.ideasArray.length) {
+      document.getElementById('destination')!.innerHTML += '<ul class="ideasText">' + this.ideasArray[i] + '</ul>';
+      i = i + 1;
+    }
   }
 
   backactivities(): void {

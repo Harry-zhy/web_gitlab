@@ -81,7 +81,7 @@
 }
 
 .AboutSection {
-  height: 600px;
+  height: 500px;
   width: 97%;
   background-color: #e0dffd;
   display: relative;
@@ -90,15 +90,21 @@
 }
 
 .seperator {
-  height: 50px;
+  height: 30px;
 }
 
-.ratingSection {
-  height: 100px;
+.description {
+  text-size: 16px;
+  color: #000000;
+}
+
+.descriptionSection {
+  height: 200px;
   width: 97%;
   background-color: #e0dffd;
   display: relative;
   border-radius: 16px;
+  text-align: center;
 }
 
 .leftside {
