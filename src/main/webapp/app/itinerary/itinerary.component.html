@@ -236,4 +236,43 @@
       </div>
     </div>
   </div>
+  <div class="saveEvent">
+    <button class="saveEventButton" id="saveEventButton">Save Changes <i class="fa-solid fa-circle-check"></i></button>
+  </div>
+
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <!-- <span class="close"><i class="fa-solid fa-circle-xmark"></i></span> -->
+      <h4 class="modalh4">Confirm Details</h4>
+      <div class="vendorInfo">
+        <span class="spanHeader">Number Of Guests</span>
+        <p class="myP"></p>
+      </div>
+
+      <div class="vendorInfo">
+        <span class="spanHeader">Date and Time</span>
+      </div>
+
+      <div class="vendorInfo">
+        <span class="spanHeader">Location</span>
+      </div>
+
+      <div class="vendorInfo">
+        <span class="spanHeader">Activities</span>
+      </div>
+
+      <div class="vendorInfo">
+        <span class="spanHeader">Caterers</span>
+      </div>
+
+      <div class="vendorInfo">
+        <span class="spanHeader">Decorators</span>
+      </div>
+
+      <div class="buttonSection">
+        <button class="modalButton" id="close">Edit Choices</button>
+        <button class="modalButton" (click)="toUserProfile()">Save Event</button>
+      </div>
+    </div>
+  </div>
 </div>
