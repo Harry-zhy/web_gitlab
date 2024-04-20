@@ -14,9 +14,8 @@ export class ItineraryComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    private http: HttpClient
-  ) //private eventItineraryService: EventItineraryService
-  {}
+    private http: HttpClient //private eventItineraryService: EventItineraryService
+  ) {}
 
   //selected stuffs
   selectedNumberOfGuests: number | null = null;
@@ -62,6 +61,9 @@ export class ItineraryComponent implements OnInit {
     this.selectedDateInput = document.getElementById('selectedDate') as HTMLInputElement;
     this.updateCalendar();
     this.createCalendar(this.currentDate.getFullYear(), this.currentDate.getMonth());
+
+    //save changes
+    this.modalFunc();
   }
 
   /////////// im tryna save some lemme land lemme land ////////
@@ -126,6 +128,10 @@ this.eventItineraryService.createItineraryGuest(this.selectedNumberOfGuests).sub
 
   toActivities(): void {
     this.router.navigate(['/activities']);
+  }
+
+  toUserProfile(): void {
+    this.router.navigate(['/userprofile']);
   }
 
   toggleClicked(index: number) {
@@ -255,5 +261,38 @@ this.eventItineraryService.createItineraryGuest(this.selectedNumberOfGuests).sub
 
   removeDecoratorsOption() {
     this.decoratorsOptions.shift();
+  }
+
+  modalFunc() {
+    var modal = document.getElementById('confirmModal') as HTMLElement;
+
+    var modalContent = document.querySelector('.modal-content') as HTMLElement;
+
+    var btn = document.getElementById('saveEventButton') as HTMLElement;
+
+    var span = document.getElementById('close') as HTMLElement;
+
+    btn.onclick = function () {
+      modal.style.display = 'block';
+      if (modalContent) {
+        modalContent.scrollTop = 0;
+      }
+    };
+
+    span.onclick = function () {
+      modal.style.display = 'none';
+      if (modalContent) {
+        modalContent.scrollTop = 0;
+      }
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+        if (modalContent) {
+          modalContent.scrollTop = 0;
+        }
+      }
+    };
   }
 }

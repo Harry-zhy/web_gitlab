@@ -548,3 +548,120 @@ body {
     font-size: 15px;
   }
 }
+
+/////save at end button
+.saveEvent {
+  text-align: right;
+}
+
+.saveEventButton {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: $myyellow;
+}
+.saveEventButton:hover {
+  outline: none;
+  transform: scale(105%);
+  filter: brightness(110%);
+}
+
+// modal shit //////////////////////////////
+.modal {
+  display: none; //make hidden by default when done
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: $light-pink;
+  margin: 15% auto 0; /* 15% from the top and centered */
+  padding: 20px;
+  border: none;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height: 450px;
+  overflow-y: auto;
+}
+
+//close button
+.close {
+  color: $purple;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  filter: brightness(110%);
+}
+
+.vendorInfo {
+  border-radius: 5px;
+  background-color: $dark-pink;
+  margin: 3%; /* 15% from the top and centered */
+  padding: 10px;
+  border: none;
+  width: 90%; /* Could be more or less, depending on screen size */
+  height: 150px;
+  min-height: 100px;
+  overflow: auto;
+  overflow-y: visible; /* Enable vertical scrolling for specific sections */
+  max-height: none; /* Set maximum height for scrolling */
+}
+
+.buttonSection {
+  background-color: $light-pink;
+  text-align: center;
+  overflow-y: visible; /* Enable vertical scrolling for specific sections */
+  height: auto; /* Set maximum height for scrolling */
+}
+
+.modalButton {
+  display: inline-block;
+  margin: 0 10px;
+
+  background: none;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $purple;
+  box-shadow: 4px 4px $myyellow;
+  border: none;
+  color: white;
+}
+
+.modalButton:hover {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #7769c6ae;
+  box-shadow: 2px 2px $myyellow;
+}
+
+.modalh4 {
+  font-size: 40px;
+  top: 0;
+  margin-left: 25px;
+  color: $dark-blue;
+  margin-bottom: -2px;
+  color: #ffffff;
+  text-shadow: 2px 2px #ffc212;
+}
+
+.spanHeader {
+  display: block;
+  width: 100%;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
