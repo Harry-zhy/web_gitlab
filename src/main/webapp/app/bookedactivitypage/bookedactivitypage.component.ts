@@ -11,7 +11,17 @@ import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.mo
   styleUrls: ['./bookedactivitypage.component.scss'],
 })
 export class BookedactivitypageComponent implements OnInit {
-  constructor(private router: Router, private activitiesService: ActivitiesService) {}
+  public bookedActivity: any;
+  constructor(private router: Router, private activitiesService: ActivitiesService) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation != null) {
+      const state = navigation.extras.state as {
+        activity: IBookedActivity;
+      };
+
+      this.bookedActivity = state.activity;
+    }
+  }
 
   ngOnInit(): void {
     this.getAllCompanyData();
@@ -46,32 +56,33 @@ export class BookedactivitypageComponent implements OnInit {
     this.companyCounter = 0;
 
     //getting all the data for every company related to that booked activity
-    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity();
+    console.log(this.bookedActivity);
+    let allCompaniesNames = this.activitiesService.getcompanynamesfromthebookedactivity(this.bookedActivity);
     allCompaniesNames.subscribe(names => {
       this.allCompaniesNamesArray = names;
     });
 
-    //let allCompanyAbouts = this.activitiesService.getcompanyAbout();
+    //let allCompanyAbouts = this.activitiesService.getcompanyAbout(this.bookedActivity);
     //allCompanyAbouts.subscribe(abouts => {
     //  this.allCompanyAboutsArray = abouts;
     //});
 
-    //let allCompaniesCD = this.activitiesService.getcompanycontactdetails();
+    //let allCompaniesCD = this.activitiesService.getcompanycontactdetails(this.bookedActivity);
     //allCompaniesCD.subscribe(CD => {
     //  this.allCompanyCDArray = CD;
     //});
 
-    //let allCompaniesImages = this.activitiesService.getcompanyimages();
+    //let allCompaniesImages = this.activitiesService.getcompanyimages(this.bookedActivity);
     //allCompaniesImages.subscribe(images => {
     //  this.allCompanyImagesArray = images;
     //});
 
-    //let allCompaniesRatings = this.activitiesService.getcompanyratings();
+    //let allCompaniesRatings = this.activitiesService.getcompanyratings(this.bookedActivity);
     //allCompaniesRatings.subscribe(ratings => {
     //  this.allCompanyRatingsArray = ratings;
     //});
 
-    //let allCompaniesProfiles = this.activitiesService.getcompanyProfiles();
+    //let allCompaniesProfiles = this.activitiesService.getcompanyProfiles(this.bookedActivity);
     //allCompaniesProfiles.subscribe(profiles => {
     //  this.allCompanyProfilesArray = profiles;
     //});

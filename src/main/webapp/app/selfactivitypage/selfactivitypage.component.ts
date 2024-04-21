@@ -11,7 +11,17 @@ import { NewActivitySelf } from 'app/entities/activity-self/activity-self.model'
   styleUrls: ['./selfactivitypage.component.scss'],
 })
 export class SelfactivitypageComponent implements OnInit {
-  constructor(private router: Router, private service: ActivitiesService) {}
+  public selfActivity: any;
+  constructor(private router: Router, private service: ActivitiesService) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation != null) {
+      const state = navigation.extras.state as {
+        activity: IActivitySelf;
+      };
+
+      this.selfActivity = state.activity;
+    }
+  }
 
   public ideaName: String = '';
   public ideasArray: any[] = [];
@@ -21,10 +31,11 @@ export class SelfactivitypageComponent implements OnInit {
   public ideaDescription: String = '';
 
   ngOnInit(): void {
-    this.ideaName = this.service.IdeaName;
+    console.log(this.selfActivity);
+    this.showName(this.selfActivity.name);
     this.getIdeaData();
     this.calculateRatings();
-    this.getDescription();
+    this.showDescription(this.selfActivity.description);
     let i: number = 0;
     while (i < this.ideasArray.length) {
       document.getElementById('destination')!.innerHTML += '<ul class="ideasText">' + this.ideasArray[i] + '</ul>';
@@ -38,31 +49,24 @@ export class SelfactivitypageComponent implements OnInit {
 
   saveactivitytoitinerary(): void {}
 
-  getDescription(): void {
-    let nameO = this.service.getSelfActivityDescription();
-    nameO.subscribe(names => {
-      this.showDescription(names);
-    });
-  }
-
   showDescription(names: String): void {
     this.ideaDescription = names;
   }
 
   getIdeaData(): void {
-    let nameO = this.service.getSelfActivityName();
-    nameO.subscribe(names => {
-      this.showName(names);
-    });
-    let ideasO = this.service.getSelfActivityIdeas();
+    //     let nameO = this.service.getSelfActivityName(this.selfActivity);
+    //     nameO.subscribe(names => {
+    //       this.showName(names);
+    //     });
+    let ideasO = this.service.getSelfActivityIdeas(this.selfActivity);
     ideasO.subscribe(ideas => {
       this.showIdeas(ideas);
     });
-    let imagesArrayO = this.service.getSelfActivityImages();
+    let imagesArrayO = this.service.getSelfActivityImages(this.selfActivity);
     imagesArrayO.subscribe(images => {
       this.showImages(images);
     });
-    let ratingsArrayO = this.service.getSelfActivityRating();
+    let ratingsArrayO = this.service.getSelfActivityRating(this.selfActivity);
     ratingsArrayO.subscribe(ratings => {
       this.showRatings(ratings);
     });
@@ -79,7 +83,7 @@ export class SelfactivitypageComponent implements OnInit {
   }
 
   showName(name: String): void {
-    this.ideaName = name;
+    this.ideaName = this.selfActivity.name;
   }
 
   showIdeas(ideas: any[]): void {
