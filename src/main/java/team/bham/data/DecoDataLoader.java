@@ -19,7 +19,7 @@ public class DecoDataLoader implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) {
-        /*DecoCompany entity1 = new DecoCompany();
+        DecoCompany entity1 = new DecoCompany();
         entity1.setId(1L);
         entity1.setName("Elite Embellishments");
         entity1.setAbout(
@@ -35,7 +35,7 @@ public class DecoDataLoader implements ApplicationRunner {
         entity2.setAbout(
             "Elegant Arts is a leading provider of exquisite event decorations, dedicated to adding a touch of sophistication and charm to every occasion. With a blend of creativity, craftsmanship, and attention to detail, we specialize in creating stunning décor that captivates and inspires. From intimate gatherings to grand celebrations, our diverse range of artistic designs and premium materials ensures that every event is transformed into a memorable masterpiece. Whether it's enchanting floral arrangements, opulent table settings, or breathtaking backdrops, our talented team brings your vision to life with elegance and flair. At Elegant Arts, we believe that every event deserves to be celebrated in style, and we're committed to making your special moments truly unforgettable."
         );
-        entity2.setRating(3);*/
+        entity2.setRating(3);
         // Set other fields
         /*entityRepository.save(entity2);*/
         //        DecoCompany entity2 = new DecoCompany();

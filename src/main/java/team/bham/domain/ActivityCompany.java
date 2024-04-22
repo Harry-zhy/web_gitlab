@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * A ActivityCompany.
@@ -30,6 +31,7 @@ public class ActivityCompany implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Length(max = 1000)
     @Column(name = "about")
     private String about;
 
