@@ -73,6 +73,16 @@ export class DecorationsComponent implements OnInit {
   //   );
   // }
 
+  isDarkMode: boolean = false;
+  isDarkModeMenu: boolean = false;
+  isDarkModeContainer: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    this.isDarkModeMenu = !this.isDarkModeMenu;
+    this.isDarkModeContainer = !this.isDarkModeContainer;
+  }
+
   ngOnInit(): void {
     //   this.fetchCompanies();
   }

@@ -10,6 +10,16 @@ import { NgModule } from '@angular/core';
 export class UserprofileComponent implements OnInit {
   constructor(private router: Router) {}
 
+  isDarkMode: boolean = false;
+  isDarkModeMenu: boolean = false;
+  isDarkModeContainer: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    this.isDarkModeMenu = !this.isDarkModeMenu;
+    this.isDarkModeContainer = !this.isDarkModeContainer;
+  }
+
   progress: number = 0;
 
   ngOnInit(): void {}

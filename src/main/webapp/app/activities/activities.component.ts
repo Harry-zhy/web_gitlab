@@ -15,6 +15,16 @@ import { IBookedActivity } from 'app/entities/booked-activity/booked-activity.mo
 export class ActivitiesComponent implements OnInit {
   constructor(private router: Router, private activitiesService: ActivitiesService) {}
 
+  isDarkMode: boolean = false;
+  isDarkModeMenu: boolean = false;
+  isDarkModeContainer: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    this.isDarkModeMenu = !this.isDarkModeMenu;
+    this.isDarkModeContainer = !this.isDarkModeContainer;
+  }
+
   public allBookedActivitiesArray: String[] = [];
   public allSelfActivitiesArray: String[] = [];
   public displayBooked1: String = '';

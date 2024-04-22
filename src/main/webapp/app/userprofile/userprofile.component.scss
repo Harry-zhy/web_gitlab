@@ -331,3 +331,33 @@ h1 {
     font-size: 12px;
   }
 }
+
+.modetoggle::after {
+  outline: white;
+  position: absolute;
+  top: 160px;
+  right: 20px;
+  content: ' ☀';
+  font-size: 40px;
+}
+
+.modetoggle.dark-mode::after {
+  position: absolute;
+  top: 160px;
+  right: 20px;
+  content: ' 🌙';
+}
+
+.dark-mode {
+  color: white;
+  background-color: black !important;
+}
+
+.dark-mode-menu {
+  color: white;
+  background-color: #46467a !important;
+}
+
+.dark-mode-container {
+  background-color: #46467a !important;
+}

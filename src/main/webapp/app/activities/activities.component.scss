@@ -188,3 +188,24 @@ input {
   margin: auto;
   border-radius: 10px;
 }
+
+.modetoggle::after {
+  outline: white;
+  position: absolute;
+  top: 190px;
+  right: 20px;
+  content: ' ☀';
+  font-size: 40px;
+}
+
+.modetoggle.dark-mode::after {
+  position: absolute;
+  top: 190px;
+  right: 20px;
+  content: ' 🌙';
+}
+
+.dark-mode {
+  color: white;
+  background-color: black !important;
+}

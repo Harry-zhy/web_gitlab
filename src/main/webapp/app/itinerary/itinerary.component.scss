@@ -548,3 +548,27 @@ body {
     font-size: 15px;
   }
 }
+
+.modetoggle::after {
+  outline: white;
+  position: absolute;
+  top: 130px;
+  right: 20px;
+  content: ' ☀';
+  font-size: 40px;
+}
+
+.modetoggle.dark-mode::after {
+  position: absolute;
+  top: 130px;
+  right: 20px;
+  content: ' 🌙';
+}
+
+.dark-mode {
+  background-color: black !important;
+}
+
+.dark-mode-words {
+  color: white;
+}

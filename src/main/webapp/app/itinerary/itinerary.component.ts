@@ -14,9 +14,8 @@ export class ItineraryComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    private http: HttpClient
-  ) //private eventItineraryService: EventItineraryService
-  {}
+    private http: HttpClient //private eventItineraryService: EventItineraryService
+  ) {}
 
   //selected stuffs
   selectedNumberOfGuests: number | null = null;
@@ -50,6 +49,16 @@ export class ItineraryComponent implements OnInit {
   activitiesOptions: any[] = [];
   caterersOptions: any[] = [];
   decoratorsOptions: any[] = [];
+
+  isDarkMode: boolean = false;
+  isDarkModeWords: boolean = false;
+  isDarkModeContainer: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    this.isDarkModeWords = !this.isDarkModeWords;
+    this.isDarkModeContainer = !this.isDarkModeContainer;
+  }
 
   ngOnInit(): void {
     //number of guests

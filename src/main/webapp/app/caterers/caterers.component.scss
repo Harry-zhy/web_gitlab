@@ -1,6 +1,6 @@
 .dark-mode {
   color: white;
-  background-color: black;
+  background-color: black !important;
 }
 
 .dark-mode-menu {
@@ -13,23 +13,27 @@
 }
 
 .filter-menu {
+  background-color: white;
   width: 30%;
   height: 10%;
   float: left;
 }
 
 .caterers {
+  background-color: white;
   width: 70%;
   float: left;
 }
 
 .menu {
+  background-color: white;
   float: left;
 }
 .miniMenu {
   margin-bottom: 10px;
   width: 330px;
   font-size: 15px;
+  background-color: white;
 }
 
 .collapsible {
@@ -74,37 +78,46 @@
 .cuisineColumns {
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 .leftColumnCuisine {
   width: 45%;
+  background-color: white;
 }
 .rightColumnCuisine {
   width: 55%;
+  background-color: white;
 }
 .dietaryColumns {
   display: flex;
+  background-color: white;
 }
 
 .leftColumDietary {
   width: 43%;
   margin-right: 42px;
+  background-color: white;
 }
 
 .rightColumDietary {
   width: 40%;
+  background-color: white;
 }
 .courseColumns {
   display: flex;
+  background-color: white;
 }
 
 .leftColumnCourse {
   width: 32%;
   margin-right: 42px;
+  background-color: white;
 }
 
 .rightColumnCourse {
   width: 28%;
+  background-color: white;
 }
 
 .catererBox {
@@ -117,6 +130,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  background-color: white;
 }
 
 .collapsible:after {
@@ -135,7 +149,7 @@
   position: absolute;
   top: 130px;
   right: 20px;
-  content: ' ☀';
+  content: '🌙';
   font-size: 40px;
 }
 
@@ -143,5 +157,5 @@
   position: absolute;
   top: 130px;
   right: 20px;
-  content: ' 🌙';
+  content: '☀';
 }

@@ -135,3 +135,24 @@
   display: flex;
   padding: 20px;
 }
+
+.dark-mode {
+  color: white;
+  background-color: black !important;
+}
+
+.modetoggle::after {
+  outline: white;
+  position: absolute;
+  top: 220px;
+  right: 20px;
+  content: ' ☀';
+  font-size: 40px;
+}
+
+.modetoggle.dark-mode::after {
+  position: absolute;
+  top: 220px;
+  right: 20px;
+  content: ' 🌙';
+}

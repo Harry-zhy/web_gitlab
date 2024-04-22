@@ -7,7 +7,7 @@
   </head>
   <!--head end-->
 
-  <body class="white-background">
+  <body [class.dark-mode]="isDarkMode" class="white-background">
     <div>
       <h1 class="decor-title">DECORATIONS</h1>
     </div>
@@ -23,15 +23,17 @@
         <!--search bar end-->
       </div>
       <!--search container end-->
+      <button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
+
       <div>
-        <h2 class="book-title">Book with a company</h2>
+        <h2 [class.dark-mode]="isDarkMode" class="book-title">Book with a company</h2>
       </div>
       <!--book title end-->
       <div>
-        <h5 class="book-sub">These companies offer services that you may like for your event!</h5>
+        <h5 [class.dark-mode]="isDarkMode" class="book-sub">These companies offer services that you may like for your event!</h5>
       </div>
       <!-- book sub end-->
-      <div class="companies">
+      <div [class.dark-mode]="isDarkMode" class="companies">
         <div class="previous-button" (click)="showPrevious()">
           <span><img src="content/images/decorationsimages/previousbutton.png" /></span>
         </div>
@@ -102,14 +104,14 @@
       <!--companies end-->
       <!--now moving onto the themes section-->
       <div>
-        <h2 class="book-title">Pick a theme!</h2>
+        <h2 [class.dark-mode]="isDarkMode" class="book-title">Pick a theme!</h2>
       </div>
       <!--book title end-->
       <div>
         <h5 class="book-sub">Here are some themes you may like or create your own!</h5>
       </div>
       <!-- book sub end-->
-      <div class="themes">
+      <div [class.dark-mode]="isDarkMode" class="themes">
         <div class="previous-button">
           <span><img src="content/images/decorationsimages/previousbutton.png" /></span>
         </div>

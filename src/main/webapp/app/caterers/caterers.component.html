@@ -63,7 +63,7 @@
               <input type="checkbox" id="Indian" name="Indian" value="Indian" />
               <label for="Indian">Indian <img src="content/images/catererImages/india.png" class="icon" /> </label> <br />
             </div>
-            <div class="rightColumnCuisine">
+            <div [class.dark-mode]="isDarkMode" class="rightColumnCuisine">
               <input type="checkbox" id="Italian" name="Italian" value="Italian" />
               <label for="Italian">Italian <img src="content/images/catererImages/Flag_of_Italy.png" class="icon" /></label> <br />
 
@@ -126,7 +126,7 @@
               <input type="checkbox" id="No Alcohol" name="No Alcohol" value="No Alcohol" />
               <label for="No Alcohol">No Alcohol<img src="content/images/catererImages/alcoholfree.png" class="icon2" /></label><br />
             </div>
-            <div class="rightColumDietary">
+            <div [class.dark-mode]="isDarkMode" class="rightColumDietary">
               <input type="checkbox" id="Nut Free" name="Nut Free" value="Nut Free" />
               <label for="Nut Free">Nut Free<img src="content/images/catererImages/nutfree.png" class="icon2" /></label><br />
               <input type="checkbox" id="Organic" name="Organic" value="Organic" />
@@ -169,7 +169,7 @@
     <h2>See All</h2>
     <button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
 
-    <div class="container">
+    <div [class.dark-mode]="isDarkMode" class="container">
       <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
       <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>
       <div [class.dark-mode-container]="isDarkModeContainer" class="catererBox"></div>

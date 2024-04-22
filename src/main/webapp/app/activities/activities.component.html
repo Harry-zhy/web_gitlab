@@ -17,16 +17,17 @@
       </button>
     </form>
   </div>
+  <button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
   <div class="space"></div>
   <div class="title">
-    <div class="title">
+    <div [class.dark-mode]="isDarkMode" class="title">
       <p class="blockTitle">Book with a company</p>
       <p class="blockExplanation">
         Here are some different activities that you can include in your event! Click on the names to see the companies that offer these
         services.
       </p>
     </div>
-    <div class="positioningSection">
+    <div [class.dark-mode]="isDarkMode" class="positioningSection">
       <div>
         <button class="next" (click)="previousbooked()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-left"></i></span>
@@ -94,14 +95,14 @@
   </div>
 
   <div class="title">
-    <div class="title">
+    <div [class.dark-mode]="isDarkMode" class="title">
       <p class="blockTitle">Do It Yourself</p>
       <p class="blockExplanation">
         Here are some ideas of activities that you can set up yourself for your event! Click on the names to find out more.
       </p>
     </div>
 
-    <div class="positioningSection">
+    <div [class.dark-mode]="isDarkMode" class="positioningSection">
       <div>
         <button class="next" (click)="previousself()" clickable>
           <span class="icon"><i class="fa-solid fa-caret-left"></i></span>

@@ -8,6 +8,7 @@ import { CaterersService } from './caterers.service';
 })
 export class CaterersComponent implements OnInit {
   caterers: any[] = [];
+
   constructor(private caterersService: CaterersService) {}
 
   isDarkMode: boolean = false;
@@ -18,6 +19,23 @@ export class CaterersComponent implements OnInit {
     this.isDarkMode = !this.isDarkMode;
     this.isDarkModeMenu = !this.isDarkModeMenu;
     this.isDarkModeContainer = !this.isDarkModeContainer;
+  }
+  increaseFontSize() {
+    const elements = document.querySelectorAll('body *');
+    elements.forEach((element: Element) => {
+      var currentSize = parseInt(window.getComputedStyle(element as HTMLElement).fontSize);
+      currentSize = currentSize + 1;
+      (element as HTMLElement).style.fontSize = `${currentSize}px`;
+    });
+  }
+
+  decreaseFontSize() {
+    const elements = document.querySelectorAll('body *');
+    elements.forEach((element: Element) => {
+      var currentSize = parseInt(window.getComputedStyle(element as HTMLElement).fontSize);
+      currentSize = currentSize - 1;
+      (element as HTMLElement).style.fontSize = `${currentSize}px`;
+    });
   }
 
   ngOnInit(): void {

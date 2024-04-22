@@ -8,31 +8,31 @@
   <h1>Your Progress</h1>
   <span>See the progress of your event here!</span>
 </div>
-
-<div class="WhiteBackground">
+<button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
+<div [class.dark-mode]="isDarkMode" class="WhiteBackground">
   <!--My section-->
-  <div class="YourProgress">
+  <div [class.dark-mode-container]="isDarkModeContainer" class="YourProgress">
     <div class="checks-container">
       <!--Checkboxes-->
       <div class="checkbox-container">
         <input type="checkbox" id="checkbox1" name="checkbox1" (change)="isDateTime($event)" />
 
-        <label for="checkbox1">Date and Time</label>
+        <label style="color: black" for="checkbox1">Date and Time</label>
       </div>
 
       <div class="checkbox-container-purple">
         <input type="checkbox" id="checkbox2" name="checkbox2" (change)="isDecorations($event)" />
-        <label for="checkbox2">Decorations</label>
+        <label style="color: black" for="checkbox2">Decorations</label>
       </div>
 
       <div class="checkbox-container-lilac">
         <input type="checkbox" id="checkbox3" name="checkbox3" (change)="isVendors($event)" />
-        <label for="checkbox3">Vendors</label>
+        <label style="color: black" for="checkbox3">Vendors</label>
       </div>
 
       <div class="checkbox-container-pink">
         <input type="checkbox" id="checkbox4" name="checkbox4" (change)="isVenue($event)" />
-        <label for="checkbox4">Venue</label>
+        <label style="color: black" for="checkbox4">Venue</label>
       </div>
     </div>
 
@@ -48,14 +48,10 @@
     </div>
   </div>
 
-  <p style="color: white; display: inline">_</p>
-  <!-- the gap was just annoying me -->
   <h4 style="display: inline">EXPLORE</h4>
-  <p style="color: white; display: inline">__</p>
-  <!-- the gap was just annoying me, but necessary this time -->
   <p style="display: inline">See what we have to offer!</p>
 
-  <div class="container">
+  <div [class.dark-mode-container]="isDarkModeContainer" class="container">
     <button class="pagebtn" (click)="catererspage()" clickable>CATERERS</button>
     <button class="pagebtn" (click)="venuespage()" clickable>VENUES</button>
     <button class="pagebtn" (click)="activitiespage()" clickable>ACTIVITIES</button>
@@ -63,29 +59,29 @@
     <button class="pagebtn" (click)="decorationspage()" clickable>DECORATIONS</button>
   </div>
 
-  <p style="color: white; display: inline">_</p>
-  <!-- the gap was just annoying me -->
   <h4 style="display: inline">POPULAR</h4>
-  <p style="color: white; display: inline">__</p>
-  <!-- the gap was just annoying me, but necessary this time -->
   <p style="display: inline">See what is popular!</p>
 
-  <div class="container">
+  <div [class.dark-mode-container]="isDarkModeContainer" class="container">
     <div class="bottomimages">
       <img src="content/images/wine-tasting.png" width="235" height="175" />
-      <button class="link-button" (click)="activitiespage()" clickable>Discover wine tasting!</button>
+      <button [class.dark-mode-menu]="isDarkModeMenu" class="link-button" (click)="activitiespage()" clickable>
+        Discover wine tasting!
+      </button>
     </div>
     <div class="bottomimages">
       <img src="content/images/decor.png" width="235" height="175" />
-      <button class="link-button" (click)="venuespage()" clickable>Find venues near you!</button>
+      <button [class.dark-mode-menu]="isDarkModeMenu" class="link-button" (click)="venuespage()" clickable>Find venues near you!</button>
     </div>
     <div class="bottomimages">
       <img src="content/images/wedding-catering-2.png" width="235" height="175" />
-      <button class="link-button" (click)="catererspage()" clickable>5 star catering services!!</button>
+      <button [class.dark-mode-menu]="isDarkModeMenu" class="link-button" (click)="catererspage()" clickable>
+        5 star catering services!!
+      </button>
     </div>
     <div class="bottomimages">
       <img src="content/images/board-game-night.png" width="235" height="175" />
-      <button class="link-button" (click)="activitiespage()" clickable>Board game night!</button>
+      <button [class.dark-mode-menu]="isDarkModeMenu" class="link-button" (click)="activitiespage()" clickable>Board game night!</button>
     </div>
   </div>
 </div>

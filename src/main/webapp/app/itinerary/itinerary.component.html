@@ -6,11 +6,12 @@
   <h1>Event Itinerary</h1>
   <span>Begin planning your perfect event here!</span>
 </div>
+<button class="modetoggle" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()"></button>
 
 <!-------------------------------- GUESTS --------------------------------------->
-<div class="WhiteBackground">
-  <div class="miniHeader">
-    <h4><i class="fa-solid fa-people-group custom-icon"></i> Number of Guests</h4>
+<div [class.dark-mode]="isDarkMode" class="WhiteBackground">
+  <div [class.dark-mode-words]="isDarkModeWords" class="miniHeader">
+    <h4><i [class.dark-mode-words]="isDarkModeWords" class="fa-solid fa-people-group custom-icon"></i> Number of Guests</h4>
     <p>Select how many guests you are inviting to this event</p>
   </div>
   <div class="pinkBox">
