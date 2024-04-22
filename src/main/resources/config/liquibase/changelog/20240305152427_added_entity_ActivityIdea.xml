@@ -14,7 +14,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="description" type="varchar(255)">
+            <column name="description" type="varchar(1000)">
                 <constraints nullable="false" />
             </column>
             <column name="link" type="varchar(255)">

@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { ActivitiesService } from 'app/activities/activities.service';
 import { NewActivityCompany } from 'app/entities/activity-company/activity-company.model';
 import { companyModel } from 'app/activities/activities.service';
@@ -48,23 +48,37 @@ export class ActivitiesComponent implements OnInit {
   BookedActivityPage1(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter;
     this.activitiesService.IdeaName = this.displaySelf1;
-    this.router.navigate(['/bookactivitypage']);
+    this.activitiesService.BookedArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.BookednextbuttonCounter] } };
+      this.router.navigate(['/bookactivitypage'], navExtras);
+    });
   }
+
   BookedActivityPage2(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 1;
     this.activitiesService.IdeaName = this.displaySelf2;
-    this.router.navigate(['/bookactivitypage']);
+    this.activitiesService.BookedArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.BookednextbuttonCounter + 1] } };
+      this.router.navigate(['/bookactivitypage'], navExtras);
+    });
   }
   BookedActivityPage3(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 2;
 
     this.activitiesService.IdeaName = this.displaySelf3;
-    this.router.navigate(['/bookactivitypage']);
+    this.activitiesService.BookedArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.BookednextbuttonCounter + 2] } };
+      this.router.navigate(['/bookactivitypage'], navExtras);
+    });
   }
+
   BookedActivityPage4(): void {
     this.activitiesService.Index = this.BookednextbuttonCounter + 3;
     this.activitiesService.IdeaName = this.displaySelf4;
-    this.router.navigate(['/bookactivitypage']);
+    this.activitiesService.BookedArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.BookednextbuttonCounter] } };
+      this.router.navigate(['/bookactivitypage'], navExtras);
+    });
   }
 
   selfActivityNames(): void {
@@ -82,19 +96,32 @@ export class ActivitiesComponent implements OnInit {
 
   selfpage4(): void {
     this.activitiesService.Index = this.SelfnextbuttonCounter + 3;
-    this.router.navigate(['/selfactivitypage']);
+    this.activitiesService.SelfArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.SelfnextbuttonCounter + 3] } };
+      this.router.navigate(['/selfactivitypage'], navExtras);
+    });
   }
+
   selfpage3(): void {
     this.activitiesService.Index = this.SelfnextbuttonCounter + 2;
-    this.router.navigate(['/selfactivitypage']);
+    this.activitiesService.SelfArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.SelfnextbuttonCounter + 2] } };
+      this.router.navigate(['/selfactivitypage'], navExtras);
+    });
   }
   selfpage2(): void {
     this.activitiesService.Index = this.SelfnextbuttonCounter + 1;
-    this.router.navigate(['/selfactivitypage']);
+    this.activitiesService.SelfArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.SelfnextbuttonCounter + 1] } };
+      this.router.navigate(['/selfactivitypage'], navExtras);
+    });
   }
   selfpage1(): void {
     this.activitiesService.Index = this.SelfnextbuttonCounter;
-    this.router.navigate(['/selfactivitypage']);
+    this.activitiesService.SelfArray.subscribe(activity => {
+      let navExtras: NavigationExtras = { state: { activity: activity[this.SelfnextbuttonCounter] } };
+      this.router.navigate(['/selfactivitypage'], navExtras);
+    });
   }
 
   bookedActivityNames(): void {

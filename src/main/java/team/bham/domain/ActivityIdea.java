@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * A ActivityIdea.
@@ -25,7 +26,8 @@ public class ActivityIdea implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "description", nullable = false)
+    @Length(max = 1000)
+    @Column(name = "description", nullable = false, length = 1000)
     private String description;
 
     @Column(name = "link")
